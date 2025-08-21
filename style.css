@@ -42,26 +42,9 @@ header {
   max-width: 100%;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-top: 20px;
-  gap: 20px;
-}
 
-.navbar .button {
-  background-color: rgba(31, 53, 53, 0.719);
-  color: rgb(255, 255, 255);
-  padding: 5px 13px;
-  width: auto;
-  max-width: 240px;
-  border-radius: 5px;
-  gap: 5px;
-}
+
+
 
 #dropdown-carpet {
   position: absolute;
@@ -88,26 +71,52 @@ header {
   transition: width 1s ease, opacity 0.3s ease, clip-path 0.4s ease, transform 0.5s ease;
 }
 
+
+
+.button {
+  position: relative; /* needed for absolute dropdown */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .dropdown-content {
   position: absolute;
   top: 100%;
-  left: 50%;
-  z-index: 2;
-  min-width: 150px;
-  padding: 40px 20px 20px 20px;
+  left: -25vw;
+  z-index: 10;
+  min-width: 200px;
+  width:100vw;
+  padding: 20px;
   border-radius: 8px;
-  text-align: left;
-  white-space: nowrap;
-  transform: translateX(-5vw);
+  background-color: rgba(0,0,0,0.9);
   opacity: 0;
-  transition: opacity 0.3s ease;
   pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.button:hover .dropdown-content {
+/* Show dropdown when hovering button OR dropdown itself */
+.button:hover .dropdown-content,
+.dropdown-content:hover {
   opacity: 1;
-  transform: translateY(0) translateX(-5vw);
   pointer-events: auto;
+}
+
+
+
+.navbar  {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+  gap: 20px;
 }
 
 .navbar .button > a {
@@ -116,7 +125,29 @@ header {
   color: white;
   font-family: 'EB Garamond', sans-serif;
   font-size: 20px;
+  text-align: center;
 }
+
+
+.navbar .button {
+  display: flex;               /* center text horizontally & vertically */
+  align-items: center;         /* vertical centering */
+  justify-content: center;     /* horizontal centering */
+  font-family: 'EB Garamond', sans-serif;
+  font-size: 20px;
+  font-weight: 700;            /* matches h1 weight */
+  text-align: center;
+  padding: 5px 13px;           /* existing padding */
+  width: auto;
+  max-width: 240px;
+  border-radius: 5px;
+  gap: 5px;
+  margin: 0;                   /* remove unwanted spacing */
+  line-height: 1;              /* tighter height like h1 */
+  color: rgb(255, 255, 255);   /* keep text color */
+  background-color: rgba(31, 53, 53, 0.719); /* keep background */
+}
+
 
 .dropdown-main {
   list-style-position: inside;
