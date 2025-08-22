@@ -42,14 +42,39 @@ header {
   max-width: 100%;
 }
 
+.container {
+  max-width:1000px;
+  margin: 0 auto;
+}
 
+nav {
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.10);
+}
 
-.navbar {
+nav ul {
+  margin:0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  text-align: left;
+}
+
+nav li {
+  display:inline-block;
+}
+
+nav a {
+  text-decoration: none;
+  display: block;
+}
+
+.menu-main {
   display: flex;
+  left:0;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  position: relative;
+  position: absolute;
+  list-style: none;
   z-index: 4;
   width: 100vw;
   padding: 20px 20px 20px 20px;
@@ -102,9 +127,12 @@ header {
 .button {
   position: relative;
   cursor: pointer;
+  
+  list-style: none;
+  
 }
 
-.button > a {
+.button-text {
   text-decoration: none;
   color: white;
   font-family: 'EB Garamond', serif;
@@ -113,43 +141,28 @@ header {
   display: block;
 }
 
-/* Mega dropdown styling */
-.mega-dropdown {
-  position: fixed; /* relative to navbar button */
-  top: var(--navbar-bottom);
-  left: 0;
-  width: 100vw; /* span full viewport width */
-  display: flex;
-  justify-content: center; /* center content inside */
-  gap: 50px;
-  background-color: rgba(0,0,0,0.9);
-  padding: 30px 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 20;
-}
 
-.dropdown-column {
-  display: flex;
-  flex-direction: column;
+
+.menu-sub{
+  position: absolute;
   gap: 10px;
   text-align: left;
+  opacity:0;
 }
 
-.dropdown-column h2 {
+.menu-sub h2 {
   color: rgb(136,136,136);
   font-size: 18px;
   margin-bottom: 5px;
 }
 
-.dropdown-column ul {
+.menu-sub ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.dropdown-column ul li a {
+.menu-sub ul li a {
   color: white;
   text-decoration: none;
   font-family: 'Playfair Display', serif;
@@ -158,7 +171,7 @@ header {
 }
 
 /* Show dropdown only when hovering the button */
-.button:hover .mega-dropdown{
+.button:hover .menu-sub{
   opacity: 1;
   pointer-events: auto;
 }

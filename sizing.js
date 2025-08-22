@@ -1,6 +1,6 @@
 const logoContainer = document.getElementById("logo-container");
 const logo = document.getElementById("logo");
-const navbar = document.getElementById("navbar");
+const navbar = document.getElementById("menu-main");
 
 function normalizeLogo() {
 

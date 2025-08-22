@@ -25,12 +25,12 @@
         <div id="logo-bg">
             <img id="logo" src="images/logo2.png" alt="Company Logo">
         </div>
-        <script>
-            document.addEventListener("load", () => {
+        <!--<script>
+            window.addEventListener("load", () => {
                 const navbar = document.querySelector('.navbar');
                 const navRect = navbar.getBoundingClientRect();
                 const navBottom = navRect.bottom;
-                document.documentElement.style.setProperty('--navbar-bottom', navBottom +'px');
+                document.documentElement.style.setProperty('--navbar-bottom', navBottom);
                 const buttons = document.querySelectorAll('.button');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
@@ -41,174 +41,147 @@
                     } )
                 });
             });
-        </script> 
-            
-        <nav class="navbar">
-            <!-- Dropdown carpet background -->
+        </script> -->
             <div id="dropdown-carpet"></div>
             <div id="dropdown-carpet2"></div>
-            
-                
-            <!-- Main buttons -->
-            <div class="button">
-                <a href="#">Rings</a>
-                <div class="mega-dropdown">
-                    <div class="dropdown-column">
-                        <h2>Craft</h2>
-                        <ul>
-                            <li><a href="#">Engagement Rings</a></li>
-                            <li><a href="#">Wedding Rings</a></li>
-                            <li><a href="#">Fashion Rings</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown-column">
-                        <h2>Moments</h2>
-                        <ul>
-                            <li><a href="#">Anniversary Rings</a></li>
-                            <li><a href="#">Wedding Rings</a></li>
-                            <li><a href="#">Promise Rings</a></li>
-                            <li><a href="#">Statement Rings</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
+        <nav>
+            <div class="container">
+                <ul class="menu-main">
+                    
+                    <li class="button">
+                        <a class="button-text" href="#">Rings</a>
+                        <div class="menu-sub">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Engagement Rings</a></li>
+                                <li><a href="#">Wedding Rings</a></li>
+                                <li><a href="#">Fashion Rings</a></li>
+                            </ul>
+                            <h2>Moments</h2>
+                            <ul>
+                                <li><a href="#">Anniversary Rings</a></li>
+                                <li><a href="#">Wedding Rings</a></li>
+                                <li><a href="#">Promise Rings</a></li>
+                                <li><a href="#">Statement Rings</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Necklaces</a>
-            </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <h2>Design</h2>
-                    <ul>
-                        <li><a href="">Pendants</a></li>
-                        <li><a href="">Chains</a></li>
-                        <li><a href="">Statement Necklaces</a></li>
-                    </ul>
-                    <h2>Inspire</h2>
-                    <ul>
-                        <li><a href="">Layered Looks</a></li>
-                        <li><a href="">Chains</a></li>
-                        <li><a href="">Minimalist Styles</a></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Necklaces</a>
+                        <div class="menu-sub">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Pendants</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Statement Necklaces</a></li>
+                            </ul>
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Layered Looks</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Minimalist Styles</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Earrings</a>
-            </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <h2>Craft</h2>
-                    <ul>
-                        <li><a href="">Studs</a></li>
-                        <li><a href="">Hoops</a></li>
-                        <li><a href="">Drop Earrings</a></li>
-                    </ul>
-                    <h2>Stories</h2>
-                    <ul>
-                        <li><a href="">Everyday Essentials</a></li>
-                        <li><a href="">Statement Pieces</a></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Earrings</a>
+                        <div class="menu-sub">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Studs</a></li>
+                                <li><a href="#">Hoops</a></li>
+                                <li><a href="#">Drop Earrings</a></li>
+                            </ul>
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Everyday Essentials</a></li>
+                                <li><a href="#">Statement Pieces</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Bracelets</a>
-            </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <h2>Craft</h2>
-                    <ul>
-                        <li><a href="">Bangles</a></li>
-                        <li><a href="">Chain bracelets</a></li>
-                        <li><a href="">Charm bracelets</a></li>
-                    </ul>
-                    <h2>Moments</h2>
-                    <ul>
-                    <li><a href="">Friendship</a></li>
-                    <li><a href="">Personalized</a></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Bracelets</a>
+                        <div class="menu-sub">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Chain bracelets</a></li>
+                                <li><a href="#">Charm bracelets</a></li>
+                            </ul>
+                            <h2>Moments</h2>
+                            <ul>
+                                <li><a href="#">Friendship</a></li>
+                                <li><a href="#">Personalized</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Watches</a>
-            </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <h2>Design</h2>
-                    <ul>
-                    <li><a href="">Luxury watches</a></li>
-                    <li><a href="">Fashion watches</a></li>
-                    </ul>
-                    <h2>Special Lines</h2>
-                    <ul>
-                    <li><a href="">Modern Classics</a></li>
-                    <li><a href="">Heritage Styles</a></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Watches</a>
+                        <div class="menu-sub">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Luxury watches</a></li>
+                                <li><a href="#">Fashion watches</a></li>
+                            </ul>
+                            <h2>Special Lines</h2>
+                            <ul>
+                                <li><a href="#">Modern Classics</a></li>
+                                <li><a href="#">Heritage Styles</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Collections</a>
-            </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <h2>Stories</h2>
-                    <ul>
-                    <li><a href="">Seasonal Collections</a></li>
-                    <li><a href="">Limited Editions</a></li>
-                    </ul>
-                    <h2>Inspire</h2>
-                    <ul>
-                    <li><a href="">Collaborations</a></li>
-                    <li><a href="">Designer Lines</a></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Collections</a>
+                        <div class="menu-sub">
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Seasonal Collections</a></li>
+                                <li><a href="#">Limited Editions</a></li>
+                            </ul>
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Collaborations</a></li>
+                                <li><a href="#">Designer Lines</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Home</a>
-            </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <ul>
-                    <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Home</a>
+                        <div class="menu-sub">
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">Contact</a>
-            </div>  
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <ul>
-                    <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-            </div>
-            
+                    <li class="button">
+                        <a class="button-text" href="#">Contact</a>
+                        <div class="menu-sub">
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <div class="button">
-                <a href="">About</a>
+                    <li class="button">
+                        <a class="button-text" href="#">About</a>
+                        <div class="menu-sub">
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
-            <div class="mega-dropdown">
-                <div class="dropdown-column">
-                    <ul>
-                    <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-            </div>
-            
         </nav>
+
         
         
         <script src="sizing.js"></script>
