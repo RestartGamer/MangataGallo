@@ -44,134 +44,123 @@ header {
 
 
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 4;
+  width: 100vw;
+  padding: 20px 20px 20px 20px;
+  background-color: rgba(49, 82, 82, 0.377);
 
-
-#dropdown-carpet {
+}
+/* Base carpet styles 
+#dropdown-carpet{
   position: absolute;
+  top: 100%;  
   left: 0;
-  z-index: 1;
-  width: 0;
-  height: 600px;
+  width: 100vw;
+  height: 400px;
   background: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  --hover-x: 50%;
-  transition: width 1s ease, opacity 0.3s ease, clip-path 0.4s ease, transform 0.5s ease;
+  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 50% 100%, 50% 100%); 
+  transition: clip-path 0.4s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
 }
 
 #dropdown-carpet2 {
   position: absolute;
+  top: 100%;  
   right: 0;
-  left: auto;
-  z-index: 1;
-  width: 0;
-  height: 600px;
+  width: 100vw;
+  height: 400px;
   background: rgba(163, 196, 196, 0.9);
-  opacity: 0;
-  --hover-x: 50%;
-  transition: width 1s ease, opacity 0.3s ease, clip-path 0.4s ease, transform 0.5s ease;
+  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 0% 100%, 0% 100%); 
+  transition: clip-path 0.4s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  
 }
+
+
+.navbar:hover #dropdown-carpet {
+  clip-path: polygon(0% var(--navbar-bottom)px, 55% var(--navbar-bottom)px, calc(var(--hover-x)*0.9) 100%, 0% 100%);
+}
+
+.navbar:hover #dropdown-carpet2 {
+  clip-path: polygon(100% var(--navbar-bottom)px, 45% var(--navbar-bottom)px, calc(var(--hover-x)*0.8) 100%, 100% 100%);
+}*/
+
+
 
 
 
 .button {
-  position: relative; /* needed for absolute dropdown */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   cursor: pointer;
 }
 
-.dropdown-content {
-  position: absolute;
-  top: 100%;
-  left: -25vw;
-  z-index: 10;
-  min-width: 200px;
-  width:100vw;
-  padding: 20px;
-  border-radius: 8px;
+.button > a {
+  text-decoration: none;
+  color: white;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  padding: 5px 15px;
+  display: block;
+}
+
+/* Mega dropdown styling */
+.mega-dropdown {
+  position: fixed; /* relative to navbar button */
+  top: var(--navbar-bottom);
+  left: 0;
+  width: 100vw; /* span full viewport width */
+  display: flex;
+  justify-content: center; /* center content inside */
+  gap: 50px;
   background-color: rgba(0,0,0,0.9);
+  padding: 30px 0;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  z-index: 20;
+}
+
+.dropdown-column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
+  text-align: left;
 }
 
-/* Show dropdown when hovering button OR dropdown itself */
-.button:hover .dropdown-content,
-.dropdown-content:hover {
+.dropdown-column h2 {
+  color: rgb(136,136,136);
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.dropdown-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-column ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  padding: 3px 0;
+}
+
+/* Show dropdown only when hovering the button */
+.button:hover .mega-dropdown{
   opacity: 1;
   pointer-events: auto;
-}
-
-
-
-.navbar  {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  margin-top: 20px;
-  gap: 20px;
-}
-
-.navbar .button > a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  font-family: 'EB Garamond', sans-serif;
-  font-size: 20px;
-  text-align: center;
-}
-
-
-.navbar .button {
-  display: flex;               /* center text horizontally & vertically */
-  align-items: center;         /* vertical centering */
-  justify-content: center;     /* horizontal centering */
-  font-family: 'EB Garamond', sans-serif;
-  font-size: 20px;
-  font-weight: 700;            /* matches h1 weight */
-  text-align: center;
-  padding: 5px 13px;           /* existing padding */
-  width: auto;
-  max-width: 240px;
-  border-radius: 5px;
-  gap: 5px;
-  margin: 0;                   /* remove unwanted spacing */
-  line-height: 1;              /* tighter height like h1 */
-  color: rgb(255, 255, 255);   /* keep text color */
-  background-color: rgba(31, 53, 53, 0.719); /* keep background */
-}
-
-
-.dropdown-main {
-  list-style-position: inside;
-  text-align: left;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-.dropdown-main li > a {
-  display: block;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  padding-top: 0.5em;
-  font-size: 20px;
-  font-family: 'Playfair Display', sans-serif;
-}
-
-.navbar li {
-  position: relative;
-  list-style: none;
-}
-
-.dropdown-title {
-  color: rgb(136, 136, 136);
 }
 
 main {

@@ -1,0 +1,60 @@
+/* Base carpet styles 
+#dropdown-carpet{
+  position: absolute;
+  top: 100%;  
+  left: 0;
+  width: 100vw;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 50% 100%, 50% 100%); 
+  transition: clip-path 0.4s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+}
+
+#dropdown-carpet2 {
+  position: absolute;
+  top: 100%;  
+  right: 0;
+  width: 100vw;
+  height: 400px;
+  background: rgba(163, 196, 196, 0.9);
+  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 0% 100%, 0% 100%); 
+  transition: clip-path 0.4s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 1;
+  
+}
+
+
+.navbar:hover #dropdown-carpet {
+  clip-path: polygon(0% var(--navbar-bottom)px, 55% var(--navbar-bottom)px, calc(var(--hover-x)*0.9) 100%, 0% 100%);
+}
+
+.navbar:hover #dropdown-carpet2 {
+  clip-path: polygon(100% var(--navbar-bottom)px, 45% var(--navbar-bottom)px, calc(var(--hover-x)*0.8) 100%, 100% 100%);
+}*/
+
+
+----------JS INLINE SCRIPT - for the carpets
+
+<!--<script>
+                document.addEventListener("DOMContentLoaded", () => {
+                const navbar = document.querySelector('.navbar');
+                const navRect = navbar.getBoundingClientRect();
+                const navBottom = navRect.bottom;
+                document.documentElement.style.setProperty('--navbar-bottom', navBottom +'px');
+
+                const buttons = document.querySelectorAll('.button');
+                buttons.forEach(button => {
+                    button.addEventListener('mouseenter', () => {
+                        const rect = button.getBoundingClientRect();
+                        const hoverX = rect.left + rect.width / 2; //might not be neccesary this one. its to center
+
+                        document.documentElement.style.setProperty('--hover-x', hoverX +'px');
+                    } )
+                });
+                });
+            </script> -->

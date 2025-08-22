@@ -20,156 +20,198 @@
         Your browser does not support the video tag.
         </video>
 
-        <div class="overlay"></div>
-        <div id="logo-container">
+        
 
-            <div id="logo-bg">
-                <img id="logo" src="images/logo2.png" alt="Company Logo">
-            </div>
+        <div id="logo-bg">
+            <img id="logo" src="images/logo2.png" alt="Company Logo">
+        </div>
+        <script>
+            document.addEventListener("load", () => {
+                const navbar = document.querySelector('.navbar');
+                const navRect = navbar.getBoundingClientRect();
+                const navBottom = navRect.bottom;
+                document.documentElement.style.setProperty('--navbar-bottom', navBottom +'px');
+                const buttons = document.querySelectorAll('.button');
+                buttons.forEach(button => {
+                    button.addEventListener('mouseenter', () => {
+                        const rect = button.getBoundingClientRect();
+                        const hoverX = rect.left + rect.width / 2; //might not be neccesary this one. its to center
 
+                        document.documentElement.style.setProperty('--hover-x', hoverX +'px');
+                    } )
+                });
+            });
+        </script> 
             
-            <nav class="navbar">
-                <!-- Dropdown carpet background -->
-                <div id="dropdown-carpet"></div>
-                <div id="dropdown-carpet2"></div>
-
-                <!-- Main nav list -->
-
-                <div class="button">
-
-                    <div class="navbar-layout"></div>
-
-                    <a href="">Rings</a>
-                    <div class="dropdown-content">
-                        <h1 class="dropdown-title">Craft</h1>
-                        <ul class="dropdown-main">
-                            <li><a href="">Engagement Rings</a></li>
-                            <li><a href="">Wedding Rings</a></li>
-                            <li><a href="">Fashion Rings</a></li>
+        <nav class="navbar">
+            <!-- Dropdown carpet background -->
+            <div id="dropdown-carpet"></div>
+            <div id="dropdown-carpet2"></div>
+            
+                
+            <!-- Main buttons -->
+            <div class="button">
+                <a href="#">Rings</a>
+                <div class="mega-dropdown">
+                    <div class="dropdown-column">
+                        <h2>Craft</h2>
+                        <ul>
+                            <li><a href="#">Engagement Rings</a></li>
+                            <li><a href="#">Wedding Rings</a></li>
+                            <li><a href="#">Fashion Rings</a></li>
                         </ul>
-                        <h1 class="dropdown-title">Moments</h1>
-                        <ul class="dropdown-main">
-                            <li><a href="">Anniversary Rings</a></li>
-                            <li><a href="">Wedding Rings</a></li>
-                            <li><a href="">Promise Rings</a></li>
-                            <li><a href="">Statement Rings</a></li>
+                    </div>
+                    <div class="dropdown-column">
+                        <h2>Moments</h2>
+                        <ul>
+                            <li><a href="#">Anniversary Rings</a></li>
+                            <li><a href="#">Wedding Rings</a></li>
+                            <li><a href="#">Promise Rings</a></li>
+                            <li><a href="#">Statement Rings</a></li>
                         </ul>
                     </div>
                 </div>
+            </div>
+            
 
-                <h1 class="button necklaces">
-                    <a href="">Necklaces</a>
-                </h1>
-                <div class="dropdown-content necklaces">
-                    <h1 class="dropdown-title">Design</h1>
-                    <ul class="dropdown-main">
+            <div class="button">
+                <a href="">Necklaces</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <h2>Design</h2>
+                    <ul>
                         <li><a href="">Pendants</a></li>
                         <li><a href="">Chains</a></li>
                         <li><a href="">Statement Necklaces</a></li>
                     </ul>
-
-                    <h1 class="dropdown-title">Inspire</h1>
-                    <ul class="dropdown-main">
+                    <h2>Inspire</h2>
+                    <ul>
                         <li><a href="">Layered Looks</a></li>
                         <li><a href="">Chains</a></li>
                         <li><a href="">Minimalist Styles</a></li>
                     </ul>
                 </div>
+            </div>
+            
 
-                <h1 class="button earrings">
-                    <a href="">Earrings</a>
-                </h1>
-                <div class="dropdown-content earrings">
-                    <h1 class="dropdown-title">Craft</h1>
-                    <ul class="dropdown-main">
+            <div class="button">
+                <a href="">Earrings</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <h2>Craft</h2>
+                    <ul>
                         <li><a href="">Studs</a></li>
                         <li><a href="">Hoops</a></li>
                         <li><a href="">Drop Earrings</a></li>
                     </ul>
-                    <h1 class="dropdown-title">Stories</h1>
-                    <ul class="dropdown-main">
+                    <h2>Stories</h2>
+                    <ul>
                         <li><a href="">Everyday Essentials</a></li>
                         <li><a href="">Statement Pieces</a></li>
                     </ul>
                 </div>
+            </div>
+            
 
-                <h1 class="button bracelets">
-                    <a href="">Bracelets</a>
-                </h1>
-                <div class="dropdown-content bracelets">
-                    <h1 class="dropdown-title">Craft</h1>
-                    <ul class="dropdown-main">
+            <div class="button">
+                <a href="">Bracelets</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <h2>Craft</h2>
+                    <ul>
                         <li><a href="">Bangles</a></li>
                         <li><a href="">Chain bracelets</a></li>
                         <li><a href="">Charm bracelets</a></li>
                     </ul>
-                    <h1 class="dropdown-title">Moments</h1>
-                    <ul class="dropdown-main">
-                        <li><a href="">Friendship</a></li>
-                        <li><a href="">Personalized</a></li>
+                    <h2>Moments</h2>
+                    <ul>
+                    <li><a href="">Friendship</a></li>
+                    <li><a href="">Personalized</a></li>
                     </ul>
                 </div>
-
-                <h1 class="button watches">
-                    <a href="">Watches</a>
-                </h1>
-                <div class="dropdown-content watches">
-                    <h1 class="dropdown-title">Design</h1>
-                    <ul class="dropdown-main">
-                        <li><a href="">Luxury watches</a></li>
-                        <li><a href="">Fashion watches</a></li>
-                    </ul>
-                    <h1 class="dropdown-title">Special Lines</h1>
-                    <ul class="dropdown-main">
-                        <li><a href="">Modern Classics</a></li>
-                        <li><a href="">Heritage Styles</a></li>
-                    </ul>
-                </div>
-
-                <h1 class="button collections">
-                    <a href="">Collections</a>
-                </h1>
-                <div class="dropdown-content collections">
-                    <h1 class="dropdown-title">Stories</h1>
-                    <ul class="dropdown-main">
-                        <li><a href="">Seasonal Collections</a></li>
-                        <li><a href="">Limited Editions</a></li>
-                    </ul>
-                    <h1 class="dropdown-title">Inspire</h1>
-                    <ul class="dropdown-main">
-                        <li><a href="">Collaborations</a></li>
-                        <li><a href="">Designer Lines</a></li>
-                    </ul>
-                </div>
-
-                <h1 class="button home"><a href="">Home</a></h1>
-                <div class="dropdown-content home">
-                    <ul class="dropdown-main">
-                        <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-
-                <h1 class="button contact"><a href="">Contact</a></h1>
-                <div class="dropdown-content contact">
-                    <ul class="dropdown-main">
-                        <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-
-                <h1 class="button about"><a href="">About</a></h1>
-                <div class="dropdown-content about">
-                    <ul class="dropdown-main">
-                        <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-
-                
-            </nav>
+            </div>
             
-        </div>
+
+            <div class="button">
+                <a href="">Watches</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <h2>Design</h2>
+                    <ul>
+                    <li><a href="">Luxury watches</a></li>
+                    <li><a href="">Fashion watches</a></li>
+                    </ul>
+                    <h2>Special Lines</h2>
+                    <ul>
+                    <li><a href="">Modern Classics</a></li>
+                    <li><a href="">Heritage Styles</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="button">
+                <a href="">Collections</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <h2>Stories</h2>
+                    <ul>
+                    <li><a href="">Seasonal Collections</a></li>
+                    <li><a href="">Limited Editions</a></li>
+                    </ul>
+                    <h2>Inspire</h2>
+                    <ul>
+                    <li><a href="">Collaborations</a></li>
+                    <li><a href="">Designer Lines</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="button">
+                <a href="">Home</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <ul>
+                    <li><p>ADD TEXT HERE</p></li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="button">
+                <a href="">Contact</a>
+            </div>  
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <ul>
+                    <li><p>ADD TEXT HERE</p></li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            <div class="button">
+                <a href="">About</a>
+            </div>
+            <div class="mega-dropdown">
+                <div class="dropdown-column">
+                    <ul>
+                    <li><p>ADD TEXT HERE</p></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </nav>
+        
         
         <script src="sizing.js"></script>
-        <script src="navbar.js"></script>
     </header>
     
     <main>
