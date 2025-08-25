@@ -25,30 +25,34 @@
         <div id="logo-bg">
             <img id="logo" src="images/logo2.png" alt="Company Logo">
         </div>
-        <!--<script>
+        <script>
             window.addEventListener("load", () => {
-                const navbar = document.querySelector('.navbar');
-                const navRect = navbar.getBoundingClientRect();
-                const navBottom = navRect.bottom;
-                document.documentElement.style.setProperty('--navbar-bottom', navBottom);
-                const buttons = document.querySelectorAll('.button');
-                buttons.forEach(button => {
-                    button.addEventListener('mouseenter', () => {
-                        const rect = button.getBoundingClientRect();
-                        const hoverX = rect.left + rect.width / 2; //might not be neccesary this one. its to center
+            const navbar = document.querySelector('.menu-main');
+            const navRect = navbar.getBoundingClientRect();
+            const parentRect = navbar.offsetParent.getBoundingClientRect();
 
-                        document.documentElement.style.setProperty('--hover-x', hoverX +'px');
-                    } )
+            // relative bottom inside offsetParent coordinate system
+            const relativeBottom = navRect.bottom - parentRect.top;
+
+            document.documentElement.style.setProperty('--navbar-bottom', relativeBottom + "px");
+
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                const rect = button.getBoundingClientRect();
+                const hoverX = rect.left + rect.width / 2;
+                document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
                 });
             });
-        </script> -->
-            <div id="dropdown-carpet"></div>
-            <div id="dropdown-carpet2"></div>
+            });
+        </script> 
+            
         <nav>
             <div class="container">
                 <ul class="menu-main">
                     
                     <li class="button">
+                        
                         <a class="button-text" href="#">Rings</a>
                         <div class="menu-sub">
                             <h2>Craft</h2>
@@ -177,6 +181,8 @@
                             </ul>
                         </div>
                     </li>
+                    <div id="dropdown-carpet"></div>
+                        <div id="dropdown-carpet2"></div>
 
                 </ul>
             </div>

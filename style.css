@@ -70,6 +70,7 @@ nav a {
 
 .menu-main {
   display: flex;
+  position: relative;
   left:0;
   justify-content: center;
   align-items: center;
@@ -81,51 +82,53 @@ nav a {
   background-color: rgba(49, 82, 82, 0.377);
 
 }
-/* Base carpet styles 
+
+
 #dropdown-carpet{
   position: absolute;
-  top: 100%;  
   left: 0;
+  top: 100%;
   width: 100vw;
   height: 400px;
   background: rgba(255, 255, 255, 0.9);
-  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 50% 100%, 50% 100%); 
-  transition: clip-path 0.4s ease-in-out;
-  z-index: 2;
+  clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
+  transition: clip-path 0.6s ease-in-out;
+  z-index: -1;
   pointer-events: none;
-  opacity: 1;
+  opacity: 0;
 }
 
 #dropdown-carpet2 {
   position: absolute;
-  top: 100%;  
   right: 0;
+  top: 100%;
   width: 100vw;
   height: 400px;
   background: rgba(163, 196, 196, 0.9);
-  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 0% 100%, 0% 100%); 
-  transition: clip-path 0.4s ease-in-out;
-  z-index: 2;
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
+  transition: clip-path 0.6s ease-in-out;
+  z-index: -1;
   pointer-events: none;
-  opacity: 1;
+  opacity: 0;
   
 }
 
 
-.navbar:hover #dropdown-carpet {
-  clip-path: polygon(0% var(--navbar-bottom)px, 55% var(--navbar-bottom)px, calc(var(--hover-x)*0.9) 100%, 0% 100%);
+.button:hover ~ #dropdown-carpet {
+  clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
+  opacity:1;
 }
 
-.navbar:hover #dropdown-carpet2 {
-  clip-path: polygon(100% var(--navbar-bottom)px, 45% var(--navbar-bottom)px, calc(var(--hover-x)*0.8) 100%, 100% 100%);
-}*/
+.button:hover ~ #dropdown-carpet2 {
+  clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
+  opacity:1;
+}
 
 
 
 
 
 .button {
-  position: relative;
   cursor: pointer;
   
   list-style: none;
@@ -145,13 +148,19 @@ nav a {
 
 .menu-sub{
   position: absolute;
+  display:none;
+  width:100%;
+  left:0;
   gap: 10px;
   text-align: left;
   opacity:0;
+  pointer-events:none;
+  padding-right: 100px;
+  z-index: 1;
 }
 
 .menu-sub h2 {
-  color: rgb(136,136,136);
+  color: rgb(98, 98, 98);
   font-size: 18px;
   margin-bottom: 5px;
 }
@@ -163,7 +172,7 @@ nav a {
 }
 
 .menu-sub ul li a {
-  color: white;
+  color: rgb(26, 26, 26);
   text-decoration: none;
   font-family: 'Playfair Display', serif;
   font-size: 18px;
@@ -171,9 +180,10 @@ nav a {
 }
 
 /* Show dropdown only when hovering the button */
-.button:hover .menu-sub{
+nav .button:hover .menu-sub{
   opacity: 1;
   pointer-events: auto;
+  display:block;
 }
 
 main {
