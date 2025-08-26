@@ -80,6 +80,7 @@ nav a {
   width: 100vw;
   padding: 20px 20px 20px 20px;
   background-color: rgba(49, 82, 82, 0.377);
+  margin:0;
 
 }
 
@@ -89,7 +90,7 @@ nav a {
   left: 0;
   top: 100%;
   width: 100vw;
-  height: 400px;
+  height: 500px;
   background: rgba(255, 255, 255, 0.9);
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
   transition: clip-path 0.6s ease-in-out;
@@ -103,7 +104,7 @@ nav a {
   right: 0;
   top: 100%;
   width: 100vw;
-  height: 400px;
+  height: 500px;
   background: rgba(163, 196, 196, 0.9);
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
   transition: clip-path 0.6s ease-in-out;
@@ -127,12 +128,9 @@ nav a {
 
 
 
-
 .button {
   cursor: pointer;
-  
   list-style: none;
-  
 }
 
 .button-text {
@@ -148,43 +146,62 @@ nav a {
 
 .menu-sub{
   position: absolute;
-  display:none;
   width:100%;
   left:0;
   gap: 10px;
   text-align: left;
-  opacity:0;
+  
   pointer-events:none;
-  padding-right: 100px;
+  min-height: 390px;
+  padding: 20px 100px 110px 5px;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.014);
+  opacity:0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .menu-sub h2 {
-  color: rgb(98, 98, 98);
-  font-size: 18px;
+  color: rgb(126, 126, 126);
+  font-size: 26px; /*was 18px*/
   margin-bottom: 5px;
+  font-family: 'EB Garamond', serif;
+
+  margin-left: 400px;
+  margin-top: 55px;
 }
 
 .menu-sub ul {
-  list-style: none;
   padding: 0;
-  margin: 0;
+  margin-top: 8px;
+  
+}
+
+.menu-sub li{
+  display:block; /*Instead of stacking inline*/
 }
 
 .menu-sub ul li a {
   color: rgb(26, 26, 26);
   text-decoration: none;
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-family: 'EB Garamond', serif;
+  font-size: 21px;
   padding: 3px 0;
+  margin-top: 2px;
+
+  margin-left: 400px;
 }
 
 /* Show dropdown only when hovering the button */
 nav .button:hover .menu-sub{
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   display:block;
 }
+
+
 
 main {
   margin-top: clamp(45px, 5vh, 100px);
