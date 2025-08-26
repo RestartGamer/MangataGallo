@@ -20,96 +20,176 @@
         Your browser does not support the video tag.
         </video>
 
-        <div class="overlay"></div>
-        <div id="logo-container">
-            <img id="logo" src="images/logo2.png" alt="Company Logo">
         
-            <nav>
-                <!-- Dropdown carpet background -->
-                <div id="dropdown-carpet"></div>
-                <div id="dropdown-carpet2"></div>
-                <!-- Main nav list -->
-                <ul class="navbar">
-                    <li class="button rings">
-                        <a href="">Rings</a>
-                        <div class="dropdown-content">
-                            <h1 class="dropdown-title">Craft</h1>
-                            <ul class="dropdown-main">
-                                <li><a href="">Engagement Rings</a></li>
-                                <li><a href="">Wedding Rings</a></li>
-                                <li><a href="">Fashion Rings / Statement rings</a></li>
-                            </ul>
-                        </div>
-                    </li>
 
-                    <li class="button necklaces">
-                        <a href="">Necklaces</a>
-                        <div class="dropdown-content">
-                            <h1 class="dropdown-title">Necklaces</h1>
-                            <ul class="dropdown-main">
-                                <li><a href="">Pendants</a></li>
-                                <li><a href="">Chains</a></li>
-                                <li><a href="">Statement Necklaces</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="button earrings">
-                        <a href="">Earrings</a>
-                        <div class="dropdown-content">
-                            <h1 class="dropdown-title">Earrings</h1>
-                            <ul class="dropdown-main">
-                                <li><a href="">Studs</a></li>
-                                <li><a href="">Hoops</a></li>
-                                <li><a href="">Drop / Dangle earrings</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="button bracelets">
-                        <a href="">Bracelets</a>
-                        <div class="dropdown-content">
-                            <h1 class="dropdown-title">Bracelets</h1>
-                            <ul class="dropdown-main">
-                                <li><a href="">Bangles</a></li>
-                                <li><a href="">Chain bracelets</a></li>
-                                <li><a href="">Charm bracelets</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="button watches">
-                        <a href="">Watches</a>
-                        <div class="dropdown-content">
-                            <h1 class="dropdown-title">Watches</h1>
-                            <ul class="dropdown-main">
-                                <li><a href="">Luxury watches</a></li>
-                                <li><a href="">Fashion watches</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="button collections">
-                        <a href="">Collections / Special Lines</a>
-                        <div class="dropdown-content">
-                            <h1 class="dropdown-title">Collections</h1>
-                            <ul class="dropdown-main">
-                                <li><a href="">Seasonal collections</a></li>
-                                <li><a href="">Limited editions</a></li>
-                                <li><a href="">Collaborations / designed collections</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="button home"><a href="">Home</a></li>
-                    <li class="button contact"><a href="">Contact</a></li>
-                    <li class="button about"><a href="">About</a></li>
-                </ul>
-
-                
-
-            </nav>
+        <div id="logo-bg">
+            <img id="logo" src="images/logo2.png" alt="Company Logo">
         </div>
+        <script>
+            window.addEventListener("load", () => {
+            const navbar = document.querySelector('.menu-main');
+            const navRect = navbar.getBoundingClientRect();
+            const parentRect = navbar.offsetParent.getBoundingClientRect();
+
+            // relative bottom inside offsetParent coordinate system
+            const relativeBottom = navRect.bottom - parentRect.top;
+
+            document.documentElement.style.setProperty('--navbar-bottom', relativeBottom + "px");
+
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', () => {
+                const rect = button.getBoundingClientRect();
+                const hoverX = rect.left + rect.width / 2;
+                document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
+                });
+            });
+            });
+        </script> 
+            
+        <nav>
+            <div class="container">
+                <ul class="menu-main">
+                    
+                    <li class="button button-rings">
+                        
+                        <a class="button-text" href="#">Rings</a>
+                        <div class="menu-sub">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Engagement Rings</a></li>
+                                <li><a href="#">Wedding Rings</a></li>
+                                <li><a href="#">Fashion Rings</a></li>
+                            </ul>
+                            <h2>Moments</h2>
+                            <ul>
+                                <li><a href="#">Anniversary Rings</a></li>
+                                <li><a href="#">Wedding Rings</a></li>
+                                <li><a href="#">Promise Rings</a></li>
+                                <li><a href="#">Statement Rings</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-necklaces">
+                        <a class="button-text" href="#">Necklaces</a>
+                        <div class="menu-sub">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Pendants</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Statement Necklaces</a></li>
+                            </ul>
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Layered Looks</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Minimalist Styles</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-earrings">
+                        <a class="button-text" href="#">Earrings</a>
+                        <div class="menu-sub">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Studs</a></li>
+                                <li><a href="#">Hoops</a></li>
+                                <li><a href="#">Drop Earrings</a></li>
+                            </ul>
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Everyday Essentials</a></li>
+                                <li><a href="#">Statement Pieces</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-bracelets">
+                        <a class="button-text" href="#">Bracelets</a>
+                        <div class="menu-sub">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Chain bracelets</a></li>
+                                <li><a href="#">Charm bracelets</a></li>
+                            </ul>
+                            <h2>Moments</h2>
+                            <ul>
+                                <li><a href="#">Friendship</a></li>
+                                <li><a href="#">Personalized</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-watches">
+                        <a class="button-text" href="#">Watches</a>
+                        <div class="menu-sub">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Luxury watches</a></li>
+                                <li><a href="#">Fashion watches</a></li>
+                            </ul>
+                            <h2>Special Lines</h2>
+                            <ul>
+                                <li><a href="#">Modern Classics</a></li>
+                                <li><a href="#">Heritage Styles</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-collections">
+                        <a class="button-text" href="#">Collections</a>
+                        <div class="menu-sub">
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Seasonal Collections</a></li>
+                                <li><a href="#">Limited Editions</a></li>
+                            </ul>
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Collaborations</a></li>
+                                <li><a href="#">Designer Lines</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-home">
+                        <a class="button-text" href="#">Home</a>
+                        <div class="menu-sub">
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-contact">
+                        <a class="button-text" href="#">Contact</a>
+                        <div class="menu-sub">
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="button button-about">
+                        <a class="button-text" href="#">About</a>
+                        <div class="menu-sub">
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <div id="dropdown-carpet"></div>
+                    <div id="dropdown-carpet2"></div>
+
+                </ul>
+            </div>
+        </nav>
+
+        
         
         <script src="sizing.js"></script>
     </header>
