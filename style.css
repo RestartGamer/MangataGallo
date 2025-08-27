@@ -87,7 +87,8 @@ nav {
 }
 
 .button {
-  cursor: pointer;
+  position: relative;
+  cursor: pointer; /*changes cursor appearance when NOT hovering over it*/
   list-style: none;
 }
 
@@ -108,20 +109,20 @@ nav {
   justify-items:start;
 
   position: absolute;
-  width:100%;
+  top:100%;
   left:0;
+  width:max-content; /*size based on content , can also use "auto" , since 100% will be the ancestors relative*/
+  height:max-content;/*size based on content , can also use "auto" , since 100% will be the ancestors relative*/
   gap: 10px;
+
   text-align: left;
-  
   pointer-events:none;
-  min-height: 390px;
-  padding: 20px 100px 110px 5px;
+
+
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.014);
-  opacity:0;
   visibility: hidden;
   transition: opacity 0.3s ease;
-  background-color: rgba(0, 0, 0, 0);
+background-color: black;
 }
 
 .col1{
