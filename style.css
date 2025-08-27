@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding:0;
+}
+
 #bg-video {
   position: fixed;
   top: 0;
@@ -5,85 +10,42 @@
   z-index: -2;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /*the fill type of the media*/
 }
 
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 0;
-}
-
-#logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 0;
-  width: 100vw;
-  padding-bottom: 30px;
-  background-color: rgba(76, 128, 128, 0.377);
-  box-sizing: border-box;
+header{
+  display:grid;
+  grid-template-rows: 1fr 1fr;
 }
 
 #logo-bg {
-  text-align: center;
   width: 100vw;
   padding-top: 15px;
   padding-bottom: 14px;
   background-color: rgba(76, 128, 128, 0.377);
 }
 
-#logo {
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
+#logo{
+  display:block; /*Since images are always inline, text-align also work on centereing etc.*/
+  margin:0 auto;
 }
 
-.container {
-  max-width:1000px;
-  margin: 0 auto;
-}
 
 nav {
-  box-shadow: 0 0 15px 0 rgba(0,0,0,.10);
-}
-
-nav ul {
-  margin:0;
-  padding: 0;
-  list-style: none;
-  position: relative;
-  text-align: left;
-}
-
-nav li {
-  display:inline-block;
-}
-
-nav a {
-  text-decoration: none;
-  display: block;
+  position: sticky; /*so it stays pinned at the top as you scroll*/
+  grid-row:2; /*not really necessary since the browser already interprets it this way*/
 }
 
 .menu-main {
   display: flex;
-  position: relative;
-  left:0;
   justify-content: center;
-  align-items: center;
-  position: absolute;
-  list-style: none;
+  position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
   z-index: 4;
   width: 100vw;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 0px;
   background-color: rgba(49, 82, 82, 0.377);
   margin:0;
-
 }
-
 
 #dropdown-carpet{
   position: absolute;
@@ -114,7 +76,6 @@ nav a {
   
 }
 
-
 .button:hover ~ #dropdown-carpet {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
   opacity:1;
@@ -124,9 +85,6 @@ nav a {
   clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
   opacity:1;
 }
-
-
-
 
 .button {
   cursor: pointer;
@@ -145,6 +103,10 @@ nav a {
 
 
 .menu-sub{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items:start;
+
   position: absolute;
   width:100%;
   left:0;
@@ -162,14 +124,27 @@ nav a {
   background-color: rgba(0, 0, 0, 0);
 }
 
+.col1{
+  justify-self: center;
+  align-self:start;
+}
+.col2{
+  justify-self: start;
+  align-self:start;
+}
+.col3{
+  justify-self: start;
+  align-self:start;
+
+}
+
+
 .menu-sub h2 {
   color: rgb(126, 126, 126);
   font-size: 26px; /*was 18px*/
   margin-bottom: 5px;
   font-family: 'EB Garamond', serif;
 
-  margin-left: 400px;
-  margin-top: 55px;
 }
 
 .menu-sub ul {
@@ -190,15 +165,35 @@ nav a {
   padding: 3px 0;
   margin-top: 2px;
 
-  margin-left: 400px;
 }
+
+.image-bracelet1{
+  position: relative; /* container for absolute image */
+  width: 100%;
+  height: 100%; /* optional, depends on your layout */
+  display: flex;
+  justify-content: flex-end; /* push image to the right */
+  align-items: flex-start; /* align with top of column */
+  overflow: hidden; /* prevents image overflow */
+  max-width: 280px;
+}
+
+.image-bracelet1 img{
+  max-height: 180px; /* adjust as needed */
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+
+
 
 /* Show dropdown only when hovering the button */
 nav .button:hover .menu-sub{
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  display:block;
+  display:grid;
 }
 
 

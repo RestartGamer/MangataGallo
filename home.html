@@ -27,9 +27,14 @@
         </div>
         <script>
             window.addEventListener("load", () => {
+            const logo = document.querySelector('#logo-bg')
             const navbar = document.querySelector('.menu-main');
             const navRect = navbar.getBoundingClientRect();
             const parentRect = navbar.offsetParent.getBoundingClientRect();
+            const logoRect = logo.getBoundClientRect();
+            const logoBottom = logoRect.bottom;
+
+            document.documentElement.style.setProperty('--logo-bottom', logoBottom);
 
             // relative bottom inside offsetParent coordinate system
             const relativeBottom = navRect.bottom - parentRect.top;
@@ -47,27 +52,37 @@
             });
         </script> 
             
-        <nav>
-            <div class="container">
+        <nav class="container">
                 <ul class="menu-main">
                     
                     <li class="button button-rings">
                         
                         <a class="button-text" href="#">Rings</a>
                         <div class="menu-sub">
-                            <h2>Craft</h2>
-                            <ul>
-                                <li><a href="#">Engagement Rings</a></li>
-                                <li><a href="#">Wedding Rings</a></li>
-                                <li><a href="#">Fashion Rings</a></li>
-                            </ul>
-                            <h2>Moments</h2>
-                            <ul>
-                                <li><a href="#">Anniversary Rings</a></li>
-                                <li><a href="#">Wedding Rings</a></li>
-                                <li><a href="#">Promise Rings</a></li>
-                                <li><a href="#">Statement Rings</a></li>
-                            </ul>
+                            
+                            <div class="menu-block col1">
+                                <h2>Craft</h2>
+                                <ul>
+                                    <li><a href="#">Engagement Rings</a></li>
+                                    <li><a href="#">Wedding Rings</a></li>
+                                    <li><a href="#">Fashion Rings</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-block col2">
+                                <h2>Moments</h2>
+                                <ul>
+                                    <li><a href="#">Anniversary Rings</a></li>
+                                    <li><a href="#">Wedding Rings</a></li>
+                                    <li><a href="#">Promise Rings</a></li>
+                                    <li><a href="#">Statement Rings</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-block col3">
+                                <h2>Our new golden bracelets</h2>
+                                <img class="image-bracelet1" src="media/bracelet-gold_2.jpg" alt="gold bracelet">
+                            </div>
+
                         </div>
                     </li>
 
@@ -181,13 +196,14 @@
                             </ul>
                         </div>
                     </li>
+                    <li id="dropdown-carpet"></li>
+                    <li id="dropdown-carpet2"></li>
                     
-                    <div id="dropdown-carpet"></div>
-                    <div id="dropdown-carpet2"></div>
 
                 </ul>
-            </div>
+                
         </nav>
+        
 
         
         
