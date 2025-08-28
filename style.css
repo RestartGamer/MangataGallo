@@ -31,21 +31,7 @@ header{
 }
 
 
-nav {
-  position: sticky; /*so it stays pinned at the top as you scroll*/
-  grid-row:2; /*not really necessary since the browser already interprets it this way*/
-}
 
-.menu-main {
-  display: flex;
-  justify-content: center;
-  position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
-  z-index: 4;
-  width: 100vw;
-  padding: 20px 0px;
-  background-color: rgba(49, 82, 82, 0.377);
-  margin:0;
-}
 
 #dropdown-carpet{
   position: absolute;
@@ -86,14 +72,28 @@ nav {
   opacity:1;
 }
 
+nav {
+  position: sticky; /*so it stays pinned at the top as you scroll*/
+  grid-row:2; /*not really necessary since the browser already interprets it this way*/
+}
 
+.menu-main {
+  display: flex;
+  justify-content: center;
+  position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
+  z-index: 2;
+  width: 100vw;
+  padding: 20px 0px;
+  background-color: rgba(49, 82, 82, 0.377);
+  margin:0;
+}
 
 
 .button {
   /*No button relative here, so I can get the hover zone to span across the entire navbar*/
   cursor: pointer; /*changes cursor appearance when NOT hovering over it*/
   list-style: none;
-  z-index: 2;
+  z-index: 5;
 }
 
 .button-text {
@@ -117,9 +117,8 @@ nav {
   overflow: visible;
 
   position: absolute;
-
   row-gap: 40px;
-
+  padding-top:100px;
   top:0;
   left: 50%;
   transform: translateX(-50%);
@@ -129,25 +128,26 @@ nav {
   pointer-events:none;
 
   text-align: left;
-  z-index: 1;
+  z-index: 3;
   visibility: hidden; 
   transition: opacity 0.3s ease;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.833);
 }
 
 
-
-.menu-section:first-child {
-  margin-top: 100px;
+.menu-sub * {
+  pointer-events: auto; /* allow interaction INSIDE submenu */
 }
+
+.menu-section{
+  min-width:540px;
+}
+
 
 .menu-section.wide {
   grid-column: span 2;
 }
 
-.menu-section.craft{
-  transform: translateX(0px) translateY(0px);
-}
 .menu-section.moments{
   grid-column:1;
 }
@@ -156,10 +156,9 @@ nav {
   position: relative;
   grid-column: 2;
   grid-row: 1 / span 2;
-  margin-top: 100px;
 }
 
-.image-bracelet1{
+.menu-section.bracelets img{
   position: absolute;
   top: 100%;  /* adjust as needed */
   left: 0;
@@ -208,7 +207,8 @@ nav {
 
 
 /* Show dropdown only when hovering the button */
-nav .button:hover .menu-sub{
+nav .button:hover + .menu-sub,
+.menu-sub:hover {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
