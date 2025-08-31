@@ -112,7 +112,7 @@ nav {
 .menu-sub{
   display:grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
-  grid-auto-rows: auto; /* rows expand to content */
+  grid-auto-rows: max-content; /* rows expand to content ONLY and not the height set here */
   align-items:start;
   justify-items:start;
 
@@ -120,12 +120,16 @@ nav {
 
   position: absolute;
   row-gap: 40px;
+
   padding-top:100px;
+  border-left: 500px solid transparent;
+  border-right: 500px solid transparent;
+  border-bottom: 175px;
+  min-height: 477px;
   top:0;
   left: 50%;
   transform: translateX(-50%);
   width:max-content; /*size based on content , can also use "auto" , since 100% will be the ancestors relative*/
-  height:max-content;/*size based on content , can also use "auto" , since 100% will be the ancestors relative*/
 
   pointer-events:none;
 
@@ -142,22 +146,19 @@ nav {
 }
 
 .menu-section{
-  min-width:540px;
+  min-width:540px; /*This seems to be enough to push the grid cells from left to right and top to bottom*/
 }
-
 
 .menu-section.wide {
   grid-column: span 2;
 }
 
-.menu-section.moments{
-  grid-column:1;
+.menu-section.moments {
+  grid-row:2;
 }
 
 .menu-section.bracelets {
-  position: relative;
-  grid-column: 2;
-  grid-row: 1 / span 2;
+  position: relative; /*This is to remove the image from the grid flow for more flexibility*/
 }
 
 .menu-section.bracelets img{
