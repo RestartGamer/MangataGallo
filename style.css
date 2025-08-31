@@ -63,14 +63,13 @@ header{
 }
 
 .button:hover ~ #dropdown-carpet,
-#dropdown-carpet:hover {
+.menu-sub:hover ~ #dropdown-carpet {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
   opacity:1;
 }
 
 .button:hover ~ #dropdown-carpet2,
-.menu-main:hover #dropdown-carpet2,
-#dropdown-carpet2:hover {
+.menu-sub:hover ~ #dropdown-carpet2 {
   clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
   opacity:1;
 }

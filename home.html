@@ -27,20 +27,7 @@
         </div>
         <script>
             window.addEventListener("load", () => {
-                const logo = document.querySelector('#logo-bg')
-                const navbar = document.querySelector('.menu-main');
-                const navRect = navbar.getBoundingClientRect();
-                const parentRect = navbar.offsetParent.getBoundingClientRect();
-                const logoRect = logo.getBoundClientRect();
-                const logoBottom = logoRect.bottom;
-
-                document.documentElement.style.setProperty('--logo-bottom', logoBottom);
-
-                // relative bottom inside offsetParent coordinate system
-                const relativeBottom = navRect.bottom - parentRect.top;
-
-                document.documentElement.style.setProperty('--navbar-bottom', relativeBottom + "px");
-
+                
                 const buttons = document.querySelectorAll('.button');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
