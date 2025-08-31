@@ -62,12 +62,15 @@ header{
   
 }
 
-.button:hover ~ #dropdown-carpet {
+.button:hover ~ #dropdown-carpet,
+#dropdown-carpet:hover {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
   opacity:1;
 }
 
-.button:hover ~ #dropdown-carpet2 {
+.button:hover ~ #dropdown-carpet2,
+.menu-main:hover #dropdown-carpet2,
+#dropdown-carpet2:hover {
   clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
   opacity:1;
 }
@@ -131,7 +134,7 @@ nav {
   z-index: 3;
   visibility: hidden; 
   transition: opacity 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.833);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 
@@ -169,7 +172,7 @@ nav {
 
 
 .menu-sub > * {
-  outline: 1px solid rgb(255, 0, 0);
+  outline: 1px solid rgba(255, 0, 0, 0);
 }
 
 
