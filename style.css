@@ -153,9 +153,6 @@ nav {
   grid-column: span 2;
 }
 
-.menu-section.moments {
-  grid-row:2;
-}
 
 .menu-section.bracelets {
   position: relative; /*This is to remove the image from the grid flow for more flexibility*/
