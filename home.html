@@ -19,15 +19,17 @@
         <!-- optional fallback -->
         Your browser does not support the video tag.
         </video>
+        <div id="logo-bg">
+                <img id="logo" src="media/logo2.png" alt="Company Logo">
+        </div>
+        <script src="sizing.js"></script>
 
         
+    </header>
 
-        <div id="logo-bg">
-            <img id="logo" src="media/logo2.png" alt="Company Logo">
-        </div>
+    <main>
         <script>
             window.addEventListener("load", () => {
-                
                 const buttons = document.querySelectorAll('.button');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
@@ -36,208 +38,276 @@
                     document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
                     });
                 });
-             });
+            });
         </script> 
             
-<nav class="container">
-    <ul class="menu-main">
+        <nav>
+            <ul class="menu-main">
 
-        <li class="button button-rings">
-            <a class="button-text" href="#">Rings</a>
-        </li>
-        
-        <li class="menu-sub">
-
-            <div class="menu-section craft">
-                <h2>Craft</h2>
-                <ul>
-                    <li><a href="#">Engagement Rings for Every Love Story</a></li>
-                    <li><a href="#">Wedding Rings Crafted to Last</a></li>
-                    <li><a href="#">Fashion Rings to Express Your Unique Style</a></li>
-                </ul>
-            </div>
-            
-            <div class="menu-section moments">
-                <h2>Moments</h2>
-                <ul>
-                    <li><a href="#">Anniversary Rings to Celebrate Your Journey</a></li>
-                    <li><a href="#">Promise Rings That Speak From the Heart</a></li>
-                    <li><a href="#">Statement Rings for Bold Expressions</a></li>
-                    <li><a href="#">Remembrance Rings for the Best Moments</a></li>
-                </ul>
-            </div>
-            
-        </li>
-
-        <li class="button button-necklaces">
-            <a class="button-text" href="#">Necklaces</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section design">
-                    <h2>Design</h2>
-                    <ul>
-                        <li><a href="#">Pendants</a></li>
-                        <li><a href="#">Chains</a></li>
-                        <li><a href="#">Statement Necklaces</a></li>
-                    </ul>
-                </div>
+                <li class="button button-rings">
+                    <a class="button-text" href="#">Rings</a>
+                </li>
                 
-                <div class="menu-section inspire">
-                    <h2>Inspire</h2>
-                    <ul>
-                        <li><a href="#">Layered Looks</a></li>
-                        <li><a href="#">Chains</a></li>
-                        <li><a href="#">Minimalist Styles</a></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-earrings">
-            <a class="button-text" href="#">Earrings</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section craft">
-                    <h2>Craft</h2>
-                    <ul>
-                        <li><a href="#">Studs</a></li>
-                        <li><a href="#">Hoops</a></li>
-                        <li><a href="#">Drop Earrings</a></li>
-                    </ul>
-                </div>
-                <div class="menu-section stories">
-                    <h2>Stories</h2>
-                    <ul>
-                        <li><a href="#">Everyday Essentials</a></li>
-                        <li><a href="#">Statement Pieces</a></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-bracelets">
-            <a class="button-text" href="#">Bracelets</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section craft">
-                    <h2>Craft</h2>
-                    <ul>
-                        <li><a href="#">Bangles</a></li>
-                        <li><a href="#">Chain bracelets</a></li>
-                        <li><a href="#">Charm bracelets</a></li>
-                    </ul>
-                </div>
-                <div class="menu-section bracelets">
-                    <h2>Our Luxury Collection</h2>
-                    <img class="image-bracelet1" src="media/bracelet-gold_2.jpg" alt="gold bracelet">
-                </div>
-                <div class="menu-section moments">
-                    <h2>Moments</h2>
-                    <ul>
-                        <li><a href="#">Friendship</a></li>
-                        <li><a href="#">Personalized</a></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-watches">
-            <a class="button-text" href="#">Watches</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section design">
-                    <h2>Design</h2>
-                    <ul>
-                        <li><a href="#">Luxury watches</a></li>
-                        <li><a href="#">Fashion watches</a></li>
-                    </ul>
-                </div>
-                <div class="menu-section special-lines">
-                    <h2>Special Lines</h2>
-                    <ul>
-                        <li><a href="#">Modern Classics</a></li>
-                        <li><a href="#">Heritage Styles</a></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-collections">
-            <a class="button-text" href="#">Collections</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section stories">
-                    <h2>Stories</h2>
-                    <ul>
-                        <li><a href="#">Seasonal Collections</a></li>
-                        <li><a href="#">Limited Editions</a></li>
-                    </ul>
-                </div>
-                <div class="menu-section inspire">
-                    <h2>Inspire</h2>
-                    <ul>
-                        <li><a href="#">Collaborations</a></li>
-                        <li><a href="#">Designer Lines</a></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-home">
-            <a class="button-text" href="#">Home</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section home-info">
-                    <h2>Home Info</h2>
-                    <ul>
-                        <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-contact">
-            <a class="button-text" href="#">Contact</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section contact-info">
-                    <h2>Contact Info</h2>
-                    <ul>
-                        <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-        </li>
-        <li class="button button-about">
-            <a class="button-text" href="#">About</a>
-            
-        </li>
-        <li class="menu-sub">
-                <div class="menu-section about-info">
-                    <h2>About Info</h2>
-                    <ul>
-                        <li><p>ADD TEXT HERE</p></li>
-                    </ul>
-                </div>
-        </li>
-        <li id="dropdown-carpet"></li>
-        <li id="dropdown-carpet2"></li>
-        
-    </ul>
-    
-</nav>
+                <li class="menu-sub">
 
-        
+                    <div class="menu-section craft">
+                        <h2>Craft</h2>
+                        <ul>
+                            <li><a href="#">Engagement Rings for Every Love Story</a></li>
+                            <li><a href="#">Wedding Rings Crafted to Last</a></li>
+                            <li><a href="#">Fashion Rings to Express Your Unique Style</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="menu-section moments">
+                        <h2>Moments</h2>
+                        <ul>
+                            <li><a href="#">Anniversary Rings to Celebrate Your Journey</a></li>
+                            <li><a href="#">Promise Rings That Speak From the Heart</a></li>
+                            <li><a href="#">Statement Rings for Bold Expressions</a></li>
+                            <li><a href="#">Remembrance Rings for the Best Moments</a></li>
+                        </ul>
+                    </div>
+                    
+                </li>
 
-        
-        
-        <script src="sizing.js"></script>
-    </header>
-    
-    <main>
-        <div class="banner"> This is the banner!
-            <div class="banner-items">
-                <article class="left"> Left</article>
-                <article class="middle"> Middle</article>
-                <article name="right"> Right</article>
+                <li class="button button-necklaces">
+                    <a class="button-text" href="#">Necklaces</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section design">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Pendants</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Statement Necklaces</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="menu-section inspire">
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Layered Looks</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Minimalist Styles</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-earrings">
+                    <a class="button-text" href="#">Earrings</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section craft">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Studs</a></li>
+                                <li><a href="#">Hoops</a></li>
+                                <li><a href="#">Drop Earrings</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-section stories">
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Everyday Essentials</a></li>
+                                <li><a href="#">Statement Pieces</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-bracelets">
+                    <a class="button-text" href="#">Bracelets</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section craft">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Chain bracelets</a></li>
+                                <li><a href="#">Charm bracelets</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-section bracelets">
+                            <h2>Our Luxury Collection</h2>
+                            <img class="image-bracelet1" src="media/bracelet-gold_2.jpg" alt="gold bracelet">
+                        </div>
+                        <div class="menu-section moments">
+                            <h2>Moments</h2>
+                            <ul>
+                                <li><a href="#">Friendship</a></li>
+                                <li><a href="#">Personalized</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-watches">
+                    <a class="button-text" href="#">Watches</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section design">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Luxury watches</a></li>
+                                <li><a href="#">Fashion watches</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-section special-lines">
+                            <h2>Special Lines</h2>
+                            <ul>
+                                <li><a href="#">Modern Classics</a></li>
+                                <li><a href="#">Heritage Styles</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-collections">
+                    <a class="button-text" href="#">Collections</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section stories">
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Seasonal Collections</a></li>
+                                <li><a href="#">Limited Editions</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-section inspire">
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Collaborations</a></li>
+                                <li><a href="#">Designer Lines</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-home">
+                    <a class="button-text" href="#">Home</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section home-info">
+                            <h2>Home Info</h2>
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-contact">
+                    <a class="button-text" href="#">Contact</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section contact-info">
+                            <h2>Contact Info</h2>
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="button button-about">
+                    <a class="button-text" href="#">About</a>
+                    
+                </li>
+                <li class="menu-sub">
+                        <div class="menu-section about-info">
+                            <h2>About Info</h2>
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                </li>
+                <li id="dropdown-carpet"></li>
+                <li id="dropdown-carpet2"></li>
                 
-            </div>
+            </ul>
+            
+        </nav>
 
-        </div>
+        <div class="empty-filler"></div>
+        
+        <section class="scroll-menu-wrapper"> 
+            <div class="scroll-inner">
+                <button class="scroll-btn left">&lt;</button>
+                <ul class="scroll-menu">
+                    <li class="menu-item"><img src="media/rings-special1.png" alt="Option 1"></li>
+                    <li class="menu-item"><img src="media/rings-special2.png" alt="Option 2"></li>
+                    <li class="menu-item"><img src="media/earrings-special1.png" alt="Option 3"></li>
+                    <li class="menu-item"><img src="media/earrings-special2.png" alt="Option 4"></li>
+                    <li class="menu-item"><img src="media/necklace-special1.png" alt="Option 5"></li>
+                    <li class="menu-item"><img src="media/earrings-special3.png" alt="Option 6"></li>
+                    <li class="menu-item"><img src="media/earrings-special4.png" alt="Option 7"></li>
+                    <li class="menu-item"><img src="media/rings-special3.png" alt="Option 8"></li>
+                    <li class="menu-item"><img src="media/rings-special4.png" alt="Option 9"></li>
+                </ul>
+                <button class="scroll-btn right">&gt;</button>
+            </div>
+        </section>
+        <script>
+const scrollMenu = document.querySelector('.scroll-menu');
+const leftBtn = document.querySelector('.scroll-btn.left');
+const rightBtn = document.querySelector('.scroll-btn.right');
+
+// Get item width including CSS gap
+const firstItem = scrollMenu.children[0];
+const style = window.getComputedStyle(firstItem);
+const gap = parseInt(style.marginRight) || 0;
+const itemWidth = firstItem.offsetWidth + gap;
+
+// Clone items once (prepend + append)
+const items = [...scrollMenu.children];
+items.forEach(item => scrollMenu.appendChild(item.cloneNode(true))); // end
+[...items].reverse().forEach(item => 
+  scrollMenu.insertBefore(item.cloneNode(true), scrollMenu.firstChild) // start
+);
+
+// Define bounds
+const sectionWidth = items.length * itemWidth;
+scrollMenu.scrollLeft = sectionWidth; // start in middle section
+
+// Button scrolling
+leftBtn.addEventListener('click', () => {
+  scrollMenu.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+});
+rightBtn.addEventListener('click', () => {
+  scrollMenu.scrollBy({ left: itemWidth, behavior: 'smooth' });
+});
+
+// Infinite scroll "teleport"
+scrollMenu.addEventListener("scroll", () => {
+  if (scrollMenu.scrollLeft >= sectionWidth * 2) {
+    // too far right → jump back into middle
+    scrollMenu.scrollLeft -= sectionWidth;
+  } else if (scrollMenu.scrollLeft <= 0) {
+    // too far left → jump forward into middle
+    scrollMenu.scrollLeft += sectionWidth;
+  }
+});
+</script>
+        
+
+        <ul class="highlight-container">
+            <li class ="title" ><h1>Our Special Selection</h1></li>
+            <li class="bracelets"> 
+                <h2>Bracelet</h2>
+                <img src="media/bracelet-variant1.jpg">
+            </li>
+            <li class="watches">
+                <h2>Watches</h2>
+                <img src="media/watch-variant2.PNG">
+            </li>
+            <li class="rings">
+                <h2>Rings</h2>
+                <img src="media/ring-variant1.PNG">
+            </li>
+            <li class="necklaces">
+                <h2>Necklaces</h2>
+                <img src="media/necklace-variant1.PNG">
+            </li>
+            <li class="earrings">
+                <h2>Earrings</h2>
+                <img src="media/earrings-variant1.PNG">
+            </li>
+        </ul>
     </main>
     <footer>
 

@@ -15,7 +15,8 @@
 
 header{
   display:grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: max-content max-content;
+  position: relative;
 }
 
 #logo-bg {
@@ -32,7 +33,6 @@ header{
 
 
 
-
 #dropdown-carpet{
   position: absolute;
   left: 0;
@@ -41,12 +41,11 @@ header{
   height: 500px;
   background: rgba(255, 255, 255, 0.9);
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
-  transition: clip-path 0.6s ease-in-out;
-  z-index: -1;
+  transition: clip-path 0.5s ease-in-out;
+  z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
 }
-
 #dropdown-carpet2 {
   position: absolute;
   right: 0;
@@ -55,19 +54,17 @@ header{
   height: 500px;
   background: rgba(163, 196, 196, 0.9);
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
-  transition: clip-path 0.6s ease-in-out;
-  z-index: -1;
+  transition: clip-path 0.5s ease-in-out;
+  z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
   
 }
-
 .button:hover ~ #dropdown-carpet,
 .menu-sub:hover ~ #dropdown-carpet {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
   opacity:1;
 }
-
 .button:hover ~ #dropdown-carpet2,
 .menu-sub:hover ~ #dropdown-carpet2 {
   clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
@@ -75,7 +72,8 @@ header{
 }
 
 nav {
-  position: sticky; /*so it stays pinned at the top as you scroll*/
+  position: sticky;
+  top: 0;
   grid-row:2; /*not really necessary since the browser already interprets it this way*/
 }
 
@@ -135,7 +133,8 @@ nav {
 
   text-align: left;
   z-index: 3;
-  visibility: hidden; 
+  opacity: 0;
+  visibility:hidden;
   transition: opacity 0.3s ease;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -143,6 +142,7 @@ nav {
 
 .menu-sub * {
   pointer-events: auto; /* allow interaction INSIDE submenu */
+  outline: 1px solid rgba(255, 0, 0, 0);
 }
 
 .menu-section{
@@ -168,9 +168,6 @@ nav {
 
 
 
-.menu-sub > * {
-  outline: 1px solid rgba(255, 0, 0, 0);
-}
 
 
 
@@ -210,29 +207,163 @@ nav {
 nav .button:hover + .menu-sub,
 .menu-sub:hover {
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
   display:grid;
+  visibility: visible;
+}
+
+main .empty-filler{
+  height:100vh;
 }
 
 
 
-main {
-  margin-top: clamp(45px, 5vh, 100px);
+
+main .highlight-container{
+  display:grid;
+  grid-template-columns: 350px 200px 250px 100px 250px 250px 250px 250px 250px 250px;
+  grid-template-rows: 190px 280px 280px 300px 300px;
+
+  list-style:none;
+
+  width: 100%;
+  background-color: rgb(194, 194, 194); /* for testing */
+  z-index: -1;
+  position: relative;
+  
 }
 
-.banner {
+.highlight-container li{
   text-align: center;
-  margin-top: 600px;
+  justify-content: center;  /* optional, centers content vertically */
+  align-items: center;      /* optional, centers horizontally */
+  
+  overflow:hidden;
+  
 }
 
-.banner-items {
-  display: grid;
+.highlight-container li h1{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5%;
+  font-size:50px ;
+  color: rgb(65, 64, 64);
+}
+.highlight-container li.title {
+  grid-column: 2;
+}
+.highlight-container li.bracelets {
+  grid-column: 2/4;
+}
+.highlight-container li.watches {
+  grid-column: 2/4;
+}
+.highlight-container li.rings {
+  grid-column: 2/4;
+}
+
+.highlight-container li.necklaces{
+  grid-column: 5/8;
+  grid-row:2/4;
+}
+
+.highlight-container li.earrings{
+  grid-column: 5/8;
+  grid-row:4;
+}
+
+.highlight-container li img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  align-items: start;
+  justify-items: center;
+
+}
+
+
+.highlight-container > * {
+  outline: 1px solid rgba(255, 0, 0, 0);
+}
+
+
+.scroll-menu-wrapper { /*Used to scpan the viewport width and center the whole thing*/
+  position: relative;
+  width: 100%;           /* spans viewport */
+  display: flex;
+  justify-content: center; /* centers inner scroll area */
+  align-items: center;
+  margin-bottom:40px;
+  z-index:1;
+}
+
+.scroll-menu {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* smooth transition */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none; /* hide scrollbar (Firefox) */
+  width: 80vw;
+   /* stop the browser from “helping” when DOM changes */
+  overflow-anchor: none;
+  touch-action: pan-x;
+}
+
+.scroll-inner{
+  display:flex;
+  width: max-content;    /* shrink to content */
+  position: relative;    /* anchors arrows */
+}
+
+.scroll-menu::-webkit-scrollbar {
+  display: none; /* hide scrollbar (Chrome, Safari) */
+}
+
+.scroll-menu li {
+  flex: 0 0 auto;
+  margin: 0 5px;
+  scroll-snap-align: center;
+}
+
+.scroll-menu img {
+  display: block;
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
-  grid-template-columns: repeat(3, auto);
-  gap: 20px;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.banner-items article {
-  border: 1px solid transparent;
+.scroll-btn:hover {
+  background: rgba(247, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+/* Critical: position relative to scroll content */
+.scroll-btn.left {
+  left: -5%; /* hug the left edge of scroll-menu */
+}
+
+.scroll-btn.right {
+  right: -5%; /* hug the right edge of scroll-menu */
 }
