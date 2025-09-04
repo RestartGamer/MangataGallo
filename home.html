@@ -253,16 +253,7 @@ const style = window.getComputedStyle(firstItem);
 const gap = parseInt(style.marginRight) || 0;
 const itemWidth = firstItem.offsetWidth + gap;
 
-// Clone items once (prepend + append)
-const items = [...scrollMenu.children];
-items.forEach(item => scrollMenu.appendChild(item.cloneNode(true))); // end
-[...items].reverse().forEach(item => 
-  scrollMenu.insertBefore(item.cloneNode(true), scrollMenu.firstChild) // start
-);
 
-// Define bounds
-const sectionWidth = items.length * itemWidth;
-scrollMenu.scrollLeft = sectionWidth; // start in middle section
 
 // Button scrolling
 leftBtn.addEventListener('click', () => {
@@ -272,16 +263,7 @@ rightBtn.addEventListener('click', () => {
   scrollMenu.scrollBy({ left: itemWidth, behavior: 'smooth' });
 });
 
-// Infinite scroll "teleport"
-scrollMenu.addEventListener("scroll", () => {
-  if (scrollMenu.scrollLeft >= sectionWidth * 2) {
-    // too far right → jump back into middle
-    scrollMenu.scrollLeft -= sectionWidth;
-  } else if (scrollMenu.scrollLeft <= 0) {
-    // too far left → jump forward into middle
-    scrollMenu.scrollLeft += sectionWidth;
-  }
-});
+
 </script>
         
 
