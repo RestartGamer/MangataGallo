@@ -3,7 +3,7 @@
   padding:0;
 }
 
-#bg-video {
+#video-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@ header{
   z-index: -1;
 }
 
-#logo-bg {
+#logo-layout {
   width: 100vw;
   padding-top: 15px;
   padding-bottom: 14px;
@@ -64,25 +64,25 @@ header{
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
   
 }
-.button:hover ~ #dropdown-carpet,
-.menu-sub:hover ~ #dropdown-carpet {
+.navbar__option:hover ~ #dropdown-carpet,
+.submenu:hover ~ #dropdown-carpet {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
   opacity:1;
 }
-.button:hover ~ #dropdown-carpet2,
-.menu-sub:hover ~ #dropdown-carpet2 {
+.navbar__option:hover ~ #dropdown-carpet2,
+.submenu:hover ~ #dropdown-carpet2 {
   clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
   opacity:1;
 }
 
-nav {
+.navbar {
   position: sticky;
   top: 0;
   grid-row:2; /*not really necessary since the browser already interprets it this way*/
   z-index: 1;
 }
 
-.menu-main {
+.navbar__menu {
   display: flex;
   justify-content: center;
   position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
@@ -94,14 +94,14 @@ nav {
 }
 
 
-.button {
+.navbar__menu .navbar__option {
   /*No button relative here, so I can get the hover zone to span across the entire navbar*/
   cursor: pointer; /*changes cursor appearance when NOT hovering over it*/
   list-style: none;
   z-index: 4;
 }
 
-.button-text {
+.navbar__menu .navbar__option .navbar__option-link {
   text-decoration: none;
   color: white;
   font-family: 'EB Garamond', serif;
@@ -112,7 +112,7 @@ nav {
 
 
 
-.menu-sub{
+.submenu{
   display:grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-auto-rows: max-content; /* rows expand to content ONLY and not the height set here */
@@ -145,25 +145,25 @@ nav {
 }
 
 
-.menu-sub * {
+.submenu * {
   pointer-events: auto; /* allow interaction INSIDE submenu */
   outline: 1px solid rgba(255, 0, 0, 0);
 }
 
-.menu-section{
+.submenu__section{
   min-width:540px; /*This seems to be enough to push the grid cells from left to right and top to bottom*/
 }
 
-.menu-section.wide {
+.submenu__section.wide {
   grid-column: span 2;
 }
 
 
-.menu-section.bracelets {
+.submenu__section.bracelets {
   position: relative; /*This is to remove the image from the grid flow for more flexibility*/
 }
 
-.menu-section.bracelets img{
+.submenu__section.bracelets img{
   position: absolute;
   top: 100%;  /* adjust as needed */
   left: 0;
@@ -176,7 +176,7 @@ nav {
 
 
 
-.menu-sub h2 {
+.submenu h2 {
   color: rgb(143, 143, 143);
   font-size: 25px; /*was 18px*/
   margin-bottom: 5px;
@@ -184,17 +184,17 @@ nav {
 
 }
 
-.menu-sub ul {
+.submenu ul {
   padding: 0;
   margin-top: 8px;
   
 }
 
-.menu-sub li{
+.submenu li{
   display:block; /*Instead of stacking inline*/
 }
 
-.menu-sub ul li a {
+.submenu ul li a {
   color: rgb(26, 26, 26);
   text-decoration: none;
   font-family: 'EB Garamond', serif;
@@ -209,8 +209,8 @@ nav {
 
 
 /* Show dropdown only when hovering the button */
-nav .button:hover + .menu-sub,
-.menu-sub:hover {
+nav .navbar__option:hover + .submenu,
+.submenu:hover {
   opacity: 1;
   pointer-events: auto;
   display:grid;

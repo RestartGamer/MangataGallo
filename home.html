@@ -14,14 +14,14 @@
     
 
     <header>
-        <video autoplay muted loop playsinline class="header-video" id="bg-video">
+        <video autoplay muted loop playsinline id="video-background">
         <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
         <!-- optional fallback -->
         Your browser does not support the video tag.
         </video>
 
         
-        <div id="logo-bg">
+        <div id="logo-layout">
                 <img id="logo" src="media/logo2.png" alt="Company Logo">
         </div>
         <script src="sizing.js"></script>
@@ -43,16 +43,16 @@
             });
         </script> 
             
-        <nav>
-            <ul class="menu-main">
+        <nav class="navbar">
+            <ul class="navbar__menu">
 
-                <li class="button button-rings">
-                    <a class="button-text" href="#">Rings</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Rings</a>
                 </li>
                 
-                <li class="menu-sub">
+                <li class="submenu">
 
-                    <div class="menu-section craft">
+                    <div class="submenu__section craft">
                         <h2>Craft</h2>
                         <ul>
                             <li><a href="#">Engagement Rings for Every Love Story</a></li>
@@ -61,7 +61,7 @@
                         </ul>
                     </div>
                     
-                    <div class="menu-section moments">
+                    <div class="submenu__section moments">
                         <h2>Moments</h2>
                         <ul>
                             <li><a href="#">Anniversary Rings to Celebrate Your Journey</a></li>
@@ -73,12 +73,12 @@
                     
                 </li>
 
-                <li class="button button-necklaces">
-                    <a class="button-text" href="#">Necklaces</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Necklaces</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section design">
+                <li class="submenu">
+                        <div class="submenu__section design">
                             <h2>Design</h2>
                             <ul>
                                 <li><a href="#">Pendants</a></li>
@@ -87,7 +87,7 @@
                             </ul>
                         </div>
                         
-                        <div class="menu-section inspire">
+                        <div class="submenu__section inspire">
                             <h2>Inspire</h2>
                             <ul>
                                 <li><a href="#">Layered Looks</a></li>
@@ -96,12 +96,12 @@
                             </ul>
                         </div>
                 </li>
-                <li class="button button-earrings">
-                    <a class="button-text" href="#">Earrings</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Earrings</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section craft">
+                <li class="submenu">
+                        <div class="submenu__section craft">
                             <h2>Craft</h2>
                             <ul>
                                 <li><a href="#">Studs</a></li>
@@ -109,7 +109,7 @@
                                 <li><a href="#">Drop Earrings</a></li>
                             </ul>
                         </div>
-                        <div class="menu-section stories">
+                        <div class="submenu__section stories">
                             <h2>Stories</h2>
                             <ul>
                                 <li><a href="#">Everyday Essentials</a></li>
@@ -117,12 +117,12 @@
                             </ul>
                         </div>
                 </li>
-                <li class="button button-bracelets">
-                    <a class="button-text" href="#">Bracelets</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Bracelets</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section craft">
+                <li class="submenu">
+                        <div class="submenu__section craft">
                             <h2>Craft</h2>
                             <ul>
                                 <li><a href="#">Bangles</a></li>
@@ -130,11 +130,11 @@
                                 <li><a href="#">Charm bracelets</a></li>
                             </ul>
                         </div>
-                        <div class="menu-section bracelets">
+                        <div class="submenu__section bracelets">
                             <h2>Our Luxury Collection</h2>
                             <img class="image-bracelet1" src="media/bracelet-gold_2.jpg" alt="gold bracelet">
                         </div>
-                        <div class="menu-section moments">
+                        <div class="submenu__section moments">
                             <h2>Moments</h2>
                             <ul>
                                 <li><a href="#">Friendship</a></li>
@@ -142,19 +142,19 @@
                             </ul>
                         </div>
                 </li>
-                <li class="button button-watches">
-                    <a class="button-text" href="#">Watches</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Watches</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section design">
+                <li class="submenu">
+                        <div class="submenu__section design">
                             <h2>Design</h2>
                             <ul>
                                 <li><a href="#">Luxury watches</a></li>
                                 <li><a href="#">Fashion watches</a></li>
                             </ul>
                         </div>
-                        <div class="menu-section special-lines">
+                        <div class="submenu__section special-lines">
                             <h2>Special Lines</h2>
                             <ul>
                                 <li><a href="#">Modern Classics</a></li>
@@ -162,19 +162,19 @@
                             </ul>
                         </div>
                 </li>
-                <li class="button button-collections">
-                    <a class="button-text" href="#">Collections</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Collections</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section stories">
+                <li class="submenu">
+                        <div class="submenu__section stories">
                             <h2>Stories</h2>
                             <ul>
                                 <li><a href="#">Seasonal Collections</a></li>
                                 <li><a href="#">Limited Editions</a></li>
                             </ul>
                         </div>
-                        <div class="menu-section inspire">
+                        <div class="submenu__section inspire">
                             <h2>Inspire</h2>
                             <ul>
                                 <li><a href="#">Collaborations</a></li>
@@ -182,36 +182,36 @@
                             </ul>
                         </div>
                 </li>
-                <li class="button button-home">
-                    <a class="button-text" href="#">Home</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Home</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section home-info">
+                <li class="submenu">
+                        <div class="submenu__section home-info">
                             <h2>Home Info</h2>
                             <ul>
                                 <li><p>ADD TEXT HERE</p></li>
                             </ul>
                         </div>
                 </li>
-                <li class="button button-contact">
-                    <a class="button-text" href="#">Contact</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Contact</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section contact-info">
+                <li class="submenu">
+                        <div class="submenu__section contact-info">
                             <h2>Contact Info</h2>
                             <ul>
                                 <li><p>ADD TEXT HERE</p></li>
                             </ul>
                         </div>
                 </li>
-                <li class="button button-about">
-                    <a class="button-text" href="#">About</a>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">About</a>
                     
                 </li>
-                <li class="menu-sub">
-                        <div class="menu-section about-info">
+                <li class="submenu">
+                        <div class="submenu__section about-info">
                             <h2>About Info</h2>
                             <ul>
                                 <li><p>ADD TEXT HERE</p></li>
