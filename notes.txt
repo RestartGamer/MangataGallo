@@ -1,60 +1,78 @@
-/* Base carpet styles 
-#dropdown-carpet{
-  position: absolute;
-  top: 100%;  
-  left: 0;
-  width: 100vw;
-  height: 400px;
-  background: rgba(255, 255, 255, 0.9);
-  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 50% 100%, 50% 100%); 
-  transition: clip-path 0.4s ease-in-out;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 1;
-}
-
-#dropdown-carpet2 {
-  position: absolute;
-  top: 100%;  
-  right: 0;
-  width: 100vw;
-  height: 400px;
-  background: rgba(163, 196, 196, 0.9);
-  clip-path: polygon(0% var(--navbar-bottom), 0% var(--navbar-bottom), 0% 100%, 0% 100%); 
-  transition: clip-path 0.4s ease-in-out;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 1;
+Traditional scrollbar:
+.scroll-menu{
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  list-style: none;
+  margin: 0;
+  background: lightblue;  /* debug */
+  max-width: 500px;       /* force overflow */
   
 }
 
-
-.navbar:hover #dropdown-carpet {
-  clip-path: polygon(0% var(--navbar-bottom)px, 55% var(--navbar-bottom)px, calc(var(--hover-x)*0.9) 100%, 0% 100%);
+.scroll-menu::-webkit-scrollbar {
+  height: 8px;
+}
+.scroll-menu::-webkit-scrollbar-thumb {
+  background: rgb(156, 156, 156);
+  border-radius: 4px;
 }
 
-.navbar:hover #dropdown-carpet2 {
-  clip-path: polygon(100% var(--navbar-bottom)px, 45% var(--navbar-bottom)px, calc(var(--hover-x)*0.8) 100%, 100% 100%);
-}*/
+.menu-item {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
 
+.menu-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-----------JS INLINE SCRIPT - for the carpets
+A CAROUSEL STYLE SCROLL bar (still in progress)
 
-<!--<script>
-                document.addEventListener("DOMContentLoaded", () => {
-                const navbar = document.querySelector('.navbar');
-                const navRect = navbar.getBoundingClientRect();
-                const navBottom = navRect.bottom;
-                document.documentElement.style.setProperty('--navbar-bottom', navBottom +'px');
+const scrollMenu = document.querySelector('.scroll-menu');
+const leftBtn = document.querySelector('.scroll-btn.left');
+const rightBtn = document.querySelector('.scroll-btn.right');
 
-                const buttons = document.querySelectorAll('.button');
-                buttons.forEach(button => {
-                    button.addEventListener('mouseenter', () => {
-                        const rect = button.getBoundingClientRect();
-                        const hoverX = rect.left + rect.width / 2; //might not be neccesary this one. its to center
+// Get item width including CSS gap
+const firstItem = scrollMenu.children[0];
+const style = window.getComputedStyle(firstItem);
+const gap = parseInt(style.marginRight) || 0;
+const itemWidth = firstItem.offsetWidth + gap;
 
-                        document.documentElement.style.setProperty('--hover-x', hoverX +'px');
-                    } )
-                });
-                });
-            </script> -->
+// Clone items once (prepend + append)
+const items = [...scrollMenu.children];
+items.forEach(item => scrollMenu.appendChild(item.cloneNode(true))); // end
+[...items].reverse().forEach(item => 
+  scrollMenu.insertBefore(item.cloneNode(true), scrollMenu.firstChild) // start
+);
+
+// Define bounds
+const sectionWidth = items.length * itemWidth;
+scrollMenu.scrollLeft = sectionWidth; // start in middle section
+
+// Button scrolling
+leftBtn.addEventListener('click', () => {
+  scrollMenu.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+});
+rightBtn.addEventListener('click', () => {
+  scrollMenu.scrollBy({ left: itemWidth, behavior: 'smooth' });
+});
+
+// Infinite scroll "teleport"
+scrollMenu.addEventListener("scroll", () => {
+  if (scrollMenu.scrollLeft >= sectionWidth * 2) {
+    // too far right → jump back into middle
+    scrollMenu.scrollLeft -= sectionWidth;
+  } else if (scrollMenu.scrollLeft <= 0) {
+    // too far left → jump forward into middle
+    scrollMenu.scrollLeft += sectionWidth;
+  }
+});
