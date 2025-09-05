@@ -15,10 +15,12 @@
 
     <header>
         <video autoplay muted loop playsinline class="header-video" id="bg-video">
-        <source src="media/PortfolioVid1.mp4" type="video/mp4" />
+        <source src="media/rings-hands.mp4" type="video/mp4" />
         <!-- optional fallback -->
         Your browser does not support the video tag.
         </video>
+
+        
         <div id="logo-bg">
                 <img id="logo" src="media/logo2.png" alt="Company Logo">
         </div>
@@ -229,17 +231,83 @@
             <div class="scroll-inner">
                 <button class="scroll-btn left">&lt;</button>
                 <ul class="scroll-menu">
-                    <li class="menu-item"><img src="media/rings-special1.png" alt="Option 1"></li>
-                    <li class="menu-item"><img src="media/rings-special2.png" alt="Option 2"></li>
-                    <li class="menu-item"><img src="media/earrings-special1.png" alt="Option 3"></li>
-                    <li class="menu-item"><img src="media/earrings-special2.png" alt="Option 4"></li>
-                    <li class="menu-item"><img src="media/necklace-special1.png" alt="Option 5"></li>
-                    <li class="menu-item"><img src="media/earrings-special3.png" alt="Option 6"></li>
-                    <li class="menu-item"><img src="media/earrings-special4.png" alt="Option 7"></li>
-                    <li class="menu-item"><img src="media/rings-special3.png" alt="Option 8"></li>
-                    <li class="menu-item"><img src="media/rings-special4.png" alt="Option 9"></li>
+                    <!-- Ring 1 -->
+                    <li class="menu-item">
+                        <img src="media/rings-special1.png" alt="Eternal Whisper Ring">
+                        <h2>Eternal Whisper Ring</h2>
+                        <p>A delicate band with subtle engravings, perfect for layering or worn on its own for timeless elegance.</p>
+                    </li>
+
+                    <!-- Ring 2 -->
+                    <li class="menu-item">
+                        <img src="media/rings-special2.png" alt="Aurora Crest Ring">
+                        <h2>Aurora Crest Ring</h2>
+                        <p>Inspired by shifting light, this piece reflects a soft shimmer with every movement.</p>
+                    </li>
+
+                    <!-- Earring 1 -->
+                    <li class="menu-item">
+                        <img src="media/earrings-special1.png" alt="Lunar Glow Studs">
+                        <h2>Lunar Glow Studs</h2>
+                        <p>Subtle yet luminous, these studs catch the light like moonlight on still water.</p>
+                    </li>
+
+                    <!-- Earring 2 -->
+                    <li class="menu-item">
+                        <img src="media/earrings-special2.png" alt="Ivy Cascade Drops">
+                        <h2>Ivy Cascade Drops</h2>
+                        <p>Flowing, nature-inspired curves that create graceful movement with every step.</p>
+                    </li>
+
+                    <!-- Necklace -->
+                    <li class="menu-item">
+                        <img src="media/necklace-special1.png" alt="Starlight Pendant Necklace">
+                        <h2>Starlight Pendant Necklace</h2>
+                        <p>A refined pendant suspended on a fine chain, evoking quiet sophistication and everyday beauty.</p>
+                    </li>
+
+                    <!-- Earring 3 -->
+                    <li class="menu-item">
+                        <img src="media/earrings-special3.png" alt="Solstice Hoops">
+                        <h2>Solstice Hoops</h2>
+                        <p>Bold but understated, these hoops embody strength and simplicity in harmony.</p>
+                    </li>
+
+                    <!-- Earring 4 -->
+                    <li class="menu-item">
+                        <img src="media/earrings-special4.png" alt="Serenade Pearl Earrings">
+                        <h2>Serenade Pearl Earrings</h2>
+                        <p>Classic pearls reimagined with a sleek setting, blending tradition with modern aesthetics.</p>
+                    </li>
+
+                    <!-- Ring 3 -->
+                    <li class="menu-item">
+                        <img src="media/rings-special3.png" alt="Celeste Halo Ring">
+                        <h2>Celeste Halo Ring</h2>
+                        <p>A modern take on the classic halo design, highlighting refined craftsmanship and balance.</p>
+                    </li>
+
+                    <!-- Ring 4 -->
+                    <li class="menu-item">
+                        <img src="media/rings-special4.png" alt="Golden Horizon Ring">
+                        <h2>Golden Horizon Ring</h2>
+                        <p>Minimalist lines with a smooth polished finish, symbolizing new beginnings and clarity.</p>
+                    </li>
                 </ul>
                 <button class="scroll-btn right">&gt;</button>
+            </div>
+        </section>
+        <section class="scroll-menu-wrapper2"> 
+            <div class="scroll-inner2">
+                <button class="scroll-btn2 left">&lt;</button>
+                <ul class="scroll-menu2 benefits">
+                    <li class="menu-item2"><p>Pure Materials</p></li>
+                    <li class="menu-item2"><p>Nature Friendly</p></li>
+                    <li class="menu-item2"><p>Ethically Sourced</p></li>
+                    <li class="menu-item2"><p>Handcrafted</p></li>
+                    <li class="menu-item2"><p>Made to Order</p></li>
+                </ul>
+                <button class="scroll-btn2 right">&gt;</button>
             </div>
         </section>
         <script>
@@ -257,12 +325,29 @@ const itemWidth = firstItem.offsetWidth + gap;
 
 // Button scrolling
 leftBtn.addEventListener('click', () => {
-  scrollMenu.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+  scrollMenu.scrollBy({ left: (-itemWidth-60)*4, behavior: 'smooth' });
 });
 rightBtn.addEventListener('click', () => {
-  scrollMenu.scrollBy({ left: itemWidth, behavior: 'smooth' });
+  scrollMenu.scrollBy({ left: (itemWidth+60)*4, behavior: 'smooth' });
 });
 
+const scrollMenu2 = document.querySelector('.scroll-menu2');
+const leftBtn2 = document.querySelector('.scroll-btn2.left');
+const rightBtn2 = document.querySelector('.scroll-btn2.right');
+
+// Get item width including CSS gap
+const firstItem2 = scrollMenu2.children[0];
+const style2 = window.getComputedStyle(firstItem2);
+const gap2 = parseInt(style2.marginRight) || 0;
+const itemWidth2 = firstItem2.offsetWidth + gap2;
+
+// Button scrolling
+leftBtn2.addEventListener('click', () => {
+  scrollMenu2.scrollBy({ left: -itemWidth2-20, behavior: 'smooth' });
+});
+rightBtn2.addEventListener('click', () => {
+  scrollMenu2.scrollBy({ left: itemWidth2+20, behavior: 'smooth' });
+});
 
 </script>
         
