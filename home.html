@@ -14,12 +14,12 @@
     
 
     <header>
-        <!-- <video autoplay muted loop playsinline id="video-background">
+        <video autoplay muted loop playsinline id="video-background">
         <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
         optional fallback 
         Your browser does not support the video tag.
         </video>
--->
+
         
         <div id="logo">
                 <img id="logo__image" src="media/logo2.png" alt="Company Logo">
@@ -220,6 +220,7 @@
                 </li>
                 <li id="dropdown-carpet"></li>
                 <li id="dropdown-carpet2"></li>
+                <li id="dropdown-carpet-background"></li>
                 <script>
                     window.addEventListener("load", () => {
                     const options = document.querySelectorAll(".navbar__option");
@@ -330,46 +331,45 @@
             </div>
         </section>
         <script>
-const scrollMenu = document.querySelector('.scroll-menu');
-const leftBtn = document.querySelector('.scroll-btn.left');
-const rightBtn = document.querySelector('.scroll-btn.right');
+            const scrollMenu = document.querySelector('.scroll-menu');
+            const leftBtn = document.querySelector('.scroll-btn.left');
+            const rightBtn = document.querySelector('.scroll-btn.right');
 
-// Get item width including CSS gap
-const firstItem = scrollMenu.children[0];
-const style = window.getComputedStyle(firstItem);
-const gap = parseInt(style.marginRight) || 0;
-const itemWidth = firstItem.offsetWidth + gap;
+            // Get item width including CSS gap
+            const firstItem = scrollMenu.children[0];
+            const style = window.getComputedStyle(firstItem);
+            const gap = parseInt(style.marginRight) || 0;
+            const itemWidth = firstItem.offsetWidth + gap;
 
 
 
-// Button scrolling
-leftBtn.addEventListener('click', () => {
-  scrollMenu.scrollBy({ left: (-itemWidth-60)*4, behavior: 'smooth' });
-});
-rightBtn.addEventListener('click', () => {
-  scrollMenu.scrollBy({ left: (itemWidth+60)*4, behavior: 'smooth' });
-});
+            // Button scrolling
+            leftBtn.addEventListener('click', () => {
+            scrollMenu.scrollBy({ left: (-itemWidth-60)*4, behavior: 'smooth' });
+            });
+            rightBtn.addEventListener('click', () => {
+            scrollMenu.scrollBy({ left: (itemWidth+60)*4, behavior: 'smooth' });
+            });
 
-const scrollMenu2 = document.querySelector('.scroll-menu2');
-const leftBtn2 = document.querySelector('.scroll-btn2.left');
-const rightBtn2 = document.querySelector('.scroll-btn2.right');
+            const scrollMenu2 = document.querySelector('.scroll-menu2');
+            const leftBtn2 = document.querySelector('.scroll-btn2.left');
+            const rightBtn2 = document.querySelector('.scroll-btn2.right');
 
-// Get item width including CSS gap
-const firstItem2 = scrollMenu2.children[0];
-const style2 = window.getComputedStyle(firstItem2);
-const gap2 = parseInt(style2.marginRight) || 0;
-const itemWidth2 = firstItem2.offsetWidth + gap2;
+            // Get item width including CSS gap
+            const firstItem2 = scrollMenu2.children[0];
+            const style2 = window.getComputedStyle(firstItem2);
+            const gap2 = parseInt(style2.marginRight) || 0;
+            const itemWidth2 = firstItem2.offsetWidth + gap2;
 
-// Button scrolling
-leftBtn2.addEventListener('click', () => {
-  scrollMenu2.scrollBy({ left: -itemWidth2-20, behavior: 'smooth' });
-});
-rightBtn2.addEventListener('click', () => {
-  scrollMenu2.scrollBy({ left: itemWidth2+20, behavior: 'smooth' });
-});
+            // Button scrolling
+            leftBtn2.addEventListener('click', () => {
+            scrollMenu2.scrollBy({ left: -itemWidth2-20, behavior: 'smooth' });
+            });
+            rightBtn2.addEventListener('click', () => {
+            scrollMenu2.scrollBy({ left: itemWidth2+20, behavior: 'smooth' });
+            });
 
         </script>
-        
 
         <ul class="highlight-container">
             <li class ="title" ><h1>Our Special Selection</h1></li>
@@ -394,19 +394,23 @@ rightBtn2.addEventListener('click', () => {
                 <img src="media/earrings-variant1.PNG">
             </li>
         </ul>
+
     </main>
-    <script>[...document.querySelectorAll('*')].forEach(el => {
-  const s = getComputedStyle(el);
-  const createsSC =
-    (s.zIndex !== 'auto' && s.position !== 'static') ||
-    parseFloat(s.opacity) < 1 ||
-    s.transform !== 'none' ||
-    s.filter !== 'none' ||
-    s.isolation === 'isolate';
-  if (createsSC) {
-    el.style.outline = '2px solid red';
-  }
-});</script>
+
+    <script>
+        [...document.querySelectorAll('*')].forEach(el => {
+        const s = getComputedStyle(el);
+        const createsSC =
+            (s.zIndex !== 'auto' && s.position !== 'static') ||
+            parseFloat(s.opacity) < 1 ||
+            s.transform !== 'none' ||
+            s.filter !== 'none' ||
+            s.isolation === 'isolate';
+        if (createsSC) {
+            el.style.outline = '2px solid red';
+        }
+        });
+    </script>
     <footer>
 
     </footer>
