@@ -14,15 +14,15 @@
     
 
     <header>
-        <video autoplay muted loop playsinline id="video-background">
+        <!-- <video autoplay muted loop playsinline id="video-background">
         <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
-        <!-- optional fallback -->
+        optional fallback 
         Your browser does not support the video tag.
         </video>
-
+-->
         
-        <div id="logo-layout">
-                <img id="logo" src="media/logo2.png" alt="Company Logo">
+        <div id="logo">
+                <img id="logo__image" src="media/logo2.png" alt="Company Logo">
         </div>
         <script src="sizing.js"></script>
 
@@ -32,7 +32,7 @@
     <main>
         <script>
             window.addEventListener("load", () => {
-                const buttons = document.querySelectorAll('.button');
+                const buttons = document.querySelectorAll('.navbar__option');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
                     const rect = button.getBoundingClientRect();
@@ -220,13 +220,32 @@
                 </li>
                 <li id="dropdown-carpet"></li>
                 <li id="dropdown-carpet2"></li>
-                
+                <script>
+                    window.addEventListener("load", () => {
+                    const options = document.querySelectorAll(".navbar__option");
+
+                    options.forEach(option => {
+                        const submenu = option.nextElementSibling; // each option's matching submenu
+
+                        if (submenu && submenu.classList.contains("submenu")) {
+                            option.addEventListener("mouseenter", () => {
+                            const submenuHeight = submenu.scrollHeight; // full content height, adapts to grid
+                            document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
+                        });
+                        submenu.addEventListener("mouseenter", () => {
+                            const submenuHeight = submenu.scrollHeight;
+                            document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
+                        });
+                        }
+                    });
+                    });
+                </script>
             </ul>
             
         </nav>
 
         <div class="empty-filler"></div>
-        
+            
         <section class="scroll-menu-wrapper"> 
             <div class="scroll-inner">
                 <button class="scroll-btn left">&lt;</button>
@@ -349,7 +368,7 @@ rightBtn2.addEventListener('click', () => {
   scrollMenu2.scrollBy({ left: itemWidth2+20, behavior: 'smooth' });
 });
 
-</script>
+        </script>
         
 
         <ul class="highlight-container">
@@ -376,6 +395,18 @@ rightBtn2.addEventListener('click', () => {
             </li>
         </ul>
     </main>
+    <script>[...document.querySelectorAll('*')].forEach(el => {
+  const s = getComputedStyle(el);
+  const createsSC =
+    (s.zIndex !== 'auto' && s.position !== 'static') ||
+    parseFloat(s.opacity) < 1 ||
+    s.transform !== 'none' ||
+    s.filter !== 'none' ||
+    s.isolation === 'isolate';
+  if (createsSC) {
+    el.style.outline = '2px solid red';
+  }
+});</script>
     <footer>
 
     </footer>

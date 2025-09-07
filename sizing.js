@@ -1,5 +1,5 @@
-const logoContainer = document.getElementById("logo-container");
-const logo = document.getElementById("logo");
+
+const logo = document.getElementById("logo__image");
 const navbar = document.getElementById("menu-main");
 
 function normalizeLogo() {
@@ -21,14 +21,6 @@ function normalizeLogo() {
     
     logo.style.width = scaledWidth + "px";
 
-
-    const baseSpacing = 20;
-    var adjustedSpacing = baseSpacing / zoom;
-
-    if (adjustedSpacing < 10) adjustedSpacing = 10;
-    if (adjustedSpacing > 40) adjustedSpacing = 40;
-
-    logoContainer.style.marginTop = adjustedSpacing + "px";
 
 }
 

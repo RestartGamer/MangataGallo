@@ -11,6 +11,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /*the fill type of the media*/
+  
+}
+body{
+  background-color:black;
 }
 
 header{
@@ -20,7 +24,7 @@ header{
   z-index: -1;
 }
 
-#logo-layout {
+#logo{
   width: 100vw;
   padding-top: 15px;
   padding-bottom: 14px;
@@ -29,7 +33,7 @@ header{
   
 }
 
-#logo{
+#logo__image{
   display:block; /*Since images are always inline, text-align also work on centering etc.*/
   margin:0 auto;
   z-index: 1;
@@ -42,10 +46,10 @@ header{
   left: 0;
   top: 100%;
   width: 100vw;
-  height: 500px;
+  height: var(--submenu-height);
   background: rgba(255, 255, 255, 0.9);
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
-  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
   z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
@@ -55,10 +59,10 @@ header{
   right: 0;
   top: 100%;
   width: 100vw;
-  height: 500px;
+  height: var(--submenu-height);
   background: rgba(163, 196, 196, 0.9);
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
-  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
   z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
@@ -125,10 +129,6 @@ header{
   row-gap: 40px;
 
   padding-top:100px;
-  border-left: 500px solid transparent;
-  border-right: 500px solid transparent;
-  border-bottom: 175px;
-  min-height: 477px;
   top:0;
   left: 50%;
   transform: translateX(-50%);
@@ -140,7 +140,7 @@ header{
   z-index: 3;
   opacity: 0;
   visibility:hidden;
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease-in-out;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -233,7 +233,6 @@ main .highlight-container{
 
   width: 100%;
   background-color: rgb(254, 254, 255); /* for testing */
-  z-index: 1;
   position: relative;
   
 }
@@ -302,7 +301,6 @@ main .highlight-container{
   display: flex;
   justify-content: center; /* centers inner scroll area */
   align-items: center;
-  z-index:1;
   background-color: rgba(255, 255, 255, 0.89); /* for testing */
   
 }
@@ -320,7 +318,6 @@ main .highlight-container{
   overflow-anchor: none;
   touch-action: pan-x;
   gap: 14px;
-  z-index:1;
 }
 
 .scroll-inner{
@@ -409,7 +406,6 @@ main .highlight-container{
   display: flex;
   justify-content: center; /* centers inner scroll area */
   align-items: center;
-  z-index:1;
   background-color: rgb(254, 254, 255); /* for testing */
 }
 
