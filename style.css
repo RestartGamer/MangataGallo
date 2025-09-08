@@ -40,7 +40,7 @@ header{
 }
 
 #dropdown-carpet-background{
-   position: absolute;
+  position: absolute;
   left: 0;
   top: 100%;
   width: 100vw;
@@ -108,6 +108,7 @@ header{
   padding: 20px 0px;
   background-color: rgba(73, 104, 104, 0.85);
   margin:0;
+  gap: 5px;
 }
 
 
@@ -130,6 +131,7 @@ header{
 
 
 .submenu{
+  position: absolute;
   display:grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-auto-rows: max-content; /* rows expand to content ONLY and not the height set here */
@@ -138,10 +140,13 @@ header{
 
   overflow: visible;
 
-  position: absolute;
+  
   row-gap: 40px;
 
   padding-top:100px;
+  border-left: 500px solid transparent;
+  border-right: 500px solid transparent;
+  padding-bottom:220px;
   top:0;
   left: 50%;
   transform: translateX(-50%);
@@ -231,10 +236,23 @@ nav .navbar__option:hover + .submenu,
 }
 
 main .empty-filler{
-  height:83vh;
+  height:68vh;
 }
 
-
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 57px;
+  /*! margin-bottom: 13px; */
+}
+.banner h1 {
+  font-size: 37px;
+  transform: translateY(25px);
+  font-family: 'EB Garamond', serif;
+}
 
 
 main .highlight-container{
@@ -245,9 +263,10 @@ main .highlight-container{
   list-style:none;
 
   width: 100%;
-  background-color: rgb(254, 254, 255); /* for testing */
+  background-color: rgba(215, 230, 226, 0.89); /* for testing */
   position: relative;
   
+  padding-top: 93px;
 }
 
 .highlight-container li{
@@ -272,23 +291,23 @@ main .highlight-container{
   grid-column: 2;
 }
 .highlight-container li.bracelets {
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 .highlight-container li.watches {
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 .highlight-container li.rings {
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 
 .highlight-container li.necklaces{
-  grid-column: 5/8;
-  grid-row:2/4;
+  grid-column: 3/8;
+  grid-row:1/5;
 }
 
 .highlight-container li.earrings{
   grid-column: 5/8;
-  grid-row:4;
+  grid-row:5;
 }
 
 .highlight-container li img{
@@ -303,6 +322,7 @@ main .highlight-container{
 
 .highlight-container > * {
   outline: 1px solid rgba(255, 0, 0, 0);
+  /*! grid-row-start: 2; */
 }
 
 
@@ -314,7 +334,7 @@ main .highlight-container{
   display: flex;
   justify-content: center; /* centers inner scroll area */
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.89); /* for testing */
+  background-color: rgba(215, 230, 226, 0.89); /* for testing */
   
 }
 
@@ -347,10 +367,10 @@ main .highlight-container{
   flex: 0 0 auto;
   margin: 0 0px;
   /*! scroll-snap-align: center; */
-  padding: 40px 40px;
+  padding: 60px 40px;
   background-color: rgba(255, 255, 255, 0.59);
   border-radius: 20px;
-  width: 235px;
+  width: 214px;
   /*! height: 100%; */
 }
 
@@ -358,7 +378,7 @@ main .highlight-container{
   text-align:center;
   margin-top:15px;
   font-size: 21px;
-  max-width: 236px;
+  max-width: 100%;
   font-family: 'EB Garamond', serif;
   /*! height: 100%; */
   font-weight: normal;
@@ -366,7 +386,7 @@ main .highlight-container{
 
 .scroll-menu li p {
   text-align:center;
-  max-width: 236px;
+  max-width: 100%;
   margin-top:10px;
   font-size: 18px;
   font-family: 'EB Garamond', serif;
@@ -377,10 +397,11 @@ main .highlight-container{
 
 .scroll-menu img {
   display: block;
-  width: 100%;
+  width: 72%;
   height: 167px;
   object-fit: cover;
   border-radius: 8px;
+  margin: 0 auto; /* centers horizontally FOR BLOCK elements that flush left automatically */
 }
 
 .scroll-btn {

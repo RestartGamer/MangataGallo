@@ -223,18 +223,29 @@
                 <li id="dropdown-carpet-background"></li>
                 <script>
                     window.addEventListener("load", () => {
+                    
                     const options = document.querySelectorAll(".navbar__option");
 
                     options.forEach(option => {
                         const submenu = option.nextElementSibling; // each option's matching submenu
+                        const style = window.getComputedStyle(submenu);
+                        const paddingTop = parseInt(style.paddingTop) || 0;
+                        const paddingBottom = parseInt(style.paddingBottom) || 0;
+                        const rowGap = parseInt(style.rowGap) || 0;
+                        const sections = Array.from(submenu.querySelectorAll('.submenu__section'));
+
+                        // Get the vertical position of each section
+                        const tops = sections.map(s => s.offsetTop);
+
+                        // Count unique top values => number of rows
+                        const rows = new Set(tops).size;
+                        
+
+                        const gapHeight = Math.max(0, rows -1) * rowGap; // rows - 1 = number of gaps ; Math.max(0,...) = makes sure it never goes negative ; rowGap = the picel size of each gap 
 
                         if (submenu && submenu.classList.contains("submenu")) {
                             option.addEventListener("mouseenter", () => {
-                            const submenuHeight = submenu.scrollHeight; // full content height, adapts to grid
-                            document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
-                        });
-                        submenu.addEventListener("mouseenter", () => {
-                            const submenuHeight = submenu.scrollHeight;
+                            const submenuHeight = submenu.scrollHeight - paddingTop +rowGap; // full content height, adapts to grid
                             document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
                         });
                         }
@@ -246,7 +257,32 @@
         </nav>
 
         <div class="empty-filler"></div>
+        <section class="banner">
+        <h1>Our Special Selection</h1>
+        </section>
+        <ul class="highlight-container">
             
+            <li class="bracelets"> 
+                
+                <img src="media/bracelet-variant1.jpg">
+            </li>
+            <li class="watches">
+                
+                <img src="media/watch-variant2.PNG">
+            </li>
+            <li class="rings">
+                
+                <img src="media/ring-variant1.PNG">
+            </li>
+            <li class="necklaces">
+                
+                <img src="media/necklace-variant1.PNG">
+            </li>
+            <li class="earrings">
+                
+                <img src="media/earrings-variant1.PNG">
+            </li>
+        </ul>
         <section class="scroll-menu-wrapper"> 
             <div class="scroll-inner">
                 <button class="scroll-btn left">&lt;</button>
@@ -371,33 +407,11 @@
 
         </script>
 
-        <ul class="highlight-container">
-            <li class ="title" ><h1>Our Special Selection</h1></li>
-            <li class="bracelets"> 
-                <h2>Bracelet</h2>
-                <img src="media/bracelet-variant1.jpg">
-            </li>
-            <li class="watches">
-                <h2>Watches</h2>
-                <img src="media/watch-variant2.PNG">
-            </li>
-            <li class="rings">
-                <h2>Rings</h2>
-                <img src="media/ring-variant1.PNG">
-            </li>
-            <li class="necklaces">
-                <h2>Necklaces</h2>
-                <img src="media/necklace-variant1.PNG">
-            </li>
-            <li class="earrings">
-                <h2>Earrings</h2>
-                <img src="media/earrings-variant1.PNG">
-            </li>
-        </ul>
+        
 
     </main>
 
-    <script>
+    <!-- <script>
         [...document.querySelectorAll('*')].forEach(el => {
         const s = getComputedStyle(el);
         const createsSC =
@@ -410,7 +424,8 @@
             el.style.outline = '2px solid red';
         }
         });
-    </script>
+    </script> -->
+    
     <footer>
 
     </footer>
