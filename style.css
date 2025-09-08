@@ -327,7 +327,7 @@ main .highlight-container{
 }
 
 
-.scroll-menu-wrapper { /*Used to scpan the viewport width and center the whole thing*/
+.scroll-container { /*Used to scpan the viewport width and center the whole thing*/
   position: relative;
   width: 100%;           /* spans viewport */
   padding-top:100px;
@@ -339,7 +339,7 @@ main .highlight-container{
   
 }
 
-.scroll-menu {
+.scroll-container__menu {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth; /* smooth transition */
@@ -354,17 +354,17 @@ main .highlight-container{
   gap: 14px;
 }
 
-.scroll-inner{
+.scroll-container__menu-container{
   display:flex;
   width: max-content;    /* shrink to content */
   position: relative;    /* anchors arrows */
 }
 
-.scroll-menu::-webkit-scrollbar {
+.scroll-container__menu::-webkit-scrollbar {
   display: none; /* hide scrollbar (Chrome, Safari) */
 }
 
-.scroll-menu li {
+.scroll-container__menu li {
   flex: 0 0 auto;
   margin: 0 0px;
   /*! scroll-snap-align: center; */
@@ -375,7 +375,7 @@ main .highlight-container{
   /*! height: 100%; */
 }
 
-.scroll-menu li h2 {
+.scroll-container__menu li h2 {
   text-align:center;
   margin-top:15px;
   font-size: 21px;
@@ -385,7 +385,7 @@ main .highlight-container{
   font-weight: normal;
 }
 
-.scroll-menu li p {
+.scroll-container__menu li p {
   text-align:center;
   max-width: 100%;
   margin-top:10px;
@@ -396,7 +396,7 @@ main .highlight-container{
   font-weight: lighter;
 }
 
-.scroll-menu img {
+.scroll-container__menu img {
   display: block;
   width: 72%;
   height: 167px;
@@ -405,7 +405,7 @@ main .highlight-container{
   margin: 0 auto; /* centers horizontally FOR BLOCK elements that flush left automatically */
 }
 
-.scroll-btn {
+.scroll-container__directional-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -423,24 +423,24 @@ main .highlight-container{
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.scroll-btn:hover {
+.scroll-container__directional-button:hover {
   background: rgba(247, 0, 0, 0.8);
   transform: scale(1.1);
 }
 
 /* Critical: position relative to scroll content */
-.scroll-btn.left {
+.scroll-container__directional-button.left {
   left: -5%; /* hug the left edge of scroll-menu */
 }
 
-.scroll-btn.right {
+.scroll-container__directional-button.right {
   right: -5%; /* hug the right edge of scroll-menu */
 }
 
 
 
 
-.scroll-menu-wrapper2 { /*Used to scpan the viewport width and center the whole thing*/
+.scroll-container--modified { /*Used to scpan the viewport width and center the whole thing*/
   position: relative;
   width: 100%;           /* spans viewport */
   height: 400px;
@@ -450,7 +450,7 @@ main .highlight-container{
   background-color: rgb(254, 254, 255); /* for testing */
 }
 
-.scroll-menu2 {
+.scroll-container--modified__menu {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth; /* smooth transition */
@@ -466,17 +466,17 @@ main .highlight-container{
   
 }
 
-.scroll-inner2{
+.scroll-container--modified__menu-container{
   display:flex;
   position: relative;    /* anchors arrows */
   
 }
 
-.scroll-menu2::-webkit-scrollbar {
+.scroll-container--modified__menu::-webkit-scrollbar {
   display: none; /* hide scrollbar (Chrome, Safari) */
 }
 
-.scroll-menu2 li {
+.scroll-container--modified__menu li {
   flex: 0 0 auto;
   margin: 0 5px;
   scroll-snap-align: center;
@@ -493,7 +493,7 @@ main .highlight-container{
 }
 
 
-.scroll-btn2 {
+.scroll-container--modified__directional-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -511,16 +511,16 @@ main .highlight-container{
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.scroll-btn2:hover {
+.scroll-container--modified__directional-button:hover {
   background: rgba(247, 0, 0, 0.8);
   transform: scale(1.1);
 }
 
 /* Critical: position relative to scroll content */
-.scroll-btn2.left {
+.scroll-container--modified__directional-button.left {
   left: -5%; /* hug the left edge of scroll-menu */
 }
 
-.scroll-btn2.right {
+.scroll-container--modified__directional-button.right {
   right: -5%; /* hug the right edge of scroll-menu */
 }
