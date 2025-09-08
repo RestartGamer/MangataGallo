@@ -11,6 +11,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /*the fill type of the media*/
+  
+}
+body{
+  background-color:black;
 }
 
 header{
@@ -20,7 +24,7 @@ header{
   z-index: -1;
 }
 
-#logo-layout {
+#logo{
   width: 100vw;
   padding-top: 15px;
   padding-bottom: 14px;
@@ -29,23 +33,32 @@ header{
   
 }
 
-#logo{
+#logo__image{
   display:block; /*Since images are always inline, text-align also work on centering etc.*/
   margin:0 auto;
   z-index: 1;
 }
 
-
+#dropdown-carpet-background{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  height: var(--submenu-height);
+  background: rgb(0, 0, 0);
+  opacity:0;
+  transition: opacity 1s ease-in-out, height 0.5s ease-in-out;
+}
 
 #dropdown-carpet{
   position: absolute;
   left: 0;
   top: 100%;
   width: 100vw;
-  height: 500px;
+  height: var(--submenu-height);
   background: rgba(255, 255, 255, 0.9);
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
-  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
   z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
@@ -55,10 +68,10 @@ header{
   right: 0;
   top: 100%;
   width: 100vw;
-  height: 500px;
+  height: var(--submenu-height);
   background: rgba(163, 196, 196, 0.9);
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
-  transition: clip-path 0.5s ease-in-out;
+  transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
   z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
@@ -75,6 +88,10 @@ header{
   opacity:1;
 }
 
+.navbar__option:hover ~ #dropdown-carpet-background{
+  opacity:1;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -88,9 +105,10 @@ header{
   position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
   z-index: 1;
   width: 100vw;
-  padding: 20px 0px;
+  padding: 14px 0px;
   background-color: rgba(73, 104, 104, 0.85);
   margin:0;
+  gap: 5px;
 }
 
 
@@ -105,7 +123,7 @@ header{
   text-decoration: none;
   color: white;
   font-family: 'EB Garamond', serif;
-  font-size: 20px;
+  font-size: 19px;
   padding: 5px 15px;
   display: block;
 }
@@ -113,6 +131,7 @@ header{
 
 
 .submenu{
+  position: absolute;
   display:grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-auto-rows: max-content; /* rows expand to content ONLY and not the height set here */
@@ -121,14 +140,13 @@ header{
 
   overflow: visible;
 
-  position: absolute;
+  
   row-gap: 40px;
 
   padding-top:100px;
   border-left: 500px solid transparent;
   border-right: 500px solid transparent;
-  border-bottom: 175px;
-  min-height: 477px;
+  padding-bottom:220px;
   top:0;
   left: 50%;
   transform: translateX(-50%);
@@ -140,7 +158,7 @@ header{
   z-index: 3;
   opacity: 0;
   visibility:hidden;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease-in-out;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -218,10 +236,24 @@ nav .navbar__option:hover + .submenu,
 }
 
 main .empty-filler{
-  height:83vh;
+  height:70.7vh;
 }
 
-
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 57px;
+  /*! margin-bottom: 13px; */
+}
+.banner h1 {
+  font-size: 33.1px;
+  transform: translateY(29px);
+  font-family: 'EB Garamond', serif;
+  color: #242424;
+}
 
 
 main .highlight-container{
@@ -232,10 +264,10 @@ main .highlight-container{
   list-style:none;
 
   width: 100%;
-  background-color: rgb(254, 254, 255); /* for testing */
-  z-index: 1;
+  background-color: rgba(215, 230, 226, 0.89); /* for testing */
   position: relative;
   
+  padding-top: 93px;
 }
 
 .highlight-container li{
@@ -260,23 +292,23 @@ main .highlight-container{
   grid-column: 2;
 }
 .highlight-container li.bracelets {
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 .highlight-container li.watches {
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 .highlight-container li.rings {
-  grid-column: 2/4;
+  grid-column: 2/3;
 }
 
 .highlight-container li.necklaces{
-  grid-column: 5/8;
-  grid-row:2/4;
+  grid-column: 3/8;
+  grid-row:1/5;
 }
 
 .highlight-container li.earrings{
   grid-column: 5/8;
-  grid-row:4;
+  grid-row:5;
 }
 
 .highlight-container li img{
@@ -291,10 +323,11 @@ main .highlight-container{
 
 .highlight-container > * {
   outline: 1px solid rgba(255, 0, 0, 0);
+  /*! grid-row-start: 2; */
 }
 
 
-.scroll-menu-wrapper { /*Used to scpan the viewport width and center the whole thing*/
+.scroll-container { /*Used to scpan the viewport width and center the whole thing*/
   position: relative;
   width: 100%;           /* spans viewport */
   padding-top:100px;
@@ -302,12 +335,11 @@ main .highlight-container{
   display: flex;
   justify-content: center; /* centers inner scroll area */
   align-items: center;
-  z-index:1;
-  background-color: rgba(255, 255, 255, 0.89); /* for testing */
+  background-color: rgba(215, 230, 226, 0.89); /* for testing */
   
 }
 
-.scroll-menu {
+.scroll-container__menu {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth; /* smooth transition */
@@ -320,54 +352,60 @@ main .highlight-container{
   overflow-anchor: none;
   touch-action: pan-x;
   gap: 14px;
-  z-index:1;
 }
 
-.scroll-inner{
+.scroll-container__menu-container{
   display:flex;
   width: max-content;    /* shrink to content */
   position: relative;    /* anchors arrows */
 }
 
-.scroll-menu::-webkit-scrollbar {
+.scroll-container__menu::-webkit-scrollbar {
   display: none; /* hide scrollbar (Chrome, Safari) */
 }
 
-.scroll-menu li {
+.scroll-container__menu li {
   flex: 0 0 auto;
   margin: 0 0px;
-  scroll-snap-align: center;
-  padding: 40px 40px;
+  /*! scroll-snap-align: center; */
+  padding: 60px 40px;
   background-color: rgba(255, 255, 255, 0.59);
   border-radius: 20px;
+  width: 214px;
+  /*! height: 100%; */
 }
 
-.scroll-menu li h2 {
+.scroll-container__menu li h2 {
   text-align:center;
   margin-top:15px;
-  font-size: 20px;
-  max-width: 236px;
+  font-size: 21px;
+  max-width: 100%;
   font-family: 'EB Garamond', serif;
+  /*! height: 100%; */
+  font-weight: normal;
 }
 
-.scroll-menu li p {
+.scroll-container__menu li p {
   text-align:center;
-  max-width: 236px;
+  max-width: 100%;
   margin-top:10px;
-  font-size: 17px;
+  font-size: 18px;
   font-family: 'EB Garamond', serif;
 
+  /*! height: 100%; */
+  font-weight: lighter;
 }
 
-.scroll-menu img {
+.scroll-container__menu img {
   display: block;
-  width: 236px;
-  height: 206px;
+  width: 72%;
+  height: 167px;
   object-fit: cover;
   border-radius: 8px;
+  margin: 0 auto; /* centers horizontally FOR BLOCK elements that flush left automatically */
 }
 
-.scroll-btn {
+.scroll-container__directional-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -385,35 +423,34 @@ main .highlight-container{
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.scroll-btn:hover {
+.scroll-container__directional-button:hover {
   background: rgba(247, 0, 0, 0.8);
   transform: scale(1.1);
 }
 
 /* Critical: position relative to scroll content */
-.scroll-btn.left {
+.scroll-container__directional-button.left {
   left: -5%; /* hug the left edge of scroll-menu */
 }
 
-.scroll-btn.right {
+.scroll-container__directional-button.right {
   right: -5%; /* hug the right edge of scroll-menu */
 }
 
 
 
 
-.scroll-menu-wrapper2 { /*Used to scpan the viewport width and center the whole thing*/
+.scroll-container--modified { /*Used to scpan the viewport width and center the whole thing*/
   position: relative;
   width: 100%;           /* spans viewport */
   height: 400px;
   display: flex;
   justify-content: center; /* centers inner scroll area */
   align-items: center;
-  z-index:1;
   background-color: rgb(254, 254, 255); /* for testing */
 }
 
-.scroll-menu2 {
+.scroll-container--modified__menu {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth; /* smooth transition */
@@ -429,17 +466,17 @@ main .highlight-container{
   
 }
 
-.scroll-inner2{
+.scroll-container--modified__menu-container{
   display:flex;
   position: relative;    /* anchors arrows */
   
 }
 
-.scroll-menu2::-webkit-scrollbar {
+.scroll-container--modified__menu::-webkit-scrollbar {
   display: none; /* hide scrollbar (Chrome, Safari) */
 }
 
-.scroll-menu2 li {
+.scroll-container--modified__menu li {
   flex: 0 0 auto;
   margin: 0 5px;
   scroll-snap-align: center;
@@ -456,7 +493,7 @@ main .highlight-container{
 }
 
 
-.scroll-btn2 {
+.scroll-container--modified__directional-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -474,16 +511,16 @@ main .highlight-container{
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.scroll-btn2:hover {
+.scroll-container--modified__directional-button:hover {
   background: rgba(247, 0, 0, 0.8);
   transform: scale(1.1);
 }
 
 /* Critical: position relative to scroll content */
-.scroll-btn2.left {
+.scroll-container--modified__directional-button.left {
   left: -5%; /* hug the left edge of scroll-menu */
 }
 
-.scroll-btn2.right {
+.scroll-container--modified__directional-button.right {
   right: -5%; /* hug the right edge of scroll-menu */
 }

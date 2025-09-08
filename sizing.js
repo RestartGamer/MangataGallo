@@ -1,12 +1,12 @@
-const logoContainer = document.getElementById("logo-container");
-const logo = document.getElementById("logo");
+
+const logo = document.getElementById("logo__image");
 const navbar = document.getElementById("menu-main");
 
 function normalizeLogo() {
 
     const viewportWidth = window.innerWidth;
     const zoom = window.devicePixelRatio || 1;
-    const logo_width = logo.naturalWidth * 0.63;
+    const logo_width = 1580;
     const height = logo.naturalHeight;
 
     const minWidth = logo_width / zoom;
@@ -21,14 +21,6 @@ function normalizeLogo() {
     
     logo.style.width = scaledWidth + "px";
 
-
-    const baseSpacing = 20;
-    var adjustedSpacing = baseSpacing / zoom;
-
-    if (adjustedSpacing < 10) adjustedSpacing = 10;
-    if (adjustedSpacing > 40) adjustedSpacing = 40;
-
-    logoContainer.style.marginTop = adjustedSpacing + "px";
 
 }
 
