@@ -6,7 +6,7 @@ function normalizeLogo() {
 
     const viewportWidth = window.innerWidth;
     const zoom = window.devicePixelRatio || 1;
-    const logo_width = logo.naturalWidth * 0.63;
+    const logo_width = 1580;
     const height = logo.naturalHeight;
 
     const minWidth = logo_width / zoom;
