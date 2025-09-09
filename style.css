@@ -458,7 +458,7 @@ main .empty-filler{
 }
 
 
-main .collage-container__grid{
+.collage-container__grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 280px 280px 280px 280px 280px;
@@ -508,11 +508,13 @@ main .collage-container__grid{
   object-fit:cover;
   /*! align-items: start; */
   /*! justify-items: center; */
-
-  object-position: 10% 290%;
+  
+}
+.collage-container__grid li.necklaces img{
+  object-position: 10% 220%;
 }
 
-
+  
 .collage-container__grid > * {
   outline: 1px solid rgba(255, 0, 0, 0);
   /*! grid-row-start: 2; */
