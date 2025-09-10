@@ -48,6 +48,7 @@ header{
   background: rgb(0, 0, 0);
   opacity:0;
   transition: opacity 1s ease-in-out, height 0.5s ease-in-out;
+  pointer-events:none;
 }
 
 #dropdown-carpet{
@@ -247,6 +248,7 @@ main .empty-filler{
   padding-top: 0px;
   padding-bottom: 57px;
   /*! margin-bottom: 13px; */
+  width: 100vw;
 }
 .banner h1 {
   font-size: 33.1px;
@@ -457,6 +459,10 @@ main .empty-filler{
   right: -5%; /* hug the right edge of scroll-menu */
 }
 
+.collage-container {
+  width: 100vw;
+}
+
 
 .collage-container__grid{
   display:grid;
@@ -537,7 +543,7 @@ main .empty-filler{
 
 
 .collage-container__grid{
-  width:100%;
+  /*! width:100%; */
 }
 
 .collage-container__caption.one .collage-container__caption-container {
@@ -608,7 +614,6 @@ main .empty-filler{
 .collage-container__shop-now-button:hover .collage-container__shop-now-button-layout{
   transform: scaleY(1);
 }
-
 
 
 
