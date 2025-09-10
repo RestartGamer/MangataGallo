@@ -289,8 +289,8 @@ main .empty-filler{
 }
 
 .scroll-container__menu-container{
-  display:flex;
-  width: max-content;    /* shrink to content */
+  /*! display:flex; */
+  /*! width: max-content; */    /* shrink to content */
   position: relative;    /* anchors arrows */
 }
 
@@ -298,7 +298,7 @@ main .empty-filler{
   display: none; /* hide scrollbar (Chrome, Safari) */
 }
 
-.scroll-container__menu li {
+.scroll-container__menu-item {
   flex: 0 0 auto;
   margin: 0 0px;
   /*! scroll-snap-align: center; */
@@ -309,7 +309,7 @@ main .empty-filler{
   /*! height: 100%; */
 }
 
-.scroll-container__menu li h2 {
+.scroll-container__menu-item h2 {
   text-align:center;
   margin-top:15px;
   font-size: 21px;
@@ -319,7 +319,7 @@ main .empty-filler{
   font-weight: normal;
 }
 
-.scroll-container__menu li p {
+.scroll-container__menu-item p {
   text-align:center;
   max-width: 100%;
   margin-top:10px;
@@ -410,7 +410,7 @@ main .empty-filler{
   display: none; /* hide scrollbar (Chrome, Safari) */
 }
 
-.scroll-container--modified__menu li {
+.scroll-container--modified__menu-item {
   flex: 0 0 auto;
   margin: 0 5px;
   scroll-snap-align: center;
@@ -480,12 +480,9 @@ main .empty-filler{
 }
 
 .collage-container__grid li{
-  /*! text-align: center; */
-  justify-content: center;  /* optional, centers content vertically */
-  align-items: center;      /* optional, centers horizontally */
-  
-  
+  min-width: 200px;
 }
+
 
 .collage-container__grid li h1{
   position: absolute;
@@ -541,10 +538,6 @@ main .empty-filler{
   width: 100.0%;
 }
 
-
-.collage-container__grid{
-  /*! width:100%; */
-}
 
 .collage-container__caption.one .collage-container__caption-container {
     position: absolute;
