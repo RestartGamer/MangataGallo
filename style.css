@@ -467,7 +467,7 @@ main .empty-filler{
 .collage-container__grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 280px 280px 280px 280px 280px;
+  grid-template-rows: repeat(5, 30vh);
 
   list-style:none;
 
