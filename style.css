@@ -38,7 +38,7 @@ header{
   margin:0 auto;
   z-index: 1;
 }
-
+/*CARPETS /////////////////////////////////////////////////*/
 #dropdown-carpet-background{
   position: absolute;
   left: 0;
@@ -50,7 +50,6 @@ header{
   transition: opacity 1s ease-in-out, height 0.5s ease-in-out;
   pointer-events:none;
 }
-
 #dropdown-carpet{
   position: absolute;
   left: 0;
@@ -78,28 +77,14 @@ header{
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
   
 }
-.navbar__option:hover ~ #dropdown-carpet,
-.submenu:hover ~ #dropdown-carpet {
-  clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
-  opacity:1;
-}
-.navbar__option:hover ~ #dropdown-carpet2,
-.submenu:hover ~ #dropdown-carpet2 {
-  clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
-  opacity:1;
-}
 
-.navbar__option:hover ~ #dropdown-carpet-background{
-  opacity:1;
-}
-
+/*NAVBAR /////////////////////////////////////////////////*/
 .navbar {
   position: sticky;
   top: 0;
   grid-row:2; /*not really necessary since the browser already interprets it this way*/
   z-index: 1;
 }
-
 .navbar__menu {
   display: flex;
   justify-content: center;
@@ -111,16 +96,13 @@ header{
   margin:0;
   gap: 5px;
 }
-
-
-.navbar__menu .navbar__option {
+.navbar__option {
   /*No button relative here, so I can get the hover zone to span across the entire navbar*/
   cursor: pointer; /*changes cursor appearance when NOT hovering over it*/
   list-style: none;
   z-index: 4;
 }
-
-.navbar__menu .navbar__option .navbar__option-link {
+.navbar__option-link {
   text-decoration: none;
   color: white;
   font-family: 'EB Garamond', serif;
@@ -128,9 +110,25 @@ header{
   padding: 5px 15px;
   display: block;
 }
+.navbar__option:hover ~ #dropdown-carpet,
+.submenu:hover ~ #dropdown-carpet {
+  clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
+  opacity:1;
+}
+.navbar__option:hover ~ #dropdown-carpet2,
+.submenu:hover ~ #dropdown-carpet2 {
+  clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
+  opacity:1;
+}
+.navbar__option:hover ~ #dropdown-carpet-background{
+  opacity:1;
+}
 
-
-
+/*SUBMENU /////////////////////////////////////////////////////////////*/
+.submenu * {
+  pointer-events: auto; /* allow interaction INSIDE submenu */
+  outline: 1px solid rgba(255, 0, 0, 0);
+}
 .submenu{
   position: absolute;
   display:grid;
@@ -141,7 +139,6 @@ header{
 
   overflow: visible;
 
-  
   row-gap: 40px;
 
   padding-top:100px;
@@ -162,101 +159,200 @@ header{
   transition: opacity 0.5s ease-in-out;
   background-color: rgba(0, 0, 0, 0);
 }
-
-
-.submenu * {
-  pointer-events: auto; /* allow interaction INSIDE submenu */
-  outline: 1px solid rgba(255, 0, 0, 0);
-}
-
 .submenu__section{
   min-width:540px; /*This seems to be enough to push the grid cells from left to right and top to bottom*/
-}
-
-.submenu__section.wide {
-  grid-column: span 2;
-}
-
-
-.submenu__section.bracelets {
   position: relative; /*This is to remove the image from the grid flow for more flexibility*/
+  outline: 1px solid rgb(255, 0, 0);
 }
-
-.submenu__section.bracelets img{
+.submenu__section img{
   position: absolute;
   top: 100%;  /* adjust as needed */
   left: 0;
   max-height: 360px;
   width: auto;
 }
-
-
-
-
-
-
-.submenu h2 {
+.submenu__section h2 {
   color: rgb(143, 143, 143);
   font-size: 25px; /*was 18px*/
-  margin-bottom: 5px;
   font-family: 'EB Garamond', serif;
-
+  margin-bottom: 5px;
 }
-
-.submenu ul {
-  padding: 0;
-  margin-top: 8px;
-  
+.submenu__section ul {
+  list-style:none; 
+  margin-bottom: 8px;
 }
-
-.submenu li{
-  display:block; /*Instead of stacking inline*/
-}
-
-.submenu ul li a {
+.submenu__section ul li a {
   color: rgb(26, 26, 26);
   text-decoration: none;
   font-family: 'EB Garamond', serif;
   font-size: 20px;
-  padding: 3px 0;
-  margin-top: 2px;
-
 }
-
-
-
-
-
-/* Show dropdown only when hovering the button */
-nav .navbar__option:hover + .submenu,
+.navbar__option:hover + .submenu,
 .submenu:hover {
   opacity: 1;
   pointer-events: auto;
-  display:grid;
   visibility: visible;
 }
 
+/**/
 main .empty-filler{
-  height:70.7vh;
+  height:74.9vh;
 }
+/**/
 
-.banner {
+.title-banner {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  padding-top: 0px;
-  padding-bottom: 57px;
-  /*! margin-bottom: 13px; */
   width: 100vw;
+  height: 9vh;
 }
-.banner h1 {
-  font-size: 33.1px;
-  transform: translateY(29px);
+.title-banner h1 {
+  font-size: 35.1px;
   font-family: 'EB Garamond', serif;
   color: #242424;
 }
 
+/*COLLAGE ///////////////////////////////////////////////////*/
+.collage {
+  position: relative;
+  width: 100vw;
+}
+
+.collage__grid * {
+  outline: 1px solid rgba(255, 0, 0, 0);
+}
+
+.collage__grid{ /*grid list*/
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 25vh);
+  list-style:none;
+  background-color: rgba(215, 230, 226, 0.89); /* for testing */
+  padding-top: 69.1px;
+  width: 100vw;
+  position: relative;
+}
+
+.collage__grid-item{
+  position:relative;
+}
+
+.collage__grid-item.bracelets, .collage__grid-item.watches,
+.collage__grid-item.rings,.collage__grid-item.earrings,.collage__grid-item.necklaces {
+  grid-column: 1;
+}
+
+.collage__grid-item.model{
+  grid-column: 2;
+  grid-row:1/6;
+}
+
+
+
+.collage__grid-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition: transform 2s ease;
+  transform: scale(1);
+}
+
+.collage__grid-item.rings img {
+  object-position: 60% 45%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 5s ease; /* slow animation */
+}
+.collage__grid-item.bracelets img {
+  object-position: 10% 53%;
+  width: 100%;
+}
+.collage__grid-item.watches img {
+  object-position: 10% 18%;
+  width: 100.0%;
+}
+.collage__grid-item.necklaces img {
+  object-position: 10% 70%;
+  width: 100.0%;
+}
+.collage__grid-item.model img{
+  object-position: 10% 30%;
+}
+
+
+
+.collage__grid-item:hover img {
+  transform: scale(1.1); /* zooms out to reveal more */
+}
+
+
+.collage__grid-button {
+  position: absolute;
+  top: 35.5%;
+  left: 4.7%;
+  width: 100%;
+  z-index:5;
+}
+
+.collage__grid-button h1 {
+  all:unset;
+  font-size:45px ;
+  font-family: 'EB Garamond', serif;
+  color:white;
+  outline-color: black;
+  text-shadow: 1px 1px 0 #626262; 
+}
+
+
+
+
+
+
+
+
+.collage__grid-button-center {
+  all:unset;
+  position: absolute;
+  top: 50%;
+  left: 50.0%;
+  transform: translateX(-50%);
+  width: 19.3%;
+  height: 80.6px;
+  border: 3px solid black;
+  outline: 3px solid darkgrey;
+  z-index:10;
+  cursor:pointer;
+}
+
+.collage__grid-button-animation {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 1s ease-in-out;
+  background-color: skyblue;
+  z-index:1;
+}
+
+
+.collage__grid-button-center h1{
+  position:relative;
+  text-align:center;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 0 #626262;
+  z-index:9;
+}
+
+.collage__grid-button-center:hover .collage__grid-button-animation{
+  transform: scaleY(1);
+  
+}
 
 
 
@@ -457,155 +553,6 @@ main .empty-filler{
 
 .scroll-container--modified__directional-button.right {
   right: -5%; /* hug the right edge of scroll-menu */
-}
-
-.collage-container {
-  width: 100vw;
-}
-
-
-.collage-container__grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(5, 25vh);
-
-  list-style:none;
-
-  width: 100%;
-  background-color: rgba(215, 230, 226, 0.89); /* for testing */
-  position: relative;
-  
-  padding-top: 93px;
-  justify-content: center;
-}
-
-.collage-container__grid li{
-  min-width: 200px;
-}
-
-
-.collage-container__grid li h1{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0%;
-  font-size:50px ;
-  font-family: 'EB Garamond', serif;
-}
-.collage-container__grid li.bracelets,
-.collage-container__grid li.watches,
-.collage-container__grid li.rings,
-.collage-container__grid li.earrings {
-  grid-column: 1;
-}
-
-.collage-container__grid li.necklaces{
-  grid-column: 2;
-  grid-row:1/6;
-}
-
-
-.collage-container__grid li img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  /*! align-items: start; */
-  /*! justify-items: center; */
-  
-}
-.collage-container__grid li.necklaces img{
-  object-position: 10% 220%;
-}
-
-  
-.collage-container__grid > * {
-  outline: 1px solid rgba(255, 0, 0, 0);
-  /*! grid-row-start: 2; */
-}
-
-
-.collage-container__grid .rings img {
-  object-position: 60% 45%;
-  width: 100%;
-  object-fit: cover;
-}
-.collage-container__grid .bracelets img {
-  object-position: 10% 53%;
-  width: 100%;
-}
-.collage-container__grid .watches img {
-  object-position: 10% 18%;
-  width: 100.0%;
-}
-
-
-.collage-container__caption.one .collage-container__caption-container {
-    position: absolute;
-      top: 7.6%;
-        left: -9.1%;
-          width: 100%;
-          }
-          .collage-container__caption.two .collage-container__caption-container {
-             position: absolute;
-                 top: 37.3%;
-                     left: -42.8%;
-                         width: 100%;
-}
-
-
-
-
-.collage-container__caption.one div h1,
-.collage-container__caption.two div h1{
-  color:white;
-  outline-color: black;
-  
-  text-shadow: 1px 1px 0 #626262; 
-  
-}
-.collage-container__shop-now-button-container {
-  position: absolute;
-  top: 50%;
-  left: 50.0%;
-  transform: translateX(-50%);
-  background-color: #b0b0b000;
-  width: 19.3%;
-  height: 80.6px;
-  border: 2px solid black;
-  outline-color: black;
-}
-.collage-container__shop-now-button {
-  position:absolute;
-  top:0;
-  left:0;
-  all:unset;
-  width:100%;
-  height:100%;
-}
-
-.collage-container__shop-now-button-layout {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 1s ease-in-out;
-  background-color: skyblue;
-}
-
-
-
-.collage-container__shop-now-button h1{
-  text-align:center;
-  width: 100%;
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 0 #626262;
-}
-
-.collage-container__shop-now-button:hover .collage-container__shop-now-button-layout{
-  transform: scaleY(1);
 }
 
 
