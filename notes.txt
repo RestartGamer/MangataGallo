@@ -76,3 +76,5 @@ scrollMenu.addEventListener("scroll", () => {
     scrollMenu.scrollLeft += sectionWidth;
   }
 });
+
+------

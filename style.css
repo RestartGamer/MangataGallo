@@ -245,11 +245,28 @@ main .empty-filler{
 }
 
 .collage__grid-item.model{
+  position:relative;
   grid-column: 2;
   grid-row:1/6;
 }
 
+.collage__grid-item-submenu{
+  position:absolute;
+  align-items:center;
+  top:0;
+  left:-100%;
+  width:50vw;
+  height:100%;
+  background-color:white;
+}
 
+.collage__grid-item-submenu div {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
 
 .collage__grid-item img{
   width:100%;
@@ -283,17 +300,52 @@ main .empty-filler{
 
 
 
+.collage__grid-scroll-list {
+  position:absolute;
+  display:flex;
+  top: 25%;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.collage__grid-scroll-item img{
+  max-height:20vh;
+  width:auto;
+}
+.collage__grid-scroll-item div {
+  display:flex;
+  width:max-content;
+  height:max-content;
+  justify-content:center;
+  align-items:center;
+}
+
+.collage__grid-scroll-item div h1 {
+  text-align:center;
+  margin-bottom:3vh;
+  color:black;
+}
+.collage__grid-scroll-item div p {
+  text-align:center;
+  color: black;
+}
+
+
+
+
+
 .collage__grid-item:hover img {
   transform: scale(1.1); /* zooms out to reveal more */
 }
 
 
 .collage__grid-button {
+  all:unset;
   position: absolute;
   top: 35.5%;
   left: 4.7%;
   width: 100%;
-  z-index:5;
+  /*z-index:5; THIS IS CAUSING INTEREFERECNE*/
 }
 
 .collage__grid-button h1 {
@@ -304,11 +356,6 @@ main .empty-filler{
   outline-color: black;
   text-shadow: 1px 1px 0 #626262; 
 }
-
-
-
-
-
 
 
 
@@ -351,11 +398,7 @@ main .empty-filler{
 
 .collage__grid-button-center:hover .collage__grid-button-animation{
   transform: scaleY(1);
-  
 }
-
-
-
 
 .scroll-container { /*Used to scpan the viewport width and center the whole thing*/
   position: relative;
