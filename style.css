@@ -250,6 +250,12 @@ main .empty-filler{
   grid-row:1/6;
 }
 
+.collage__grid-item--model-half-full .megadropdown-hor{
+  z-index:2;
+  /*! position: relative; */
+}
+
+
 .collage__grid-item--model-half-full .megadropdown-hor__animation{
   position:absolute;
   align-items:center;
@@ -292,6 +298,7 @@ main .empty-filler{
 }
 
 
+
 .collage__grid-item--model-half-full .megadropdown-hor__mono-scroll-list {
   /*! position: absolute; */
   list-style:none;
@@ -325,8 +332,8 @@ main .empty-filler{
   line-height: 2.3vh;
 }
 
-.collage__grid-item--model-half-full:hover .megadropdown-hor__animation,
-.collage__grid-item--model-half-full:hover .megadropdown-hor__content{
+.collage__grid-item--model-half-full:hover .megadropdown-hor .megadropdown-hor__animation,
+.collage__grid-item--model-half-full:hover .megadropdown-hor .megadropdown-hor__content{
   width:50vw;
   transform:scaleX(1);
   opacity:1;
@@ -412,7 +419,7 @@ main .empty-filler{
   top: 35.5%;
   left: 4.7%;
   width: 100%;
-  /*z-index:5; THIS IS CAUSING INTEREFERECNE*/
+  /*! z-index:1; */ /* THIS IS CAUSING INTEREFERECNE*/
 }
 
 .collage__grid-button h1 {
@@ -422,6 +429,7 @@ main .empty-filler{
   color:white;
   outline-color: black;
   text-shadow: 1px 1px 0 #626262; 
+  /*! z-index: 10; */
 }
 
 
