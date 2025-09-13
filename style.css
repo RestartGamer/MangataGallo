@@ -244,31 +244,96 @@ main .empty-filler{
   grid-column: 1;
 }
 
-.collage__grid-item.model{
+.collage__grid-item--model-half-full{
   position:relative;
   grid-column: 2;
   grid-row:1/6;
 }
 
-.collage__grid-item-submenu{
+.collage__grid-item--model-half-full .megadropdown-hor__animation{
   position:absolute;
   align-items:center;
   top:0;
   left:-100%;
   width:50vw;
   height:100%;
+  transform:scalex(0);
+  transition:transform 0.5s ease-in-out;
+  transform-origin:right;
   background-color:white;
+  pointer-events:none;
 }
 
-.collage__grid-item-submenu div {
-  position: absolute;
-  top: 44%;
-  left: 50%;
-  transform: translateX(-50%);
+.collage__grid-item--model-half-full .megadropdown-hor__content{
+  position:absolute;
+  align-items:center;
+  top:0;
+  left:-100%;
+  width:50vw;
+  height:100%;
+  pointer-events:none;
+  opacity:0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7.6vh;
+}
+
+.collage__grid-item--model-half-full .megadropdown-hor__mono-scroll {
+  display:flex;
+  flex-direction:row;
+}
+
+.collage__grid-item--model-half-full .megadropdown-hor__mono-scroll-list-item img{
+  width:14.2vw;
+  object-fit: cover;
+  height: 25.6vh;
+}
+
+
+.collage__grid-item--model-half-full .megadropdown-hor__mono-scroll-list {
+  /*! position: absolute; */
+  list-style:none;
+  /*! top: 50%; */
+  /*! left: 50%; */
+  /*! transform: translateX(-50%) translateY(-50%); */
+  /*! text-align: center; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /*! justify-content: end; */
+  /*! margin-left: 50%; */
+  /*! transform: translateX(calc(50%/1.5)); */
+  overflow-x: auto;
+  /*! scrollbar-width: none; */
+  width: 14vw;
+  scroll-behavior: smooth;
+}
+
+.collage__grid-item--model-half-full .megadropdown-hor__content-text {
   text-align: center;
+  width: 15.4vw;
+  /*! gap: 10; */
 }
 
-.collage__grid-item img{
+.collage__grid-item--model-half-full .megadropdown-hor__content-text h1 {
+  margin-bottom: 1.6vh;
+}
+.collage__grid-item--model-half-full .megadropdown-hor__content-text p {
+  /*! margin-top: 15vh; */
+  line-height: 2.3vh;
+}
+
+.collage__grid-item--model-half-full:hover .megadropdown-hor__animation,
+.collage__grid-item--model-half-full:hover .megadropdown-hor__content{
+  width:50vw;
+  transform:scaleX(1);
+  opacity:1;
+  pointer-events:auto;
+}
+
+.collage__grid-item > img{
   width:100%;
   height:100%;
   object-fit:cover;
@@ -294,8 +359,10 @@ main .empty-filler{
   object-position: 10% 70%;
   width: 100.0%;
 }
-.collage__grid-item.model img{
+.collage__grid-item--model-half-full img{
   object-position: 10% 30%;
+  /*! width: 238px; */
+  /*! object-fit: cover; */
 }
 
 
@@ -335,7 +402,7 @@ main .empty-filler{
 
 
 .collage__grid-item:hover img {
-  transform: scale(1.1); /* zooms out to reveal more */
+  transform: scale(1.02); /* zooms out to reveal more */
 }
 
 
@@ -415,15 +482,15 @@ main .empty-filler{
 .scroll-container__menu {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth; /* smooth transition */
+  scroll-behavior: smooth; /* smooth transition - this is already set in JS*/
   list-style: none;
   margin: 0;
   padding: 0;
   scrollbar-width: none; /* hide scrollbar (Firefox) */
   width: 80vw;
    /* stop the browser from “helping” when DOM changes */
-  overflow-anchor: none;
-  touch-action: pan-x;
+  /*! overflow-anchor: none;  DOESN*T SEEM TO DO ANYTHING*/
+  /*! touch-action: pan-x; DOESN'T SEEM TO DO ANYTHING EITHER*/
   gap: 14px;
 }
 
