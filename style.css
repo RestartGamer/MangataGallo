@@ -83,7 +83,7 @@ header{
   position: sticky;
   top: 0;
   grid-row:2; /*not really necessary since the browser already interprets it this way*/
-  z-index: 1;
+  z-index: 20;
 }
 .navbar__menu {
   display: flex;
@@ -227,7 +227,7 @@ main .empty-filler{
 .collage__grid{ /*grid list*/
   display:grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(5, 25vh);
+  grid-template-rows: repeat(6, 25vh);
   list-style:none;
   background-color: rgba(215, 230, 226, 0.89); /* for testing */
   padding-top: 69.1px;
@@ -247,8 +247,14 @@ main .empty-filler{
 .collage__grid-item--model-half-full{
   position:relative;
   grid-column: 2;
-  grid-row:1/6;
+  grid-row:1/7;
 }
+
+
+.collage__grid-item.collage__grid-item--half-quarter.necklaces {
+  grid-row: 5/7;
+}
+
 
 .collage__grid-item--model-half-full .megadropdown-hor{
   z-index:2;
@@ -287,7 +293,7 @@ main .empty-filler{
   transform:scalex(0);
   transition:transform 0.5s ease-in-out;
   transform-origin:right;
-  background-color:white;
+  background-color:#ffffffe0;
   pointer-events:none;
 }
 
@@ -364,77 +370,101 @@ main .empty-filler{
 
 
 
-.collage__grid-item > img{
+.collage__grid-item  img{
   width:100%;
   height:100%;
   object-fit:cover;
+}
+.collage__grid-item--half-quarter img{
+  position:absolute;
+  opacity:1;
+  transition: height 0.8s ease-in-out, opacity 1.5s ease-in-out;
+  
+}
+
+.collage__grid-item--half-quarter.bracelets img {
+  object-position: 10% 53%;
+}
+.collage__grid-item--half-quarter.watches img {
+  object-position: 10% 18%;
+}
+.collage__grid-item--half-quarter.rings img {
+  object-position: 60% 45%;
+}
+.collage__grid-item--half-quarter.earrings img {
+  object-position: 10% 70%;
+}
+
+.collage__grid-item--half-quarter.necklaces img {
+  object-position: 10% 70%;
+  max-height: 100%;
+}
+
+
+.collage__grid-item--model-half-full img{
+  object-position: 10% 30%;
   transition: transform 2s ease;
   transform: scale(1);
 }
 
-.collage__grid-item.rings img {
-  object-position: 60% 45%;
-  width: 100%;
-  object-fit: cover;
-  transition: transform 5s ease; /* slow animation */
-}
-.collage__grid-item.bracelets img {
-  object-position: 10% 53%;
-  width: 100%;
-}
-.collage__grid-item.watches img {
-  object-position: 10% 18%;
-  width: 100.0%;
-}
-.collage__grid-item.necklaces img {
-  object-position: 10% 70%;
-  width: 100.0%;
-}
-.collage__grid-item--model-half-full img{
-  object-position: 10% 30%;
-  /*! width: 238px; */
-  /*! object-fit: cover; */
-}
 
-
-
-.collage__grid-scroll-list {
+.collage__grid-item--half-quarter:hover img{
   position:absolute;
-  display:flex;
-  top: 25%;
+  height:190%;
+  z-index:2;
+}
+
+.collage__grid-button-animated:hover .collage__grid-button-animation {
+  transform: scaleY(1);
+}
+
+.collage__grid-item--half-quarter:hover + .collage__grid-item--half-quarter img {
+  opacity: 0;
+}
+
+.collage__grid-item--half-quarter .collage__grid-button-animated {
+  all:unset;
+  position:absolute;
+  top:50%;
   left:50%;
-  transform: translateX(-50%);
-}
-
-.collage__grid-scroll-item img{
-  max-height:20vh;
-  width:auto;
-}
-.collage__grid-scroll-item div {
-  display:flex;
-  width:max-content;
-  height:max-content;
-  justify-content:center;
-  align-items:center;
-}
-
-.collage__grid-scroll-item div h1 {
+  transform:translateX(-50%) translateY(-50%);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 0 #626262;
+  width:20%;
+  height:20%;
+  border: 3px solid black;
+  outline: 3px solid darkgrey;
+  opacity:0;
+  transition: top 1.3s ease-in-out, opacity 1s ease-in-out;
   text-align:center;
-  margin-bottom:3vh;
-  color:black;
-}
-.collage__grid-scroll-item div p {
-  text-align:center;
-  color: black;
+  z-index:4;
+  pointer-events:none;
 }
 
+.collage__grid-item--half-quarter .collage__grid-button-animated .collage__grid-button-animation {
+ z-index:2;
+}
+
+.collage__grid-item--half-quarter .collage__grid-button-animated h1 {
+  position:relative;
+  z-index:3;
+}
 
 
+.collage__grid-item--half-quarter:hover .collage__grid-button-animated{
+  top:68%;
+  opacity:1;
+  pointer-events:auto;
+  cursor:pointer;
+}
 
-
-.collage__grid-item:hover img {
+.collage__grid-item--model-half-full:hover  img {
   transform: scale(1.02); /* zooms out to reveal more */
 }
+
+
+
+
 
 
 .collage__grid-button {
