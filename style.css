@@ -254,14 +254,28 @@ main .empty-filler{
   z-index:2;
   /*! position: relative; */
 }
+.collage__grid-item--model-half-full .megadropdown-hor__launch-button {
+  position:absolute;
+  top:50%;
+  left:0;
+  transform:translateY(-50%);
+  height:10vh;
+  width:10vh;
+  /*! background-color:black; */
+  /*! z-index:20; */
+}
+.collage__grid-item--model-half-full .megadropdown-hor__launch-button img {
+  width:100%;
+  height:100%;
+}
 
 .collage__grid-item--model-half-full .megadropdown-hor__layout-position{
   position:absolute;
   /*! align-items:center; */
-  top:42.9%;
+  top:50%;
   left:-100%;
   width:50vw;
-  height:55%;
+  height:100%;
   transform:translateY(-50%);
 
   pointer-events:none;
@@ -339,13 +353,16 @@ main .empty-filler{
   line-height: 2.3vh;
 }
 
-.collage__grid-item--model-half-full:hover .megadropdown-hor__layout-position .megadropdown-hor__animation,
-.collage__grid-item--model-half-full:hover .megadropdown-hor__layout-position .megadropdown-hor__content{
-  width:50vw;
+.collage__grid-item--model-half-full .megadropdown-hor__launch-button:hover ~ .megadropdown-hor__layout-position .megadropdown-hor__animation,
+.collage__grid-item--model-half-full .megadropdown-hor__launch-button:hover ~ .megadropdown-hor__layout-position .megadropdown-hor__content,
+.collage__grid-item--model-half-full .megadropdown-hor__layout-position:hover .megadropdown-hor__animation,
+.collage__grid-item--model-half-full .megadropdown-hor__layout-position:hover .megadropdown-hor__content {
   transform:scaleX(1);
   opacity:1;
   pointer-events:auto;
 }
+
+
 
 .collage__grid-item > img{
   width:100%;
