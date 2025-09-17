@@ -893,7 +893,115 @@ main .empty-filler{
 }
 
 
+.flex {
+  display:flex;
+  flex-direction:row;
+  width:100vw;
+  height:100vh;
+}
 
+.flex__section{
+  display:flex;
+  flex-direction:column;
+  aspect-ratio: 1 / 1; /* keeps it square */
+  width: 50vw;
+  /*! margin-left: 3vw; */
+  /*! margin-right: 3vw; */
+  background-color: white;
+}
+
+.flex__section-cell{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+
+/*
+.flex__item-triangle-layout-back[data-flex-id="1"] {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%); 
+  background-color:rgba(0, 0, 0, 0.91);
+  
+  width:100%;
+  height:100%;
+  border-radius: 140px;
+}
+
+.flex__item-triangle-layout-back[data-flex-id="2"] {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 100% 100%); 
+  background-color:rgba(167, 67, 67, 0.91);
+  
+  width:100%;
+  height:100%;
+  border-radius: 140px;
+}
+
+.flex__item-triangle-layout-back[data-flex-id="3"] {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%); 
+  
+  background-color:rgba(0, 0, 0, 0.91);
+  
+  width:100%;
+  height:100%;
+  border-radius: 140px;
+}
+
+.flex__item-triangle-layout-back[data-flex-id="4"] {
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 100%); 
+  background-color:rgba(167, 67, 67, 0.91);
+  
+  width:100%;
+  height:100%;
+  border-radius: 140px;
+}
+*/
+.flex__section-cell .flex__item-triangle img{
+  object-fit:cover;
+  /*! border-radius: 57px; */
+  /*! object-position: center; */
+}
+.flex__section-cell .flex__item-triangle[data-flex-id="1"] img{
+  width:100%;
+  height:100%;
+  clip-path: polygon(0 0, 100% 0, 50% 50%, 0 0%); 
+}
+.flex__section-cell .flex__item-triangle[data-flex-id="2"] img{
+  width:100%;
+  height:100%;
+  clip-path: polygon(100% 100%, 100% 0%, 50% 50%, 50% 50%); 
+}
+.flex__section-cell .flex__item-triangle[data-flex-id="3"] img{
+  width:100%;
+  height:100%;
+  clip-path: polygon(0 0, 50% 50%, 100% 0%, 100% 0%); 
+}
+.flex__section-cell .flex__item-triangle[data-flex-id="4"] img{
+  width:100%;
+  height:100%;
+  clip-path: polygon(0 0, 0 100%, 50% 50%, 50% 50%);
+}
+
+
+
+
+
+/* RULE OF THUMB left X is half of right X to have the proper distance from the background polygon
+.flex__item-triangle-layout-front {
+  transform-origin: left; 
+  background-color:rgba(149, 178, 106, 0.91);
+  width:100%;
+  height:100%;
+    clip-path: polygon(calc(0% + 2.5%) calc(0% + 5%), calc(100% - 10%) calc(0% + 5%), calc(100% - 10%) calc(0% + 5%),calc(0% + 2.5%) calc(100% - 10%));
+    border-radius: 281px;
+}*/
+
+.flex__item-triangle-position {
+  position:absolute;
+  top:0%;;
+  left:0%;
+  width:100%;
+  height:100%;
+}
 
 
 
