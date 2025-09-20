@@ -36,7 +36,7 @@
   --selection-grid-cell-p-height:1vh;
 
   --scroll-highlight-margin-horizontal:5vw;
-  --scroll-highlight-grid-cell-width: 22vw;
+  --scroll-highlight-grid-cell-width: 24vw;
   --scroll-highlight-grid-cell-height: 1vw;
   --scroll-highlight-width: 100vw;
   --scroll-highlight-height: 61vh;
@@ -1217,9 +1217,15 @@ main .empty-filler{
   object-fit:cover;
 }
 
-.scroll-highlight {
+.scroll-highlight__container {
   width:var(--scroll-highlight-width); /*Update the number here with JS*/
   height:var(--scroll-highlight-height);
+  background-color: rgba(215, 230, 226, 0.89); /* for testing */
+}
+
+.scroll-highlight {
+  width:100%; /*Update the number here with JS*/
+  height:100%;
   grid-template-columns: repeat(10, max-content); /*Update the number here with JS*/
   grid-template-rows: 1fr;
   column-gap: calc(((var(--scroll-highlight-width) - calc(var(--scroll-highlight-margin-horizontal)*2 + var(--scroll-highlight-grid-cell-width)*var(--scroll-highlight-number-of-visible-items))) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - 0.5vw);
@@ -1232,18 +1238,25 @@ main .empty-filler{
   position:relative;
   width:var(--scroll-highlight-grid-cell-width);
   border: 2px solid red;
+}
+
+.scroll-highlight__grid-cell-content {
+  position:relative;
   display:flex;
   flex-direction:column;
   justify-content:left;
-  align-items: center;
+  align-items:center;
+  width:100%;
+  height:100%;
+  margin-top: 5.9vh;
 }
 
 .scroll-highlight__image-cell {
   position:relative;
-  width:50%;
-  height:50%;
+  width:61.8%;
+  /*! height:25.5%; */
   border: 2px solid rgb(4, 0, 255);
-  margin-top:5%;
+  aspect-ratio: 1 / 1;
 }
 
 .scroll-highlight__image-content {
@@ -1253,4 +1266,16 @@ main .empty-filler{
   
   width:100%;
   height:100%;
+}
+
+.scroll-highlight__text-content {
+  text-align:center;
+  margin-top: 4.6vh;
+}
+.scroll-highlight__text-content h1{
+  margin-bottom:3.0vh;
+  font-size:1.6rem;
+}
+.scroll-highlight__text-content p{
+  font-size:1.1rem;
 }
