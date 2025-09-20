@@ -40,7 +40,7 @@
   --scroll-highlight-grid-cell-height: 1vw;
   --scroll-highlight-width: calc(100vw - var(--scroll-highlight-margin-horizontal) * 2);
   --scroll-highlight-height: 61vh;
-  --scroll-highlight-margin-offset-fix: 1vw;
+  --scroll-highlight-margin-offset-fix: 0.7vw;
   --scroll-highlight-number-of-visible-items: 3;
 }
 
@@ -1233,6 +1233,9 @@ main .empty-filler{
   grid-template-rows: 1fr;
   column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
   justify-items: left;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overflow-x: auto;
 }
 
 .scroll-highlight__button {
@@ -1263,6 +1266,7 @@ main .empty-filler{
   position:relative;
   width:var(--scroll-highlight-grid-cell-width);
   border: 2px solid red;
+  
 }
 
 .scroll-highlight__grid-cell-content {
