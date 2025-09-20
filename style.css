@@ -1233,8 +1233,30 @@ main .empty-filler{
   grid-template-rows: 1fr;
   column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
   justify-items: left;
-  
+}
 
+.scroll-highlight__button {
+  all:unset;
+  display: flex;
+  font-size: 3.2rem;
+  border: 1px solid black;
+  border-radius: 100%;
+  width: 3.9vw;
+  height:3.9vw;
+  justify-content:center;
+  align-items:center;
+}
+.scroll-highlight__button--left{
+  position:absolute;
+  left: 0;
+  top: 50%;
+  transform:translateY(-50%);
+}
+.scroll-highlight__button--right{
+  position:absolute;
+  right: 0;
+  top: 50%;
+  transform:translateY(-50%);
 }
 
 .scroll-highlight__grid-cell {
