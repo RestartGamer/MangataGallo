@@ -38,9 +38,9 @@
   --scroll-highlight-margin-horizontal:5vw;
   --scroll-highlight-grid-cell-width: 24vw;
   --scroll-highlight-grid-cell-height: 1vw;
-  --scroll-highlight-width: 100vw;
+  --scroll-highlight-width: calc(100vw - var(--scroll-highlight-margin-horizontal) * 2);
   --scroll-highlight-height: 61vh;
-  
+  --scroll-highlight-margin-offset-fix: 1vw;
   --scroll-highlight-number-of-visible-items: 3;
 }
 
@@ -1218,19 +1218,22 @@ main .empty-filler{
 }
 
 .scroll-highlight__container {
-  width:var(--scroll-highlight-width); /*Update the number here with JS*/
+  position:relative;
+  width:100vw; /*Update the number here with JS*/
   height:var(--scroll-highlight-height);
   background-color: rgba(215, 230, 226, 0.89); /* for testing */
 }
 
 .scroll-highlight {
-  width:100%; /*Update the number here with JS*/
+  position:absolute;
+  left:5vw;
+  width:calc(var(--scroll-highlight-width) - var(--scroll-highlight-margin-offset-fix)); /*Update the number here with JS*/
   height:100%;
   grid-template-columns: repeat(10, max-content); /*Update the number here with JS*/
   grid-template-rows: 1fr;
-  column-gap: calc(((var(--scroll-highlight-width) - calc(var(--scroll-highlight-margin-horizontal)*2 + var(--scroll-highlight-grid-cell-width)*var(--scroll-highlight-number-of-visible-items))) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - 0.5vw);
+  column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
   justify-items: left;
-  margin-left:var(--scroll-highlight-margin-horizontal);
+  
 
 }
 
