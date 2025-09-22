@@ -1236,6 +1236,7 @@ main .empty-filler{
   scrollbar-width: none;
   scroll-behavior: smooth;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .scroll-highlight__button {
@@ -1260,6 +1261,13 @@ main .empty-filler{
   right: 0;
   top: 50%;
   transform:translateY(-50%);
+}
+
+.scroll-highlight__button:hover  {
+  background-color:red;
+  transform:scale(1.1) translateY(-50%);
+  transition: transform 1s ease-in-out;
+  cursor:pointer;
 }
 
 .scroll-highlight__grid-cell {
