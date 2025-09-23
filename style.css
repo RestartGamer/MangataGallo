@@ -4,7 +4,7 @@
   --promo-translateX: 10%;
 
   --poster-width:100vw;
-  --poster-height:110vh;
+  --poster-height:100vh;
   --poster-padding-top: 16vh;
   --poster-row-height:110vh;
   --poster-h1-width: 1vw;
@@ -48,6 +48,7 @@
   margin: 0;
   padding:0;
 }
+
 
 #video-background {
   position: fixed;
@@ -1061,8 +1062,8 @@ main .empty-filler{
 }
 .flex__section-full-full
 {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .flex__dir-col{
@@ -1222,6 +1223,8 @@ main .empty-filler{
   width:100vw; /*Update the number here with JS*/
   height:var(--scroll-highlight-height);
   background-color: rgba(215, 230, 226, 0.89); /* for testing */
+  /*! padding-top: 8vh; */
+  margin-top: 8vh;
 }
 
 .scroll-highlight {
