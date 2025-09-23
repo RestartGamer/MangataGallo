@@ -35,13 +35,27 @@
   --selection-grid-cell-p-width:1vw;
   --selection-grid-cell-p-height:1vh;
 
+
+  --scroll-highlight-base-visible-items: 3;    /* 3 items = 24vw width */
+  --scroll-highlight-base-cell-width: 24vw;   /* width of 1 cell for 3 items */
+  --scroll-highlight-base-cell-height: 1vw;   /* height of 1 cell for 3 items */
+
   --scroll-highlight-margin-horizontal:5vw;
-  --scroll-highlight-grid-cell-width: 24vw;
-  --scroll-highlight-grid-cell-height: 1vw;
+  --scroll-highlight-grid-cell-width: calc(
+    var(--scroll-highlight-base-cell-width) *
+    var(--scroll-highlight-base-visible-items) /
+    var(--scroll-highlight-number-of-visible-items)
+  );;
+  --scroll-highlight-grid-cell-height: calc(
+    var(--scroll-highlight-base-cell-height) *
+    var(--scroll-highlight-base-visible-items) /
+    var(--scroll-highlight-number-of-visible-items)
+  );;
   --scroll-highlight-width: calc(100vw - var(--scroll-highlight-margin-horizontal) * 2);
   --scroll-highlight-height: 61vh;
   --scroll-highlight-margin-offset-fix: 0.7vw;
   --scroll-highlight-number-of-visible-items: 3;
+  --scroll-highlight-column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
 }
 
 *{
@@ -1229,12 +1243,12 @@ main .empty-filler{
 
 .scroll-highlight {
   position:absolute;
-  left:5vw;
-  width:calc(var(--scroll-highlight-width) - var(--scroll-highlight-margin-offset-fix)); /*Update the number here with JS*/
+  left:var(--scroll-highlight-margin-horizontal);
+  width:calc(100vw - var(--scroll-highlight-margin-horizontal) * 2 - (var(--scroll-highlight-column-gap) / 2)); /*Update the number here with JS*/
   height:100%;
-  grid-template-columns: repeat(10, max-content); /*Update the number here with JS*/
+  grid-template-columns: repeat(20, max-content); /*Update the number here with JS*/
   grid-template-rows: 1fr;
-  column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
+  column-gap: var(--scroll-highlight-column-gap);
   justify-items: left;
   scrollbar-width: none;
   scroll-behavior: smooth;
@@ -1295,7 +1309,7 @@ main .empty-filler{
   position:relative;
   width:61.8%;
   /*! height:25.5%; */
-  border: 2px solid rgb(4, 0, 255);
+  /*border: 2px solid rgb(4, 0, 255);*/
   aspect-ratio: 1 / 1;
 }
 
