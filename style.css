@@ -291,6 +291,7 @@ main .empty-filler{
   align-items:center;
   background-color: whitesmoke;
   /*! margin-top: 1vh; */
+  width: 100vw;
 }
 
 .promo-banner__layout {
