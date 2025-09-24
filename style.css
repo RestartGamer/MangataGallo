@@ -56,7 +56,29 @@
   --scroll-highlight-margin-offset-fix: 0.7vw;
   --scroll-highlight-number-of-visible-items: 3;
   --scroll-highlight-column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
+
 }
+
+/* When inside .scroll-highlight--selector, override */
+.scroll-highlight--selection {
+  --scroll-highlight-number-of-visible-items: 5;
+  --scroll-highlight-width: calc(100vw - var(--scroll-highlight-margin-horizontal) * 2);
+  --scroll-highlight-height: 61vh;
+  --scroll-highlight-margin-offset-fix: 0.7vw;
+  --scroll-highlight-column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
+
+  --scroll-highlight-grid-cell-width: calc(
+    var(--scroll-highlight-base-cell-width) *
+    var(--scroll-highlight-base-visible-items) /
+    var(--scroll-highlight-number-of-visible-items)
+  );;
+  --scroll-highlight-grid-cell-height: calc(
+    var(--scroll-highlight-base-cell-height) *
+    var(--scroll-highlight-base-visible-items) /
+    var(--scroll-highlight-number-of-visible-items)
+  );;
+}
+
 
 *{
   margin: 0;
@@ -1255,6 +1277,7 @@ main .empty-filler{
   overflow-x: auto;
   overflow-y: hidden;
 }
+
 
 .scroll-highlight__button {
   all:unset;

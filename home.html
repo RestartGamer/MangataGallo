@@ -410,7 +410,7 @@
         </section>
 
         <section class="scroll-highlight__container">
-            <div class="scroll-highlight grid grid__template-col6 grid__template-row1">
+            <div class="scroll-highlight scroll-highlight--selection grid grid__template-col6 grid__template-row1">
                 
                 <article class="scroll-highlight__grid-cell">
                     <div class="scroll-highlight__grid-cell-content">
@@ -683,7 +683,7 @@
                     let targetScroll = itemPositions[currentIndex];
                     if (targetScroll > maxScrollLeft) {
                         targetScroll = maxScrollLeft;
-                        currentIndex = items.findIndex(item => item.offsetLeft === targetScroll);
+                        currentIndex = items.length - 1;
                     }
 
                     const distance = targetScroll - scroll.scrollLeft;
