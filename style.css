@@ -1377,12 +1377,28 @@ main .empty-filler{
 }
 
 .poster-slideshow__image{
-  background-image: url("media/jewelry-model1.jpg");
-  background-position: center center;
-  background-size: 100%;
+  position: absolute;       /* stack them on top of each other */
+  top: 0;
+  left: 0;
   width:100%;
   height:100%;
+  opacity:0;
+  transform:translateX(100%); /*starts off screen from the right*/
+  transition: opacity 1s ease, transform 1s ease;
 }
+
+.poster-slideshow__image.active {
+  opacity:1;
+  transform:translateX(0);
+  z-index:2;
+}
+
+.poster-slideshow__image.exit {
+  opacity: 0;
+  transform: translateX(-100%); /* slide out to the left */
+  z-index: 1;
+}
+
 
 .poster-slideshow__text-container {
   position:absolute;

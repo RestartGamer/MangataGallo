@@ -731,7 +731,26 @@
 
         <section class="poster-slideshow__container">
             <article class="poster-slideshow__image-container">
-                <div class="poster-slideshow__image"></div>
+                <div class="poster-slideshow__image" style='
+                background-image: url("media/jewelry-model1.jpg");
+                background-size: 100%;
+                background-position: center center;
+                '>
+            
+            
+            </div>
+                <div class="poster-slideshow__image" style='
+                background-image: url("media/jewelry-model2.jpg");
+                background-size: 100%;
+                background-position: center center;
+                '>></div>
+                <div class="poster-slideshow__image" style='
+                background-image: url("media/jewelry-model3.jpg");
+                background-size: 100%;
+                background-position: center center;
+                '>></div>
+
+
                 <div class="poster-slideshow__layout"></div>
                 <div class="poster-slideshow__text-container">
                     <h1>Title</h1>
@@ -743,29 +762,37 @@
 
         <script>
             window.addEventListener("load", ()=> {
-                const slideshow = document.querySelector("poster-slideshow");
-                const images = Array.from(slideshow.children);
-                const imageValue = images.map(i => {
-                    return getComputedStyle(i).getPropertyValue("background-image");
-                });
+                const slideshow = document.querySelector(".poster-slideshow__image-container");
+                const images = Array.from(slideshow.querySelectorAll(".poster-slideshow__image"));
 
                 let currentIndex = 0;
-                const interval = 1 * 1000; //interval in seconds
+                const interval = 3 * 1000; //interval in seconds
 
                 //Function to show next image
                 function showNextImage() {
-                    if (currentIndex < images.length-1) {
-                        currentIndex = Math.min(images.length-1,currentIndex+1);
-                    } else {
-                        currentIndex = 0;
-                    }
-                    slideshow.style.setProperty("background-image",imageValue[currentIndex]);
+                    // remove "active" from the current image and give it exit animation
+                images[currentIndex].classList.remove("active");
+                images[currentIndex].classList.add("exit");
+
+                // listen for the animation finishing so we can reset it
+                images[currentIndex].addEventListener("transitionend", function handler() {
+                    this.classList.remove("exit"); // clean up
+                    this.removeEventListener("transitionend", handler); // prevent stacking
+                });
+
+                // move to next index (wrap around with modulo)
+                currentIndex = (currentIndex + 1) % images.length;
+
+                // add "active" to the new image
+                images[currentIndex].classList.add("active");
+                    
                 }
+
                 setInterval(showNextImage,interval);
+                images[currentIndex].classList.add("active");
             });
 
-            // Show the first image immediately
-            slideshow.style.setProperty("background-image", imageValue[currentIndex]);
+            
 
         </script>
 
