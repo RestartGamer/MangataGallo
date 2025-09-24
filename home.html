@@ -256,6 +256,10 @@
             </ul>
             
         </nav>
+
+        <div class="empty-space2"></div>
+        <div class="promo-title"><h1>Collections</h1></div>
+
         <section class="promo-banner">
             <section class="promo-banner__layout">
                 <section class="promo-banner__content">
@@ -263,8 +267,7 @@
                 </section>
             </section>
         </section>
-            
-        
+
         <section class="poster grid grid__template-col2 grid__template-row2 grid__overflow-hidden">
             <article class="poster__text-cell">
                 <div class="poster__text-layout"></div>
@@ -409,8 +412,8 @@
             </button>
         </section>
 
-        <section class="scroll-highlight__container">
-            <div class="scroll-highlight scroll-highlight--selection grid grid__template-col6 grid__template-row1">
+        <section class="scroll-highlight__container scroll-highlight--selection">
+            <div class="scroll-highlight grid grid__template-col6 grid__template-row1">
                 
                 <article class="scroll-highlight__grid-cell">
                     <div class="scroll-highlight__grid-cell-content">
@@ -725,6 +728,47 @@
 
 
         </script>
+
+        <section class="poster-slideshow__container">
+            <article class="poster-slideshow__image-container">
+                <div class="poster-slideshow__image"></div>
+                <div class="poster-slideshow__layout"></div>
+                <div class="poster-slideshow__text-container">
+                    <h1>Title</h1>
+                    <p>Description</p>
+                </div>
+
+            </article>
+        </section>
+
+        <script>
+            window.addEventListener("load", ()=> {
+                const slideshow = document.querySelector("poster-slideshow");
+                const images = Array.from(slideshow.children);
+                const imageValue = images.map(i => {
+                    return getComputedStyle(i).getPropertyValue("background-image");
+                });
+
+                let currentIndex = 0;
+                const interval = 1 * 1000; //interval in seconds
+
+                //Function to show next image
+                function showNextImage() {
+                    if (currentIndex < images.length-1) {
+                        currentIndex = Math.min(images.length-1,currentIndex+1);
+                    } else {
+                        currentIndex = 0;
+                    }
+                    slideshow.style.setProperty("background-image",imageValue[currentIndex]);
+                }
+                setInterval(showNextImage,interval);
+            });
+
+            // Show the first image immediately
+            slideshow.style.setProperty("background-image", imageValue[currentIndex]);
+
+        </script>
+
 
         <section class="grid">
             <div class="grid__cell grid__template-col3">

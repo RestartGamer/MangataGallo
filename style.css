@@ -1357,3 +1357,58 @@ main .empty-filler{
 .scroll-highlight__text-content p{
   font-size:1.1rem;
 }
+
+.poster-slideshow__container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100vw;
+  height:100vh;
+  outline: 1px solid red;
+}
+
+.poster-slideshow__image-container{
+  position:relative;
+  display:block;
+  width:80%;
+  height:80%;
+  overflow:hidden;
+  outline: 1px solid rgb(0, 17, 255);
+}
+
+.poster-slideshow__image{
+  background-image: url("media/jewelry-model1.jpg");
+  background-position: center center;
+  background-size: 100%;
+  width:100%;
+  height:100%;
+}
+
+.poster-slideshow__text-container {
+  position:absolute;
+  top:50%;
+  left:60%;
+  width: 25%;
+  height:20%;
+  outline: 1px solid rgb(47, 255, 0);
+}
+
+
+.empty-space2 {
+  height: 100vh;
+}
+
+
+.promo-title {
+  width: 100vw;
+  height: 12.7vh;
+  background-color: #ffffffbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.promo-title h1 {
+  font-size: 2.1rem;
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+}
