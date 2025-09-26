@@ -211,6 +211,48 @@ footer {
   opacity:1;
 }
 
+
+.quick-menu {
+  position:absolute;
+  top: 14.0%;
+  right: 1%;
+  width:7.8%;
+  height: 75%;
+  background-color:rgb(15, 32, 27);
+  outline: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-menu__content {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  width:90%;
+  height:90%;
+  gap: 12.9%;
+}
+
+.quick-menu__content-item {
+  width: 31.8%;
+  height: 88%;
+  background-color: yellow;
+  outline: 1px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*SUBMENU /////////////////////////////////////////////////////////////*/
 .submenu * {
   pointer-events: auto; /* allow interaction INSIDE submenu */
