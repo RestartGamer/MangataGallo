@@ -9,7 +9,7 @@ to do:
 
 btw update your profile pick to fit your frame
 
-
+- make submenu disappear when scrolling and add a slight timer when hovering
 
 
 
