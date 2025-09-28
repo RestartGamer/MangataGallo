@@ -322,25 +322,95 @@
                             </div>
                         
                         </div>
-                        <div class="horizontal-separator" style="width:85%;
+
+                        <hr class="horizontal-separator" style="width:85%;
                         height:0.001%;
                         background:rgb(83, 83, 83);
                         border: 1px solid rgb(83, 83, 83);
                         border-radius: 100%;
-                        margin-top: 2%;"></div>
-                        <div class="checkout__flex-item checkout__flex-item-shipping"><h1 style="font-size: 1.2rem;">Free Shipping &amp; Returns</h1></div>
-                        <div class="horizontal-separator" style="width:85%;
+                        margin-top: 2%;"></hr>
+
+                        <div class="checkout__flex-item checkout__flex-item-shipping">
+                                <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping &amp; Returns</button>
+                                
+                                <div class="collapsible-content">
+                                    <p>Enjoy a seamless shopping experience with our complimentary shipping
+                                    service. Every order is carefully packed and delivered to your door with
+                                    priority handling. If it’s not a perfect match, returns are simple and free
+                                    of charge.</p>
+                                    <ul>
+                                        <li>Free standard shipping on all orders above €X</li>
+                                        <li>30-day free returns, no questions asked</li>
+                                        <li>Fast & secure delivery with tracking included</li>
+                                    </ul>
+                                </div>
+                        </div>
+                        
+                        <hr class="horizontal-separator" style="width:85%;
                         height:0.001%;
                         background:rgb(83, 83, 83);
                         border: 1px solid rgb(83, 83, 83);
-                        border-radius: 100%;"></div>
-                        <div class="checkout__flex-item checkout__flex-item-details"><h1 style="font-size: 1.2rem;">Details</h1></div>
-                        <div class="horizontal-separator" style="width:85%;
+                        border-radius: 100%;"></hr>
+
+                       <div class="checkout__flex-item checkout__flex-item-details">
+                                <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
+                                
+                                <div class="collapsible-content">
+                                    <p>Crafted with precision and elegance, this piece was designed to highlight your
+                                         unique style. Luxurious materials meet timeless craftsmanship to create jewelry
+                                          that lasts a lifetime.</p>
+                                    <ul>
+                                        <li>Hand-polished red crystal centerpiece</li>
+                                        <li>Premium hypoallergenic metal finish</li>
+                                        <li>Lightweight yet durable for daily wear</li>
+                                        <li>Designed in limited quantities</li>
+                                    </ul>
+                                </div>
+                        </div>
+
+                        <hr class="horizontal-separator" style="width:85%;
                         height:0.001%;
                         background:rgb(83, 83, 83);
                         border: 1px solid rgb(83, 83, 83);
-                        border-radius: 100%;"></div>
-                        <div class="checkout__flex-item checkout__flex-item-payment-options"><h1 style="font-size: 1.2rem;">Payment</h1></div>
+                        border-radius: 100%;"></hr>
+
+                        <div class="checkout__flex-item checkout__flex-item-payment-options">
+                                <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
+                                
+                                <div class="collapsible-content">
+                                    <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your
+                                         lifestyle and complete your purchase with confidence.</p>
+                                    <ul>
+                                        <li>Secure credit & debit card payments</li>
+                                        <li>PayPal and trusted digital wallets</li>
+                                        <li>Flexible installment plans available</li>
+                                        <li>Encrypted transactions for full protection</li>
+                                    </ul>
+                                </div>
+                        </div>
+                    
+                        <script>
+                            document.querySelectorAll(".collapsible-btn").forEach(button => {
+                            button.addEventListener("click", () => {
+                                const content = button.nextElementSibling;
+                                const allContents = document.querySelectorAll(".collapsible-content");
+
+                                // First, close all panels
+                                allContents.forEach(c => {
+                                if (c !== content) {
+                                    c.style.maxHeight = null;
+                                }
+                                });
+
+                                // Then toggle the clicked one
+                                if (content.style.maxHeight) {
+                                content.style.maxHeight = null;
+                                } else {
+                                content.style.maxHeight = content.scrollHeight + "px";
+                                }
+                            });
+                            });
+                        </script>
                     </div>
                 </div>
 
