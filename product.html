@@ -14,7 +14,7 @@
 <body>
     <header>
         <div id="logo">
-                <img id="logo__image" src="media/logo2.png" alt="Company Logo">
+                <img id="logo__image" src="media/logo2.png" alt="Company Logo" style="width: 632px;">
         </div>
         <script src="sizing.js"></script>
     </header>
@@ -246,20 +246,20 @@
                 <div class="quick-menu__content">
                     <div class="quick-menu__content-item quick-menu__content-item--profile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="currentColor"/>
+                            <circle cx="50" cy="50" r="45" fill="currentColor"></circle>
                             <text x="50%" y="73%" text-anchor="middle" font-size="70" font-family="Arial, sans-serif" fill="white">C</text>
                         </svg>
                     </div>
                     <div class="quick-menu__content-item quick-menu__content-item--shopping">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"/>
+                            <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"></path>
                         </svg>
                     </div>
                     <div class="quick-menu__content-item quick-menu__content-item--settings">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-                            <rect x="3" y="6" width="18" height="2" rx="1"/>
-                            <rect x="3" y="11" width="18" height="2" rx="1"/>
-                            <rect x="3" y="16" width="18" height="2" rx="1"/>
+                            <rect x="3" y="6" width="18" height="2" rx="1"></rect>
+                            <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+                            <rect x="3" y="16" width="18" height="2" rx="1"></rect>
                         </svg>
                     </div>
                 </div>
@@ -271,16 +271,8 @@
                 <p>Home / Category / Product</p>
             </div>
         </section>
-        <section class="checkout-stages__container">
-            <div class="checkout-stages__content">
-                <div class="checkout-stages__stage"></div>
-                <div class="checkout-stages__stage"></div>
-                <div class="checkout-stages__stage"></div>
-                <div class="checkout-stages__stage"></div>
-            </div>
-        </section>
         <section class="checkout__container">
-            <article class="checkout__content"> flex
+            <article class="checkout__content"> 
                 <div class="checkout__left-side-container"> 
                     <div class="checkout__left-side-content"> 
                         <div class="checkout__grid-item" style="grid-area: main;
@@ -301,23 +293,54 @@
                     </div>
                 </div>
                 <div class="checkout__right-side-container"> 
-                    <div class="checkout__right-side-content"> flex column
-                        <div class="checkout__flex-item checkout__flex-item-title"><h1>Precious Gold Bracelet</h1></div>
-                        <div class="checkout__flex-item checkout__flex-item-price"><h1>12.960€</h1></div>
+                    <div class="checkout__right-side-content"> 
+                        <div class="checkout__titleandprice-container">
+                            <div class="checkout__flex-item checkout__flex-item-title"><h1 style="font-size:2.1rem; padding: 2rem;">Precious Gold Bracelet</h1></div>
+                            <div class="checkout__flex-item checkout__flex-item-price"><h1 style="font-size: 1.3rem; padding: 2rem;">12.960€</h1></div>
+                        </div>
+                        
                         <div class="checkout__flex-item checkout__flex-item-purchase">
-                            <div class="checkout__flex-subitem checkout__flex-item--button-blue checkout__flex-subitem-addtobag"><h1>Add to bag</h1></div>
-                            <div class="checkout__flex-subitem checkout__flex-item--button-blue checkout__flex-subitem-checkout"><h1>Checkout Now</h1></div>
-                            <div class="checkout__flex-subitem checkout__flex-item--button-blue checkout__flex-subitem-split-button">
-                                <div class="checkout__flex-subsubitem checkout__flex-item--button-blue checkout__flex-subsubitem-gift"><h1>Send as Gift</h1></div>
-                                <div class="checkout__flex-subsubitem checkout__flex-item--button-blue checkout__flex-subsubitem-favorites"><h1>Add to Favorites</h1></div>
+                            <div class="checkout__flex-subitem checkout__flex-item--button-white checkout__flex-subitem-addtobag"><h1>Add to bag</h1></div>
+                            <div class="checkout__flex-subitem checkout__flex-item--button-green checkout__flex-subitem-checkout"><h1>Checkout Now</h1></div>
+                            <div class="checkout__flex-subitem checkout__flex-subitem-split-button">
+                                <div class="checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-gift"><h1>Send as Gift 📧</h1></div>
+                                <div class="checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-favorites"><h1>Add to Favorites ❤️
+</h1></div>
                                     
                             </div>
                             
                         </div>
-                        <div class="checkout__flex-item checkout__flex-item-promo"><h1>Promo</h1></div>
-                        <div class="checkout__flex-item checkout__flex-item-shipping"><h1>Shipping</h1></div>
-                        <div class="checkout__flex-item checkout__flex-item-details"><h1>Details</h1></div>
-                        <div class="checkout__flex-item checkout__flex-item-payment-options"><h1>Payment</h1></div>
+                        <div class="checkout__flex-item checkout__flex-item-promo">
+                            <div class="checkout__promo checkout__promo-left">
+                                <h1>Limited Units</h1>
+                                <p>Exclusive Offer ✨ Take 2 dazzling red crystal earrings for the price of 1 on purchases over €X. Elegance doubled, only while stocks last.</p>
+                            </div>
+                            <div class="checkout__promo checkout__promo-right">
+                                <img class="checkout__promo checkout__promo-image" style="background-image: url(&quot;media/earrings-special2.PNG&quot;);
+                                background-size:150%;
+                                background-position:center center;">
+                            </div>
+                        
+                        </div>
+                        <div class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;
+                        margin-top: 2%;"></div>
+                        <div class="checkout__flex-item checkout__flex-item-shipping"><h1 style="font-size: 1.2rem;">Free Shipping &amp; Returns</h1></div>
+                        <div class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;"></div>
+                        <div class="checkout__flex-item checkout__flex-item-details"><h1 style="font-size: 1.2rem;">Details</h1></div>
+                        <div class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;"></div>
+                        <div class="checkout__flex-item checkout__flex-item-payment-options"><h1 style="font-size: 1.2rem;">Payment</h1></div>
                     </div>
                 </div>
 
@@ -328,6 +351,8 @@
     <footer>
 
     </footer>
+
+
 
 </body>
 
