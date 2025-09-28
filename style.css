@@ -1311,28 +1311,30 @@ main .empty-filler{
 }
 
 .scroll-highlight__container {
-  position:relative;
-  width:100%; /*Update the number here with JS*/
-  height:var(--scroll-highlight-height);
-  background-color: rgb(255, 255, 255); /* for testing */
-  display: flex;
-  align-items: center;
-  outline: 1px solid red;
+  width:100%;
+  height: 50%;
+  background-color:white;
+  outline: 2px solid red;
+  display:flex;
+  justify-content:center;
+  margin-top:10%;
 }
 
-.scroll-highlight {
-  position:absolute;
-  left:var(--scroll-highlight-margin-horizontal);
-  width:calc(100vw - var(--scroll-highlight-margin-horizontal) * 2 - (var(--scroll-highlight-column-gap) / 2)); /*Update the number here with JS*/
-  height:88%;
-  grid-template-columns: repeat(20, max-content); /*Update the number here with JS*/
-  grid-template-rows: 1fr;
-  column-gap: var(--scroll-highlight-column-gap);
-  justify-items: left;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  overflow-y: hidden;
+.scroll-highlight__mask {
+  width:80%;
+  height:100%;
+  overflow-x:hidden;
+  outline:2px solid blue;
+  position:relative;
+}
+
+.scroll-highlight__content {
+  width:max-content;
+  height:max-content;
+  display:flex;
+  justify-content:start;
+  outline:2px solid green;
+  column-gap:2.4%;
 }
 
 
@@ -1375,6 +1377,7 @@ main .empty-filler{
   background-color: #f2f2f278;
   border-radius: 9.2%;
   height: 91.5%;
+  flex: 0 0 auto;
 }
 
 .scroll-highlight__grid-cell--selection {
