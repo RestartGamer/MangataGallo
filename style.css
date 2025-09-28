@@ -1965,10 +1965,12 @@ main .empty-filler{
 
 .collapsible-content p {
   margin: 0.5rem 0;
+  margin-top: 2.0%;
 }
 
 .collapsible-content ul {
   list-style-type: disc;   /* ensures bullets are shown */
   padding-left: 1.5rem;    /* gives space so bullets don’t overlap text */
   margin: 0.5rem 0;        /* optional: vertical spacing */
+  margin-top: 1.9%;
 }
