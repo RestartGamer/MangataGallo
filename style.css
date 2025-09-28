@@ -19,69 +19,26 @@
   --poster-p-fontsize:28px;
   --standard-font-family:'EB Garamond', serif;
 
-  --highlight-grid-cell-width:1vw;
-  --highlight-grid-cell-height:1vh;
-  --highlight-grid-cell-col-gap:1vw;
-  --highlight-grid-cell-h1-width:1vw;
-  --highlight-grid-cell-h1-height:1vh;
-  --highlight-grid-cell-p-width:1vw;
-  --highlight-grid-cell-p-height:1vh;
-
-  --selection-grid-cell-width:1vw;
-  --selection-grid-cell-height:1vh;
-  --selection-grid-cell-col-gap: 1vw;
-  --selection-grid-cell-h1-width: 1vw;
-  --selection-grid-cell-h1-height: 1vh;
-  --selection-grid-cell-p-width:1vw;
-  --selection-grid-cell-p-height:1vh;
-
-
-  --scroll-highlight-base-visible-items: 3;    /* 3 items = 24vw width */
-  --scroll-highlight-base-cell-width: 24vw;   /* width of 1 cell for 3 items */
-  --scroll-highlight-base-cell-height: 1vw;   /* height of 1 cell for 3 items */
-
-  --scroll-highlight-margin-horizontal:5vw;
-  --scroll-highlight-grid-cell-width: calc(
-    var(--scroll-highlight-base-cell-width) *
-    var(--scroll-highlight-base-visible-items) /
-    var(--scroll-highlight-number-of-visible-items)
-  );;
-  --scroll-highlight-grid-cell-height: calc(
-    var(--scroll-highlight-base-cell-height) *
-    var(--scroll-highlight-base-visible-items) /
-    var(--scroll-highlight-number-of-visible-items)
-  );;
-  --scroll-highlight-width: calc(100vw - var(--scroll-highlight-margin-horizontal) * 2);
-  --scroll-highlight-height: 73vh;
-  --scroll-highlight-margin-offset-fix: 0.7vw;
+  --scroll-highlight-content-base-width: 100%;
+  --scroll-highlight-mask-base-height: 100%;
   --scroll-highlight-number-of-visible-items: 3;
-  --scroll-highlight-column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
 
-  --button-purchase-bg-color: rgb(98, 201, 252);
-  --button-purchase-border-color: rgb(62, 139, 178);
+  --scroll-highlight-container-height:50%;
+  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin) * 2 ) / var(--scroll-highlight-number-of-visible-items));
 
-  
+  --scroll-highlight-cell-height:91.5%;
+  --scroll-highlight-column-gap:5%;
+  --scroll-highlight-margin:5%;
+
+
 
 }
-
-/* When inside .scroll-highlight--selector, override */
-.scroll-highlight--selection {
+.scroll-highlight__container--selection {
   --scroll-highlight-number-of-visible-items: 5;
-  --scroll-highlight-width: calc(100vw - var(--scroll-highlight-margin-horizontal) * 2);
-  --scroll-highlight-height: 65vh;
-  --scroll-highlight-margin-offset-fix: 0.7vw;
-  --scroll-highlight-column-gap: calc(((var(--scroll-highlight-width) - var(--scroll-highlight-grid-cell-width) * var(--scroll-highlight-number-of-visible-items)) / calc(var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin-offset-fix));
-
-  --scroll-highlight-grid-cell-width: calc(
-    var(--scroll-highlight-base-cell-width) *
-    var(--scroll-highlight-base-visible-items) /
-    var(--scroll-highlight-number-of-visible-items)
-  );
-  --scroll-highlight-grid-cell-height: calc(
-    var(--scroll-highlight-base-cell-height) *
-    var(--scroll-highlight-base-visible-items) /
-    var(--scroll-highlight-number-of-visible-items)
-  );
+    --scroll-highlight-cell-height:91.5%;
+  --scroll-highlight-column-gap:5%;
+  --scroll-highlight-margin:5%;
+  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin) * 2 ) / var(--scroll-highlight-number-of-visible-items));
 }
 
 
@@ -1312,7 +1269,7 @@ main .empty-filler{
 
 .scroll-highlight__container {
   width:100%;
-  height: 50%;
+  height: var(--scroll-highlight-container-height);
   background-color:white;
   outline: 2px solid red;
   display:flex;
@@ -1323,18 +1280,20 @@ main .empty-filler{
 .scroll-highlight__mask {
   width:80%;
   height:100%;
-  overflow-x:hidden;
+  overflow:hidden;
   outline:2px solid blue;
   position:relative;
+  scrollbar-width: none;
 }
 
 .scroll-highlight__content {
-  width:max-content;
-  height:max-content;
+  width:var(--scroll-highlight-content-base-width);
+  height:100%;
   display:flex;
   justify-content:start;
   outline:2px solid green;
-  column-gap:2.4%;
+  margin-left: var(--scroll-highlight-margin);
+  column-gap: var(--scroll-highlight-column-gap);
 }
 
 
@@ -1371,12 +1330,13 @@ main .empty-filler{
 
 .scroll-highlight__grid-cell {
   position:relative;
-  width:var(--scroll-highlight-grid-cell-width);
+  width: var(--scroll-highlight-cell-width);
+  /*! height: 10%; */
   border: 1px solid #c3ffd5eb;
   
   background-color: #f2f2f278;
   border-radius: 9.2%;
-  height: 91.5%;
+  
   flex: 0 0 auto;
 }
 
@@ -1412,6 +1372,9 @@ main .empty-filler{
   
   width:100%;
   height:100%;
+}
+.scroll-highlight__text-cell {
+  margin-bottom:10%;
 }
 
 .scroll-highlight__text-content {
