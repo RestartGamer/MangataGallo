@@ -421,6 +421,12 @@
                         </div>
                     </article>
         </div>
+        <button class="scroll-highlight__button scroll-highlight__button--left">
+                <div class="scroll-highlight__button-content">&lt;</div>    
+            </button>
+            <button class="scroll-highlight__button scroll-highlight__button--right">
+                <div class="scroll-highlight__button-content">&gt;</div>
+            </button>
     </div>
 </section>
 
@@ -620,14 +626,19 @@
                 </div>
             </article>
         </div>
+        <button class="scroll-highlight__button scroll-highlight__button--left">
+                <div class="scroll-highlight__button-content">&lt;</div>    
+            </button>
+            <button class="scroll-highlight__button scroll-highlight__button--right">
+                <div class="scroll-highlight__button-content">&gt;</div>
+            </button>
     </div>
 </section>
 
-        
-        <script>
+         <script>
           window.addEventListener("load", () => {
 
-            const scrollElements = document.querySelectorAll(".scroll-highlight");
+            const scrollElements = document.querySelectorAll(".scroll-highlight__content");
 
             scrollElements.forEach(scroll => {
 
@@ -710,13 +721,8 @@
 
             
     });
-
-
-
-                
-
-
         </script>
+        
 
         <section class="poster-slideshow__container">
             <article class="poster-slideshow__image-container">

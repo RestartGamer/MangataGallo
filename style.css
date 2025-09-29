@@ -1278,15 +1278,22 @@ main .empty-filler{
 }
 
 .scroll-highlight__mask {
+  position:relative;
   width:95%;
   height:100%;
-  overflow:hidden;
+  overflow-y:hidden;
   outline:2px solid blue;
-  position:relative;
+  
   scrollbar-width: none;
+  overflow-x: auto;
+  /*! scrollbar-width: none; */
+  display: flex;
+  justify-content: start;
+  flex: 0 0 auto;
 }
 
 .scroll-highlight__content {
+  position:relative;
   width:var(--scroll-highlight-content-base-width);
   height:100%;
   display:flex;
@@ -1294,6 +1301,10 @@ main .empty-filler{
   outline:2px solid green;
   margin-left: var(--scroll-highlight-margin);
   column-gap: var(--scroll-highlight-column-gap);
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 0 0 auto;
+  overflow-y: hidden;
 }
 
 
