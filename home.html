@@ -430,7 +430,7 @@
 
 <section class="scroll-highlight__container scroll-highlight__container--selection">
         <div class="scroll-highlight__content">
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                         <div class="scroll-highlight__grid-cell-content">
                             <div class="scroll-highlight__image-cell">
                                 <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -446,7 +446,7 @@
                             </div>
                         </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -462,7 +462,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -478,7 +478,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -494,7 +494,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -510,7 +510,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -526,7 +526,7 @@
                     </div>
                 </div>
             </article>
-             <article class="scroll-highlight__grid-cell">
+             <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                         <div class="scroll-highlight__grid-cell-content">
                             <div class="scroll-highlight__image-cell">
                                 <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -542,7 +542,7 @@
                             </div>
                         </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -558,7 +558,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -574,7 +574,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -590,7 +590,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -606,7 +606,7 @@
                     </div>
                 </div>
             </article>
-            <article class="scroll-highlight__grid-cell">
+            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
                 <div class="scroll-highlight__grid-cell-content">
                     <div class="scroll-highlight__image-cell">
                         <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
@@ -645,12 +645,11 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
                 const buttonRight = scroll.parentElement.querySelector(".scroll-highlight__button--right");
                 const visibleItems = parseInt(getComputedStyle(scroll).getPropertyValue("--scroll-highlight-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
                 const columnGap = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-column-gap")));
-                const scrollMargin = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-margin")));
                 
 
                 let items = Array.from(scroll.children);
                 let itemPositions = [];
-                itemPositions = items.map(item => item.offsetLeft);
+                itemPositions = items.map(item => item.offsetLeft - item.clientLeft);
                 let currentIndex = 0;
 
 

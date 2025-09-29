@@ -24,21 +24,21 @@
   --scroll-highlight-number-of-visible-items: 3;
 
   --scroll-highlight-container-height:50%;
-  --scroll-highlight-cell-width: calc((99.7% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items));
+  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-border) * var(--scroll-highlight-number-of-visible-items)*2) - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items));
 
   --scroll-highlight-cell-height:91.5%;
   --scroll-highlight-column-gap:5%;
   --scroll-highlight-margin:5%;
 
-
+--scroll-highlight-border: 0.1vw;
 
 }
 .scroll-highlight__container--selection {
-  --scroll-highlight-number-of-visible-items: 7;
+  --scroll-highlight-number-of-visible-items: 5;
     --scroll-highlight-cell-height:91.5%;
   --scroll-highlight-column-gap:5%;
   --scroll-highlight-margin:5%;
-  --scroll-highlight-cell-width: calc((99.7% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items))
+  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-border) * var(--scroll-highlight-number-of-visible-items)*2) - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items));
 }
 
 
@@ -1271,13 +1271,15 @@ main .empty-filler{
   width:100%;
   height: var(--scroll-highlight-container-height);
   background-color:white;
-  outline: 2px solid red;
+  /*! outline: 2px solid red; */
   /*! display:flex; */
   /*! justify-content:start; */
-  margin-top:10%;
+  /*! margin-top:10%; */
   display: flex;
   justify-content: center;
   position: relative;
+  padding-bottom: 6%;
+  padding-top: 3.9%;
 }
 
 
@@ -1287,7 +1289,7 @@ main .empty-filler{
   height:100%;
   display:flex;
   justify-content:start;
-  outline:2px solid green;
+  /*! outline:2px solid green; */
   /*! margin-left: var(--scroll-highlight-margin); */
   column-gap: var(--scroll-highlight-column-gap);
   overflow-x: auto;
@@ -1332,7 +1334,7 @@ main .empty-filler{
   position:relative;
   width: var(--scroll-highlight-cell-width);
   /*! height: 10%; */
-  border: 1px solid #c3ffd5eb;
+  border: var(--scroll-highlight-border) solid #c3ffd5eb;
   
   background-color: #f2f2f278;
   border-radius: 9.2%;
@@ -1341,7 +1343,7 @@ main .empty-filler{
 }
 
 .scroll-highlight__grid-cell--selection {
-  border: 1px solid #c3ffd5eb;
+  border: var(--scroll-highlight-border) solid #c3ffd5eb;
   
   background-color: #8ef4b621;
 }
