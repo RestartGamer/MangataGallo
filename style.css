@@ -24,7 +24,7 @@
   --scroll-highlight-number-of-visible-items: 3;
 
   --scroll-highlight-container-height:50%;
-  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin) * 2 ) / var(--scroll-highlight-number-of-visible-items));
+  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items));
 
   --scroll-highlight-cell-height:91.5%;
   --scroll-highlight-column-gap:5%;
@@ -38,7 +38,7 @@
     --scroll-highlight-cell-height:91.5%;
   --scroll-highlight-column-gap:5%;
   --scroll-highlight-margin:5%;
-  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) - var(--scroll-highlight-margin) * 2 ) / var(--scroll-highlight-number-of-visible-items));
+  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items))
 }
 
 
@@ -1272,34 +1272,23 @@ main .empty-filler{
   height: var(--scroll-highlight-container-height);
   background-color:white;
   outline: 2px solid red;
-  display:flex;
-  justify-content:center;
+  /*! display:flex; */
+  /*! justify-content:start; */
   margin-top:10%;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 
-.scroll-highlight__mask {
-  position:relative;
-  width:95%;
-  height:100%;
-  overflow-y:hidden;
-  outline:2px solid blue;
-  
-  scrollbar-width: none;
-  overflow-x: auto;
-  /*! scrollbar-width: none; */
-  display: flex;
-  justify-content: start;
-  flex: 0 0 auto;
-}
 
 .scroll-highlight__content {
   position:relative;
-  width:var(--scroll-highlight-content-base-width);
+  width: 90%;
   height:100%;
   display:flex;
   justify-content:start;
   outline:2px solid green;
-  margin-left: var(--scroll-highlight-margin);
+  /*! margin-left: var(--scroll-highlight-margin); */
   column-gap: var(--scroll-highlight-column-gap);
   overflow-x: auto;
   scrollbar-width: none;

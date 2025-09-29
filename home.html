@@ -322,7 +322,6 @@
             
         </section>
 <section class="scroll-highlight__container">
-    <div class="scroll-highlight__mask">
         <div class="scroll-highlight__content">
             <article class="scroll-highlight__grid-cell">
                         <div class="scroll-highlight__grid-cell-content">
@@ -427,11 +426,9 @@
             <button class="scroll-highlight__button scroll-highlight__button--right">
                 <div class="scroll-highlight__button-content">&gt;</div>
             </button>
-    </div>
 </section>
 
 <section class="scroll-highlight__container scroll-highlight__container--selection">
-    <div class="scroll-highlight__mask">
         <div class="scroll-highlight__content">
             <article class="scroll-highlight__grid-cell">
                         <div class="scroll-highlight__grid-cell-content">
@@ -632,24 +629,30 @@
             <button class="scroll-highlight__button scroll-highlight__button--right">
                 <div class="scroll-highlight__button-content">&gt;</div>
             </button>
-    </div>
 </section>
 
          <script>
           window.addEventListener("load", () => {
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
+// Set a CSS variable that CSS can use
+document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
             const scrollElements = document.querySelectorAll(".scroll-highlight__content");
 
             scrollElements.forEach(scroll => {
-
+                const vwToPx = v => window.innerWidth * (v / 100);
                 const buttonLeft = scroll.parentElement.querySelector(".scroll-highlight__button--left");
                 const buttonRight = scroll.parentElement.querySelector(".scroll-highlight__button--right");
                 const visibleItems = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
+                const columnGap = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-column-gap")));
+                const scrollMargin = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-margin")));
+                
 
                 let items = Array.from(scroll.children);
                 let itemPositions = [];
                 itemPositions = items.map(item => item.offsetLeft);
                 let currentIndex = 0;
+
 
                 initialItemPositions();
 
