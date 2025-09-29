@@ -440,7 +440,7 @@
                             <div class="scroll-highlight__text-cell">
                                 <div class="scroll-highlight__text-layout"></div>
                                 <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
+                                    <h1>Minimalist Silver Cuff 1</h1>
                                     <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                                 </div>
                             </div>
@@ -456,7 +456,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 2</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -472,7 +472,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 3</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -488,7 +488,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 4</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -504,7 +504,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 5</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -520,7 +520,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 6</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -536,7 +536,7 @@
                             <div class="scroll-highlight__text-cell">
                                 <div class="scroll-highlight__text-layout"></div>
                                 <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
+                                    <h1>Minimalist Silver Cuff 7</h1>
                                     <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                                 </div>
                             </div>
@@ -552,7 +552,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 8</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -568,7 +568,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 9</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -584,7 +584,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 10</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -600,7 +600,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 11</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -616,7 +616,7 @@
                     <div class="scroll-highlight__text-cell">
                         <div class="scroll-highlight__text-layout"></div>
                         <div class="scroll-highlight__text-content">
-                            <h1>Minimalist Silver Cuff</h1>
+                            <h1>Minimalist Silver Cuff 12</h1>
                             <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
                         </div>
                     </div>
@@ -643,7 +643,7 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
                 const vwToPx = v => window.innerWidth * (v / 100);
                 const buttonLeft = scroll.parentElement.querySelector(".scroll-highlight__button--left");
                 const buttonRight = scroll.parentElement.querySelector(".scroll-highlight__button--right");
-                const visibleItems = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
+                const visibleItems = parseInt(getComputedStyle(scroll).getPropertyValue("--scroll-highlight-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
                 const columnGap = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-column-gap")));
                 const scrollMargin = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-margin")));
                 

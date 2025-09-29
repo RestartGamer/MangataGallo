@@ -24,7 +24,7 @@
   --scroll-highlight-number-of-visible-items: 3;
 
   --scroll-highlight-container-height:50%;
-  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items));
+  --scroll-highlight-cell-width: calc((99.7% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items));
 
   --scroll-highlight-cell-height:91.5%;
   --scroll-highlight-column-gap:5%;
@@ -34,11 +34,11 @@
 
 }
 .scroll-highlight__container--selection {
-  --scroll-highlight-number-of-visible-items: 5;
+  --scroll-highlight-number-of-visible-items: 7;
     --scroll-highlight-cell-height:91.5%;
   --scroll-highlight-column-gap:5%;
   --scroll-highlight-margin:5%;
-  --scroll-highlight-cell-width: calc((100% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items))
+  --scroll-highlight-cell-width: calc((99.7% - (var(--scroll-highlight-column-gap) * (var(--scroll-highlight-number-of-visible-items) - 1)) ) / var(--scroll-highlight-number-of-visible-items))
 }
 
 
