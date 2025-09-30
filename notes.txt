@@ -1,3 +1,41 @@
+to do:
+
+
+- apply fixes to scrollbar functionality
+- apply fixes to scrollbar dimensions
+- also apply fix to slideshow bug
+- Add the shopping cart and profile icons on the top right
+- Start working on the next few pages for the purchasing of items and all the other stuff. Should be simple enough.
+
+btw update your profile pick to fit your frame
+
+- make submenu disappear when scrolling and add a slight timer when hovering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Traditional scrollbar:
 .scroll-menu{
   display: flex;
@@ -76,3 +114,5 @@ scrollMenu.addEventListener("scroll", () => {
     scrollMenu.scrollLeft += sectionWidth;
   }
 });
+
+------

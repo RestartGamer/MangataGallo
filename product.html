@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="refresh" content="5"-->
+    <title>Document2</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="logo">
+                <img id="logo__image" src="media/logo2.png" alt="Company Logo" style="width: 632px;">
+        </div>
+        <script src="sizing.js"></script>
+    </header>
+    <main>
+        <script>
+            window.addEventListener("load", () => {
+                const buttons = document.querySelectorAll('.navbar__option');
+                buttons.forEach(button => {
+                    button.addEventListener('mouseenter', () => {
+                    const rect = button.getBoundingClientRect();
+                    const hoverX = rect.left + rect.width / 2;
+                    document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
+                    });
+                });
+            });
+        </script> 
+            
+        <nav class="navbar">
+            <ul class="navbar__menu">
+
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Rings</a>
+                </li>
+                
+                <li class="submenu">
+
+                    <div class="submenu__section craft">
+                        <h2>Craft</h2>
+                        <ul>
+                            <li><a href="#">Engagement Rings for Every Love Story</a></li>
+                            <li><a href="#">Wedding Rings Crafted to Last</a></li>
+                            <li><a href="#">Fashion Rings to Express Your Unique Style</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="submenu__section moments">
+                        <h2>Moments</h2>
+                        <ul>
+                            <li><a href="#">Anniversary Rings to Celebrate Your Journey</a></li>
+                            <li><a href="#">Promise Rings That Speak From the Heart</a></li>
+                            <li><a href="#">Statement Rings for Bold Expressions</a></li>
+                            <li><a href="#">Remembrance Rings for the Best Moments</a></li>
+                        </ul>
+                    </div>
+                    
+                </li>
+
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Necklaces</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section design">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Pendants</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Statement Necklaces</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="submenu__section inspire">
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Layered Looks</a></li>
+                                <li><a href="#">Chains</a></li>
+                                <li><a href="#">Minimalist Styles</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Earrings</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section craft">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Studs</a></li>
+                                <li><a href="#">Hoops</a></li>
+                                <li><a href="#">Drop Earrings</a></li>
+                            </ul>
+                        </div>
+                        <div class="submenu__section stories">
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Everyday Essentials</a></li>
+                                <li><a href="#">Statement Pieces</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Bracelets</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section craft">
+                            <h2>Craft</h2>
+                            <ul>
+                                <li><a href="#">Bangles</a></li>
+                                <li><a href="#">Chain bracelets</a></li>
+                                <li><a href="#">Charm bracelets</a></li>
+                            </ul>
+                        </div>
+                        <div class="submenu__section bracelets">
+                            <h2>Our Luxury Collection</h2>
+                            <img class="image-bracelet1" src="media/bracelet-gold_2.jpg" alt="gold bracelet">
+                        </div>
+                        <div class="submenu__section moments">
+                            <h2>Moments</h2>
+                            <ul>
+                                <li><a href="#">Friendship</a></li>
+                                <li><a href="#">Personalized</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Watches</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section design">
+                            <h2>Design</h2>
+                            <ul>
+                                <li><a href="#">Luxury watches</a></li>
+                                <li><a href="#">Fashion watches</a></li>
+                            </ul>
+                        </div>
+                        <div class="submenu__section special-lines">
+                            <h2>Special Lines</h2>
+                            <ul>
+                                <li><a href="#">Modern Classics</a></li>
+                                <li><a href="#">Heritage Styles</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Collections</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section stories">
+                            <h2>Stories</h2>
+                            <ul>
+                                <li><a href="#">Seasonal Collections</a></li>
+                                <li><a href="#">Limited Editions</a></li>
+                            </ul>
+                        </div>
+                        <div class="submenu__section inspire">
+                            <h2>Inspire</h2>
+                            <ul>
+                                <li><a href="#">Collaborations</a></li>
+                                <li><a href="#">Designer Lines</a></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Home</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section home-info">
+                            <h2>Home Info</h2>
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">Contact</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section contact-info">
+                            <h2>Contact Info</h2>
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                </li>
+                <li class="navbar__option">
+                    <a class="navbar__option-link" href="#">About</a>
+                    
+                </li>
+                <li class="submenu">
+                        <div class="submenu__section about-info">
+                            <h2>About Info</h2>
+                            <ul>
+                                <li><p>ADD TEXT HERE</p></li>
+                            </ul>
+                        </div>
+                </li>
+                <li id="dropdown-carpet"></li>
+                <li id="dropdown-carpet2"></li>
+                <li id="dropdown-carpet-background"></li>
+                <script>
+                    window.addEventListener("load", () => {
+                    
+                    const options = document.querySelectorAll(".navbar__option");
+
+                    options.forEach(option => {
+                        const submenu = option.nextElementSibling; // each option's matching submenu
+                        const style = window.getComputedStyle(submenu);
+                        const paddingTop = parseInt(style.paddingTop) || 0;
+                        const paddingBottom = parseInt(style.paddingBottom) || 0;
+                        const rowGap = parseInt(style.rowGap) || 0;
+                        const sections = Array.from(submenu.querySelectorAll('.submenu__section'));
+
+                        // Get the vertical position of each section
+                        const tops = sections.map(s => s.offsetTop);
+
+                        // Count unique top values => number of rows
+                        const rows = new Set(tops).size;
+                        
+
+                        const gapHeight = Math.max(0, rows -1) * rowGap; // rows - 1 = number of gaps ; Math.max(0,...) = makes sure it never goes negative ; rowGap = the picel size of each gap 
+
+                        if (submenu && submenu.classList.contains("submenu")) {
+                            option.addEventListener("mouseenter", () => {
+                            const submenuHeight = submenu.scrollHeight - paddingTop +rowGap; // full content height, adapts to grid
+                            document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
+                        });
+                        }
+                    });
+                    });
+                </script>
+            </ul>
+            <div class="quick-menu">
+                <div class="quick-menu__content">
+                    <div class="quick-menu__content-item quick-menu__content-item--profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="currentColor"></circle>
+                            <text x="50%" y="73%" text-anchor="middle" font-size="70" font-family="Arial, sans-serif" fill="white">C</text>
+                        </svg>
+                    </div>
+                    <div class="quick-menu__content-item quick-menu__content-item--shopping">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"></path>
+                        </svg>
+                    </div>
+                    <div class="quick-menu__content-item quick-menu__content-item--settings">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="6" width="18" height="2" rx="1"></rect>
+                            <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+                            <rect x="3" y="16" width="18" height="2" rx="1"></rect>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="track-menu__container">
+            <div class="track-menu__content">
+                <p>Home / Category / Product</p>
+            </div>
+        </section>
+        <section class="checkout__container">
+            <article class="checkout__content"> 
+                <div class="checkout__left-side-container"> 
+                    <div class="checkout__left-side-content"> 
+                        <div class="checkout__grid-item" style="grid-area: main;
+                        background-image: url(&quot;media/bracelet-gold_1.jpg&quot;);
+                        background-size: 100%;
+                        background-position: center center;"></div>
+                        <div class="checkout__grid-item" style="grid-area: secondary;
+                        background-image: url(&quot;media/bracelet-gold_2.jpg&quot;);
+                        background-size: 100%;
+                        background-position: center center;"></div>
+                        <div class="checkout__grid-item" style="grid-area: video;">
+                            <video controls="" muted="" loop="" playsinline="" class="checkout__grid-item-video">
+                            <source src="media/rings-hands-downscaled.mp4" type="video/mp4">
+                            optional fallback 
+                            Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout__right-side-container"> 
+                    <div class="checkout__right-side-content"> 
+                        <div class="checkout__titleandprice-container">
+                            <div class="checkout__flex-item checkout__flex-item-title"><h1 style="font-size:2.1rem; padding: 2rem;">Precious Gold Bracelet</h1></div>
+                            <div class="checkout__flex-item checkout__flex-item-price"><h1 style="font-size: 1.3rem; padding: 2rem;">12.960€</h1></div>
+                        </div>
+                        
+                        <div class="checkout__flex-item checkout__flex-item-purchase">
+                            <div class="checkout__flex-subitem checkout__flex-item--button-white checkout__flex-subitem-addtobag"><h1>Add to bag</h1></div>
+                            <div class="checkout__flex-subitem checkout__flex-item--button-green checkout__flex-subitem-checkout"><h1>Checkout Now</h1></div>
+                            <div class="checkout__flex-subitem checkout__flex-subitem-split-button">
+                                <div class="checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-gift"><h1>Send as Gift 📧</h1></div>
+                                <div class="checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-favorites"><h1>Add to Favorites ❤️
+</h1></div>
+                                    
+                            </div>
+                            
+                        </div>
+                        <div class="checkout__flex-item checkout__flex-item-promo">
+                            <div class="checkout__promo checkout__promo-left">
+                                <h1>Limited Units</h1>
+                                <p>Exclusive Offer ✨ Take 2 dazzling red crystal earrings for the price of 1 on purchases over €X. Elegance doubled, only while stocks last.</p>
+                            </div>
+                            <div class="checkout__promo checkout__promo-right">
+                                <img class="checkout__promo checkout__promo-image" style="background-image: url(&quot;media/earrings-special2.PNG&quot;);
+                                background-size:150%;
+                                background-position:center center;">
+                            </div>
+                        
+                        </div>
+
+                        <hr class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;
+                        margin-top: 2%;"></hr>
+
+                        <div class="checkout__flex-item checkout__flex-item-shipping">
+                                <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping &amp; Returns</button>
+                                
+                                <div class="collapsible-content">
+                                    <p>Enjoy a seamless shopping experience with our complimentary shipping
+                                    service. Every order is carefully packed and delivered to your door with
+                                    priority handling. If it’s not a perfect match, returns are simple and free
+                                    of charge.</p>
+                                    <ul>
+                                        <li>Free standard shipping on all orders above €X</li>
+                                        <li>30-day free returns, no questions asked</li>
+                                        <li>Fast & secure delivery with tracking included</li>
+                                    </ul>
+                                </div>
+                        </div>
+                        
+                        <hr class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;"></hr>
+
+                       <div class="checkout__flex-item checkout__flex-item-details">
+                                <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
+                                
+                                <div class="collapsible-content">
+                                    <p>Crafted with precision and elegance, this piece was designed to highlight your
+                                         unique style. Luxurious materials meet timeless craftsmanship to create jewelry
+                                          that lasts a lifetime.</p>
+                                    <ul>
+                                        <li>Hand-polished red crystal centerpiece</li>
+                                        <li>Premium hypoallergenic metal finish</li>
+                                        <li>Lightweight yet durable for daily wear</li>
+                                        <li>Designed in limited quantities</li>
+                                    </ul>
+                                </div>
+                        </div>
+
+                        <hr class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;"></hr>
+
+                        <div class="checkout__flex-item checkout__flex-item-payment-options">
+                                <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
+                                
+                                <div class="collapsible-content">
+                                    <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your
+                                         lifestyle and complete your purchase with confidence.</p>
+                                    <ul>
+                                        <li>Secure credit & debit card payments</li>
+                                        <li>PayPal and trusted digital wallets</li>
+                                        <li>Flexible installment plans available</li>
+                                        <li>Encrypted transactions for full protection</li>
+                                    </ul>
+                                </div>
+                        </div>
+                    
+                        <script>
+                            document.querySelectorAll(".collapsible-btn").forEach(button => {
+                            button.addEventListener("click", () => {
+                                const content = button.nextElementSibling;
+                                const allContents = document.querySelectorAll(".collapsible-content");
+
+                                // First, close all panels
+                                allContents.forEach(c => {
+                                if (c !== content) {
+                                    c.style.maxHeight = null;
+                                }
+                                });
+
+                                // Then toggle the clicked one
+                                if (content.style.maxHeight) {
+                                content.style.maxHeight = null;
+                                } else {
+                                content.style.maxHeight = content.scrollHeight + "px";
+                                }
+                            });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+
+    </main>
+    <div class="horizontal-separator__bg">
+        <hr class="horizontal-separator" style="width:90%;
+                        height:0.001%;
+                        background:rgba(83, 83, 83, 0.43);
+                        border: 1px solid rgba(83, 83, 83, 0.18);
+                        border-radius: 100%;">
+        </div>
+    <footer>
+        <section class="footer__container">
+            <div class="footer__content">
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h1>Customer Area</h1>
+                        <a href="#">Track your order</a>
+                        <a href="#">Returns</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Services</a>
+                    </div>
+
+                </article>
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h1>Contact Us</h1>
+                        <a href="#">Contact Info & Form</a>
+                    </div>
+                    <div class="footer__text-container">
+                        <h1>Find A Store</h1>
+                        <a href="#">Store Locator</a>
+                    </div>
+                    
+
+                </article>
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h1>About M & G</h1>
+                        <a href="#">Our History</a>
+                        <a href="#">Origin of Materials</a>
+                        <a href="#">Values</a>
+                        <a href="#">Partners</a>
+                    </div>
+
+                </article>
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h1>Privacy Center</h1>
+                        <a href="#">Cookie Settings</a>
+                        <a href="#">Privacy Settings</a>
+                        <a href="#">Policies</a>
+                    </div>
+                    <div class="footer__text-container">
+                        <h1>Terms & Conditions</h1>
+                        <a href="#">Lega Notices</a>
+                        <a href="#">Privacy Settings</a>
+                        <a href="#">Terms of use</a>
+                    </div>
+
+                </article>
+            </div>
+        </section>
+        <div class="horizontal-separator"></div>
+        <section class="trademark__container">
+            <article class="trademark__content">
+                <div class="trademark__text-container">
+                    <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
+                </div>
+            </article>
+        </section>
+
+    </footer>
+
+
+
+</body>
+
+</html>

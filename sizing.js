@@ -37,3 +37,23 @@ if (window.innerWidth <= 768) { // breakpoint for mobile
   logo.style.width = "";
   logoContainer.style.marginTop = "";
 }
+
+let savedX = 0;
+let savedY = 0;
+let resizeTimeout;
+
+window.addEventListener("resize", () => {
+  // Save current scroll position
+  savedX = window.scrollX;
+  savedY = window.scrollY;
+
+  // Clear any pending timeout
+  clearTimeout(resizeTimeout);
+
+  // Restore after user stops resizing (e.g., 150ms pause)
+  resizeTimeout = setTimeout(() => {
+    window.scrollTo(savedX, savedY);
+  }, 150);
+});
+
+
