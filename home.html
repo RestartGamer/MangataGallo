@@ -10,6 +10,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <script src="pagination.js"></script>
+    <script src="slideshow.js"></script>
+    
 </head>
 <body>
     
@@ -637,11 +641,10 @@
                 <div class="scroll-highlight__button-content">&gt;</div>
             </button>
 
-            <div class="pagination-system__container">
-                <div class="pagination-system__content">
-                    <div class="pagination-system__button-content">
-                        <button class="pagination-system__button-left"></button>
-                        <button class="pagination-system__button-right"></button>
+            <div class="pagination-advanced__container">
+                <div class="pagination-advanced__content">
+                    <div class="pagination-advanced__button-content">
+
                     </div>
                 </div>
             </div>
@@ -736,77 +739,6 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
                 }
                 });
 
-
-            //pagnination system
-                function generatePagination(current, total, range = 2) {
-    const pages = [];
-    const firstPage = 1;
-    const lastPage = total;
-
-    // Always add first page
-    pages.push(firstPage);
-
-    // Add left ellipsis if needed
-    if (current - range > firstPage + 1) {
-        pages.push("...");
-    }
-
-    // Add middle range (around current)
-    for (let i = current - range; i <= current + range; i++) {
-        if (i > firstPage && i < lastPage) {
-            pages.push(i);
-        }
-    }
-
-    // Add right ellipsis if needed
-    if (current + range < lastPage - 1) {
-        pages.push("...");
-    }
-
-    // Always add last page
-    if (lastPage !== firstPage) {
-        pages.push(lastPage);
-    }
-
-    return pages;
-}
-
-// Example
-console.log(generatePagination(500, 1000, 2));
-// -> [1, "...", 498, 499, 500, 501, 502, "...", 1000]
-
-
-//Render in HTML
-function renderPagination(current, total) {
-    const pagination = document.querySelector(".pagination");
-    pagination.innerHTML = "";
-
-    const pages = generatePagination(current, total, 2);
-
-    pages.forEach(page => {
-        const button = document.createElement("button");
-
-        if (page === "...") {
-            button.textContent = "...";
-            button.disabled = true; // not clickable
-        } else {
-            button.textContent = page;
-            if (page === current) {
-                button.classList.add("active");
-            }
-            button.addEventListener("click", () => {
-                renderPagination(page, total); // re-render with new current
-            });
-        }
-
-        pagination.appendChild(button);
-    });
-}
-
-// Initialize
-renderPagination(500, 1000);
-
-
     });
         </script>
         
@@ -849,58 +781,6 @@ renderPagination(500, 1000);
             </article>
         </section>
 
-        <script>
-            window.addEventListener("load", ()=> {
-                const slideshow = document.querySelector(".poster-slideshow__image-container");
-                const images = Array.from(slideshow.querySelectorAll(".poster-slideshow__image"));
-                const texts = Array.from(slideshow.querySelectorAll(".poster-slideshow__text-container"));
-
-                let currentIndex = 0;
-                const interval = 3 * 1000; //interval in seconds
-
-                //Function to show next image
-                function showNextImage() {
-                    // remove "active" from the current image and give it exit animation
-                images[currentIndex].classList.remove("active");
-                texts[currentIndex].classList.remove("active");
-                images[currentIndex].classList.add("exit");
-
-                // force browser to notice
-                images[currentIndex].offsetWidth; // reading this triggers reflow
-                // listen for the animation finishing so we can reset it
-                images[currentIndex].addEventListener("transitionend", function handler() {
-                    this.classList.remove("exit"); // clean up
-                    this.removeEventListener("transitionend", handler); // prevent stacking
-                } , { once: true });
-
-                // move to next index (wrap around with modulo)
-                currentIndex = (currentIndex + 1) % images.length;
-
-                // add "active" to the new image
-                texts[currentIndex].classList.add("active");
-                images[currentIndex].classList.add("active");
-                    
-                }
-
-                let lastTime = 0;
-
-function animateSlideshow(time) {
-    if (!lastTime) lastTime = time;
-    if (time - lastTime >= interval) {
-        showNextImage();
-        lastTime = time;
-    }
-    requestAnimationFrame(animateSlideshow);
-}
-
-requestAnimationFrame(animateSlideshow);
-                texts[currentIndex].classList.add("active");
-                images[currentIndex].classList.add("active");
-            });
-
-            
-
-        </script>
         <div class="horizontal-separator__bg">
         <hr class="horizontal-separator" style="width:90%;
                         height:0.001%;

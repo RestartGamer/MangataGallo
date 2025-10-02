@@ -55,5 +55,3 @@ window.addEventListener("resize", () => {
     window.scrollTo(savedX, savedY);
   }, 150);
 });
-
-
