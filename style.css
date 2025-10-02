@@ -267,6 +267,12 @@ footer {
   max-height: 360px;
   width: auto;
 }
+
+.submenu__section--image { 
+  grid-column: 2;
+  grid-row: 1;
+}
+
 .submenu__section h2 {
   color: rgb(143, 143, 143);
   font-size: 25px; /*was 18px*/
@@ -283,6 +289,22 @@ footer {
   font-family: 'EB Garamond', serif;
   font-size: 20px;
 }
+
+.submenu__section-image-container {
+  width: 100%;
+  height: 50.8vh;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.submenu__section-image {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
 .navbar__option:hover + .submenu,
 .submenu:hover {
   opacity: 1;

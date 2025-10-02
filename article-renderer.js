@@ -1,7 +1,7 @@
 
 let articles = [
   {
-    id: 1,
+    id: "navbar_1",
     type: "navbar-list",
     content: {
       option: "rings",
@@ -29,7 +29,7 @@ let articles = [
     }
   },
   {
-    id: 2,
+    id: "navbar_1",
     type: "navbar-list",
     content: {
       option: "necklaces",
@@ -48,7 +48,7 @@ let articles = [
     }
   },
   {
-    id: 3,
+    id: "navbar_1",
     type: "navbar-list",
     content: {
       option: "earrings",
@@ -67,7 +67,7 @@ let articles = [
     }
   },
   {
-    id: 4,
+    id: "navbar_1",
     type: "navbar-list",
     content: {
       option: "bracelets",
@@ -85,13 +85,16 @@ let articles = [
         {
           section: "ourluxurycollection",
           sectionName: "Our Luxury Collection",
-          image: "media/bracelets1.jpg"
+          image: "media/bracelet-gold_2.jpg",
+          imageSize: "100%",
+          imagePosition: "center center"
+
         }
       ]
     }
   },
   {
-    id: 5,
+    id: "navbar_1",
     type: "navbar-list",
     content: {
       option: "watches",
@@ -110,7 +113,7 @@ let articles = [
     }
   },
   {
-    id: 6,
+    id: "navbar_1",
     type: "navbar-list",
     content: {
       option: "collections",
@@ -129,7 +132,7 @@ let articles = [
     }
   },
     {
-        id: 7,
+        id: "navbar_1",
         type: "navbar-list",
         content: {
             option: "home", // stable key for logic
@@ -143,7 +146,7 @@ let articles = [
         }
     },
     {
-        id: 8,
+        id: "navbar_1",
         type: "navbar-list",
         content: {
             option: "contact", // stable key for logic
@@ -162,7 +165,7 @@ let articles = [
         }
     },
     {
-        id: 9,
+        id: "navbar_1",
         type: "navbar-list",
         content: {
             option: "about", // stable key for logic
@@ -177,6 +180,91 @@ let articles = [
     }
 ];
 
-function articleRender(articles) {
-    
+
+window.addEventListener("load", ()=> {
+
+let cleared = false;
+function renderArticles(articles) {
+    articles.forEach(article => {
+        switch (article.type) {
+            case "navbar-list":
+                createNavbarList(article);
+                break;
+            default:
+                console.warn("Unknown article type:", article.type);
+        }
+    });
 }
+
+function createNavbarList(article) {
+    const navbarOption = article.content.option;
+    const container = document.getElementById(article.id);
+    if (!container) return;
+    if (!cleared)
+    {
+        container.innerHTML ="";
+        cleared = true;
+    }
+    
+    // Create option li and submenu li
+    const li = document.createElement("li");
+    li.classList.add("navbar__option");
+
+    const a = document.createElement("a");
+    a.classList.add("navbar__option-link");
+    a.textContent = navbarOption;
+    li.appendChild(a);
+
+    const li2 = document.createElement("li");
+    li2.classList.add("submenu");
+
+    container.appendChild(li);
+    container.appendChild(li2);
+
+    // Use the newly created li2 as the submenu container
+    const submenuElement = li2;
+    submenuElement.classList.add(navbarOption);
+
+    article.content.sections.forEach(section => {
+        const sectionElement = document.createElement("div");
+        sectionElement.classList.add("submenu__section");
+        submenuElement.appendChild(sectionElement);
+
+        const sectionTitle = document.createElement("h2");
+        sectionTitle.textContent = section.sectionName;
+        sectionElement.appendChild(sectionTitle);
+
+        if (section.listItems && Array.isArray(section.listItems)) {
+            const ul = document.createElement("ul");
+            sectionElement.appendChild(ul);
+
+            section.listItems.forEach(listItem => {
+                const liItem = document.createElement("li");
+                const aItem = document.createElement("a");
+                aItem.textContent = listItem;
+                aItem.href = "#";
+                liItem.appendChild(aItem);
+                ul.appendChild(liItem);
+            });
+        } else if (typeof section.listItems === "string" && section.listItems !== "none") {
+            const p = document.createElement("p");
+            p.textContent = section.listItems;
+            sectionElement.appendChild(p);
+        } else if (section.image) {
+            const imgCont = document.createElement("div");
+            imgCont.classList.add("submenu__section-image-container");
+            const imgDiv = document.createElement("div");
+            imgDiv.classList.add("submenu__section-image");
+            imgDiv.style.backgroundImage = `url(${section.image})`;
+            imgDiv.style.backgroundSize = section.imageSize;
+            imgDiv.style.backgroundPosition = section.imagePosition;
+            sectionElement.appendChild(imgCont);
+            imgCont.appendChild(imgDiv);
+            sectionElement.classList.add("submenu__section--image");
+        }
+    });
+}
+
+
+renderArticles(articles);
+});
