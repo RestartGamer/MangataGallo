@@ -49,12 +49,12 @@
             });
         </script> 
             
-        <nav class="navbar">
+        <nav class="navbar__container">
             <div class="submenu__bg-animation-background"></div>
             <div class="submenu__bg-animation--left"></div>
             <div class="submenu__bg-animation--right"></div>
             
-            <ul class="navbar__menu" id="navbar_1">
+            <ul class="navbar__content" id="navbar_1">
 
                 <li class="navbar__option">
                     <a class="navbar__option-link" href="#">Rings</a>
@@ -231,51 +231,60 @@
                 
                 <script>
                     window.addEventListener("load", () => {
-                    
-                    const options = document.querySelectorAll(".navbar__option");
+    const options = document.querySelectorAll(".navbar__option");
+    const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
+    const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
+    const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
 
-                    options.forEach(option => {
-                        const submenu = option.nextElementSibling; // each option's matching submenu
-                        const style = window.getComputedStyle(submenu);
-                        const paddingTop = parseInt(style.paddingTop) || 0;
-                        const paddingBottom = parseInt(style.paddingBottom) || 0;
-                        const rowGap = parseInt(style.rowGap) || 0;
-                        const sections = Array.from(submenu.querySelectorAll('.submenu__section'));
+    options.forEach(option => {
+        const submenu = option.nextElementSibling; 
+        const sections = Array.from(submenu.children);
 
-                        // Get the vertical position of each section
-                        const tops = sections.map(s => s.offsetTop);
+        const sectionHeights = sections.map(section => {
+            let bottom = section.offsetTop + section.offsetHeight;
 
-                        // Count unique top values => number of rows
-                        const rows = new Set(tops).size;
-                        
+            // check for absolutely positioned divs with background images
+            const imgDivs = section.querySelectorAll("div[style*='background-image']");
+            imgDivs.forEach(imgDiv => {
+                const imgDivRect = imgDiv.getBoundingClientRect();
+                const parentRect = section.getBoundingClientRect();
 
-                        const gapHeight = Math.max(0, rows -1) * rowGap; // rows - 1 = number of gaps ; Math.max(0,...) = makes sure it never goes negative ; rowGap = the picel size of each gap 
-                        const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
-                        const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
-                        const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
-                        if (submenu && submenu.classList.contains("submenu")) {
-                            option.addEventListener("mouseenter", () => {
-                            
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenuAnimLeft.classList.add("active");
-                            submenuAnimRight.classList.add("active");
-                            submenuAnimBG.classList.add("active");
-                            
-                            const submenuHeight = submenu.scrollHeight - paddingTop +rowGap; // full content height, adapts to grid
-                            document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
+                // bottom relative to section
+                const divBottomRelative = (imgDivRect.bottom - parentRect.top); //clientrect coordinates is relative to viewport, the other offsetTop and Height are not. therefore we need to chop off the parent rect top, to have a similar effect as the offset.
+                bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
 
-                            });
-                            submenu.addEventListener("mouseleave", () => {
-                                submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            });
+                if (section.getBoundingClientRect().top < imgDiv.getBoundingClientRect().bottom &&
+    section.getBoundingClientRect().bottom > imgDiv.getBoundingClientRect().top) {
+  section.style.gridRow = (parseInt(getComputedStyle(section).gridRowStart) + 1) + "";
+}
+            });
 
-                        }
-                    });
-                    });
+            return bottom;
+        });
+
+        const highestSection = Math.max(...sectionHeights);
+
+        option.addEventListener("mouseenter", () => {
+            submenuAnimLeft.classList.add("active");
+            submenuAnimRight.classList.add("active");
+            submenuAnimBG.classList.add("active");
+
+            submenu.style.height = highestSection + "px";
+            let ultimateHeight = submenu.offsetHeight;
+            submenuAnimLeft.style.height = ultimateHeight + "px";
+            submenuAnimRight.style.height = ultimateHeight + "px";
+            submenuAnimBG.style.height = ultimateHeight + "px";
+        });
+
+        submenu.addEventListener("mouseleave", () => {
+            submenuAnimLeft.classList.remove("active");
+            submenuAnimRight.classList.remove("active");
+            submenuAnimBG.classList.remove("active");
+        });
+    });
+});
+
+
                 </script>
             </ul>
             <div class="quick-menu">

@@ -65,8 +65,8 @@ body{
 }
 
 header{
-  display:grid;
-  grid-template-rows: max-content max-content;
+  display:flex;
+  flex-direction:column;
   position: relative;
   z-index: -1;
 }
@@ -94,8 +94,8 @@ footer {
   position: absolute;
   left: 0;
   top: 100%;
-  width: 100vw;
-  height: var(--submenu-height);
+  width: 100%;
+  height: 10vh;
   background: rgb(0, 0, 0);
   opacity:0;
   transition: opacity 1s ease-in-out, height 0.5s ease-in-out;
@@ -105,8 +105,8 @@ footer {
   position: absolute;
   left: 0;
   top: 100%;
-  width: 100vw;
-  height: var(--submenu-height);
+  width: 100%;
+  height: 10vh;
   background: rgba(255, 255, 255, 0.9);
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
   transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
@@ -117,8 +117,8 @@ footer {
   position: absolute;
   right: 0;
   top: 100%;
-  width: 100vw;
-  height: var(--submenu-height);
+  width: 100%;
+  height: 10vh;
   background: rgba(163, 196, 196, 0.9);
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
   transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
@@ -128,28 +128,29 @@ footer {
 }
 
 /*NAVBAR /////////////////////////////////////////////////*/
-.navbar {
+.navbar__container {
   position: sticky;
   top: 0;
-  grid-row:2; /*not really necessary since the browser already interprets it this way*/
-  z-index: 20;
+  width:100%;
+  height: 6vh;
+  background-color: rgba(73, 104, 104, 0.85);
+  
 }
-.navbar__menu {
+.navbar__content {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
-  z-index: 1;
-  width: 100%;
-  padding: 14px 0px;
-  background-color: rgba(73, 104, 104, 0.85);
-  margin:0;
   gap: 5px;
+  
+  width: 100%;
+  height: 100%;
+  /*! flex-direction: column; */
 }
 .navbar__option {
-  /*No button relative here, so I can get the hover zone to span across the entire navbar*/
-  cursor: pointer; /*changes cursor appearance when NOT hovering over it*/
+  cursor: pointer; 
   list-style: none;
-  z-index: 4;
+  flex: 0 0 auto;
 }
 .navbar__option-link {
   text-decoration: none;
@@ -222,46 +223,31 @@ footer {
   outline: 1px solid rgba(255, 0, 0, 0);
 }
 .submenu{
-  position: absolute;
   display:grid;
-  grid-template-columns: repeat(2, minmax(300px, 1fr));
-  grid-auto-rows: max-content; /* rows expand to content ONLY and not the height set here */
-  align-items:start;
-  justify-items:start;
-
-  overflow: visible;
-
-  row-gap: 40px;
-
-  padding-top:100px;
-  border-left: 500px solid transparent;
-  border-right: 500px solid transparent;
-  padding-bottom:220px;
-  top:0;
-  left: 50%;
-  transform: translateX(-50%);
-  width:max-content; /*size based on content , can also use "auto" , since 100% will be the ancestors relative*/
-
-  pointer-events:none;
-
-  text-align: left;
-  z-index: 3;
+  grid-template-columns: repeat(2, max-content);
+  grid-template-rows: max-content;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  outline: 2px solid red;
+  justify-content: center;
+  align-items: start;
+  gap: 12.7%;
+  opacity: 1;
+  pointer-events: none;
   opacity: 0;
-  visibility:hidden;
-  transition: opacity 0.5s ease-in-out;
-  background-color: rgba(0, 0, 0, 0);
+  padding-bottom:5%;
 }
 .submenu__section{
-  min-width:540px; /*This seems to be enough to push the grid cells from left to right and top to bottom*/
-  position: relative; /*This is to remove the image from the grid flow for more flexibility*/
-  outline: 1px solid rgb(255, 0, 0);
-}
-.submenu__section img{
-  position: absolute;
-  top: 100%;  /* adjust as needed */
-  left: 0;
-  max-height: 360px;
-  width: auto;
+  position:relative;
+  /*! width: 100%; */
+  /*! height: 100%; */
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  outline: 2px solid green;
 }
 
 .submenu__section--image { 
@@ -288,7 +274,7 @@ footer {
 
 .submenu__section-image-container {
   width: 100%;
-  height: 50.8vh;
+  height: 37.8vh;
   position: absolute;
   top: 100%;
   left: 0;
@@ -301,8 +287,7 @@ footer {
 
 
 
-.navbar__option:hover + .submenu,
-.submenu:hover {
+.navbar__option:hover + .submenu{
   opacity: 1;
   pointer-events: auto;
   visibility: visible;
