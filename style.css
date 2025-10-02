@@ -90,7 +90,7 @@ footer {
   z-index: 1;
 }
 /*CARPETS /////////////////////////////////////////////////*/
-#dropdown-carpet-background{
+.submenu__bg-animation-background{
   position: absolute;
   left: 0;
   top: 100%;
@@ -101,7 +101,7 @@ footer {
   transition: opacity 1s ease-in-out, height 0.5s ease-in-out;
   pointer-events:none;
 }
-#dropdown-carpet{
+.submenu__bg-animation--left{
   position: absolute;
   left: 0;
   top: 100%;
@@ -110,11 +110,10 @@ footer {
   background: rgba(255, 255, 255, 0.9);
   clip-path: polygon(0 0, 0 0, 0% 100%, 0% 100%); 
   transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
-  z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
 }
-#dropdown-carpet2 {
+.submenu__bg-animation--right{
   position: absolute;
   right: 0;
   top: 100%;
@@ -123,7 +122,6 @@ footer {
   background: rgba(163, 196, 196, 0.9);
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); 
   transition: clip-path 0.5s ease-in-out, height 0.5s ease-in-out;
-  z-index: 2;
   pointer-events: none;
   opacity: 1; /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
   
@@ -161,17 +159,15 @@ footer {
   padding: 5px 15px;
   display: block;
 }
-.navbar__option:hover ~ #dropdown-carpet,
-.submenu:hover ~ #dropdown-carpet {
+.submenu__bg-animation--left.active {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
   opacity:1;
 }
-.navbar__option:hover ~ #dropdown-carpet2,
-.submenu:hover ~ #dropdown-carpet2 {
+.submenu__bg-animation--right.active {
   clip-path: polygon(100% 0, 45% 0, calc(var(--hover-x, 50vw)*0.8) 100%, 100% 100%);
   opacity:1;
 }
-.navbar__option:hover ~ #dropdown-carpet-background{
+.submenu__bg-animation-background.active{
   opacity:1;
 }
 
