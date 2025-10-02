@@ -135,30 +135,40 @@ footer {
   height: 6vh;
   background-color: rgba(73, 104, 104, 0.85);
   
+  z-index: 10;
 }
 .navbar__content {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative; /*so the carpets refer to this only, instead of nav AND menu main*/
-  gap: 5px;
+  /*! gap: 0.7%; */
   
   width: 100%;
   height: 100%;
-  /*! flex-direction: column; */
+  outline: 1px solid red;
 }
 .navbar__option {
   cursor: pointer; 
   list-style: none;
+  height: 100%;
   flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.9%;
 }
 .navbar__option-link {
   text-decoration: none;
   color: white;
   font-family: 'EB Garamond', serif;
-  font-size: 22.2px;
-  padding: 5px 15px;
-  display: block;
+  font-size: 1.4rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 100%;
+  justify-content: center;
 }
 .submenu__bg-animation--left.active {
   clip-path: polygon(0% 0, 55% 0, calc(var(--hover-x, 50vw)*0.9) 100%, 0% 100%);
@@ -217,14 +227,10 @@ footer {
 
 
 
-/*SUBMENU /////////////////////////////////////////////////////////////*/
-.submenu * {
-  pointer-events: auto; /* allow interaction INSIDE submenu */
-  outline: 1px solid rgba(255, 0, 0, 0);
-}
+
 .submenu{
   display:grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(2, 17%);
   grid-template-rows: max-content;
   position: absolute;
   top: 100%;
@@ -242,7 +248,7 @@ footer {
 }
 .submenu__section{
   position:relative;
-  /*! width: 100%; */
+  width: 111%;
   /*! height: 100%; */
   display: flex;
   flex-direction: column;
@@ -287,10 +293,10 @@ footer {
 
 
 
-.navbar__option:hover + .submenu{
+.navbar__option:hover + .submenu,
+.submenu:hover{
   opacity: 1;
   pointer-events: auto;
-  visibility: visible;
 }
 
 /**/

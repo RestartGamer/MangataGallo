@@ -4,7 +4,7 @@ let articles = [
     id: "navbar_1",
     type: "navbar-list",
     content: {
-      option: "rings",
+      option: "Rings",
       sections: [
         {
           section: "craft",
@@ -32,7 +32,7 @@ let articles = [
     id: "navbar_1",
     type: "navbar-list",
     content: {
-      option: "necklaces",
+      option: "Necklaces",
       sections: [
         {
           section: "design",
@@ -51,7 +51,7 @@ let articles = [
     id: "navbar_1",
     type: "navbar-list",
     content: {
-      option: "earrings",
+      option: "Earrings",
       sections: [
         {
           section: "craft",
@@ -70,7 +70,7 @@ let articles = [
     id: "navbar_1",
     type: "navbar-list",
     content: {
-      option: "bracelets",
+      option: "Bracelets",
       sections: [
         {
           section: "craft",
@@ -97,7 +97,7 @@ let articles = [
     id: "navbar_1",
     type: "navbar-list",
     content: {
-      option: "watches",
+      option: "Watches",
       sections: [
         {
           section: "design",
@@ -116,7 +116,7 @@ let articles = [
     id: "navbar_1",
     type: "navbar-list",
     content: {
-      option: "collections",
+      option: "Collections",
       sections: [
         {
           section: "stories",
@@ -135,7 +135,7 @@ let articles = [
         id: "navbar_1",
         type: "navbar-list",
         content: {
-            option: "home", // stable key for logic
+            option: "Home", // stable key for logic
             sections: [
             {
                 section: "none",
@@ -149,7 +149,7 @@ let articles = [
         id: "navbar_1",
         type: "navbar-list",
         content: {
-            option: "contact", // stable key for logic
+            option: "Contact", // stable key for logic
             sections: [
             {
                 section: "none",
@@ -168,7 +168,7 @@ let articles = [
         id: "navbar_1",
         type: "navbar-list",
         content: {
-            option: "about", // stable key for logic
+            option: "About", // stable key for logic
             sections: [
             {
                 section: "title",
