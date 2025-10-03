@@ -1,7 +1,7 @@
 
 let articles = [
   {
-    id: "navbar_1",
+    id: "navbar",
     type: "navbar-list",
     content: {
       option: "Rings",
@@ -29,7 +29,7 @@ let articles = [
     }
   },
   {
-    id: "navbar_1",
+    id: "navbar",
     type: "navbar-list",
     content: {
       option: "Necklaces",
@@ -48,7 +48,7 @@ let articles = [
     }
   },
   {
-    id: "navbar_1",
+    id: "navbar",
     type: "navbar-list",
     content: {
       option: "Earrings",
@@ -67,7 +67,7 @@ let articles = [
     }
   },
   {
-    id: "navbar_1",
+    id: "navbar",
     type: "navbar-list",
     content: {
       option: "Bracelets",
@@ -89,12 +89,32 @@ let articles = [
           imageSize: "100%",
           imagePosition: "center center"
 
-        }
+        },{
+          section: "craft",
+          sectionName: "Craft",
+          listItems: ["Bangles", "Chain-bracelets"]
+        },{
+          section: "craft",
+          sectionName: "Craft",
+          listItems: ["Bangles", "Chain-bracelets"]
+        },{
+          section: "craft",
+          sectionName: "Craft",
+          listItems: ["Bangles", "Chain-bracelets"]
+        },
+        {
+          section: "ourluxurycollection",
+          sectionName: "Our Luxury Collection",
+          image: "media/bracelet-gold_2.jpg",
+          imageSize: "100%",
+          imagePosition: "center center"
+
+        },
       ]
     }
   },
   {
-    id: "navbar_1",
+    id: "navbar",
     type: "navbar-list",
     content: {
       option: "Watches",
@@ -113,7 +133,7 @@ let articles = [
     }
   },
   {
-    id: "navbar_1",
+    id: "navbar",
     type: "navbar-list",
     content: {
       option: "Collections",
@@ -132,7 +152,7 @@ let articles = [
     }
   },
     {
-        id: "navbar_1",
+        id: "navbar",
         type: "navbar-list",
         content: {
             option: "Home", // stable key for logic
@@ -146,7 +166,7 @@ let articles = [
         }
     },
     {
-        id: "navbar_1",
+        id: "navbar",
         type: "navbar-list",
         content: {
             option: "Contact", // stable key for logic
@@ -165,7 +185,7 @@ let articles = [
         }
     },
     {
-        id: "navbar_1",
+        id: "navbar",
         type: "navbar-list",
         content: {
             option: "About", // stable key for logic
@@ -174,6 +194,21 @@ let articles = [
                 section: "title",
                 sectionName: "Who we are",
                 listItems: "This is the description of our company."
+            }
+            ]
+        }
+    },
+    {
+        id: "poster_1",
+        type: "poster",
+        content: {
+            option: "About", // stable key for logic
+            sections: [
+            {
+                section: "text",
+                title: "Enchanted Necklace",
+                description: "This is our most prestigious necklace, with only the best of the best materials.",
+                image: "media/jewelry-model2"
             }
             ]
         }
@@ -190,6 +225,9 @@ function renderArticles(articles) {
             case "navbar-list":
                 createNavbarList(article);
                 break;
+            case "poster":
+            createPosters(article);
+            break;
             default:
                 console.warn("Unknown article type:", article.type);
         }
@@ -263,6 +301,10 @@ function createNavbarList(article) {
             sectionElement.classList.add("submenu__section--image");
         }
     });
+}
+
+function createPosters(article) {
+  
 }
 
 
