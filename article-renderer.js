@@ -199,16 +199,47 @@ let articles = [
         }
     },
     {
-        id: "poster_1",
+        id: "poster1",
         type: "poster",
         content: {
-            option: "About", // stable key for logic
             sections: [
             {
-                section: "text",
                 title: "Enchanted Necklace",
                 description: "This is our most prestigious necklace, with only the best of the best materials.",
-                image: "media/jewelry-model2"
+                image: "media/jewelry-model2.jpg",
+                imageSize: "120%",
+                imagePosition: "center 100%",
+                imageOrientation: "right"
+            }
+            ]
+        }
+    } ,
+    {
+        id: "poster2",
+        type: "poster",
+        content: {
+            sections: [
+            {
+                title: "Enchanted Ring",
+                description: "This is our most prestigious ring, with only the best of the best materials.",
+                image: "media/jewelry-model3.jpg",
+                imageSize: "120%",
+                imagePosition: "center 50%",
+                imageOrientation: "left"
+            }
+            ]
+        }
+    },
+    {
+        id: "promo-banner1",
+        type: "promo-banner",
+        content: {
+            sections: [
+            {
+                title: "Collections",
+                image: "media/promo-banner.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
             }
             ]
         }
@@ -217,8 +248,6 @@ let articles = [
 
 
 window.addEventListener("load", ()=> {
-
-let cleared = false;
 function renderArticles(articles) {
     articles.forEach(article => {
         switch (article.type) {
@@ -226,21 +255,26 @@ function renderArticles(articles) {
                 createNavbarList(article);
                 break;
             case "poster":
-            createPosters(article);
-            break;
+              createPosters(article);
+              break;
+            case "promo-banner":
+              createPromoBanner(article);
+              break;
             default:
                 console.warn("Unknown article type:", article.type);
         }
     });
 }
 
+let cleared = false;
 function createNavbarList(article) {
+    
     const navbarOption = article.content.option;
-    const container = document.getElementById(article.id);
-    if (!container) return;
+    const content = document.getElementById(article.id);
+    if (!content) return;
     if (!cleared)
     {
-        container.innerHTML ="";
+        content.innerHTML ="";
         cleared = true;
     }
     
@@ -256,8 +290,8 @@ function createNavbarList(article) {
     const li2 = document.createElement("li");
     li2.classList.add("submenu");
 
-    container.appendChild(li);
-    container.appendChild(li2);
+    content.appendChild(li);
+    content.appendChild(li2);
 
     // Use the newly created li2 as the submenu container
     const submenuElement = li2;
@@ -304,8 +338,81 @@ function createNavbarList(article) {
 }
 
 function createPosters(article) {
+  let content = document.getElementById(article.id);
+
+  content.innerHTML ="";
+
+  article.content.sections.forEach(section => {
+    
   
+  //Text
+  let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");
+  let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
+  let textContent = document.createElement("div"); textContent.classList.add("poster__text-content");
+  let h1 = document.createElement("h1");
+  let p = document.createElement("p");
+  h1.textContent = section.title;
+  p.textContent = section.description;
+
+  //Image
+  let posterImage = document.createElement("article"); posterImage.classList.add("poster__image");
+  posterImage.style.backgroundImage = `url(${section.image})`;
+  posterImage.style.backgroundSize = section.imageSize;
+  posterImage.style.backgroundPosition = section.imagePosition;
+
+  if (section.imageOrientation === "left") {
+    content.appendChild(posterImage);
+    content.appendChild(textCell);
+    textCell.appendChild(textLayout);
+    textCell.appendChild(textContent);
+    textContent.appendChild(h1);
+    textContent.appendChild(p);
+
+  } else if (section.imageOrientation === "right") {
+    content.appendChild(textCell);
+    textCell.appendChild(textLayout);
+    textCell.appendChild(textContent);
+    textContent.appendChild(h1);
+    textContent.appendChild(p);
+    content.appendChild(posterImage);
+  }
+
+});
 }
+
+function createPromoBanner(article){
+  let content = document.getElementById(article.id);
+
+  content.innerHTML ="";
+  
+  article.content.sections.forEach(section => {
+    //Text
+    let textCont = document.createElement("div"); textCont.classList.add("promo-banner__text-content");
+    let title = document.createElement("div"); title.classList.add("promo-banner__title");
+    let h1 = document.createElement("h1"); 
+    h1.textContent = section.title;
+
+    content.appendChild(textCont);
+    textCont.appendChild(title);
+    title.appendChild(h1);
+
+    //Image
+    let imageCont = document.createElement("div"); imageCont.classList.add("promo-banner__image-content");
+    let image = document.createElement("div"); image.classList.add("promo-banner__image");
+    image.style.backgroundImage = `url(${section.image})`;
+    image.style.backgroundSize = section.imageSize;
+    image.style.backgroundPosition = section.imagePosition;
+
+    content.appendChild(imageCont);
+    imageCont.appendChild(image);
+
+
+  });
+  
+
+
+}
+
 
 
 renderArticles(articles);
