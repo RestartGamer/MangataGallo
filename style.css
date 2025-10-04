@@ -1307,7 +1307,7 @@ main .empty-filler{
 
 .reel-promo__container {
   width:100%;
-  height: var(--reel-promo-container-height);
+  height: 78.6vh;
   background-color:white;
   /*! outline: 2px solid red; */
   /*! display:flex; */
@@ -1318,14 +1318,20 @@ main .empty-filler{
   align-items:center;
   position: relative;
   padding-bottom: 6%;
-  padding-top: 6.2%;
+  padding-top: 4.0%;
+  outline: 2px solid red;
+  padding-bottom: 18.3%;
+}
+.reel-promo__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.reel-promo__content {
+.reel-promo__article-mask {
   position:relative;
   width: 90%;
-  height:100%;
+  height:90.1%;
   display:flex;
   justify-content:start;
   /*! outline:2px solid green; */
@@ -1369,10 +1375,10 @@ main .empty-filler{
   cursor:pointer;
 }
 
-.reel-promo__grid-cell {
+.reel-promo__article-container {
   position:relative;
   width: var(--reel-promo-cell-width);
-  /*! height: 10%; */
+  height: 66vh;
   border: var(--reel-promo-border) solid #c3ffd5eb;
   
   background-color: #f2f2f278;
@@ -1381,13 +1387,13 @@ main .empty-filler{
   flex: 0 0 auto;
 }
 
-.reel-promo__grid-cell--selection {
+.reel-promo__article-container--selection {
   border: var(--reel-promo-border) solid #c3ffd5eb;
   
   background-color: #8ef4b621;
 }
 
-.reel-promo__grid-cell-content {
+.reel-promo__article-content {
   position:relative;
   display:flex;
   flex-direction:column;
@@ -1395,7 +1401,7 @@ main .empty-filler{
   align-items:center;
   width:100%;
   height:100%;
-  margin-top: 5.9vh;
+  margin-top: 7.3vh;
 }
 
 .reel-promo__image-cell {
@@ -1434,13 +1440,28 @@ main .empty-filler{
   font-size:1.1rem;
 }
 
-.reel-promo__grid-cell--selection .reel-promo__text-content h1 {
+.reel-promo__article-container--selection .reel-promo__text-content h1 {
   margin-bottom:3.0vh;
   font-size: clamp(1.5rem, 0.1vw + 1rem, 2.5rem);
 }
 
-.reel-promo__grid-cell--selection .reel-promo__text-content p {
+.reel-promo__article-container--selection .reel-promo__text-content p {
   font-size: clamp(1rem, 0.1vw + 0.95rem, 2rem);
+}
+
+.reel-promo__title-content {
+  outline: 2px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+  flex: 0 0 auto;
+  margin-bottom: 4%;
+  background-color: #e4fffc;
+}
+.reel-promo__title-content h1 {
+  font-size: 3.7rem;
 }
 
 

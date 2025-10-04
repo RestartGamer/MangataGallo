@@ -243,6 +243,79 @@ let articles = [
             }
             ]
         }
+    },
+    {
+        id: "reel-promo",
+        type: "reel-promo",
+        overheadTitle: "Limited Units",
+        content: {
+            sections: [
+            {
+                title: "Elegant Gold Chain Bracelet",
+                description: `A timeless piece crafted from polished fold,
+                 this bracelet adds subtle luxury to both casual and formal looks`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Minimalist Silver Cuff",
+                description: `Sleek and modern, this adjustable silver cuff
+                 is designed for everyday wear with a touch of sophistication.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Beaded Gemstone Bracelet",
+                description: `Hand-strung natural gemstones combine color
+                 and energy, making this bracelet both stylish and meaningful.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Elegant Gold Chain Bracelet",
+                description: `A timeless piece crafted from polished fold,
+                 this bracelet adds subtle luxury to both casual and formal looks`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Minimalist Silver Cuff",
+                description: `Sleek and modern, this adjustable silver cuff
+                 is designed for everyday wear with a touch of sophistication.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Beaded Gemstone Bracelet",
+                description: `Hand-strung natural gemstones combine color
+                 and energy, making this bracelet both stylish and meaningful.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Elegant Gold Chain Bracelet",
+                description: `A timeless piece crafted from polished fold,
+                 this bracelet adds subtle luxury to both casual and formal looks`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Minimalist Silver Cuff",
+                description: `Sleek and modern, this adjustable silver cuff
+                 is designed for everyday wear with a touch of sophistication.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Beaded Gemstone Bracelet",
+                description: `Hand-strung natural gemstones combine color
+                 and energy, making this bracelet both stylish and meaningful.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            }
+            ]
+        }
     }
 ];
 
@@ -259,6 +332,9 @@ function renderArticles(articles) {
               break;
             case "promo-banner":
               createPromoBanner(article);
+              break;
+            case "reel-promo":
+              createReelPromo(article);
               break;
             default:
                 console.warn("Unknown article type:", article.type);
@@ -408,8 +484,75 @@ function createPromoBanner(article){
 
 
   });
+}
+var cleared2 = false;
+function createReelPromo(article) {
+  let content = document.getElementById(article.id);
+
+ 
+  if (!cleared2)
+    {
+        content.innerHTML ="";
+        cleared2 = true;
+    }
+  
+  //Title
+  
+  let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
+  let titleH1 = document.createElement("h1"); 
+  content.appendChild(titleContent);
+  titleH1.textContent = article.overheadTitle;
+  titleContent.appendChild(titleH1);
+
+  //Articles
+  let articleMask = document.createElement("div"); articleMask.classList.add("reel-promo__article-mask");
+  content.appendChild(articleMask);
   
 
+  article.content.sections.forEach(section => {
+    let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
+    let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
+    
+    articleMask.appendChild(articleContainer);
+    articleContainer.appendChild(articleContent);
+    let imageCell = document.createElement("div"); imageCell.classList.add("reel-promo__image-cell");
+    let textCell = document.createElement("div"); textCell.classList.add("reel-promo__text-cell");
+    articleContent.appendChild(imageCell);
+    articleContent.appendChild(textCell);
+
+    let imageContent = document.createElement("div"); imageContent.classList.add("reel-promo__image-content");
+    imageContent.style.backgroundImage = `url(${section.image})`;
+    imageContent.style.backgroundSize = section.imageSize;
+    imageContent.style.backgroundPosition = section.imagePosition;
+    
+    let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
+    let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
+    let textH1 = document.createElement("h1");
+    let textP = document.createElement("p");
+    textH1.textContent = section.title;
+    textP.textContent = section.description;
+    
+
+    imageCell.appendChild(imageContent);
+    textCell.appendChild(textLayout);
+    textCell.appendChild(text);
+    text.appendChild(textH1);
+    text.appendChild(textP);
+  });
+  
+
+  //Navigation
+  let naviContainer = document.createElement("div"); naviContainer.classList.add("reel-promo__navi-container");
+  let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
+  let naviButtonLeft = document.createElement("button"); naviButtonLeft.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--left");
+  let naviButtonRight = document.createElement("button"); naviButtonRight.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--right");
+  naviButtonLeft.textContent = "<";
+  naviButtonRight.textContent = ">";
+
+  content.appendChild(naviContainer);
+  naviContainer.appendChild(naviContent);
+  naviContent.appendChild(naviButtonLeft);
+  naviContent.appendChild(naviButtonRight);
 
 }
 
