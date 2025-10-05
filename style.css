@@ -1331,7 +1331,7 @@ main .empty-filler{
 .reel-promo__article-mask {
   position:relative;
   width: 90%;
-  height:90.1%;
+  height:83.8%;
   display:flex;
   justify-content:start;
   /*! outline:2px solid green; */
@@ -1391,6 +1391,7 @@ main .empty-filler{
   border: var(--reel-promo-border) solid #c3ffd5eb;
   
   background-color: #8ef4b621;
+  height: 57.0vh;
 }
 
 .reel-promo__article-content {
@@ -1470,7 +1471,7 @@ main .empty-filler{
   justify-content:center;
   width:46%;
   height: 10vh;
-  outline: 2px solid green;
+  /*! outline: 2px solid green; */
   align-items: center;
   flex: 0 0 auto;
 }
@@ -1478,37 +1479,75 @@ main .empty-filler{
 .reel-promo__navi-content {
   display:flex;
   justify-content:center;
-  width:50.2%;
-  height:50%;
-  outline: 2px solid red;
+  width:48.6%;
+  height:79%;
+  /*! outline: 2px solid red; */
   position: relative;
   align-items: center;
-  gap:2.8%;
+  gap:1.2svw;
 }
 
 .reel-promo__navi-dir-button {
-  width:7.0%;
+  all:unset;
+  /*! width:4.4%; */
   /*! height:90%; */
   /*! background-color:rgb(56, 78, 56); */
-  border-radius: 100px;
+  /*! border-radius: 100px; */
   /*! aspect-ratio: 1 / 1; */
   /*! background-color: rgb(56, 78, 56); */
+  font-size: 3.0rem;
 }
 
 .reel-promo__navi-dir-button--left {
   position:absolute;
   left:28.5%;
+  /*! display: flex; */
+  /*! justify-content: center; */
+  /*! align-items: center; */
+  width: max-content;
+  height: max-content;
+  /*! outline: 1px solid blue; */
+  width: 20px;
+  height: 20px;
+  border: 3px solid black;
+  border-left: none;
+  border-top: none;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(135deg);
 }
 .reel-promo__navi-dir-button--right {
   position:absolute;
   right:28.5%;
+  width: 20px;
+  height: 20px;
+  border: 3px solid black;
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: black;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: black;
+  border-left: none;
+  border-top: none;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(-45deg);
 }
 
 .reel-promo__navi-mid-button {
-  width:3.5%;
+  all:unset;
+  background-color:whitesmoke;
+  border: 1px solid black;
+  transform: rotate(-45deg);
+  width:0.4svw;
   aspect-ratio: 1 / 1;
 }
 
+.reel-promo__navi-mid-button:hover {
+  background-color:black;
+  border: 1px solid whitesmoke;
+}
 
 .poster-slideshow__container {
   display:flex;

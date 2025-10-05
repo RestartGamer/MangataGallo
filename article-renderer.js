@@ -245,8 +245,81 @@ let articles = [
         }
     },
     {
-        id: "reel-promo",
+        id: "reel1",
         type: "reel-promo",
+        overheadTitle: "Limited Units",
+        content: {
+            sections: [
+            {
+                title: "Elegant Gold Chain Bracelet",
+                description: `A timeless piece crafted from polished fold,
+                 this bracelet adds subtle luxury to both casual and formal looks`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Minimalist Silver Cuff",
+                description: `Sleek and modern, this adjustable silver cuff
+                 is designed for everyday wear with a touch of sophistication.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Beaded Gemstone Bracelet",
+                description: `Hand-strung natural gemstones combine color
+                 and energy, making this bracelet both stylish and meaningful.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Elegant Gold Chain Bracelet",
+                description: `A timeless piece crafted from polished fold,
+                 this bracelet adds subtle luxury to both casual and formal looks`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Minimalist Silver Cuff",
+                description: `Sleek and modern, this adjustable silver cuff
+                 is designed for everyday wear with a touch of sophistication.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Beaded Gemstone Bracelet",
+                description: `Hand-strung natural gemstones combine color
+                 and energy, making this bracelet both stylish and meaningful.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Elegant Gold Chain Bracelet",
+                description: `A timeless piece crafted from polished fold,
+                 this bracelet adds subtle luxury to both casual and formal looks`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Minimalist Silver Cuff",
+                description: `Sleek and modern, this adjustable silver cuff
+                 is designed for everyday wear with a touch of sophistication.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            },{
+                title: "Beaded Gemstone Bracelet",
+                description: `Hand-strung natural gemstones combine color
+                 and energy, making this bracelet both stylish and meaningful.`,
+                image: "media/bracelet-gold_2.jpg",
+                imageSize: "100%",
+                imagePosition: "center center",
+            }
+            ]
+        }
+    },
+    {
+        id: "reel2",
+        type: "reel-selection",
         overheadTitle: "Limited Units",
         content: {
             sections: [
@@ -546,8 +619,6 @@ function createReelPromo(article) {
   let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
   let naviButtonLeft = document.createElement("button"); naviButtonLeft.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--left");
   let naviButtonRight = document.createElement("button"); naviButtonRight.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--right");
-  naviButtonLeft.textContent = "<";
-  naviButtonRight.textContent = ">";
 
   content.appendChild(naviContainer);
   naviContainer.appendChild(naviContent);
