@@ -246,7 +246,7 @@ let articles = [
     },
     {
         id: "reel1",
-        type: "reel-promo",
+        type: "reel",
         overheadTitle: "Limited Units",
         content: {
             sections: [
@@ -319,7 +319,7 @@ let articles = [
     },
     {
         id: "reel2",
-        type: "reel-selection",
+        type: "reel",
         overheadTitle: "Limited Units",
         content: {
             sections: [
@@ -406,7 +406,7 @@ function renderArticles(articles) {
             case "promo-banner":
               createPromoBanner(article);
               break;
-            case "reel-promo":
+            case "reel":
               createReelPromo(article);
               break;
             default:
@@ -421,12 +421,10 @@ function createNavbarList(article) {
     const navbarOption = article.content.option;
     const content = document.getElementById(article.id);
     if (!content) return;
-    if (!cleared)
-    {
-        content.innerHTML ="";
-        cleared = true;
-    }
-    
+    if (!content.dataset.cleared) {
+    content.innerHTML = "";
+    content.dataset.cleared = "true"; // mark this container as cleared
+}
     // Create option li and submenu li
     const li = document.createElement("li");
     li.classList.add("navbar__option");
@@ -558,25 +556,25 @@ function createPromoBanner(article){
 
   });
 }
-var cleared2 = false;
 function createReelPromo(article) {
   let content = document.getElementById(article.id);
 
  
-  if (!cleared2)
-    {
-        content.innerHTML ="";
-        cleared2 = true;
-    }
+  if (!content.dataset.cleared) {
+    content.innerHTML = "";
+    content.dataset.cleared = "true"; // mark this container as cleared
+}
   
   //Title
   
-  let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
-  let titleH1 = document.createElement("h1"); 
-  content.appendChild(titleContent);
-  titleH1.textContent = article.overheadTitle;
-  titleContent.appendChild(titleH1);
-
+  let selectionEl = content.parentElement;
+  if (!selectionEl.classList.contains("reel-promo__container--selection")) {
+    let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
+    let titleH1 = document.createElement("h1"); 
+    content.appendChild(titleContent);
+    titleH1.textContent = article.overheadTitle;
+    titleContent.appendChild(titleH1);
+}
   //Articles
   let articleMask = document.createElement("div"); articleMask.classList.add("reel-promo__article-mask");
   content.appendChild(articleMask);
