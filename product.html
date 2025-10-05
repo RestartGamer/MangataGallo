@@ -113,17 +113,6 @@
 
     document.querySelectorAll(".submenu").forEach(arrangeSubmenu);
 
-
-
-
-
-
-
-
-
-
-
-
                 const options = document.querySelectorAll(".navbar__option");
                 const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
                 const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
@@ -215,7 +204,7 @@
             </div>
         </section>
         <section class="checkout__container">
-            <article class="checkout__content"> 
+            <article class="checkout__content" id="checkout"> 
                 <div class="checkout__left-side-container"> 
                     <div class="checkout__left-side-content"> 
                         <div class="checkout__grid-item" style="grid-area: main;
@@ -332,28 +321,7 @@
                                 </div>
                         </div>
                     
-                        <script>
-                            document.querySelectorAll(".collapsible-btn").forEach(button => {
-                            button.addEventListener("click", () => {
-                                const content = button.nextElementSibling;
-                                const allContents = document.querySelectorAll(".collapsible-content");
-
-                                // First, close all panels
-                                allContents.forEach(c => {
-                                if (c !== content) {
-                                    c.style.maxHeight = null;
-                                }
-                                });
-
-                                // Then toggle the clicked one
-                                if (content.style.maxHeight) {
-                                content.style.maxHeight = null;
-                                } else {
-                                content.style.maxHeight = content.scrollHeight + "px";
-                                }
-                            });
-                            });
-                        </script>
+                        
                     </div>
                 </div>
 
