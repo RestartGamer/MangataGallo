@@ -136,6 +136,9 @@ footer {
   background-color: rgba(73, 104, 104, 0.85);
   
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .navbar__content {
   display: flex;
@@ -185,15 +188,16 @@ footer {
 
 .quick-menu {
   position:absolute;
-  top: 14.0%;
-  right: 2.2%;
+  top: -107.2%;
+  right: 1.1%;
   width:7.8%;
-  height: 75%;
-  background-color:rgb(15, 32, 27);
-  outline: 2px solid white;
+  height: 96.9%;
+  /*! background-color:rgb(81, 117, 106); */
+  /*! outline: 2px solid white; */
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 23px;
 }
 
 .quick-menu__content {
@@ -201,18 +205,20 @@ footer {
   justify-content:center;
   align-items:center;
   width:90%;
-  height:90%;
-  gap: 12.9%;
+  height:100%;
+  gap: 19.5%;
 }
 
 .quick-menu__content-item {
   display:flex;
   justify-content: center;
   align-items:center;
-  width: 31.8%;
-  height: 88%;
-  background-color: yellow;
-  outline: 1px solid red;
+  /*! width: 52.1%; */
+  height: 100%;
+  /*! background-color: #58795f; */
+  outline: 1px solid white;
+  border-radius: 9.1px;
+  aspect-ratio: 1 / 1;
 }
 
 
@@ -247,6 +253,7 @@ footer {
   opacity: 0;
   padding-bottom:5%;
   padding-top: 2%;
+  transition: opacity 0.6s ease-in-out;
 }
 .submenu__section{
   position:relative;

@@ -784,13 +784,13 @@ function renderCheckoutPage(article) {
   leftContent.className = "checkout__left-side-content";
 
   // Product images
-  product.images.forEach((src, idx) => {
+  product.images.forEach((image, i) => {
     const div = document.createElement("div");
     div.className = "checkout__grid-item";
-    div.style.gridArea = idx === 0 ? "main" : "secondary";
-    div.style.backgroundImage = `url("${src}")`;
-    div.style.backgroundSize = product.imageSizes[idx] || "100%";
-    div.style.backgroundPosition = product.imagePositions[idx] || "center center";
+    div.style.gridArea = i === 0 ? "main" : "secondary";
+    div.style.backgroundImage = `url("${image}")`;
+    div.style.backgroundSize = product.imageSizes[i] || "100%";
+    div.style.backgroundPosition = product.imagePositions[i] || "center center";
     leftContent.appendChild(div);
   });
 
@@ -923,11 +923,15 @@ function renderCheckoutPage(article) {
     hr.style.background = "rgb(83,83,83)";
     hr.style.border = "1px solid rgb(83,83,83)";
     hr.style.borderRadius = "100%";
-    hr.style.marginTop = "2%";
+    
     return hr;
   };
-
+  
   rightContent.appendChild(createHr());
+  let hr = rightContent.querySelector("horizontal-separator");
+ if (hr) {
+  hr.style.marginTop = "2%";
+}
 
   // Shipping
   const shippingDiv = document.createElement("div");
