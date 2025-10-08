@@ -198,6 +198,33 @@ footer {
   align-items: center;
   justify-content: center;
   border-radius: 23px;
+  transition: top 0.5s ease-in-out;
+}
+
+.quick-menu.scrolled {
+  top: 0%;
+}
+
+/* The scrollbar container */
+.shopping-cart__product-scroll-mask::-webkit-scrollbar {
+  width: 10px; /* or height: 10px for horizontal */
+}
+
+/* The draggable scrollbar "thumb" */
+.shopping-cart__product-scroll-mask::-webkit-scrollbar-thumb {
+  background-color: #ff0000;      /* scrollbar color */
+  border-radius: 10px;         /* rounded corners */
+}
+
+/* The track (background of scrollbar) */
+.shopping-cart__product-scroll-mask::-webkit-scrollbar-track {
+  background: #e00000;         /* track color */
+}
+
+.shopping-cart__product-scroll-mask { /*for Firefox*/
+  scrollbar-color: #9f9f9f #ffffff85;
+  scrollbar-width: auto;
+  scrollbar-gutter: auto;
 }
 
 .quick-menu__content {
@@ -220,6 +247,14 @@ footer {
   border-radius: 9.1px;
   aspect-ratio: 1 / 1;
   flex-direction: column;
+}
+
+.quick-menu__content-item--shopping:hover .shopping-cart__container {
+  max-width:232.6%;
+  font-size:100%;
+  opacity:1;
+  pointer-events:auto;
+  transition: max-width 0.5s ease-in-out, opacity 0.5s ease-in-out, font-size 0.4s ease-in-out;
 }
 
 
@@ -2267,12 +2302,24 @@ main .empty-filler{
   height: 68.7vh;
   position: absolute;
   top: 100%;
-  left: -131.9%;
+  right: -8.9%;
   outline: 1px solid red;
-  background-color: #c7ffc7;
+  background-color: #c7ffc7b2;
   border-radius: 28.0px;
   border: 8px solid white;
+  max-width:0%;
+  font-size:30%;
+  transform-origin:right;
+  opacity:0;
+  pointer-events:none;
+  transition: max-width 0.5s ease-in-out, opacity 0.5s ease-in-out, font-size 0.4s ease-in-out;
+  
 }
+
+
+
+
+
 .shopping-cart__content {
   background-color: white;
   width: 100%;
@@ -2311,9 +2358,10 @@ main .empty-filler{
   gap: 2.4%;
   overflow-y:auto;
   /*! border: 4px solid #b5b5b5; */
-  border-left: 15px solid #828181;
-  border-right: 15px solid #828181;
-  border-top: 25px solid #828181;
+  border-left: 15px solid #f2e7e785;
+  /*! border-right: 15px solid #828181; */
+  border-top: 25px solid #f2e7e785;
+  overflow-x:hidden;
 }
 .shopping-cart__product-item {
   outline: 2px solid red;
@@ -2389,7 +2437,7 @@ main .empty-filler{
 }
 .shopping-cart__product-total-price {
   outline: 1px solid blue;
-  width: 15.2svw;
+  width: 90.0%;
   height: 3.7vh;
   flex: 0 0 auto;
   display: flex;
@@ -2398,7 +2446,7 @@ main .empty-filler{
 }
 .shopping-cart__product-edit-bag {
   outline: 1px solid blue;
-  width: 7.4svw;
+  width: 38.8%;
   flex: 0 0 auto;
   height: 3.8vh;
   display: flex;
@@ -2409,7 +2457,7 @@ main .empty-filler{
 }
 .shopping-cart__go-to-checkout {
   outline: 1px solid blue;
-  width: 12.6svw;
+  width: 75.6%;
   height: 4.2vh;
   flex: 0 0 auto;
   display: flex;
@@ -2433,21 +2481,36 @@ main .empty-filler{
 }
 
 .shopping-cart__go-to-checkout h1 {
-  font-size: 1.7rem;
+  font-size: 159.4%;
 }
 .shopping-cart__product-edit-bag h2 {
-  font-size: 1.5rem;
+  font-size: 147.1%;
 }
 .shopping-cart__product-total-price h2 {
-  font-size: 1.2rem;
+  font-size: 103.5%;
 }
+
+
+
+
 .shopping-cart__main-title {
   display: flex;
   justify-content: center;
   align-items: center;
   /*! outline: 3px solid pink; */
-  margin-top: 0.2%;
-  width: 92.7%;
-  border: 4px solid #cff4de;
-  height: 10.5%;
+  margin-top: -3.2%;
+  width: 103.8%;
+  /*! border: 4px solid #cff4de; */
+  height: 13.3%;
+  background-color: #709f7099;
+  border-radius: 13px;
+  border: 2px solid #0000006b;
+}
+
+.shopping-cart__product-details {
+  left: 42.7%;
+}
+
+.shopping-cart__main-title h1 {
+  font-size: 185%;
 }
