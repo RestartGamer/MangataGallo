@@ -2214,7 +2214,7 @@ main .empty-filler{
 .horizontal-separator__bg {
   width:100%;
   height:1vh;
-  background-color:white;
+  background-color:#cff4de00;
   display: flex;
   justify-content: center;
 }
@@ -2267,22 +2267,28 @@ main .empty-filler{
   height: 68.7vh;
   position: absolute;
   top: 100%;
-  left: -124.1%;
+  left: -131.9%;
   outline: 1px solid red;
+  background-color: #c7ffc7;
+  border-radius: 28.0px;
+  border: 8px solid white;
 }
 .shopping-cart__content {
   background-color: white;
   width: 100%;
   height: 97.1%;
   position: absolute;
-  top: 2.2%;
+  top: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-top: 5.9%;
+  background-color: transparent;
+  /*! border: 10px solid #5f7769; */
 }
 .shopping-cart__top-content {
-  outline: 7px solid green;
+  /*! outline: 7px solid green; */
   width: 90.7%;
   height: 46.6vh;
   display: flex;
@@ -2290,11 +2296,12 @@ main .empty-filler{
   flex-direction: column;
   gap: 1.8%;
   align-items: center;
+  /*! border: 7px solid #90ac9c; */
 }
 .shopping-cart__product-scroll-mask {
   width: 100%;
   height: 100%;
-  outline: 3px solid blue;
+  /*! outline: 3px solid blue; */
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -2303,6 +2310,10 @@ main .empty-filler{
   position: relative;
   gap: 2.4%;
   overflow-y:auto;
+  /*! border: 4px solid #b5b5b5; */
+  border-left: 15px solid #828181;
+  border-right: 15px solid #828181;
+  border-top: 25px solid #828181;
 }
 .shopping-cart__product-item {
   outline: 2px solid red;
@@ -2367,7 +2378,7 @@ main .empty-filler{
   margin-top: 4.2%;
 }
 .shopping-cart__product-bottom-content {
-  outline: 3px solid brown;
+  /*! outline: 3px solid brown; */
   width: 91.6%;
   height: 50%;
   display: flex;
@@ -2393,15 +2404,19 @@ main .empty-filler{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ff8a51;
+  border-radius: 5px;
 }
 .shopping-cart__go-to-checkout {
   outline: 1px solid blue;
   width: 12.6svw;
-  height: 3.6vh;
+  height: 4.2vh;
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #51efff;
+  border-radius: 5px;
 }
 
 .shopping-cart__product-title h1 {
@@ -2430,7 +2445,9 @@ main .empty-filler{
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: 3px solid pink;
-  margin-top: 1.6%;
-  width: 90%;
+  /*! outline: 3px solid pink; */
+  margin-top: 0.2%;
+  width: 92.7%;
+  border: 4px solid #cff4de;
+  height: 10.5%;
 }
