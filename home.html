@@ -36,6 +36,7 @@
     <main>
         <script>
             window.addEventListener("load", () => {
+                window.scrollTo(0, 0);
                 const buttons = document.querySelectorAll('.navbar__option');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
@@ -67,7 +68,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke" stroke-width="0.5" viewBox="0 0 24 24">
                             <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"/>
                         </svg>
-                        <div class="shopping-cart__container">
+                        
+                    </div>
+                    <div class="shopping-cart__container">
                             <div class="shopping-cart__content">
                                 <div class="shopping-cart__top-content">
                                     <div class="shopping-cart__main-title">
@@ -284,9 +287,23 @@
                                                     border-radius: 100%;">
                                 </div>
                                 <div class="shopping-cart__product-bottom-content">
+                                    <div class="horizontal-separator__bg" style="background-color: transparent;height: 0.1vh;">
+                                    <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                                </div>
                                     <div class="shopping-cart__product-total-price">
                                         <h2>Total price:</h2>
                                     </div>
+                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
+                                    <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                                </div>
                                     <div class="shopping-cart__product-edit-bag">
                                         <h2>Edit bag</h2>
                                     </div>
@@ -297,7 +314,6 @@
 
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </nav>
@@ -351,6 +367,7 @@
 
     document.querySelectorAll(".submenu").forEach(arrangeSubmenu);
 
+    
 
 
 
@@ -443,6 +460,17 @@
                 });
 
                 
+
+            });
+
+            window.addEventListener("load", () => { 
+                const shopButton = document.querySelector(".quick-menu__content-item--shopping");
+                const shopWindow = document.querySelector(".shopping-cart__container");
+
+                shopButton.addEventListener("click", ()=> {
+                    shopWindow.classList.toggle("active");
+                });
+
 
             });
         </script>

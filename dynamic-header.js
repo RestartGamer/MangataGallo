@@ -59,7 +59,7 @@ window.addEventListener("resize", () => {
 
 function dynamicQuickMenu() {
   const quickMenu = document.querySelector(".quick-menu");
-  const scrollThreshold = 300;
+  const scrollThreshold = 100;
 
   window.addEventListener("scroll", ()=>{
     if (window.scrollY > scrollThreshold) {
@@ -69,7 +69,6 @@ function dynamicQuickMenu() {
     }
 
   });
-
 }
 
 window.addEventListener("load", dynamicQuickMenu);
