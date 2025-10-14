@@ -1,3 +1,36 @@
+let render = [
+  {
+    type: "navbar-list",
+    id: "N0001"
+  },
+  {
+    type: "poster",
+    id: "P0001",
+    article: "A0001",
+  },
+  {
+    type: "promo-banner",
+    id: "PB0001",
+    image:  "media/promo-banner.jpg",
+  },
+  {
+    type: "reel",
+    id: "R0001",
+    articles: "all",
+  },
+  {
+    type: "slideshow",
+    id: "S0001",
+    articles: ["A0001","A0002", "A0003"],
+  },
+  {
+    type: "checkout",
+    id: "CH0001"
+  }
+
+];
+
+
 
 let articles = [
   {
@@ -334,7 +367,7 @@ let articles = [
                 title: "Minimalist Silver Cuff",
                 description: `Sleek and modern, this adjustable silver cuff
                  is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_2.jpg",
+                image: "media/bracelet-gold_1.jpg",
                 imageSize: "100%",
                 imagePosition: "center center",
             },{
