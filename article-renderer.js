@@ -472,64 +472,68 @@ let articles = [
 ];
 
 
+
+
+
+
 window.addEventListener("load", ()=> {
-function renderArticles(articles) {
-    articles.forEach(article => {
+  function renderArticles(articles) {
+      articles.forEach(article => {
         switch (article.type) {
-            case "navbar-list":
-                createNavbarList(article);
-                break;
             case "poster":
               createPosters(article);
-              break;
+            break;
             case "promo-banner":
               createPromoBanner(article);
-              break;
+            break;
             case "reel":
               createReelPromo(article);
-              break;
+            break;
             case "slideshow":
               createSlideshow(article);
-              break;
-            case "checkout":
-              renderCheckoutPage(article);
-              break;
+            break;
             default:
-                console.warn("Unknown article type:", article.type);
+              console.warn("Unknown article type:", article.type);
         }
-    });
-}
+      });
+      }
+  
 
-let cleared = false;
-function createNavbarList(article) {
+  
+
+
+
+
+function createNavbarList(navbarContent) {
+  let content = document.getElementById("navbar");
+  if (!content) return;
+      if (!content.dataset.cleared) {
+      content.innerHTML = "";
+      content.dataset.cleared = "true"; // mark this container as cleared
+  }
+  navbarContent.forEach(nav => {
     
-    const navbarOption = article.content.option;
-    const content = document.getElementById(article.id);
-    if (!content) return;
-    if (!content.dataset.cleared) {
-    content.innerHTML = "";
-    content.dataset.cleared = "true"; // mark this container as cleared
-}
+    let navbarOption = nav.option;
     // Create option li and submenu li
-    const li = document.createElement("li");
+    let li = document.createElement("li");
     li.classList.add("navbar__option");
 
-    const a = document.createElement("a");
+    let a = document.createElement("a");
     a.classList.add("navbar__option-link");
     a.textContent = navbarOption;
     li.appendChild(a);
 
-    const li2 = document.createElement("li");
+    let li2 = document.createElement("li");
     li2.classList.add("submenu");
 
     content.appendChild(li);
     content.appendChild(li2);
 
     // Use the newly created li2 as the submenu container
-    const submenuElement = li2;
+    let submenuElement = li2;
     submenuElement.classList.add(navbarOption);
 
-    article.content.sections.forEach(section => {
+    nav.sections.forEach(section => {
         const sectionElement = document.createElement("div");
         sectionElement.classList.add("submenu__section");
         submenuElement.appendChild(sectionElement);
@@ -567,7 +571,16 @@ function createNavbarList(article) {
             sectionElement.classList.add("submenu__section--image");
         }
     });
+
+  });
+
+    
+    
+
+    
 }
+
+createNavbarList(navbarContent);
 
 function createPosters(article) {
   let content = document.getElementById(article.id);
