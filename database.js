@@ -1,11 +1,11 @@
 articles = [
     {
-        id: "A0001",
+        id: "A0000",
         category: "rings",
         title: "Timeless Ring",
         description: `Discover rings that capture emotion and elegance — from minimalist bands to bold statement pieces, each crafted to celebrate life’s most meaningful connections.`,
         video: "video",
-        image: "media/rings-variant1.png",
+        image: "media/ring-variant1.png",
         imageSize: "100%",
         imagePosition: "center center",
         link: "link",
@@ -13,7 +13,7 @@ articles = [
     },
 
     {
-        id: "A0002",
+        id: "A0001",
         category: "necklaces",
         title: "Elegant Necklace",
         description: `Adorn your neckline with handcrafted designs that blend sophistication and charm. Each necklace tells a story of craftsmanship and personal expression.`,
@@ -26,7 +26,7 @@ articles = [
     },
 
     {
-        id: "A0003",
+        id: "A0002",
         category: "earrings",
         title: "Radiant Earring",
         description: `From delicate studs to radiant drops, our earrings are designed to frame your features with elegance and individuality.`,
@@ -39,7 +39,7 @@ articles = [
     },
 
     {
-        id: "A0004",
+        id: "A0003",
         category: "bracelets",
         title: "Artistic Bracelet",
         description: `Wrap your wrist in artistry — with bracelets that blend fine detail, balance, and personality for every mood and occasion.`,
@@ -52,7 +52,7 @@ articles = [
     },
 
     {
-        id: "A0005",
+        id: "A0004",
         category: "watches",
         title: "Refined Watch",
         description: `More than an accessory, each watch is a symbol of refinement — merging precision, luxury, and timeless design in perfect harmony.`,

@@ -1,511 +1,56 @@
-let render = [
-  {
-    type: "navbar-list",
-    id: "N0001"
-  },
-  {
-    type: "poster",
-    id: "P0001",
-    article: "A0001",
-  },
-  {
-    type: "promo-banner",
-    id: "PB0001",
-    image:  "media/promo-banner.jpg",
-  },
-  {
-    type: "reel",
-    id: "R0001",
-    articles: "all",
-  },
-  {
-    type: "slideshow",
-    id: "S0001",
-    articles: ["A0001","A0002", "A0003"],
-  },
-  {
-    type: "checkout",
-    id: "CH0001"
-  }
-
-];
-
-
-
-let articles = [
-  {
-    id: "navbar",
-    type: "navbar-list",
-    content: {
-      option: "Rings",
-      sections: [
-        {
-          section: "craft",
-          sectionName: "Craft",
-          listItems: [
-            "Engagement Rings for Every Love Story",
-            "Wedding Rings Crafted to Last",
-            "Fashion Rings to Express Your Unique Style"
-          ]
-        },
-        {
-          section: "moments",
-          sectionName: "Moments",
-          listItems: [
-            "Anniversary Rings to Celebrate Your Journey",
-            "Promise Rings That Speak From the Heart",
-            "Statement Rings for Bold Expressions",
-            "Remembrance Rings for the Best Moments"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    id: "navbar",
-    type: "navbar-list",
-    content: {
-      option: "Necklaces",
-      sections: [
-        {
-          section: "design",
-          sectionName: "Design",
-          listItems: ["Pendants", "Chains", "Statement Necklaces"]
-        },
-        {
-          section: "inspire",
-          sectionName: "Inspire",
-          listItems: ["Layered Looks", "Chains", "Minimalist Styles"]
-        }
-      ]
-    }
-  },
-  {
-    id: "navbar",
-    type: "navbar-list",
-    content: {
-      option: "Earrings",
-      sections: [
-        {
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Studs", "Hoops", "Drop Earrings"]
-        },
-        {
-          section: "stories",
-          sectionName: "Stories",
-          listItems: ["Everyday Essentials", "Statement Pieces"]
-        }
-      ]
-    }
-  },
-  {
-    id: "navbar",
-    type: "navbar-list",
-    content: {
-      option: "Bracelets",
-      sections: [
-        {
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },
-        {
-          section: "moments",
-          sectionName: "Moments",
-          listItems: ["Friendship", "Personalized"]
-        },
-        {
-          section: "ourluxurycollection",
-          sectionName: "Our Luxury Collection",
-          image: "media/bracelet-gold_2.jpg",
-          imageSize: "100%",
-          imagePosition: "center center"
-
-        },{
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },{
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },{
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },
-        {
-          section: "ourluxurycollection",
-          sectionName: "Our Luxury Collection",
-          image: "media/bracelet-gold_2.jpg",
-          imageSize: "100%",
-          imagePosition: "center center"
-
-        },
-      ]
-    }
-  },
-  {
-    id: "navbar",
-    type: "navbar-list",
-    content: {
-      option: "Watches",
-      sections: [
-        {
-          section: "design",
-          sectionName: "Design",
-          listItems: ["Luxury watches", "Fashion watches"]
-        },
-        {
-          section: "special",
-          sectionName: "Special Lines",
-          listItems: ["Modern Classics", "Heritage Styles"]
-        }
-      ]
-    }
-  },
-  {
-    id: "navbar",
-    type: "navbar-list",
-    content: {
-      option: "Collections",
-      sections: [
-        {
-          section: "stories",
-          sectionName: "Stories",
-          listItems: ["Seasonal Collections", "Limited Editions"]
-        },
-        {
-          section: "inspire",
-          sectionName: "Inspire",
-          listItems: ["Collaborations", "Designer Lines"]
-        }
-      ]
-    }
-  },
-    {
-        id: "navbar",
-        type: "navbar-list",
-        content: {
-            option: "Home", // stable key for logic
-            sections: [
-            {
-                section: "none",
-                sectionName: "none",
-                listItems: "none"
-            }
-            ]
-        }
-    },
-    {
-        id: "navbar",
-        type: "navbar-list",
-        content: {
-            option: "Contact", // stable key for logic
-            sections: [
-            {
-                section: "none",
-                sectionName: "none",
-                listItems: "none"
-            },
-            {
-                section: "inspire",
-                sectionName: "Inspire",
-                listItems: ["Collaborations", "Designer Lines"]
-            }
-            ]
-        }
-    },
-    {
-        id: "navbar",
-        type: "navbar-list",
-        content: {
-            option: "About", // stable key for logic
-            sections: [
-            {
-                section: "title",
-                sectionName: "Who we are",
-                listItems: "This is the description of our company."
-            }
-            ]
-        }
-    },
-    {
-        id: "poster1",
-        type: "poster",
-        content: {
-            sections: [
-            {
-                title: "Enchanted Necklace",
-                description: "This is our most prestigious necklace, with only the best of the best materials.",
-                image: "media/jewelry-model2.jpg",
-                imageSize: "120%",
-                imagePosition: "center 100%",
-                imageOrientation: "right"
-            }
-            ]
-        }
-    } ,
-    {
-        id: "poster2",
-        type: "poster",
-        content: {
-            sections: [
-            {
-                title: "Enchanted Ring",
-                description: "This is our most prestigious ring, with only the best of the best materials.",
-                image: "media/jewelry-model3.jpg",
-                imageSize: "120%",
-                imagePosition: "center 50%",
-                imageOrientation: "left"
-            }
-            ]
-        }
-    },
-    {
-        id: "promo-banner1",
-        type: "promo-banner",
-        content: {
-            sections: [
-            {
-                title: "Collections",
-                image: "media/promo-banner.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            }
-            ]
-        }
-    },
-    {
-        id: "reel1",
-        type: "reel",
-        overheadTitle: "Limited Units",
-        content: {
-            sections: [
-            {
-                title: "Elegant Gold Chain Bracelet",
-                description: `A timeless piece crafted from polished fold,
-                 this bracelet adds subtle luxury to both casual and formal looks`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Minimalist Silver Cuff",
-                description: `Sleek and modern, this adjustable silver cuff
-                 is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Beaded Gemstone Bracelet",
-                description: `Hand-strung natural gemstones combine color
-                 and energy, making this bracelet both stylish and meaningful.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Elegant Gold Chain Bracelet",
-                description: `A timeless piece crafted from polished fold,
-                 this bracelet adds subtle luxury to both casual and formal looks`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Minimalist Silver Cuff",
-                description: `Sleek and modern, this adjustable silver cuff
-                 is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Beaded Gemstone Bracelet",
-                description: `Hand-strung natural gemstones combine color
-                 and energy, making this bracelet both stylish and meaningful.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Elegant Gold Chain Bracelet",
-                description: `A timeless piece crafted from polished fold,
-                 this bracelet adds subtle luxury to both casual and formal looks`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Minimalist Silver Cuff",
-                description: `Sleek and modern, this adjustable silver cuff
-                 is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Beaded Gemstone Bracelet",
-                description: `Hand-strung natural gemstones combine color
-                 and energy, making this bracelet both stylish and meaningful.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            }
-            ]
-        }
-    },
-    {
-        id: "reel2",
-        type: "reel",
-        overheadTitle: "Limited Units",
-        content: {
-            sections: [
-            {
-                title: "Elegant Gold Chain Bracelet",
-                description: `A timeless piece crafted from polished fold,
-                 this bracelet adds subtle luxury to both casual and formal looks`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Minimalist Silver Cuff",
-                description: `Sleek and modern, this adjustable silver cuff
-                 is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_1.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Beaded Gemstone Bracelet",
-                description: `Hand-strung natural gemstones combine color
-                 and energy, making this bracelet both stylish and meaningful.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Elegant Gold Chain Bracelet",
-                description: `A timeless piece crafted from polished fold,
-                 this bracelet adds subtle luxury to both casual and formal looks`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Minimalist Silver Cuff",
-                description: `Sleek and modern, this adjustable silver cuff
-                 is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Beaded Gemstone Bracelet",
-                description: `Hand-strung natural gemstones combine color
-                 and energy, making this bracelet both stylish and meaningful.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Elegant Gold Chain Bracelet",
-                description: `A timeless piece crafted from polished fold,
-                 this bracelet adds subtle luxury to both casual and formal looks`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Minimalist Silver Cuff",
-                description: `Sleek and modern, this adjustable silver cuff
-                 is designed for everyday wear with a touch of sophistication.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            },{
-                title: "Beaded Gemstone Bracelet",
-                description: `Hand-strung natural gemstones combine color
-                 and energy, making this bracelet both stylish and meaningful.`,
-                image: "media/bracelet-gold_2.jpg",
-                imageSize: "100%",
-                imagePosition: "center center",
-            }
-            ]
-        }
-    },
-    {
-      id: "slideshow1",
-      type: "slideshow",
-      content: {
-        sections: [
-          {
-            index: [1,2,3],
-            titles: ["Celestial Rings","Golden Necklace","Silver Earrings"],
-            descriptions: ["Crafted by the most prestigious of craftsmen","Crafted by the most prestigious of craftsmen","Crafted by the most prestigious of craftsmen"],
-            images: [
-              "media/jewelry-model1.jpg",
-              "media/jewelry-model2.jpg",
-              "media/jewelry-model3.jpg"
-            ],
-            imageSizes: ["100%","100%","100%"],
-            imagePositions: ["center center","center center","center center"]
-          }
-        ]
-      }
-    },
-    {
-      id: "checkout",
-    type: "checkout",
-    content: [
-      {
-        productName: "Elegant Gold Chain Bracelet",
-        productPrice: "12.96€",
-        productDescription: `Enjoy a seamless shopping experience with our complimentary shipping
-                                    service. Every order is carefully packed and delivered to your door with
-                                    priority handling. If it’s not a perfect match, returns are simple and free
-                                    of charge.`,
-        productDescriptionList: [
-          "Free standard shipping on all orders above €X",
-          "30-day free returns, no questions asked",
-          "Fast & secure delivery with tracking included"
-        ],
-        images: ["media/bracelet-gold_1.jpg", "media/bracelet-gold_2.jpg"],
-        imageSizes: ["100%", "100%"],
-        imagePositions: ["center center", "center center"],
-        video: "media/rings-hands-downscaled.mp4",
-        promoTitle: "Limited Units",
-        promoDescription: `Exclusive Offer ✨ Take 2 dazzling red crystal earrings for the
-         price of 1 on purchases over €X. Elegance doubled, only while stocks last.`
-      }
-    ]
-  }
-];
-
-
-
-
+let dataTypes = ["navbar","poster","promo-banner","reel","slideshow","checkout"]
 
 
 window.addEventListener("load", ()=> {
-  function renderArticles(articles) {
-      articles.forEach(article => {
-        switch (article.type) {
-            case "poster":
-              createPosters(article);
-            break;
-            case "promo-banner":
-              createPromoBanner(article);
-            break;
-            case "reel":
-              createReelPromo(article);
-            break;
-            case "slideshow":
-              createSlideshow(article);
-            break;
-            default:
-              console.warn("Unknown article type:", article.type);
-        }
-      });
-      }
-  
+dataTypes.forEach(dataType => {
+  let elements = document.querySelectorAll(`[data-type="${dataType}"]`);
+  elements.forEach((element, index) => {
+    switch(dataType)
+    {
+      case "navbar":
+        element.id = `N${String(index).padStart(4, '0')}`;
+        createNavbarList(navbarContent, element.id);
+      break;
+      case "poster":
+        element.id = `P${String(index).padStart(4, '0')}`;
+        let assignedArticles = JSON.parse(element.dataset.categories);
+        let filteredArticles = articleSetup(articles, assignedArticles, true, element);
+        filteredArticles.forEach(article => {
+          article.imageOrientation = element.dataset.imageOrientation;
+        });
+        createPosters(filteredArticles, element.id);
+        console.log(element.dataset.singleArticle);
+        console.log(filteredArticles);
+        
+      break;
+      case "promo-banner":
+        element.id = `PB${String(index).padStart(4, '0')}`;
+      break;
+      case "reel":
+        element.id = `R${String(index).padStart(4, '0')}`;
+      break;
+      case "slideshow":
+        element.id = `S${String(index).padStart(4, '0')}`;
+      break;
+      case "checkout":
+        element.id = `C${String(index).padStart(4, '0')}`;
+      break;
+    }
+  });
+});
 
-  
+function articleSetup(articles, assignedArticles, singleArticle, element) {
+  if (singleArticle === true){
+    return articles.filter(article => article.id === element.dataset.singleArticle);
+  } else {
+    return articles.filter(article => assignedArticles.includes(article.category));
+  }
+}
 
 
 
-
-function createNavbarList(navbarContent) {
-  let content = document.getElementById("navbar");
+function createNavbarList(navbarContent,elementId) {
+  let content = document.getElementById(elementId);
   if (!content) return;
       if (!content.dataset.cleared) {
       content.innerHTML = "";
@@ -580,49 +125,52 @@ function createNavbarList(navbarContent) {
     
 }
 
-createNavbarList(navbarContent);
 
-function createPosters(article) {
-  let content = document.getElementById(article.id);
+
+function createPosters(articles, elementId) {
+  let content = document.getElementById(elementId);
   if (!content) return;
-  content.innerHTML ="";
-
-  article.content.sections.forEach(section => {
-    
-  
-  //Text
-  let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");
-  let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
-  let textContent = document.createElement("div"); textContent.classList.add("poster__text-content");
-  let h1 = document.createElement("h1");
-  let p = document.createElement("p");
-  h1.textContent = section.title;
-  p.textContent = section.description;
-
-  //Image
-  let posterImage = document.createElement("article"); posterImage.classList.add("poster__image");
-  posterImage.style.backgroundImage = `url(${section.image})`;
-  posterImage.style.backgroundSize = section.imageSize;
-  posterImage.style.backgroundPosition = section.imagePosition;
-
-  if (section.imageOrientation === "left") {
-    content.appendChild(posterImage);
-    content.appendChild(textCell);
-    textCell.appendChild(textLayout);
-    textCell.appendChild(textContent);
-    textContent.appendChild(h1);
-    textContent.appendChild(p);
-
-  } else if (section.imageOrientation === "right") {
-    content.appendChild(textCell);
-    textCell.appendChild(textLayout);
-    textCell.appendChild(textContent);
-    textContent.appendChild(h1);
-    textContent.appendChild(p);
-    content.appendChild(posterImage);
+      if (!content.dataset.cleared) {
+      content.innerHTML = "";
+      content.dataset.cleared = "true"; // mark this container as cleared
   }
 
-});
+  articles.forEach(article => {
+    
+    //Text
+    let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");
+    let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
+    let textContent = document.createElement("div"); textContent.classList.add("poster__text-content");
+    let h1 = document.createElement("h1");
+    let p = document.createElement("p");
+    h1.textContent = article.title;
+    p.textContent = article.description;
+
+    //Image
+    let posterImage = document.createElement("article"); posterImage.classList.add("poster__image");
+    posterImage.style.backgroundImage = `url(${article.image})`;
+    posterImage.style.backgroundSize = article.imageSize;
+    posterImage.style.backgroundPosition = article.imagePosition;
+
+    if (article.imageOrientation === "left") {
+      content.appendChild(posterImage);
+      content.appendChild(textCell);
+      textCell.appendChild(textLayout);
+      textCell.appendChild(textContent);
+      textContent.appendChild(h1);
+      textContent.appendChild(p);
+
+    } else if (article.imageOrientation === "right") {
+      content.appendChild(textCell);
+      textCell.appendChild(textLayout);
+      textCell.appendChild(textContent);
+      textContent.appendChild(h1);
+      textContent.appendChild(p);
+      content.appendChild(posterImage);
+    }
+
+  });
+  
 }
 
 function createPromoBanner(article){
@@ -1058,5 +606,4 @@ function renderCheckoutPage(article) {
 
 
 
-renderArticles(articles);
 });
