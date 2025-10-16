@@ -237,21 +237,46 @@ function createPosters(articles, elementId) {
     posterImage.style.backgroundSize = article.imageSize;
     posterImage.style.backgroundPosition = article.imagePosition;
 
+    let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
+    hyperlink1.href = "product.html";
+    
+
+    hyperlink1.addEventListener("click", (e) => {
+      localStorage.setItem("selectedArticleId", article.id);
+      window.location.href = "product.html";
+    });
+    let hyperlink2 = document.createElement("a"); hyperlink2.classList.add("go-to-checkout");
+    hyperlink2.href = "product.html";
+    
+
+    hyperlink2.addEventListener("click", (e) => {
+      localStorage.setItem("selectedArticleId", article.id);
+      window.location.href = "product.html";
+    });
+
     if (article.imageOrientation === "left") {
       content.appendChild(posterImage);
+      
       content.appendChild(textCell);
+      
       textCell.appendChild(textLayout);
       textCell.appendChild(textContent);
       textContent.appendChild(h1);
       textContent.appendChild(p);
+      posterImage.appendChild(hyperlink1);
+      textCell.appendChild(hyperlink2);
 
     } else if (article.imageOrientation === "right") {
       content.appendChild(textCell);
+      
       textCell.appendChild(textLayout);
       textCell.appendChild(textContent);
       textContent.appendChild(h1);
       textContent.appendChild(p);
       content.appendChild(posterImage);
+      posterImage.appendChild(hyperlink1);
+      textCell.appendChild(hyperlink2);
+      
     }
 
   });
@@ -366,6 +391,17 @@ function createSlideshow(articles, elementId) {
       imageContainer.style.backgroundSize = article.imageSize;
       imageContainer.style.backgroundPosition = article.imagePosition;
       content.appendChild(imageContainer);
+
+      let hyperlink = document.createElement("a");
+        hyperlink.classList.add("go-to-checkout");
+        hyperlink.href = "product.html";
+        imageContainer.appendChild(hyperlink);
+        
+
+        hyperlink.addEventListener("click", (e) => {
+        localStorage.setItem("selectedArticleId", article.id);
+        window.location.href = "product.html";
+      });
 
       let textContainer = document.createElement("div");
       textContainer.classList.add("poster-slideshow__text-container");

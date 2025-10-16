@@ -1356,8 +1356,10 @@ main .empty-filler{
   
 }
 
-.poster__image{
-  
+.poster__image {
+  position: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .poster__image img{
