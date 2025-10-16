@@ -62,6 +62,70 @@ articles = [
         imagePosition: "center center",
         link: "link",
         price: "2560€"
+    },
+    {
+        id: "A0005",
+        category: "rings",
+        title: "Timeless Ring 2",
+        description: `Discover rings that capture emotion and elegance — from minimalist bands to bold statement pieces, each crafted to celebrate life’s most meaningful connections.`,
+        video: "video",
+        image: "media/ring-variant1.png",
+        imageSize: "100%",
+        imagePosition: "center center",
+        link: "link",
+        price: "1200€"
+    },
+
+    {
+        id: "A0006",
+        category: "necklaces",
+        title: "Elegant Necklace 2",
+        description: `Adorn your neckline with handcrafted designs that blend sophistication and charm. Each necklace tells a story of craftsmanship and personal expression.`,
+        video: "video",
+        image: "media/necklace-variant1.png",
+        imageSize: "100%",
+        imagePosition: "center center",
+        link: "link",
+        price: "1300€"
+    },
+
+    {
+        id: "A0007",
+        category: "earrings",
+        title: "Radiant Earring 2",
+        description: `From delicate studs to radiant drops, our earrings are designed to frame your features with elegance and individuality.`,
+        video: "video",
+        image: "media/earrings-special1.png",
+        imageSize: "100%",
+        imagePosition: "center center",
+        link: "link",
+        price: "960€"
+    },
+
+    {
+        id: "A0008",
+        category: "bracelets",
+        title: "Artistic Bracelet 2",
+        description: `Wrap your wrist in artistry — with bracelets that blend fine detail, balance, and personality for every mood and occasion.`,
+        video: "video",
+        image: "media/bracelet-variant1.jpg",
+        imageSize: "100%",
+        imagePosition: "center center",
+        link: "link",
+        price: "360€"
+    },
+
+    {
+        id: "A0009",
+        category: "watches",
+        title: "Refined Watch 2",
+        description: `More than an accessory, each watch is a symbol of refinement — merging precision, luxury, and timeless design in perfect harmony.`,
+        video: "video",
+        image: "media/watch-variant1.png",
+        imageSize: "100%",
+        imagePosition: "center center",
+        link: "link",
+        price: "2560€"
     }
 ];
 
@@ -229,4 +293,35 @@ navbarContent = [
         ]
     },
 
+];
+
+
+promoBannerContent = [
+  {
+    id: "PB0000",
+    title: "Limited Units",
+    description: "",
+    image: 'media/promo-banner.jpg',
+    imageSize: "100%",
+    imagePosition: "center center",
+    link: "#",
+  }, 
+  {
+    id: "PB0001",
+    title: "Our Offers",
+    description: "",
+    image: 'media/promo-banner.jpg',
+    imageSize: "100%",
+    imagePosition: "center center",
+    link: "#",
+  }
+];
+
+reelContent = [{
+  id: "R0000",
+  overheadTitle: "Our Special Selection",
+}, {
+  id: "R0001",
+  overheadTitle: "Discover More",
+}
 ];

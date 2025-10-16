@@ -4,6 +4,9 @@ let dataTypes = ["navbar","poster","promo-banner","reel","slideshow","checkout"]
 window.addEventListener("load", ()=> {
 dataTypes.forEach(dataType => {
   let elements = document.querySelectorAll(`[data-type="${dataType}"]`);
+  let elementArticleCategories = [];
+  let elementArticleArray;
+  let filteredArticles;
   elements.forEach((element, index) => {
     switch(dataType)
     {
@@ -11,26 +14,41 @@ dataTypes.forEach(dataType => {
         element.id = `N${String(index).padStart(4, '0')}`;
         createNavbarList(navbarContent, element.id);
       break;
+      case "promo-banner":
+        element.id = `PB${String(index).padStart(4, '0')}`;
+        elementArticleCategories = JSON.parse(element.dataset.categories);
+        elementArticleArray = JSON.parse(element.dataset.articles);
+        filteredArticles = articleSetup(promoBannerContent, elementArticleCategories, element.id, element);
+        createPromoBanner(filteredArticles, element.id);
+        
+      break;
       case "poster":
         element.id = `P${String(index).padStart(4, '0')}`;
-        let assignedArticles = JSON.parse(element.dataset.categories);
-        let filteredArticles = articleSetup(articles, assignedArticles, true, element);
+        elementArticleCategories = JSON.parse(element.dataset.categories);
+        elementArticleArray = JSON.parse(element.dataset.articles);
+        filteredArticles = articleSetup(articles, elementArticleCategories, elementArticleArray, element);
         filteredArticles.forEach(article => {
           article.imageOrientation = element.dataset.imageOrientation;
         });
         createPosters(filteredArticles, element.id);
-        console.log(element.dataset.singleArticle);
-        console.log(filteredArticles);
         
       break;
-      case "promo-banner":
-        element.id = `PB${String(index).padStart(4, '0')}`;
-      break;
+      
       case "reel":
         element.id = `R${String(index).padStart(4, '0')}`;
+        elementArticleCategories = JSON.parse(element.dataset.categories);
+        elementArticleArray = JSON.parse(element.dataset.articles);
+        filteredArticles = articleSetup(articles, elementArticleCategories, elementArticleArray, element);
+        createReel(filteredArticles, element.id);
+        console.log(filteredArticles);
       break;
       case "slideshow":
         element.id = `S${String(index).padStart(4, '0')}`;
+        elementArticleCategories = JSON.parse(element.dataset.categories);
+        elementArticleArray = JSON.parse(element.dataset.articles);
+        filteredArticles = articleSetup(articles, elementArticleCategories, elementArticleArray, element);
+        createSlideshow(filteredArticles, element.id);
+        console.log(filteredArticles);
       break;
       case "checkout":
         element.id = `C${String(index).padStart(4, '0')}`;
@@ -39,12 +57,27 @@ dataTypes.forEach(dataType => {
   });
 });
 
-function articleSetup(articles, assignedArticles, singleArticle, element) {
-  if (singleArticle === true){
-    return articles.filter(article => article.id === element.dataset.singleArticle);
-  } else {
-    return articles.filter(article => assignedArticles.includes(article.category));
+function articleSetup(articles, elementArticleCategories, elementArticleArray, element) {
+  if (!elementArticleArray && !elementArticleCategories) return articles;
+  if (Array.isArray(elementArticleArray)) {
+    if (elementArticleArray && elementArticleArray.length > 0 && elementArticleArray[0] !== "") {
+      return articles.filter(article => elementArticleArray.includes(article.id));
+    }
+
+    if (elementArticleCategories && elementArticleCategories.length > 0 && elementArticleCategories[0] !== "") {
+      return articles.filter(article => elementArticleCategories.includes(article.category));
+    }
+
+    if (elementArticleArray[0] == ""){
+      return articles;
+    }
+
+  } else{
+    let elementId = elementArticleArray; 
+    return articles.filter(article => article.id === elementId);
   }
+
+  return articles;
 }
 
 
@@ -125,7 +158,37 @@ function createNavbarList(navbarContent,elementId) {
     
 }
 
+function createPromoBanner(promoBannerContent, elementId){
+  let content = document.getElementById(elementId);
+  if (!content) return;
+      if (!content.dataset.cleared) {
+      content.innerHTML = "";
+      content.dataset.cleared = "true"; // mark this container as cleared
+  }
 
+  promoBannerContent.forEach(banner =>{
+    //Text
+    let textCont = document.createElement("div"); textCont.classList.add("promo-banner__text-content");
+    let title = document.createElement("div"); title.classList.add("promo-banner__title");
+    let h1 = document.createElement("h1"); 
+    h1.textContent = banner.title;
+
+    content.appendChild(textCont);
+    textCont.appendChild(title);
+    title.appendChild(h1);
+
+    //Image
+    let imageCont = document.createElement("div"); imageCont.classList.add("promo-banner__image-content");
+    let image = document.createElement("div"); image.classList.add("promo-banner__image");
+    image.style.backgroundImage = `url(${banner.image})`;
+    image.style.backgroundSize = banner.imageSize;
+    image.style.backgroundPosition = banner.imagePosition;
+
+    content.appendChild(imageCont);
+    imageCont.appendChild(image);
+
+  });
+}
 
 function createPosters(articles, elementId) {
   let content = document.getElementById(elementId);
@@ -173,64 +236,42 @@ function createPosters(articles, elementId) {
   
 }
 
-function createPromoBanner(article){
-  let content = document.getElementById(article.id);
+function createReel(articles, elementId) {
+  let content = document.getElementById(elementId);
   if (!content) return;
-  content.innerHTML ="";
-  
-  article.content.sections.forEach(section => {
-    //Text
-    let textCont = document.createElement("div"); textCont.classList.add("promo-banner__text-content");
-    let title = document.createElement("div"); title.classList.add("promo-banner__title");
-    let h1 = document.createElement("h1"); 
-    h1.textContent = section.title;
-
-    content.appendChild(textCont);
-    textCont.appendChild(title);
-    title.appendChild(h1);
-
-    //Image
-    let imageCont = document.createElement("div"); imageCont.classList.add("promo-banner__image-content");
-    let image = document.createElement("div"); image.classList.add("promo-banner__image");
-    image.style.backgroundImage = `url(${section.image})`;
-    image.style.backgroundSize = section.imageSize;
-    image.style.backgroundPosition = section.imagePosition;
-
-    content.appendChild(imageCont);
-    imageCont.appendChild(image);
-
-
-  });
-}
-function createReelPromo(article) {
-  let content = document.getElementById(article.id);
-  if (!content) return;
- 
-  if (!content.dataset.cleared) {
-    content.innerHTML = "";
-    content.dataset.cleared = "true"; // mark this container as cleared
-}
-  
-  //Title
+      if (!content.dataset.cleared) {
+      content.innerHTML = "";
+      content.dataset.cleared = "true"; // mark this container as cleared
+  }
+   //Title
   
   let selectionEl = content.parentElement;
   if (!selectionEl.classList.contains("reel-promo__container--selection")) {
     let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
     let titleH1 = document.createElement("h1"); 
     content.appendChild(titleContent);
-    titleH1.textContent = article.overheadTitle;
+    let currentReel = reelContent.find(rCont => rCont.id === elementId);
+    if (currentReel) {
+      titleH1.textContent = currentReel.overheadTitle;
+    }
+    
     titleContent.appendChild(titleH1);
-}
+  }
+
   //Articles
   let articleMask = document.createElement("div"); articleMask.classList.add("reel-promo__article-mask");
   content.appendChild(articleMask);
   
 
-  article.content.sections.forEach(section => {
-    let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
+    
+    
+
+
+  articles.forEach(article => {
+   let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
     if (selectionEl.classList.contains("reel-promo__container--selection")) {
-  articleContainer.classList.add("reel-promo__article-container--selection");
-}
+      articleContainer.classList.add("reel-promo__article-container--selection");
+    }
     let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
     
     articleMask.appendChild(articleContainer);
@@ -241,16 +282,16 @@ function createReelPromo(article) {
     articleContent.appendChild(textCell);
 
     let imageContent = document.createElement("div"); imageContent.classList.add("reel-promo__image-content");
-    imageContent.style.backgroundImage = `url(${section.image})`;
-    imageContent.style.backgroundSize = section.imageSize;
-    imageContent.style.backgroundPosition = section.imagePosition;
+    imageContent.style.backgroundImage = `url(${article.image})`;
+    imageContent.style.backgroundSize = article.imageSize;
+    imageContent.style.backgroundPosition = article.imagePosition;
     
     let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
     let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
     let textH1 = document.createElement("h1");
     let textP = document.createElement("p");
-    textH1.textContent = section.title;
-    textP.textContent = section.description;
+    textH1.textContent = article.title;
+    textP.textContent = article.description;
     
 
     imageCell.appendChild(imageContent);
@@ -258,9 +299,10 @@ function createReelPromo(article) {
     textCell.appendChild(text);
     text.appendChild(textH1);
     text.appendChild(textP);
-  });
   
 
+  
+  });
   //Navigation
   let naviContainer = document.createElement("div"); naviContainer.classList.add("reel-promo__navi-container");
   let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
@@ -271,11 +313,12 @@ function createReelPromo(article) {
   naviContainer.appendChild(naviContent);
   naviContent.appendChild(naviButtonLeft);
   naviContent.appendChild(naviButtonRight);
+  
 
 }
 
-function createSlideshow(article) {
-  let content = document.getElementById(article.id)
+function createSlideshow(articles, elementId) {
+  let content = document.getElementById(elementId)
   if (!content) return;
 
   if (!content.dataset.cleared) {
@@ -283,13 +326,12 @@ function createSlideshow(article) {
     content.dataset.cleared = "true"; // mark this container as cleared
   } 
   
-  article.content.sections.forEach(section => {
-    section.images.forEach((image, i) => {
+  articles.forEach(article => {
       let imageContainer = document.createElement("div");
       imageContainer.classList.add("poster-slideshow__image");
-      imageContainer.style.backgroundImage = `url(${image})`;
-      imageContainer.style.backgroundSize = section.imageSizes[i];
-      imageContainer.style.backgroundPosition = section.imagePositions[i];
+      imageContainer.style.backgroundImage = `url(${article.image})`;
+      imageContainer.style.backgroundSize = article.imageSize;
+      imageContainer.style.backgroundPosition = article.imagePosition;
       content.appendChild(imageContainer);
 
       let textContainer = document.createElement("div");
@@ -297,13 +339,12 @@ function createSlideshow(article) {
       let title1 = document.createElement("h1");
       let descrip1 = document.createElement("p");
 
-      title1.textContent = section.titles[i];
-      descrip1.textContent = section.descriptions[i];
+      title1.textContent = article.title;
+      descrip1.textContent = article.description;
 
       content.appendChild(textContainer);
       textContainer.appendChild(title1);
       textContainer.appendChild(descrip1);
-    });
 
 
   });
