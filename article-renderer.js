@@ -51,7 +51,18 @@ dataTypes.forEach(dataType => {
         console.log(filteredArticles);
       break;
       case "checkout":
-        element.id = `C${String(index).padStart(4, '0')}`;
+        element.id = `CH${String(index).padStart(4, '0')}`;
+        const selectedArticleId = localStorage.getItem("selectedArticleId");
+        console.log("selected Article:", selectedArticleId);
+
+        if (!selectedArticleId) {
+          console.warn("No selected article found");
+          return;
+        }
+
+        renderCheckout(checkoutContent, element.id, selectedArticleId);
+        
+        
       break;
     }
   });
@@ -187,6 +198,17 @@ function createPromoBanner(promoBannerContent, elementId){
     content.appendChild(imageCont);
     imageCont.appendChild(image);
 
+    let hyperlink = document.createElement("a");
+    hyperlink.classList.add("go-to-checkout");
+    hyperlink.href = "product.html";
+    imageCont.appendChild(hyperlink);
+    
+
+    hyperlink.addEventListener("click", (e) => {
+    localStorage.setItem("selectedArticleId", banner.assignedArticleId);
+    window.location.href = "product.html";
+});
+    
   });
 }
 
@@ -276,6 +298,17 @@ function createReel(articles, elementId) {
     
     articleMask.appendChild(articleContainer);
     articleContainer.appendChild(articleContent);
+
+    let hyperlink = document.createElement("a"); hyperlink.classList.add("go-to-checkout");
+    hyperlink.href = "product.html";
+    articleContainer.appendChild(hyperlink);
+
+    hyperlink.addEventListener("click", (e) => {
+      localStorage.setItem("selectedArticleId", article.id);
+      window.location.href = "product.html";
+    });
+
+
     let imageCell = document.createElement("div"); imageCell.classList.add("reel-promo__image-cell");
     let textCell = document.createElement("div"); textCell.classList.add("reel-promo__text-cell");
     articleContent.appendChild(imageCell);
@@ -314,7 +347,7 @@ function createReel(articles, elementId) {
   naviContent.appendChild(naviButtonLeft);
   naviContent.appendChild(naviButtonRight);
   
-
+  
 }
 
 function createSlideshow(articles, elementId) {
@@ -399,18 +432,21 @@ function createSlideshow(articles, elementId) {
   images[currentIndex].classList.add("active");
 }
 
-function renderCheckoutPage(article) {
-  if (!article || !article.content || !article.content.length) return;
-
-  const product = article.content[0]; // single product
-
+function renderCheckout(checkoutContent, elementId, assignedArticleId) {
+  
   // Reference to the checkout container
-  let container = document.getElementById(article.id);
+  let container = document.getElementById(elementId);
+  console.log(elementId);
   if (!container) return;
 
-  // Clear previous content
-  container.innerHTML = "";
-
+  if (!container.dataset.cleared) {
+    container.innerHTML = "";
+    container.dataset.cleared = "true"; // mark this container as cleared
+  } 
+  
+  let assignedArticle = articles.find(article => article.id === assignedArticleId);
+  
+  
   // LEFT SIDE
   const leftContainer = document.createElement("div");
   leftContainer.className = "checkout__left-side-container";
@@ -419,15 +455,18 @@ function renderCheckoutPage(article) {
   leftContent.className = "checkout__left-side-content";
 
   // Product images
-  product.images.forEach((image, i) => {
-    const div = document.createElement("div");
-    div.className = "checkout__grid-item";
-    div.style.gridArea = i === 0 ? "main" : "secondary";
-    div.style.backgroundImage = `url("${image}")`;
-    div.style.backgroundSize = product.imageSizes[i] || "100%";
-    div.style.backgroundPosition = product.imagePositions[i] || "center center";
-    leftContent.appendChild(div);
-  });
+  checkoutContent.forEach(checkCont =>{
+    assignedArticle.checkImages.forEach((image, i) => {
+      const div = document.createElement("div");
+      div.className = "checkout__grid-item";
+      div.style.gridArea = i === 0 ? "main" : "secondary";
+      div.style.backgroundImage = `url("${image}")`;
+      div.style.backgroundSize = assignedArticle.checkImageSizes[i] || "100%";
+      div.style.backgroundPosition = assignedArticle.checkImagePositions[i] || "center center";
+      leftContent.appendChild(div);
+    });
+  
+  
 
   // Video
   const videoDiv = document.createElement("div");
@@ -442,7 +481,7 @@ function renderCheckoutPage(article) {
   videoEl.playsInline = true;
 
   const sourceEl = document.createElement("source");
-  sourceEl.src = product.video;
+  sourceEl.src = assignedArticle.checkVideo;
   sourceEl.type = "video/mp4";
 
   videoEl.appendChild(sourceEl);
@@ -468,7 +507,7 @@ function renderCheckoutPage(article) {
   const titleH1 = document.createElement("h1");
   titleH1.style.fontSize = "2.1rem";
   titleH1.style.padding = "2rem";
-  titleH1.textContent = product.productName;
+  titleH1.textContent = assignedArticle.title;
   titleDiv.appendChild(titleH1);
 
   const priceDiv = document.createElement("div");
@@ -476,7 +515,7 @@ function renderCheckoutPage(article) {
   const priceH1 = document.createElement("h1");
   priceH1.style.fontSize = "1.3rem";
   priceH1.style.padding = "2rem";
-  priceH1.textContent = product.productPrice;
+  priceH1.textContent = assignedArticle.price;
   priceDiv.appendChild(priceH1);
 
   titlePrice.appendChild(titleDiv);
@@ -530,9 +569,9 @@ function renderCheckoutPage(article) {
   let promoLeft = document.createElement("div");
   promoLeft.className = "checkout__promo checkout__promo-left";
   let promoTitle = document.createElement("h1");
-  promoTitle.textContent = product.promoTitle;
+  promoTitle.textContent = checkCont.promoTitle;
   let promoDesc = document.createElement("p");
-  promoDesc.textContent = product.promoDescription;
+  promoDesc.textContent = checkCont.promoDescription;
   promoLeft.appendChild(promoTitle);
   promoLeft.appendChild(promoDesc);
 
@@ -576,7 +615,7 @@ function renderCheckoutPage(article) {
     <div class="collapsible-content">
       <p>Enjoy a seamless shopping experience with our complimentary shipping service. Every order is carefully packed and delivered to your door with priority handling. If it’s not a perfect match, returns are simple and free of charge.</p>
       <ul>
-        ${product.productDescriptionList.map(item => `<li>${item}</li>`).join('')}
+        ${checkCont.productDescriptionList.map(item => `<li>${item}</li>`).join('')}
       </ul>
     </div>
   `;
@@ -589,7 +628,7 @@ function renderCheckoutPage(article) {
   detailsDiv.innerHTML = `
     <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
     <div class="collapsible-content">
-      <p>${product.productDescription}</p>
+      <p>${assignedArticle.description}</p>
       <ul>
         <li>Hand-polished red crystal centerpiece</li>
         <li>Premium hypoallergenic metal finish</li>
@@ -640,8 +679,8 @@ function renderCheckoutPage(article) {
           content.style.maxHeight = content.scrollHeight + "px";
           }
       });
-      });
-
+    });
+  });
 }
 
 

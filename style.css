@@ -395,6 +395,7 @@ main .empty-filler{
   height: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .promo-banner__text-content {
   display: flex;
@@ -2566,4 +2567,12 @@ main .empty-filler{
 
 .shopping-cart__main-title h1 {
   font-size: 185%;
+}
+
+
+.go-to-checkout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
 }

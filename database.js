@@ -9,8 +9,12 @@ articles = [
         imageSize: "100%",
         imagePosition: "center center",
         link: "link",
-        price: "1200€"
-    },
+        price: "1200€",
+        checkImages: ["media/ring-variant1.png", "media/ring-variant1.png"],
+        checkImageSizes: ["100%", "100%"],
+        checkImagePositions: ["center center", "center center"],
+        checkVideo: "media/rings-hands-downscaled.mp4",
+        },
 
     {
         id: "A0001",
@@ -22,7 +26,11 @@ articles = [
         imageSize: "100%",
         imagePosition: "center center",
         link: "link",
-        price: "1300€"
+        price: "1300€",
+        checkImages: ["media/necklace-variant1.png", "media/necklace-variant1.png"],
+        checkImageSizes: ["100%", "100%"],
+        checkImagePositions: ["center center", "center center"],
+        checkVideo: "media/rings-hands-downscaled.mp4",
     },
 
     {
@@ -35,7 +43,11 @@ articles = [
         imageSize: "100%",
         imagePosition: "center center",
         link: "link",
-        price: "960€"
+        price: "960€",
+        checkImages: ["media/earrings-special1.png", "media/earrings-special1.png"],
+        checkImageSizes: ["100%", "100%"],
+        checkImagePositions: ["center center", "center center"],
+        checkVideo: "media/rings-hands-downscaled.mp4",
     },
 
     {
@@ -48,7 +60,11 @@ articles = [
         imageSize: "100%",
         imagePosition: "center center",
         link: "link",
-        price: "360€"
+        price: "360€",
+        checkImages: ["media/bracelet-variant1.jpg", "media/bracelet-variant1.jpg"],
+        checkImageSizes: ["100%", "100%"],
+        checkImagePositions: ["center center", "center center"],
+        checkVideo: "media/rings-hands-downscaled.mp4",
     },
 
     {
@@ -61,7 +77,11 @@ articles = [
         imageSize: "100%",
         imagePosition: "center center",
         link: "link",
-        price: "2560€"
+        price: "2560€",
+        checkImages: ["media/watch-variant1.png", "media/watch-variant1.png"],
+        checkImageSizes: ["100%", "100%"],
+        checkImagePositions: ["center center", "center center"],
+        checkVideo: "media/rings-hands-downscaled.mp4",
     },
     {
         id: "A0005",
@@ -305,6 +325,7 @@ promoBannerContent = [
     imageSize: "100%",
     imagePosition: "center center",
     link: "#",
+    assignedArticleId: "A0000"
   }, 
   {
     id: "PB0001",
@@ -314,6 +335,7 @@ promoBannerContent = [
     imageSize: "100%",
     imagePosition: "center center",
     link: "#",
+    assignedArticleId: "A0003"
   }
 ];
 
@@ -324,4 +346,38 @@ reelContent = [{
   id: "R0001",
   overheadTitle: "Discover More",
 }
+];
+
+
+checkoutContent = [
+{
+  id: "checkout",
+  type: "checkout",
+
+  productName: "Elegant Gold Chain Bracelet",
+  productPrice: "12.96€",
+  productDescription: `Enjoy a seamless shopping experience with our complimentary shipping
+                              service. Every order is carefully packed and delivered to your door with
+                              priority handling. If it’s not a perfect match, returns are simple and free
+                              of charge.`,
+  images: ["media/bracelet-gold_1.jpg", "media/bracelet-gold_2.jpg"],
+  imageSizes: ["100%", "100%"],
+  imagePositions: ["center center", "center center"],
+  video: "media/rings-hands-downscaled.mp4",
+
+
+
+  productDescriptionList: [
+    "Free standard shipping on all orders above €X",
+    "30-day free returns, no questions asked",
+    "Fast & secure delivery with tracking included"
+  ],
+  
+
+  promoTitle: "Limited Units",
+  promoDescription: `Exclusive Offer ✨ Take 2 dazzling red crystal earrings for the
+    price of 1 on purchases over €X. Elegance doubled, only while stocks last.`,
+    
+  promoLink: "#"
+  }
 ];

@@ -17,6 +17,7 @@
                 <img id="logo__image" src="media/logo2.png" alt="Company Logo" style="width: 632px;">
         </div>
         <script src="dynamic-header.js"></script>
+        <script src="database.js"></script>
         <script src="article-renderer.js"></script>
     </header>
     <main>
@@ -38,7 +39,7 @@
             <div class="submenu__bg-animation--left"></div>
             <div class="submenu__bg-animation--right"></div>
             
-            <ul class="navbar__content" id="navbar">
+            <ul class="navbar__content" data-type="navbar">
             </ul>
             <div class="quick-menu">
                 <div class="quick-menu__content">
@@ -204,7 +205,7 @@
             </div>
         </section>
         <section class="checkout__container">
-            <article class="checkout__content" id="checkout"> 
+            <article class="checkout__content" data-type="checkout" data-categories='[""]' data-articles='[""]'> 
                 <div class="checkout__left-side-container"> 
                     <div class="checkout__left-side-content"> 
                         <div class="checkout__grid-item" style="grid-area: main;
