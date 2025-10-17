@@ -1,4 +1,4 @@
-let dataTypes = ["navbar","poster","promo-banner","reel","slideshow","checkout"]
+let dataTypes = ["navbar","poster","promo-banner","reel","slideshow","checkout", "shopping-bag"]
 
 
 window.addEventListener("load", ()=> {
@@ -63,6 +63,10 @@ dataTypes.forEach(dataType => {
         renderCheckout(checkoutContent, element.id, selectedArticleId);
         
         
+      break;
+      case "shopping-bag":
+        element.id = `SB${String(index).padStart(4, '0')}`;
+
       break;
     }
   });
@@ -719,7 +723,43 @@ function renderCheckout(checkoutContent, elementId, assignedArticleId) {
   });
 }
 
+function renderShoppingBag(articles, elementId, assignedArticleId){
+  let content = document.querySelector(elementId);
+  if (!content) return;
+  if (!content.dataset.cleared){
+    content.innerHTML = "";
+    content.dataset.cleared=true;
+  }
 
+  articles.forEach(article =>{
+    let productContainer = document.elementCreate("article"); productContainer.classList.add("shopping-cart__product-item");
+    content.appendChild(productContainer);
+    let productImage = document.elementCreate("div"); productImage.classList.add("shopping-cart__product-image");
+    productContainer.appendChild(productImage);
+
+    let productDetailsTitle = document.elementCreate("div"); productDetailsTitle.classList.add("shopping-cart__product-details","shopping-cart__product-title");
+    let title = document.elementCreate("h1");
+    title.textContent = article.title;
+    productContainer.appendChild(productDetailsTitle);
+    productDetailsTitle.appendChild(title);
+
+    let productDetailsQuantity = document.elementCreate("div"); productDetailsQuantity.classList.add("shopping-cart__product-details","shopping-cart__product-quantity");
+    let textQuantity = document.elementCreate("p");
+    // textQuantity.textContent =  NEW VARIABLE FOR COUNTING
+    productContainer.appendChild(productDetailsQuantity);
+    productDetailsQuantity.appendChild(textQuantity);
+    
+
+    let productDetailsPrice = document.elementCreate("div"); productDetailsPrice.classList.add("shopping-cart__product-details","shopping-cart__product-price");
+    let textPrice = document.elementCreate("p");
+    textPrice.textContent = article.price;
+    productContainer.appendChild(productDetailsPrice);
+    productDetailsPrice.appendChild(textPrice);
+  });
+  
+
+
+}
 
 
 });
