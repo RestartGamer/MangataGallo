@@ -1,4 +1,4 @@
-let dataTypes = ["navbar","poster","promo-banner","reel","slideshow","checkout", "shopping-bag"]
+const dataTypes = ["navbar","poster","promo-banner","reel","slideshow","checkout", "shopping-bag"]
 
 
 window.addEventListener("load", ()=> {
@@ -10,19 +10,12 @@ dataTypes.forEach(dataType => {
   elements.forEach((element, index) => {
     switch(dataType)
     {
-      case "navbar":
+      case dataTypes[0]:
         element.id = `N${String(index).padStart(4, '0')}`;
         createNavbarList(navbarContent, element.id);
       break;
-      case "promo-banner":
-        element.id = `PB${String(index).padStart(4, '0')}`;
-        elementArticleCategories = JSON.parse(element.dataset.categories);
-        elementArticleArray = JSON.parse(element.dataset.articles);
-        filteredArticles = articleSetup(promoBannerContent, elementArticleCategories, element.id, element);
-        createPromoBanner(filteredArticles, element.id);
-        
-      break;
-      case "poster":
+      
+      case dataTypes[1]:
         element.id = `P${String(index).padStart(4, '0')}`;
         elementArticleCategories = JSON.parse(element.dataset.categories);
         elementArticleArray = JSON.parse(element.dataset.articles);
@@ -33,8 +26,16 @@ dataTypes.forEach(dataType => {
         createPosters(filteredArticles, element.id);
         
       break;
+      case dataTypes[2]:
+        element.id = `PB${String(index).padStart(4, '0')}`;
+        elementArticleCategories = JSON.parse(element.dataset.categories);
+        elementArticleArray = JSON.parse(element.dataset.articles);
+        filteredArticles = articleSetup(promoBannerContent, elementArticleCategories, element.id, element);
+        createPromoBanner(filteredArticles, element.id);
+        
+      break;
       
-      case "reel":
+      case dataTypes[3]:
         element.id = `R${String(index).padStart(4, '0')}`;
         elementArticleCategories = JSON.parse(element.dataset.categories);
         elementArticleArray = JSON.parse(element.dataset.articles);
@@ -42,7 +43,7 @@ dataTypes.forEach(dataType => {
         createReel(filteredArticles, element.id);
         console.log(filteredArticles);
       break;
-      case "slideshow":
+      case dataTypes[4]:
         element.id = `S${String(index).padStart(4, '0')}`;
         elementArticleCategories = JSON.parse(element.dataset.categories);
         elementArticleArray = JSON.parse(element.dataset.articles);
@@ -50,23 +51,22 @@ dataTypes.forEach(dataType => {
         createSlideshow(filteredArticles, element.id);
         console.log(filteredArticles);
       break;
-      case "checkout":
+      case dataTypes[5]:
         element.id = `CH${String(index).padStart(4, '0')}`;
-        const selectedArticleId = localStorage.getItem("selectedArticleId");
-        console.log("selected Article:", selectedArticleId);
+        const selectedArticles = localStorage.getItem("selectedArticles");
 
-        if (!selectedArticleId) {
+        if (!selectedArticles) {
           console.warn("No selected article found");
           return;
         }
-
-        renderCheckout(checkoutContent, element.id, selectedArticleId);
+        renderCheckout(checkoutContent, element.id, selectedArticles);
         
         
       break;
-      case "shopping-bag":
+      case dataTypes[6]:
         element.id = `SB${String(index).padStart(4, '0')}`;
-
+        let assignedArticles = JSON.parse(localStorage.getItem("shoppingBag"));
+        renderShoppingBag(articles, assignedArticles);
       break;
     }
   });
@@ -94,8 +94,6 @@ function articleSetup(articles, elementArticleCategories, elementArticleArray, e
 
   return articles;
 }
-
-
 
 function createNavbarList(navbarContent,elementId) {
   let content = document.getElementById(elementId);
@@ -208,8 +206,8 @@ function createPromoBanner(promoBannerContent, elementId){
     imageCont.appendChild(hyperlink);
     
 
-    hyperlink.addEventListener("click", (e) => {
-    localStorage.setItem("selectedArticleId", banner.assignedArticleId);
+    hyperlink.addEventListener("click", () => {
+    localStorage.setItem("selectedArticles", banner.assignedArticleId);
     window.location.href = "product.html";
 });
     
@@ -246,7 +244,7 @@ function createPosters(articles, elementId) {
     
 
     hyperlink1.addEventListener("click", (e) => {
-      localStorage.setItem("selectedArticleId", article.id);
+      localStorage.setItem("selectedArticles", article.id);
       window.location.href = "product.html";
     });
     let hyperlink2 = document.createElement("a"); hyperlink2.classList.add("go-to-checkout");
@@ -254,7 +252,7 @@ function createPosters(articles, elementId) {
     
 
     hyperlink2.addEventListener("click", (e) => {
-      localStorage.setItem("selectedArticleId", article.id);
+      localStorage.setItem("selectedArticles", article.id);
       window.location.href = "product.html";
     });
 
@@ -333,7 +331,7 @@ function createReel(articles, elementId) {
     articleContainer.appendChild(hyperlink);
 
     hyperlink.addEventListener("click", (e) => {
-      localStorage.setItem("selectedArticleId", article.id);
+      localStorage.setItem("selectedArticles", article.id);
       window.location.href = "product.html";
     });
 
@@ -403,7 +401,7 @@ function createSlideshow(articles, elementId) {
         
 
         hyperlink.addEventListener("click", (e) => {
-        localStorage.setItem("selectedArticleId", article.id);
+        localStorage.setItem("selectedArticles", article.id);
         window.location.href = "product.html";
       });
 
@@ -572,6 +570,24 @@ function renderCheckout(checkoutContent, elementId, assignedArticleId) {
   addBagH1.textContent = "Add to bag";
   addBag.appendChild(addBagH1);
 
+  let addBagLink = document.createElement("a");
+  addBagLink.href="#";
+  addBagLink.classList.add("add-to-bag");
+  addBag.appendChild(addBagLink);
+
+  addBagLink.addEventListener("click", () => {
+    let articlesBag = JSON.parse(localStorage.getItem("shoppingBag")) || [];
+    articlesBag.push(assignedArticleId);
+    localStorage.setItem("shoppingBag", JSON.stringify(articlesBag));
+    let articlesInBag = JSON.parse(localStorage.getItem("shoppingBag")) || [];
+    
+    renderShoppingBag(articles, articlesInBag)
+    
+    
+
+    });
+
+
   const checkoutNow = document.createElement("div");
   checkoutNow.className = "checkout__flex-subitem checkout__flex-item--button-green checkout__flex-subitem-checkout";
   const checkoutH1 = document.createElement("h1");
@@ -723,43 +739,93 @@ function renderCheckout(checkoutContent, elementId, assignedArticleId) {
   });
 }
 
-function renderShoppingBag(articles, elementId, assignedArticleId){
-  let content = document.querySelector(elementId);
+function renderShoppingBag(articles, shoppingArticleIds) {
+  const content = document.querySelector(`[data-type="${dataTypes[6]}"]`);
   if (!content) return;
-  if (!content.dataset.cleared){
-    content.innerHTML = "";
-    content.dataset.cleared=true;
-  }
 
-  articles.forEach(article =>{
-    let productContainer = document.elementCreate("article"); productContainer.classList.add("shopping-cart__product-item");
+  content.innerHTML = "";
+
+  console.log("shopping bag function is running", shoppingArticleIds);
+
+  // Filter valid articles (only those that exist)
+  const shoppingArticles = articles.filter(article =>
+    shoppingArticleIds.includes(article.id)
+  );
+
+  console.log("filtered", shoppingArticles);
+
+  // 🧹 Remove invalid IDs from localStorage (nonexistent articles)
+  const validIds = shoppingArticles.map(a => a.id);
+  const cleanedIds = shoppingArticleIds.filter(id => validIds.includes(id));
+  localStorage.setItem("shoppingBag", JSON.stringify(cleanedIds));
+
+  // Combine duplicates (count quantities)
+  const mergedArticles = [];
+
+  shoppingArticleIds.forEach(id => {
+    const existing = mergedArticles.find(a => a.id === id);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      const article = articles.find(a => a.id === id);
+      if (article) mergedArticles.push({ ...article, quantity: 1 });
+    }
+  });
+
+
+  mergedArticles.forEach(shoppingArticle => {
+    const productContainer = document.createElement("article");
+    productContainer.classList.add("shopping-cart__product-item");
+    productContainer.dataset.article = shoppingArticle.id;
     content.appendChild(productContainer);
-    let productImage = document.elementCreate("div"); productImage.classList.add("shopping-cart__product-image");
+
+    const productImage = document.createElement("div");
+    productImage.classList.add("shopping-cart__product-image");
+    productImage.style.backgroundImage = `url(${shoppingArticle.image})`;
+    productImage.style.backgroundSize = shoppingArticle.imageSize;
+    productImage.style.backgroundPosition = shoppingArticle.imagePosition;
     productContainer.appendChild(productImage);
 
-    let productDetailsTitle = document.elementCreate("div"); productDetailsTitle.classList.add("shopping-cart__product-details","shopping-cart__product-title");
-    let title = document.elementCreate("h1");
-    title.textContent = article.title;
-    productContainer.appendChild(productDetailsTitle);
+    const productDetailsTitle = document.createElement("div");
+    productDetailsTitle.classList.add("shopping-cart__product-details", "shopping-cart__product-title");
+    const title = document.createElement("h1");
+    title.textContent = shoppingArticle.title;
     productDetailsTitle.appendChild(title);
+    productContainer.appendChild(productDetailsTitle);
 
-    let productDetailsQuantity = document.elementCreate("div"); productDetailsQuantity.classList.add("shopping-cart__product-details","shopping-cart__product-quantity");
-    let textQuantity = document.elementCreate("p");
-    // textQuantity.textContent =  NEW VARIABLE FOR COUNTING
-    productContainer.appendChild(productDetailsQuantity);
+    const productDetailsQuantity = document.createElement("div");
+    productDetailsQuantity.classList.add("shopping-cart__product-details", "shopping-cart__product-quantity");
+    const textQuantity = document.createElement("p");
+    textQuantity.textContent = `Quantity: ${shoppingArticle.quantity}`;
     productDetailsQuantity.appendChild(textQuantity);
-    
+    productContainer.appendChild(productDetailsQuantity);
 
-    let productDetailsPrice = document.elementCreate("div"); productDetailsPrice.classList.add("shopping-cart__product-details","shopping-cart__product-price");
-    let textPrice = document.elementCreate("p");
-    textPrice.textContent = article.price;
-    productContainer.appendChild(productDetailsPrice);
+    const productDetailsPrice = document.createElement("div");
+    productDetailsPrice.classList.add("shopping-cart__product-details", "shopping-cart__product-price");
+    const textPrice = document.createElement("p");
+    textPrice.textContent = shoppingArticle.price;
     productDetailsPrice.appendChild(textPrice);
+    productContainer.appendChild(productDetailsPrice);
   });
-  
-
-
 }
+
+if (!localStorage.getItem("shoppingBag")) {
+  localStorage.setItem("shoppingBag", JSON.stringify([]));
+}
+if (!localStorage.getItem("selectedArticles")) {
+  localStorage.setItem("selectedArticles", "");
+}
+
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "f" || event.key === "F") {
+      console.log("F pressed – clearing bag");
+      localStorage.setItem("shoppingBag", JSON.stringify([])); // clear storage
+     let assignedArticles = JSON.parse(localStorage.getItem("shoppingBag"));
+    renderShoppingBag(articles, assignedArticles);
+    }
+  });
+
 
 
 });

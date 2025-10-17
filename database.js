@@ -1,3 +1,4 @@
+
 articles = [
     {
         id: "A0000",
@@ -168,6 +169,7 @@ articles = [
         checkVideo: "media/rings-hands-downscaled.mp4",
     },
 ];
+
 
 navbarContent = [
     {
