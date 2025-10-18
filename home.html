@@ -10,6 +10,10 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+    <script src="database.js"></script>
+    <script src="article-renderer.js"></script>
+    
 </head>
 <body>
     
@@ -25,7 +29,7 @@
         <div id="logo">
                 <img id="logo__image" src="media/logo2.png" alt="Company Logo">
         </div>
-        <script src="sizing.js"></script>
+        <script src="dynamic-header.js"></script>
 
         
     </header>
@@ -33,6 +37,7 @@
     <main>
         <script>
             window.addEventListener("load", () => {
+                window.scrollTo(0, 0);
                 const buttons = document.querySelectorAll('.navbar__option');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
@@ -44,281 +49,359 @@
             });
         </script> 
             
-        <nav class="navbar">
-            <ul class="navbar__menu">
-
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Rings</a>
-                </li>
-                
-                <li class="submenu">
-
-                    <div class="submenu__section craft">
-                        <h2>Craft</h2>
-                        <ul>
-                            <li><a href="#">Engagement Rings for Every Love Story</a></li>
-                            <li><a href="#">Wedding Rings Crafted to Last</a></li>
-                            <li><a href="#">Fashion Rings to Express Your Unique Style</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="submenu__section moments">
-                        <h2>Moments</h2>
-                        <ul>
-                            <li><a href="#">Anniversary Rings to Celebrate Your Journey</a></li>
-                            <li><a href="#">Promise Rings That Speak From the Heart</a></li>
-                            <li><a href="#">Statement Rings for Bold Expressions</a></li>
-                            <li><a href="#">Remembrance Rings for the Best Moments</a></li>
-                        </ul>
-                    </div>
-                    
-                </li>
-
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Necklaces</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section design">
-                            <h2>Design</h2>
-                            <ul>
-                                <li><a href="#">Pendants</a></li>
-                                <li><a href="#">Chains</a></li>
-                                <li><a href="#">Statement Necklaces</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="submenu__section inspire">
-                            <h2>Inspire</h2>
-                            <ul>
-                                <li><a href="#">Layered Looks</a></li>
-                                <li><a href="#">Chains</a></li>
-                                <li><a href="#">Minimalist Styles</a></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Earrings</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section craft">
-                            <h2>Craft</h2>
-                            <ul>
-                                <li><a href="#">Studs</a></li>
-                                <li><a href="#">Hoops</a></li>
-                                <li><a href="#">Drop Earrings</a></li>
-                            </ul>
-                        </div>
-                        <div class="submenu__section stories">
-                            <h2>Stories</h2>
-                            <ul>
-                                <li><a href="#">Everyday Essentials</a></li>
-                                <li><a href="#">Statement Pieces</a></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Bracelets</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section craft">
-                            <h2>Craft</h2>
-                            <ul>
-                                <li><a href="#">Bangles</a></li>
-                                <li><a href="#">Chain bracelets</a></li>
-                                <li><a href="#">Charm bracelets</a></li>
-                            </ul>
-                        </div>
-                        <div class="submenu__section bracelets">
-                            <h2>Our Luxury Collection</h2>
-                            <img class="image-bracelet1" src="media/bracelet-gold_2.jpg" alt="gold bracelet">
-                        </div>
-                        <div class="submenu__section moments">
-                            <h2>Moments</h2>
-                            <ul>
-                                <li><a href="#">Friendship</a></li>
-                                <li><a href="#">Personalized</a></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Watches</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section design">
-                            <h2>Design</h2>
-                            <ul>
-                                <li><a href="#">Luxury watches</a></li>
-                                <li><a href="#">Fashion watches</a></li>
-                            </ul>
-                        </div>
-                        <div class="submenu__section special-lines">
-                            <h2>Special Lines</h2>
-                            <ul>
-                                <li><a href="#">Modern Classics</a></li>
-                                <li><a href="#">Heritage Styles</a></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Collections</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section stories">
-                            <h2>Stories</h2>
-                            <ul>
-                                <li><a href="#">Seasonal Collections</a></li>
-                                <li><a href="#">Limited Editions</a></li>
-                            </ul>
-                        </div>
-                        <div class="submenu__section inspire">
-                            <h2>Inspire</h2>
-                            <ul>
-                                <li><a href="#">Collaborations</a></li>
-                                <li><a href="#">Designer Lines</a></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Home</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section home-info">
-                            <h2>Home Info</h2>
-                            <ul>
-                                <li><p>ADD TEXT HERE</p></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">Contact</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section contact-info">
-                            <h2>Contact Info</h2>
-                            <ul>
-                                <li><p>ADD TEXT HERE</p></li>
-                            </ul>
-                        </div>
-                </li>
-                <li class="navbar__option">
-                    <a class="navbar__option-link" href="#">About</a>
-                    
-                </li>
-                <li class="submenu">
-                        <div class="submenu__section about-info">
-                            <h2>About Info</h2>
-                            <ul>
-                                <li><p>ADD TEXT HERE</p></li>
-                            </ul>
-                        </div>
-                </li>
-                <li id="dropdown-carpet"></li>
-                <li id="dropdown-carpet2"></li>
-                <li id="dropdown-carpet-background"></li>
-                <script>
-                    window.addEventListener("load", () => {
-                    
-                    const options = document.querySelectorAll(".navbar__option");
-
-                    options.forEach(option => {
-                        const submenu = option.nextElementSibling; // each option's matching submenu
-                        const style = window.getComputedStyle(submenu);
-                        const paddingTop = parseInt(style.paddingTop) || 0;
-                        const paddingBottom = parseInt(style.paddingBottom) || 0;
-                        const rowGap = parseInt(style.rowGap) || 0;
-                        const sections = Array.from(submenu.querySelectorAll('.submenu__section'));
-
-                        // Get the vertical position of each section
-                        const tops = sections.map(s => s.offsetTop);
-
-                        // Count unique top values => number of rows
-                        const rows = new Set(tops).size;
-                        
-
-                        const gapHeight = Math.max(0, rows -1) * rowGap; // rows - 1 = number of gaps ; Math.max(0,...) = makes sure it never goes negative ; rowGap = the picel size of each gap 
-
-                        if (submenu && submenu.classList.contains("submenu")) {
-                            option.addEventListener("mouseenter", () => {
-                            const submenuHeight = submenu.scrollHeight - paddingTop +rowGap; // full content height, adapts to grid
-                            document.documentElement.style.setProperty('--submenu-height', submenuHeight + 'px');
-                        });
-                        }
-                    });
-                    });
-                </script>
+        <nav class="navbar__container">
+            <div class="submenu__bg-animation-background"></div>
+            <div class="submenu__bg-animation--left"></div>
+            <div class="submenu__bg-animation--right"></div>
+            
+            <ul class="navbar__content" data-type="navbar" >
             </ul>
             <div class="quick-menu">
                 <div class="quick-menu__content">
                     <div class="quick-menu__content-item quick-menu__content-item--profile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="currentColor"/>
-                            <text x="50%" y="73%" text-anchor="middle" font-size="70" font-family="Arial, sans-serif" fill="white">C</text>
+                            <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1"/>
+                            <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" 
+                                font-size="70" font-family="Arial, sans-serif" fill="white">C</text>
                         </svg>
                     </div>
                     <div class="quick-menu__content-item quick-menu__content-item--shopping">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke" stroke-width="0.5" viewBox="0 0 24 24">
                             <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"/>
                         </svg>
+                        <div class="quick-menu__shopping-cart-counter">
+                            <div class="quick-menu__shopping-cart-counter-text">
+                                <p>1</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="quick-menu__content-item quick-menu__content-item--settings">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-                            <rect x="3" y="6" width="18" height="2" rx="1"/>
-                            <rect x="3" y="11" width="18" height="2" rx="1"/>
-                            <rect x="3" y="16" width="18" height="2" rx="1"/>
-                        </svg>
-                    </div>
+                    <div class="shopping-cart__container">
+                            <div class="shopping-cart__content">
+                                <div class="shopping-cart__top-content">
+                                    <!--<div class="shopping-cart__main-title">
+                                        <h1>My Shopping Cart</h1>
+                                    </div>-->
+                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
+                                        <hr class="horizontal-separator" style="width:90%;
+                                                        height:0.001%;
+                                                        background:rgba(83, 83, 83, 0.43);
+                                                        border: 1px solid rgba(83, 83, 83, 0.18);
+                                                        border-radius: 100%;">
+                                    </div>
+                                    <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag" data-articles='[""]'>
+                                        <article class="shopping-cart__product-item">
+                                            <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
+                                            background-size:100%;
+                                            background-position:center center;'>
+
+                                            </div>
+                                            <div class="shopping-cart__product-details shopping-cart__product-title">
+                                                <h1>Product Name</h1>
+                                            </div>
+                                            <div class="shopping-cart__quantity-container">
+                                                <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                                    <p>Qty:</p>
+                                                </div>
+                                            </div>
+                                            <div class="shopping-cart__product-details shopping-cart__product-price">
+                                                <p>Price:</p>
+                                            </div>
+                                            <button class="shopping-cart__product-remove-button">
+                                                <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+                                                <title>Remove Product</title>
+                                                <!-- Lid group for rotation -->
+                                                <g class="lid">
+                                                    <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                                                    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="white" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </g>
+                                                <!-- Body -->
+                                                <rect x="4" y="6.5" width="16" height="14" rx="2" ry="2" fill="white" stroke="black" stroke-width="1.6"></rect>
+                                                <!-- Inner vertical lines -->
+                                                <line x1="10" y1="10" x2="10" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"></line>
+                                                <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"></line>
+                                                </svg>
+                                            </button>
+                                            <div class="shopping-cart__product-remove-carpet active">
+                                                <div class="remove-carpet__confirmation-container">
+                                                    <h1>"Remove this item\n 
+                                                        from your cart?"
+                                                    </h1>
+                                                </div>
+                                            </div>
+                                        </article>
+                                       
+                                       
+                                    </div>
+                                </div>
+                                <div class="horizontal-separator__bg" style="background-color: transparent;">
+                                    <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                                </div>
+                                <div class="shopping-cart__product-bottom-content">
+                                    <div class="horizontal-separator__bg" style="background-color: transparent;height: 0.1vh;">
+                                    <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                                </div>
+                                    <div class="shopping-cart__product-total-price">
+                                        <h2>Total price:</h2>
+                                    </div>
+                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
+                                    <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                                </div>
+                                    <div class="shopping-cart__product-edit-bag">
+                                        <h2>Edit bag</h2>
+                                    </div>
+                                    <div class="shopping-cart__go-to-checkout">
+                                        <h1>Go to Checkout</h1>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                 </div>
             </div>
         </nav>
 
-        <div class="empty-space2"></div>
-        <div class="promo-title"><h1>Collections</h1></div>
+        <script>
+                window.addEventListener("load", () => {
 
-        <section class="promo-banner">
-            <section class="promo-banner__layout">
-                <section class="promo-banner__content">
-                
-                </section>
-            </section>
-        </section>
+    function arrangeSubmenu(submenu) {
+        const sections = Array.from(submenu.children);
 
-        <section class="poster grid grid__template-col2 grid__template-row2 grid__overflow-hidden" style="padding-bottom:1%">
-            <article class="poster__text-cell">
-                <div class="poster__text-layout"></div>
-                <div class="poster__text-content">
-                    <h1>Enchanted Necklace</h1>
-                    <p>This is our most prestigious necklace, with only the best of the best materials.</p>
-                </div>
-                
-            </article>
-            <article class="poster__image" style="background-image: url('media/jewelry-model2.jpg');
-                    background-size: 120%;
-                    background-position: center 100%;">
-            </article>
-        </section>
-
-        <section class="poster grid grid__template-col2 grid__template-row2 grid__overflow-hidden">
-            <article class="poster__image" 
-                    style="background-image: url('media/jewelry-model3.jpg');
-                    background-size: 120%;
-                    background-position: center 50%;">
-            </article>
-            <article class="poster__text-cell">
-                <div class="poster__text-layout"></div>
-                <div class="poster__text-content">
-                    <h1>Enchanted ring</h1>
-                    <p>This is our most prestigious ring, with only the best of the best materials.</p>
-                </div>
-                
-            </article>
+        const textBlocks = sections.filter(sec => sec.querySelector("ul, p")); // texts
+        const imageBlocks = sections.filter(sec => sec.querySelector("div[style*='background-image'], img")); // images
             
+        const colCount = Math.ceil(sections.length / 2);
+        const currentGap = parseFloat(getComputedStyle(submenu).columnGap);
+
+
+        submenu.style.columnGap = (currentGap / colCount) + "%";
+        
+        // Place text blocks
+        textBlocks.forEach((block, i) => {
+            textColCount = Math.round(textBlocks.length / 2);
+            let startCol = 1;
+            if (imageBlocks.length > 0) {
+                // Images exist → text stays in col 1 (stacked)
+                let col = i+1 > 2 ? startCol + 1 : startCol
+                let row = i % 2 + 1; //The one is to shift it to 1 2 1 2, instead of 0 1 0 1
+                block.style.gridColumn = col.toString();
+                block.style.gridRow = row.toString();
+            } else {
+                // No images → text flows naturally
+                block.style.gridColumn = "";
+                block.style.gridRow = "";
+            }
+        });
+        
+        // Place image blocks
+        imageBlocks.forEach((block, i) => {
+            const imageColCount = Math.round(imageBlocks.length / 2);
+            let startCol = 2; 
+            let col;
+            if (textBlocks.length <= 2) {
+                col = i+1 > 1 ? startCol + 1 : startCol;
+            } else {
+                col = i+1 > 1 ? startCol + 2 : startCol + 1;
+            }
+            block.style.gridColumn = col.toString();
+            block.style.gridRow = "1";
+        });
+    }
+
+    document.querySelectorAll(".submenu").forEach(arrangeSubmenu);
+
+    
+
+
+
+
+
+
+
+
+
+
+
+                const options = document.querySelectorAll(".navbar__option");
+                const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
+                const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
+                const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
+
+                options.forEach(option => {
+                    const submenu = option.nextElementSibling; 
+                    const sections = Array.from(submenu.children);
+
+                    const sectionHeights = sections.map(section => {
+                        let bottom = section.offsetTop + section.offsetHeight;
+
+                        // check for absolutely positioned divs with background images
+                        const imgDivs = section.querySelectorAll("div[style*='background-image']");
+                        imgDivs.forEach(imgDiv => {
+                            const imgDivRect = imgDiv.getBoundingClientRect();
+                            const parentRect = section.getBoundingClientRect();
+
+                            // bottom relative to section
+                            const divBottomRelative = (imgDivRect.bottom - parentRect.top); //clientrect coordinates is relative to viewport, the other offsetTop and Height are not. therefore we need to chop off the parent rect top, to have a similar effect as the offset.
+                            bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
+
+                        });
+
+                        return bottom;
+                    });
+
+                    const highestSection = Math.max(...sectionHeights);
+                    
+
+                    window.addEventListener("scroll", () => {
+                        submenuAnimLeft.classList.remove("active");
+                        submenuAnimRight.classList.remove("active");
+                        submenuAnimBG.classList.remove("active");
+                        submenu.classList.remove("active");
+                    });
+
+                    
+                        option.addEventListener("mouseleave", () => {
+
+
+                            submenuAnimLeft.classList.remove("active");
+                            submenuAnimRight.classList.remove("active");
+                            submenuAnimBG.classList.remove("active");
+                            submenu.classList.remove("active");
+                        });
+
+                        option.addEventListener("mouseenter", () => {
+                            submenuAnimLeft.classList.remove("active");
+                            submenuAnimRight.classList.remove("active");
+                            submenuAnimBG.classList.remove("active");
+                            submenu.classList.remove("active");
+                            submenuAnimLeft.classList.add("active");
+                            submenuAnimRight.classList.add("active");
+                            submenuAnimBG.classList.add("active");
+                            submenu.classList.add("active");
+
+                            submenu.style.height = highestSection + "px";
+                            let ultimateHeight = submenu.offsetHeight;
+                            submenuAnimLeft.style.height = ultimateHeight + "px";
+                            submenuAnimRight.style.height = ultimateHeight + "px";
+                            submenuAnimBG.style.height = ultimateHeight + "px";
+                            
+
+                        });
+
+                        
+
+                        submenu.addEventListener("mouseenter", () => {
+                            submenuAnimLeft.classList.remove("active");
+                            submenuAnimRight.classList.remove("active");
+                            submenuAnimBG.classList.remove("active");
+                            submenu.classList.remove("active");
+                            submenuAnimLeft.classList.add("active");
+                            submenuAnimRight.classList.add("active");
+                            submenuAnimBG.classList.add("active");
+                            submenu.classList.add("active");
+
+                            submenu.style.height = highestSection + "px";
+                            let ultimateHeight = submenu.offsetHeight;
+                            submenuAnimLeft.style.height = ultimateHeight + "px";
+                            submenuAnimRight.style.height = ultimateHeight + "px";
+                            submenuAnimBG.style.height = ultimateHeight + "px";
+
+                        
+                        });
+
+                        submenu.addEventListener("mouseleave", () => {
+                            submenuAnimLeft.classList.remove("active");
+                            submenuAnimRight.classList.remove("active");
+                            submenuAnimBG.classList.remove("active");
+                            submenu.classList.remove("active");
+
+                        });
+                    
+                });
+
+                
+
+            });
+
+            window.addEventListener("load", () => { 
+                const shopButton = document.querySelector(".quick-menu__content-item--shopping");
+                const shopWindow = document.querySelector(".shopping-cart__container");
+
+                shopButton.addEventListener("click", (event) => {
+                // Prevent the click from bubbling to the document
+                shopWindow.classList.toggle("active");
+                });
+
+                // Listen for clicks anywhere in the document
+                document.addEventListener("click", (event) => {
+                // If the click is outside the shopWindow and shopButton, close it
+                if (!shopWindow.contains(event.target) && !shopButton.contains(event.target)) {
+                    shopWindow.classList.remove("active");
+                }
+                });
+
+
+
+
+            });
+        </script>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+        <div class="empty-space2"></div>
+        
+
+        <section class="promo-banner__container">
+            <article class="promo-banner__content" data-type="promo-banner" data-categories='[""]' data-articles='[""]'>
+                
+                <div class="promo-banner__text-content">
+                    <div class="promo-banner__title">
+                        <h1>Limited Units</h1>
+                    </div>
+                </div>
+                <div class="promo-banner__image-content">
+                    <div class="promo-banner__image" style="background-image: url(&quot;media/promo-banner.jpg&quot;); background-size: 100%; background-position: center center;">
+
+                    </div>
+                    <a href="#" class="go-to-checkout"></a>
+                </div>
+
+            </article>
+        </section>
+
+        <section class="poster__container" >
+            <div class="poster__content" data-type="poster" data-categories='[""]' data-articles='["A0000"]' data-image-orientation="left" style="padding-bottom:1%">
+                </div>
+            </section>
+        <section class="poster__container" >
+            <div class="poster__content" data-type="poster" data-categories='[""]' data-articles='["A0001"]' data-image-orientation="right">
+                
+                
+            </div>
+        
         </section>
 
         <div class="horizontal-separator__bg">
@@ -328,351 +411,118 @@
                         border: 1px solid rgba(83, 83, 83, 0.18);
                         border-radius: 100%;">
         </div>
-<section class="scroll-highlight__container">
-        <div class="scroll-highlight__content">
-            <article class="scroll-highlight__grid-cell">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Elegant Gold Chain Bracelet</h1>
-                                    <p>A timeless piece crafted from polished gold, this bracelet adds subtle luxury to both casual and formal looks.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
-                                    <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Beaded Gemstone Bracelet</h1>
-                                    <p>Hand-strung natural gemstones combine color and energy, making this bracelet both stylish and meaningful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Elegant Gold Chain Bracelet</h1>
-                                    <p>A timeless piece crafted from polished gold, this bracelet adds subtle luxury to both casual and formal looks.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
-                                    <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Beaded Gemstone Bracelet</h1>
-                                    <p>Hand-strung natural gemstones combine color and energy, making this bracelet both stylish and meaningful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+<section class="reel-promo__container">
+    <div class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'>
+        <div class="reel-promo__title-content">
+            <h1>Limited Units</h1>
         </div>
-        <button class="scroll-highlight__button scroll-highlight__button--left">
-                <div class="scroll-highlight__button-content">&lt;</div>    
-            </button>
-            <button class="scroll-highlight__button scroll-highlight__button--right">
-                <div class="scroll-highlight__button-content">&gt;</div>
-            </button>
-</section>
-
-<section class="scroll-highlight__container scroll-highlight__container--selection" style="padding-top:1%;">
-        <div class="scroll-highlight__content">
-           <article class="scroll-highlight__grid-cell  scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Elegant Gold Chain Bracelet</h1>
-                                    <p>A timeless piece crafted from polished gold, this bracelet adds subtle luxury to both casual and formal looks.</p>
-                                </div>
-                            </div>
+        <div class="reel-promo__article-mask">
+            <article class="reel-promo__article-container">
+                <div class="reel-promo__article-content">
+                    <div class="reel-promo__image-cell">
+                        <div class="reel-promo__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
+                        background-size: 120%;
+                        background-position: center 50%;"></div>
+                    </div>
+                    <div class="reel-promo__text-cell">
+                        <div class="reel-promo__text-layout"></div>
+                        <div class="reel-promo__text-content">
+                            <h1>Placeholder</h1>
+                            <p>Placeholder</p>
                         </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell  scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
-                                    <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Beaded Gemstone Bracelet</h1>
-                                    <p>Hand-strung natural gemstones combine color and energy, making this bracelet both stylish and meaningful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Elegant Gold Chain Bracelet</h1>
-                                    <p>A timeless piece crafted from polished gold, this bracelet adds subtle luxury to both casual and formal looks.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
-                                    <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Beaded Gemstone Bracelet</h1>
-                                    <p>Hand-strung natural gemstones combine color and energy, making this bracelet both stylish and meaningful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Elegant Gold Chain Bracelet</h1>
-                                    <p>A timeless piece crafted from polished gold, this bracelet adds subtle luxury to both casual and formal looks.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
-                                    <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Beaded Gemstone Bracelet</h1>
-                                    <p>Hand-strung natural gemstones combine color and energy, making this bracelet both stylish and meaningful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-            <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Elegant Gold Chain Bracelet</h1>
-                                    <p>A timeless piece crafted from polished gold, this bracelet adds subtle luxury to both casual and formal looks.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Minimalist Silver Cuff</h1>
-                                    <p>Sleek and modern, this adjustable silver cuff is designed for everyday wear with a touch of sophistication.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="scroll-highlight__grid-cell scroll-highlight__grid-cell--selection">
-                        <div class="scroll-highlight__grid-cell-content">
-                            <div class="scroll-highlight__image-cell">
-                                <div class="scroll-highlight__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                                background-size: 120%;
-                                background-position: center 50%;"></div>
-                            </div>
-                            <div class="scroll-highlight__text-cell">
-                                <div class="scroll-highlight__text-layout"></div>
-                                <div class="scroll-highlight__text-content">
-                                    <h1>Beaded Gemstone Bracelet</h1>
-                                    <p>Hand-strung natural gemstones combine color and energy, making this bracelet both stylish and meaningful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-        </div>
-        <button class="scroll-highlight__button scroll-highlight__button--left">
-                <div class="scroll-highlight__button-content">&lt;</div>    
-            </button>
-            <button class="scroll-highlight__button scroll-highlight__button--right">
-                <div class="scroll-highlight__button-content">&gt;</div>
-            </button>
-
-            <div class="pagination-system__container">
-                <div class="pagination-system__content">
-                    <div class="pagination-system__button-content">
-                        <button class="pagination-system__button-left"></button>
-                        <button class="pagination-system__button-right"></button>
                     </div>
                 </div>
+            </article>
+            
+        </div>
+        <div class="reel-promo__navi-container">
+            <div class="reel-promo__navi-content">
+                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--left"></button>
+                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--right"></button>
             </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="reel-promo__container reel-promo__container--selection">
+    <div class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'>
+        <div class="reel-promo__title-content">
+            <h1>Limited Units</h1>
+        </div>
+        <div class="reel-promo__article-mask reel-promo__article-mask--selection">
+            <article class="reel-promo__article-container">
+                <div class="reel-promo__article-content">
+                    <div class="reel-promo__image-cell">
+                        <div class="reel-promo__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
+                        background-size: 120%;
+                        background-position: center 50%;"></div>
+                    </div>
+                    <div class="reel-promo__text-cell">
+                        <div class="reel-promo__text-layout"></div>
+                        <div class="reel-promo__text-content">
+                            <h1>Placeholder</h1>
+                            <p>Placeholder</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+        </div>
+        <div class="reel-promo__navi-container">
+            <div class="reel-promo__navi-content">
+                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--left"></button>
+                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--right"></button>
+            </div>
+
+        </div>
+    </div>
 </section>
 
          <script>
           window.addEventListener("load", () => {
             const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
-// Set a CSS variable that CSS can use
-document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-            const scrollElements = document.querySelectorAll(".scroll-highlight__content");
+            // Set a CSS variable that CSS can use
+            document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+            const contentElements = document.querySelectorAll(".reel-promo__article-mask");
 
-            scrollElements.forEach(scroll => {
+            contentElements.forEach(content => {
+                const contentNavi = content.nextElementSibling?.querySelector(".reel-promo__navi-content");
+                if (!contentNavi) console.warn("Navigation content not found!");
                 const vwToPx = v => window.innerWidth * (v / 100);
-                const buttonLeft = scroll.parentElement.querySelector(".scroll-highlight__button--left");
-                const buttonRight = scroll.parentElement.querySelector(".scroll-highlight__button--right");
-                const visibleItems = parseInt(getComputedStyle(scroll).getPropertyValue("--scroll-highlight-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
-                const columnGap = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--scroll-highlight-column-gap")));
+                const buttonLeft = contentNavi.querySelector(".reel-promo__navi-dir-button--left");
+                const buttonRight = contentNavi.querySelector(".reel-promo__navi-dir-button--right");
+                const visibleItems = parseInt(getComputedStyle(content).getPropertyValue("--reel-promo-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
+                const columnGap = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--reel-promo-column-gap")));
                 
-
-                let items = Array.from(scroll.children);
+                let items = Array.from(content.children);
                 let itemPositions = [];
                 itemPositions = items.map(item => item.offsetLeft - item.clientLeft);
                 let currentIndex = 0;
 
+                const batchPosition = [];
+                const batchButton = [];
+                const batchSize = visibleItems; // or use visibleItems if you want it dynamic
+
+                for (let i = 0; i < items.length; i += batchSize) {
+                    batchPosition.push(itemPositions[i]);
+                    const midButton = document.createElement("button");
+                    midButton.classList.add("reel-promo__navi-mid-button");
+                    contentNavi.appendChild(midButton);
+                    batchButton.push(midButton); // append to array sequentially
+                }
+
+                
+
 
                 initialItemPositions();
 
+                
+
+
                 function initialItemPositions() {
-                    scroll.scrollLeft = itemPositions[0];
+                    content.scrollLeft = itemPositions[0];
                 }
 
                 let resizeTimeout;
@@ -681,24 +531,35 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
                     resizeTimeout = setTimeout(initialItemPositions, 50);
                 });
 
+                batchButton.forEach((button, index) => {
+                    button.addEventListener("click", () => {
+                    let targetScroll = batchPosition[index];
+                    const distance = targetScroll - content.scrollLeft;
+                    smoothScroll(content, distance, 0.5);
+                    });
+                });
+                
+
                 buttonLeft.addEventListener("click", () => {
                     // Find the index of the first fully visible item
-                    let closestIndex = items.findIndex(item => item.offsetLeft >= scroll.scrollLeft);
+                    let closestIndex = items.findIndex(item => item.offsetLeft >= content.scrollLeft);
                     if (closestIndex === -1) closestIndex = items.length - 1;
 
-                    // Move left by visibleItems
+                    // Move left by visibleItems - in order to rasterize them into batches of ex: 3 (number of visible items)
                     currentIndex = Math.max(0, closestIndex - visibleItems);
 
                     let targetScroll = itemPositions[currentIndex];
-                    const distance = targetScroll - scroll.scrollLeft;
-                    smoothScroll(scroll, distance, 0.5);
+                    const distance = targetScroll - content.scrollLeft;
+                    smoothScroll(content, distance, 0.5);
                 });
+
+
 
                 buttonRight.addEventListener("click", () => {
                     currentIndex = Math.min(items.length - 1, currentIndex + visibleItems);
 
                     // Adjust if last item would overshoot
-                    const containerWidth = scroll.clientWidth;
+                    const containerWidth = content.clientWidth;
                     const lastItemRight = items[items.length - 1].offsetLeft + items[items.length - 1].offsetWidth;
                     const maxScrollLeft = lastItemRight - containerWidth;
                     let targetScroll = itemPositions[currentIndex];
@@ -707,13 +568,13 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
                         currentIndex = items.length - 1;
                     }
 
-                    const distance = targetScroll - scroll.scrollLeft;
-                    smoothScroll(scroll, distance, 0.5);
+                    const distance = targetScroll - content.scrollLeft;
+                    smoothScroll(content, distance, 0.5);
                 });
 
                 function scrollToIndex(index) {
-                    const distance = itemPositions[index] - scroll.scrollLeft;
-                    smoothScroll(scroll, distance, 0.5);
+                    const distance = itemPositions[index] - content.scrollLeft;
+                    smoothScroll(content, distance, 0.5);
                 }
 
                 function smoothScroll(element, distance, durationInSeconds) {
@@ -736,171 +597,16 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
                 }
                 });
 
-
-            //pagnination system
-                function generatePagination(current, total, range = 2) {
-    const pages = [];
-    const firstPage = 1;
-    const lastPage = total;
-
-    // Always add first page
-    pages.push(firstPage);
-
-    // Add left ellipsis if needed
-    if (current - range > firstPage + 1) {
-        pages.push("...");
-    }
-
-    // Add middle range (around current)
-    for (let i = current - range; i <= current + range; i++) {
-        if (i > firstPage && i < lastPage) {
-            pages.push(i);
-        }
-    }
-
-    // Add right ellipsis if needed
-    if (current + range < lastPage - 1) {
-        pages.push("...");
-    }
-
-    // Always add last page
-    if (lastPage !== firstPage) {
-        pages.push(lastPage);
-    }
-
-    return pages;
-}
-
-// Example
-console.log(generatePagination(500, 1000, 2));
-// -> [1, "...", 498, 499, 500, 501, 502, "...", 1000]
-
-
-//Render in HTML
-function renderPagination(current, total) {
-    const pagination = document.querySelector(".pagination");
-    pagination.innerHTML = "";
-
-    const pages = generatePagination(current, total, 2);
-
-    pages.forEach(page => {
-        const button = document.createElement("button");
-
-        if (page === "...") {
-            button.textContent = "...";
-            button.disabled = true; // not clickable
-        } else {
-            button.textContent = page;
-            if (page === current) {
-                button.classList.add("active");
-            }
-            button.addEventListener("click", () => {
-                renderPagination(page, total); // re-render with new current
-            });
-        }
-
-        pagination.appendChild(button);
-    });
-}
-
-// Initialize
-renderPagination(500, 1000);
-
-
     });
         </script>
         
         
         <section class="poster-slideshow__container">
-            <article class="poster-slideshow__image-container">
-                <div class="poster-slideshow__image" style='
-                background-image: url("media/jewelry-model1.jpg");
-                background-size: 100%;
-                background-position: center center;
-                '>
-                </div>
-                <div class="poster-slideshow__text-container">
-                    <h1>Celestial Rings</h1>
-                    <p>Crafted by the most prestigious of craftsmen</p>
-                </div>
-                <div class="poster-slideshow__image" style='
-                background-image: url("media/jewelry-model2.jpg");
-                background-size: 100%;
-                background-position: center center;
-                '></div>
-                <div class="poster-slideshow__text-container">
-                    <h1>Golden Necklace</h1>
-                    <p>Crafted by the most prestigious of craftsmen</p>
-                </div>
-                <div class="poster-slideshow__image" style='
-                background-image: url("media/jewelry-model3.jpg");
-                background-size: 100%;
-                background-position: center center;
-                '></div>
-                <div class="poster-slideshow__text-container">
-                    <h1>Silver Earrings</h1>
-                    <p>Crafted by the most prestigious of craftsmen</p>
-                </div>
-
-
-                <div class="poster-slideshow__layout"></div>
+            <article class="poster-slideshow__image-container" data-type="slideshow" data-categories='[""]' data-articles='[""]'>
                 
-
             </article>
         </section>
 
-        <script>
-            window.addEventListener("load", ()=> {
-                const slideshow = document.querySelector(".poster-slideshow__image-container");
-                const images = Array.from(slideshow.querySelectorAll(".poster-slideshow__image"));
-                const texts = Array.from(slideshow.querySelectorAll(".poster-slideshow__text-container"));
-
-                let currentIndex = 0;
-                const interval = 3 * 1000; //interval in seconds
-
-                //Function to show next image
-                function showNextImage() {
-                    // remove "active" from the current image and give it exit animation
-                images[currentIndex].classList.remove("active");
-                texts[currentIndex].classList.remove("active");
-                images[currentIndex].classList.add("exit");
-
-                // force browser to notice
-                images[currentIndex].offsetWidth; // reading this triggers reflow
-                // listen for the animation finishing so we can reset it
-                images[currentIndex].addEventListener("transitionend", function handler() {
-                    this.classList.remove("exit"); // clean up
-                    this.removeEventListener("transitionend", handler); // prevent stacking
-                } , { once: true });
-
-                // move to next index (wrap around with modulo)
-                currentIndex = (currentIndex + 1) % images.length;
-
-                // add "active" to the new image
-                texts[currentIndex].classList.add("active");
-                images[currentIndex].classList.add("active");
-                    
-                }
-
-                let lastTime = 0;
-
-function animateSlideshow(time) {
-    if (!lastTime) lastTime = time;
-    if (time - lastTime >= interval) {
-        showNextImage();
-        lastTime = time;
-    }
-    requestAnimationFrame(animateSlideshow);
-}
-
-requestAnimationFrame(animateSlideshow);
-                texts[currentIndex].classList.add("active");
-                images[currentIndex].classList.add("active");
-            });
-
-            
-
-        </script>
         <div class="horizontal-separator__bg">
         <hr class="horizontal-separator" style="width:90%;
                         height:0.001%;
