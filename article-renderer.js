@@ -773,6 +773,7 @@ function renderShoppingBag(articles, shoppingArticleIds) {
   });
 
 
+
   mergedArticles.forEach(shoppingArticle => {
     const productContainer = document.createElement("article");
     productContainer.classList.add("shopping-cart__product-item");
@@ -814,8 +815,28 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     const quantityNavigator = document.createElement("div"); quantityNavigator.classList.add("shopping-cart__product-quantity-navigator");
     quantityContainer.appendChild(quantityNavigator);
 
-    const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-plus");
-    const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-minus");
+    const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--plus");
+    const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--minus");
+    
+    quantityPlus.addEventListener("click", ()=>{
+      let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
+      getArticleBag.push(shoppingArticle.id);
+      localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
+      renderShoppingBag(articles, getArticleBag);
+    });
+
+    quantityMinus.addEventListener("click", ()=>{
+      let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
+      // Remove only one occurrence
+      const index = getArticleBag.lastIndexOf(shoppingArticle.id);
+      if (index !== -1) {
+        getArticleBag.splice(index, 1);
+      }
+      localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
+      renderShoppingBag(articles, getArticleBag);
+    });
+    
+    
     quantityNavigator.appendChild(quantityPlus);
     quantityNavigator.appendChild(quantityMinus);
 
@@ -827,8 +848,8 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     textContainer.appendChild(productDetailsPrice);
     productDetailsPrice.appendChild(textPrice);
 
-    const removeItemButton = document.createElement("button");
-    removeItemButton.classList.add("shopping-cart__product-remove-button");
+    const trashButton = document.createElement("button");
+    trashButton.classList.add("shopping-cart__product-remove-button");
     
 
     const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-remove-carpet");
@@ -840,12 +861,21 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     removeText.textContent = "Remove this item\n from your cart?";
     removeConfirmation.appendChild(removeText);
 
-    const confirmText = document.createElement("button");
-    confirmText.textContent = "Confirm";
-    removeConfirmation.appendChild(confirmText);
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Confirm";
+
+    confirmButton.addEventListener("click", ()=> {
+      let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
+      getArticleBag = getArticleBag.filter(id => id !== shoppingArticle.id);
+      localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
+      renderShoppingBag(articles, getArticleBag);
+    });
+
+
+    removeConfirmation.appendChild(confirmButton);
 
     // Add SVG via innerHTML
-    removeItemButton.innerHTML = `
+    trashButton.innerHTML = `
 <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
   <title>Remove Product</title>
   <!-- Lid group for rotation -->
@@ -860,16 +890,16 @@ function renderShoppingBag(articles, shoppingArticleIds) {
   <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"/>
 </svg>
 `;
-    removeItemButton.addEventListener("click", ()=> {
+    trashButton.addEventListener("click", ()=> {
       
       if (removeCarpet.classList.contains("active")) {
         removeText.classList.remove("active");
-        confirmText.classList.remove("active");
+        confirmButton.classList.remove("active");
         removeCarpet.classList.remove("active");
       } else{
         function textTransition(){
           removeText.classList.add("active");
-          confirmText.classList.add("active");
+          confirmButton.classList.add("active");
           removeCarpet.removeEventListener("transitionend", textTransition);
         }
         removeCarpet.addEventListener("transitionend", textTransition);
@@ -881,7 +911,7 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     });
    
 
-    productContainer.appendChild(removeItemButton);
+    productContainer.appendChild(trashButton);
 
 
   });
