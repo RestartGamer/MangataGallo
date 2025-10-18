@@ -174,163 +174,217 @@ articles = [
 navbarContent = [
     {
         option: "Rings",
+        optionLink: "home.html",
         sections: [
         {
           section: "craft",
           sectionName: "Craft",
+          sectionLink: "#",
           listItems: [
             "Engagement Rings for Every Love Story",
             "Wedding Rings Crafted to Last",
             "Fashion Rings to Express Your Unique Style"
-          ]
+          ],
+          listItemLinks: ["product.html","product.html","product.html"]
         },
         {
           section: "moments",
           sectionName: "Moments",
+          sectionLink: "#",
           listItems: [
             "Anniversary Rings to Celebrate Your Journey",
             "Promise Rings That Speak From the Heart",
             "Statement Rings for Bold Expressions",
             "Remembrance Rings for the Best Moments"
-          ]
+          ],
+          listItemLinks: ["product.html","product.html","product.html","product.html"]
         }
       ]
     },
     {
         option: "Necklaces",
+        optionLink: "home.html",
         sections: [
         {
           section: "design",
           sectionName: "Design",
-          listItems: ["Pendants", "Chains", "Statement Necklaces"]
+          sectionLink: "#",
+          listItems: ["Pendants", "Chains", "Statement Necklaces"],
+          listItemLinks: ["product.html","product.html","product.html"]
         },
         {
           section: "inspire",
           sectionName: "Inspire",
-          listItems: ["Layered Looks", "Chains", "Minimalist Styles"]
+          sectionLink: "#",
+          listItems: ["Layered Looks", "Chains", "Minimalist Styles"],
+          listItemLinks: ["product.html","product.html","product.html"]
         }
       ]
     },
     {
         option: "Earrings",
+        optionLink: "home.html",
         sections: [
         {
           section: "craft",
           sectionName: "Craft",
-          listItems: ["Studs", "Hoops", "Drop Earrings"]
+          sectionLink: "#",
+          listItems: ["Studs", "Hoops", "Drop Earrings"],
+          listItemLinks: ["product.html","product.html","product.html"]
+          
         },
         {
           section: "stories",
           sectionName: "Stories",
-          listItems: ["Everyday Essentials", "Statement Pieces"]
+          sectionLink: "#",
+          listItems: ["Everyday Essentials", "Statement Pieces"],
+          listItemLinks: ["product.html","product.html","product.html"]
         }
       ]
     },
     {
-        option: "Bracelets",
-        sections: [
-        {
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },
-        {
-          section: "moments",
-          sectionName: "Moments",
-          listItems: ["Friendship", "Personalized"]
-        },
-        {
-          section: "ourluxurycollection",
-          sectionName: "Our Luxury Collection",
-          image: "media/bracelet-gold_2.jpg",
-          imageSize: "100%",
-          imagePosition: "center center"
-
-        },{
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },{
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },{
-          section: "craft",
-          sectionName: "Craft",
-          listItems: ["Bangles", "Chain-bracelets"]
-        },
-        {
-          section: "ourluxurycollection",
-          sectionName: "Our Luxury Collection",
-          image: "media/bracelet-gold_2.jpg",
-          imageSize: "100%",
-          imagePosition: "center center"
-
-        },
+    option: "Bracelets",
+    optionLink: "home.html",
+    sections: [
+      {
+        section: "craftedElegance",
+        sectionName: "Crafted Elegance",
+        sectionLink: "#",
+        listItems: ["Bangles", "Chain Bracelets"],
+        listItemLinks: ["product.html", "product.html"]
+      },
+      {
+        section: "meaningfulMoments",
+        sectionName: "Meaningful Moments",
+        sectionLink: "#",
+        listItems: ["Friendship", "Personalized"],
+        listItemLinks: ["product.html", "product.html"]
+      },
+      {
+        section: "signatureCollection",
+        sectionName: "Signature Collection",
+        sectionLink: "#",
+        image: "media/bracelet-gold_2.jpg",
+        imageSize: "100%",
+        imagePosition: "center center",
+        imageLink: "product.html"
+      },
+      {
+        section: "modernCraft",
+        sectionName: "Modern Craft",
+        sectionLink: "#",
+        listItems: ["Minimalist", "Textured Designs"],
+        listItemLinks: ["product.html", "product.html"]
+      },
+      {
+        section: "natureInspired",
+        sectionName: "Nature-Inspired",
+        sectionLink: "#",
+        listItems: ["Floral", "Leaf Motifs"],
+        listItemLinks: ["product.html", "product.html"]
+      },
+      {
+        section: "luxurySpotlight",
+        sectionName: "Luxury Spotlight",
+        sectionLink: "#",
+        image: "media/earrings-special3.png",
+        imageSize: "200%",
+        imagePosition: "center center",
+        imageLink: "product.html"
+      },
       ]
     },
     {
         option: "Watches",
+        optionLink: "home.html",
         sections: [
         {
           section: "design",
           sectionName: "Design",
-          listItems: ["Luxury watches", "Fashion watches"]
+          sectionLink: "#",
+          listItems: ["Luxury watches", "Fashion watches"],
+          listItemLinks: ["product.html","product.html"]
         },
         {
           section: "special",
           sectionName: "Special Lines",
-          listItems: ["Modern Classics", "Heritage Styles"]
+          sectionLink: "#",
+          listItems: ["Modern Classics", "Heritage Styles"],
+          listItemLinks: ["product.html","product.html"]
         }
       ]
     },
     {
         option: "Collections",
+        optionLink: "home.html",
         sections: [
         {
           section: "stories",
           sectionName: "Stories",
-          listItems: ["Seasonal Collections", "Limited Editions"]
+          sectionLink: "#",
+          listItems: ["Seasonal Collections", "Limited Editions"],
+          listItemLinks: ["product.html","product.html"]
+                
         },
         {
           section: "inspire",
           sectionName: "Inspire",
-          listItems: ["Collaborations", "Designer Lines"]
+          sectionLink: "#",
+          listItems: ["Collaborations", "Designer Lines"],
+          listItemLinks: ["product.html","product.html"]
         }
       ]
     },
     {
         option: "Home",
+        optionLink: "home.html",
         sections: [
             {
-                section: "none",
-                sectionName: "none",
-                listItems: "none"
+                section: "home-title",
+                sectionLink: "#",
+                sectionName: "Back to homepage",
+                listItems: "none",
+                
             }
         ]
     },
     {
         option: "Contact",
+        optionLink: "home.html",
         sections: [
             {
-                section: "none",
-                sectionName: "none",
-                listItems: "none"
+                section: "contact-form",
+                sectionName: "Contact us",
+                sectionLink: "#",
+                listItems: ["Contact Info", "Contact Form"],
+                
             },
             {
-                section: "inspire",
-                sectionName: "Inspire",
-                listItems: ["Collaborations", "Designer Lines"]
+                section: "store-locator",
+                sectionName: "Find a store",
+                sectionLink: "#",
+                listItems: ["Store Locator"],
+                
             }
         ]
     },
     {
         option: "About",
+        optionLink: "home.html",
         sections: [
             {
-                section: "title",
+                section: "whoweare-title",
                 sectionName: "Who we are",
-                listItems: "This is the description of our company."
+                sectionLink: "#",
+                listItems: "Mangata and Gallo is a jewelry store that specializes in special occasions like engagements, weddings and anniversaries. The jewelry company primarily operates online and has a small storefront in Austin, Texas with an atelier attached for browsing. Mangata & Gallo's selection of jewelry is known for its high-quality and classic look. The owner, an Austin local, is well known for her jewelry designs. ",
+                
+            },
+            {
+                section: "about-title",
+                sectionName: "More Info",
+                sectionLink: "#",
+                listItems: ["Our History","Origin of Materials", "Values", "Partners"],
+                listItemLinks: ["#","#","#","#"]
             }
         ]
     },

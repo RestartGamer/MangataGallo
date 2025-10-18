@@ -95,36 +95,39 @@ function articleSetup(articles, elementArticleCategories, elementArticleArray, e
   return articles;
 }
 
-function createNavbarList(navbarContent,elementId) {
+function createNavbarList(navbarContents,elementId) {
   let content = document.getElementById(elementId);
   if (!content) return;
       if (!content.dataset.cleared) {
       content.innerHTML = "";
       content.dataset.cleared = "true"; // mark this container as cleared
   }
-  navbarContent.forEach(nav => {
+  navbarContents.forEach(navbarContent => {
     
-    let navbarOption = nav.option;
+    let navbarOption = navbarContent.option;
     // Create option li and submenu li
-    let li = document.createElement("li");
-    li.classList.add("navbar__option");
+    let navbarOptionContainer = document.createElement("li");
+    navbarOptionContainer.classList.add("navbar__option");
 
-    let a = document.createElement("a");
-    a.classList.add("navbar__option-link");
-    a.textContent = navbarOption;
-    li.appendChild(a);
+    let navbarOptionLink = document.createElement("a");
+    navbarOptionLink.classList.add("navbar__option-link");
+    navbarOptionLink.textContent = navbarOption;
 
-    let li2 = document.createElement("li");
-    li2.classList.add("submenu");
+    navbarOptionLink.href = navbarContent.optionLink;
 
-    content.appendChild(li);
-    content.appendChild(li2);
+    navbarOptionContainer.appendChild(navbarOptionLink);
+
+    let submenuContainer = document.createElement("li");
+    submenuContainer.classList.add("submenu");
+
+    content.appendChild(navbarOptionContainer);
+    content.appendChild(submenuContainer);
 
     // Use the newly created li2 as the submenu container
-    let submenuElement = li2;
+    let submenuElement = submenuContainer;
     submenuElement.classList.add(navbarOption);
 
-    nav.sections.forEach(section => {
+    navbarContent.sections.forEach(section => {
         const sectionElement = document.createElement("div");
         sectionElement.classList.add("submenu__section");
         submenuElement.appendChild(sectionElement);
@@ -570,8 +573,7 @@ function renderCheckout(checkoutContent, elementId, assignedArticleId) {
   addBagH1.textContent = "Add to bag";
   addBag.appendChild(addBagH1);
 
-  let addBagLink = document.createElement("a");
-  addBagLink.href="#";
+  let addBagLink = document.createElement("button");
   addBagLink.classList.add("add-to-bag");
   addBag.appendChild(addBagLink);
 
@@ -760,21 +762,33 @@ function renderShoppingBag(articles, shoppingArticleIds) {
   localStorage.setItem("shoppingBag", JSON.stringify(cleanedIds));
 
   // Combine duplicates (count quantities)
-  const mergedArticles = [];
+  const duplicateArticles = [];
 
-  shoppingArticleIds.forEach(id => {
-    const existing = mergedArticles.find(a => a.id === id);
-    if (existing) {
-      existing.quantity += 1;
+  shoppingArticleIds.forEach(shoppingArticleId => {
+    let check = duplicateArticles.find(article => article.id === shoppingArticleId);
+    if (check) {
+      let shoppingArticle = check;
+      shoppingArticle.quantity += 1; 
     } else {
-      const article = articles.find(a => a.id === id);
-      if (article) mergedArticles.push({ ...article, quantity: 1 });
+      let getFirstArticles = articles.find(article => article.id === shoppingArticleId);
+      if (getFirstArticles) duplicateArticles.push({ ...getFirstArticles, quantity: 1 });
     }
   });
 
+  let shoppingCounter = document.querySelector(".quick-menu__shopping-cart-counter");
+    if (shoppingArticleIds.length > 0){
+      shoppingCounter.classList.add("active");
+    } else {
+      shoppingCounter.classList.remove("active");
+    }
+
+    let shoppingCounterText = document.querySelector(".quick-menu__shopping-cart-counter-text p");
+    shoppingCounterText.innerHTML = "";
+    shoppingCounterText.textContent = shoppingArticleIds.length;
 
 
-  mergedArticles.forEach(shoppingArticle => {
+
+  duplicateArticles.forEach(shoppingArticle => {
     const productContainer = document.createElement("article");
     productContainer.classList.add("shopping-cart__product-item");
     productContainer.dataset.article = shoppingArticle.id;
@@ -824,14 +838,20 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--plus");
     const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--minus");
     
-    quantityPlus.addEventListener("click", ()=>{
+    
+    
+    
+    quantityPlusContainer.appendChild(quantityPlus);
+    quantityMinusContainer.appendChild(quantityMinus);
+
+    quantityPlus.parentElement.addEventListener("click", ()=>{
       let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
       getArticleBag.push(shoppingArticle.id);
       localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
       renderShoppingBag(articles, getArticleBag);
     });
 
-    quantityMinus.addEventListener("click", ()=>{
+    quantityMinus.parentElement.addEventListener("click", ()=>{
       let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
       // Remove only one occurrence
       const index = getArticleBag.lastIndexOf(shoppingArticle.id);
@@ -841,10 +861,6 @@ function renderShoppingBag(articles, shoppingArticleIds) {
       localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
       renderShoppingBag(articles, getArticleBag);
     });
-    
-    
-    quantityPlusContainer.appendChild(quantityPlus);
-    quantityMinusContainer.appendChild(quantityMinus);
 
     const productDetailsPrice = document.createElement("div");
     productDetailsPrice.classList.add("shopping-cart__product-price");
@@ -918,6 +934,8 @@ function renderShoppingBag(articles, shoppingArticleIds) {
    
 
     productContainer.appendChild(trashButton);
+
+    
 
 
   });
