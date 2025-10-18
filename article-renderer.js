@@ -779,6 +779,8 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     productContainer.dataset.article = shoppingArticle.id;
     content.appendChild(productContainer);
 
+    
+
     const productImage = document.createElement("div");
     productImage.classList.add("shopping-cart__product-image");
     productImage.style.backgroundImage = `url(${shoppingArticle.image})`;
@@ -786,26 +788,102 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     productImage.style.backgroundPosition = shoppingArticle.imagePosition;
     productContainer.appendChild(productImage);
 
+    const textContainer = document.createElement("div"); textContainer.classList.add("shopping-cart__product-text-container");
+    productContainer.appendChild(textContainer)
+
     const productDetailsTitle = document.createElement("div");
-    productDetailsTitle.classList.add("shopping-cart__product-details", "shopping-cart__product-title");
+    productDetailsTitle.classList.add("shopping-cart__product-title");
     const title = document.createElement("h1");
     title.textContent = shoppingArticle.title;
+    textContainer.appendChild(productDetailsTitle);
     productDetailsTitle.appendChild(title);
-    productContainer.appendChild(productDetailsTitle);
+
+    const quantityContainer = document.createElement("div"); quantityContainer.classList.add("shopping-cart__quantity-container");
+    textContainer.appendChild(quantityContainer);
+
+    
+
 
     const productDetailsQuantity = document.createElement("div");
-    productDetailsQuantity.classList.add("shopping-cart__product-details", "shopping-cart__product-quantity");
+    productDetailsQuantity.classList.add("shopping-cart__product-quantity");
     const textQuantity = document.createElement("p");
-    textQuantity.textContent = `Quantity: ${shoppingArticle.quantity}`;
+    textQuantity.textContent = `Qty: ${shoppingArticle.quantity}`;
+    quantityContainer.appendChild(productDetailsQuantity);
     productDetailsQuantity.appendChild(textQuantity);
-    productContainer.appendChild(productDetailsQuantity);
+    
+    const quantityNavigator = document.createElement("div"); quantityNavigator.classList.add("shopping-cart__product-quantity-navigator");
+    quantityContainer.appendChild(quantityNavigator);
+
+    const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-plus");
+    const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-minus");
+    quantityNavigator.appendChild(quantityPlus);
+    quantityNavigator.appendChild(quantityMinus);
 
     const productDetailsPrice = document.createElement("div");
-    productDetailsPrice.classList.add("shopping-cart__product-details", "shopping-cart__product-price");
+    productDetailsPrice.classList.add("shopping-cart__product-price");
     const textPrice = document.createElement("p");
     textPrice.textContent = shoppingArticle.price;
+    
+    textContainer.appendChild(productDetailsPrice);
     productDetailsPrice.appendChild(textPrice);
-    productContainer.appendChild(productDetailsPrice);
+
+    const removeItemButton = document.createElement("button");
+    removeItemButton.classList.add("shopping-cart__product-remove-button");
+    
+
+    const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-remove-carpet");
+    productContainer.appendChild(removeCarpet);
+    const removeConfirmation = document.createElement("div"); removeConfirmation.classList.add("remove-carpet__confirmation-container");
+    removeCarpet.appendChild(removeConfirmation);
+
+    const removeText = document.createElement("h1"); 
+    removeText.textContent = "Remove this item\n from your cart?";
+    removeConfirmation.appendChild(removeText);
+
+    const confirmText = document.createElement("button");
+    confirmText.textContent = "Confirm";
+    removeConfirmation.appendChild(confirmText);
+
+    // Add SVG via innerHTML
+    removeItemButton.innerHTML = `
+<svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+  <title>Remove Product</title>
+  <!-- Lid group for rotation -->
+  <g class="lid">
+    <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="white" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Body -->
+  <rect x="4" y="6.5" width="16" height="14" rx="2" ry="2" fill="white" stroke="black" stroke-width="1.6"/>
+  <!-- Inner vertical lines -->
+  <line x1="10" y1="10" x2="10" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
+`;
+    removeItemButton.addEventListener("click", ()=> {
+      
+      if (removeCarpet.classList.contains("active")) {
+        removeText.classList.remove("active");
+        confirmText.classList.remove("active");
+        removeCarpet.classList.remove("active");
+      } else{
+        function textTransition(){
+          removeText.classList.add("active");
+          confirmText.classList.add("active");
+          removeCarpet.removeEventListener("transitionend", textTransition);
+        }
+        removeCarpet.addEventListener("transitionend", textTransition);
+        removeCarpet.classList.add("active");
+      }
+      
+      
+      
+    });
+   
+
+    productContainer.appendChild(removeItemButton);
+
+
   });
 }
 
