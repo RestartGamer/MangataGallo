@@ -1376,7 +1376,7 @@ main .empty-filler{
 
 .reel-promo__container {
   width:100%;
-  height: 78.6vh;
+  height: 99.6vh;
   background-color:white;
   /*! outline: 2px solid red; */
   /*! display:flex; */
@@ -1386,15 +1386,16 @@ main .empty-filler{
   flex-direction:column;
   align-items:center;
   position: relative;
-  padding-bottom: 6%;
+  /*! padding-bottom: 6%; */
   padding-top: 4.0%;
   /*! outline: 2px solid red; */
-  padding-bottom: 18.3%;
 }
 .reel-promo__content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  /*! flex: 0 0 auto; */
 }
 
 .reel-promo__article-mask {
@@ -1408,7 +1409,7 @@ main .empty-filler{
   column-gap: var(--reel-promo-column-gap);
   overflow-x: auto;
   scrollbar-width: none;
-  flex: 0 0 auto;
+  /*! flex: 0 0 auto; */
   overflow-y: hidden;
 }
 
@@ -1526,7 +1527,7 @@ main .empty-filler{
   justify-content: center;
   width: 100%;
   height: 15%;
-  flex: 0 0 auto;
+  /*! flex: 0 0 auto; */
   margin-bottom: 4%;
   background-color: #e4fffc;
 }
@@ -1542,7 +1543,7 @@ main .empty-filler{
   height: 10vh;
   /*! outline: 2px solid green; */
   align-items: center;
-  flex: 0 0 auto;
+  /*! flex: 0 0 auto; */
 }
 
 .reel-promo__navi-content {
