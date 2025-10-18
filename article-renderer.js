@@ -815,6 +815,12 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     const quantityNavigator = document.createElement("div"); quantityNavigator.classList.add("shopping-cart__product-quantity-navigator");
     quantityContainer.appendChild(quantityNavigator);
 
+    const quantityPlusContainer = document.createElement("div"); quantityPlusContainer.classList.add("shopping-cart__product-quantity-button-container");
+    const quantityMinusContainer = document.createElement("div");quantityMinusContainer.classList.add("shopping-cart__product-quantity-button-container");
+
+    quantityNavigator.appendChild(quantityPlusContainer);
+    quantityNavigator.appendChild(quantityMinusContainer);
+
     const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--plus");
     const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--minus");
     
@@ -837,8 +843,8 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     });
     
     
-    quantityNavigator.appendChild(quantityPlus);
-    quantityNavigator.appendChild(quantityMinus);
+    quantityPlusContainer.appendChild(quantityPlus);
+    quantityMinusContainer.appendChild(quantityMinus);
 
     const productDetailsPrice = document.createElement("div");
     productDetailsPrice.classList.add("shopping-cart__product-price");

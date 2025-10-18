@@ -2770,9 +2770,18 @@ main .empty-filler{
   border-left: var(--quant-button-border-width) solid black;
   transform: rotate(-45deg);
 }
-.shopping-cart__product-quantity-button:hover {
+.shopping-cart__product-quantity-button-container:hover {
   background-color:rgb(204, 204, 204);
 }
 .shopping-cart__product-quantity-button:active {
   background-color:rgb(110, 110, 110);
+}
+
+.shopping-cart__product-quantity-button-container {
+  width: 59.9%;
+  outline: 2px solid black;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
