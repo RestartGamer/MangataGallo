@@ -1,12 +1,16 @@
+/* 1️⃣ RESET / NORMALIZE */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  font-family: 'EB Garamond', serif;
+html, body {
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
-.button-text {
-    font-size: 20px;
+img, video {
+  max-width: 100%;
+  display: block;
 }

@@ -1,721 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<meta http-equiv="refresh" content="5"-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<meta http-equiv="refresh" content="5" />-->
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
 
     <script src="database.js"></script>
     <script src="article-renderer.js"></script>
-    
-</head>
-<body>
-    
+  </head>
 
+  <body>
     <header>
-        <video autoplay muted loop playsinline id="video-background">
+      <video autoplay muted loop playsinline id="video-background">
         <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
-        optional fallback 
-        Your browser does not support the video tag.
-        </video>
+        optional fallback Your browser does not support the video tag.
+      </video>
 
-        
-        <div id="logo">
-                <img id="logo__image" src="media/logo2.png" alt="Company Logo">
-        </div>
-        <script src="dynamic-header.js"></script>
+      <div id="logo">
+        <img id="logo__image" src="media/logo2.png" alt="Company Logo" />
+      </div>
 
-        
+      <script src="dynamic-header.js"></script>
     </header>
 
     <main>
-        <script>
-            window.addEventListener("load", () => {
-                window.scrollTo(0, 0);
-                const buttons = document.querySelectorAll('.navbar__option');
-                buttons.forEach(button => {
-                    button.addEventListener('mouseenter', () => {
-                    const rect = button.getBoundingClientRect();
-                    const hoverX = rect.left + rect.width / 2;
-                    document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
-                    });
-                });
+      <script>
+        window.addEventListener("load", () => {
+          window.scrollTo(0, 0);
+          const buttons = document.querySelectorAll(".navbar__option");
+          buttons.forEach(button => {
+            button.addEventListener("mouseenter", () => {
+              const rect = button.getBoundingClientRect();
+              const hoverX = rect.left + rect.width / 2;
+              document.documentElement.style.setProperty("--hover-x", hoverX + "px");
             });
-        </script> 
-            
-        <nav class="navbar__container">
-            <div class="submenu__bg-animation-background"></div>
-            <div class="submenu__bg-animation--left"></div>
-            <div class="submenu__bg-animation--right"></div>
-            
-            <ul class="navbar__content" data-type="navbar" >
-            </ul>
-            <div class="quick-menu">
-                <div class="quick-menu__content">
-                    <div class="quick-menu__content-item quick-menu__content-item--profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1"/>
-                            <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" 
-                                font-size="70" font-family="Arial, sans-serif" fill="white">C</text>
-                        </svg>
-                    </div>
-                    <div class="quick-menu__content-item quick-menu__content-item--shopping">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke" stroke-width="0.5" viewBox="0 0 24 24">
-                            <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"/>
-                        </svg>
-                        <div class="quick-menu__shopping-cart-counter">
-                            <div class="quick-menu__shopping-cart-counter-text">
-                                <p>1</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="shopping-cart__container">
-                            <div class="shopping-cart__content">
-                                <div class="shopping-cart__top-content">
-                                    <!--<div class="shopping-cart__main-title">
-                                        <h1>My Shopping Cart</h1>
-                                    </div>-->
-                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
-                                        <hr class="horizontal-separator" style="width:90%;
-                                                        height:0.001%;
-                                                        background:rgba(83, 83, 83, 0.43);
-                                                        border: 1px solid rgba(83, 83, 83, 0.18);
-                                                        border-radius: 100%;">
-                                    </div>
-                                    <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag" data-articles='[""]'>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
-                                            background-size:100%;
-                                            background-position:center center;'>
-
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__quantity-container">
-                                                <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                    <p>Qty:</p>
-                                                </div>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                            <button class="shopping-cart__product-remove-button">
-                                                <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
-                                                <title>Remove Product</title>
-                                                <!-- Lid group for rotation -->
-                                                <g class="lid">
-                                                    <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-                                                    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="white" stroke="black" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                </g>
-                                                <!-- Body -->
-                                                <rect x="4" y="6.5" width="16" height="14" rx="2" ry="2" fill="white" stroke="black" stroke-width="1.6"></rect>
-                                                <!-- Inner vertical lines -->
-                                                <line x1="10" y1="10" x2="10" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"></line>
-                                                <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"></line>
-                                                </svg>
-                                            </button>
-                                            <div class="shopping-cart__product-remove-carpet active">
-                                                <div class="remove-carpet__confirmation-container">
-                                                    <h1>"Remove this item\n 
-                                                        from your cart?"
-                                                    </h1>
-                                                </div>
-                                            </div>
-                                        </article>
-                                       
-                                       
-                                    </div>
-                                </div>
-                                <div class="horizontal-separator__bg" style="background-color: transparent;">
-                                    <hr class="horizontal-separator" style="width:90%;
-                                                    height:0.001%;
-                                                    background:rgba(83, 83, 83, 0.43);
-                                                    border: 1px solid rgba(83, 83, 83, 0.18);
-                                                    border-radius: 100%;">
-                                </div>
-                                <div class="shopping-cart__product-bottom-content">
-                                    <div class="horizontal-separator__bg" style="background-color: transparent;height: 0.1vh;">
-                                    <hr class="horizontal-separator" style="width:90%;
-                                                    height:0.001%;
-                                                    background:rgba(83, 83, 83, 0.43);
-                                                    border: 1px solid rgba(83, 83, 83, 0.18);
-                                                    border-radius: 100%;">
-                                </div>
-                                    <div class="shopping-cart__product-total-price">
-                                        <h2>Total price:</h2>
-                                    </div>
-                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
-                                    <hr class="horizontal-separator" style="width:90%;
-                                                    height:0.001%;
-                                                    background:rgba(83, 83, 83, 0.43);
-                                                    border: 1px solid rgba(83, 83, 83, 0.18);
-                                                    border-radius: 100%;">
-                                </div>
-                                    <div class="shopping-cart__product-edit-bag">
-                                        <h2>Edit bag</h2>
-                                    </div>
-                                    <div class="shopping-cart__go-to-checkout">
-                                        <h1>Go to Checkout</h1>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </nav>
-
-        <script>
-                window.addEventListener("load", () => {
-
-    function arrangeSubmenu(submenu) {
-        const sections = Array.from(submenu.children);
-
-        const textBlocks = sections.filter(sec => sec.querySelector("ul, p")); // texts
-        const imageBlocks = sections.filter(sec => sec.querySelector("div[style*='background-image'], img")); // images
-            
-        const colCount = Math.ceil(sections.length / 2);
-        const currentGap = parseFloat(getComputedStyle(submenu).columnGap);
-
-
-        submenu.style.columnGap = (currentGap / colCount) + "%";
-        
-        // Place text blocks
-        textBlocks.forEach((block, i) => {
-            textColCount = Math.round(textBlocks.length / 2);
-            let startCol = 1;
-            if (imageBlocks.length > 0) {
-                // Images exist → text stays in col 1 (stacked)
-                let col = i+1 > 2 ? startCol + 1 : startCol
-                let row = i % 2 + 1; //The one is to shift it to 1 2 1 2, instead of 0 1 0 1
-                block.style.gridColumn = col.toString();
-                block.style.gridRow = row.toString();
-            } else {
-                // No images → text flows naturally
-                block.style.gridColumn = "";
-                block.style.gridRow = "";
-            }
+          });
         });
-        
-        // Place image blocks
-        imageBlocks.forEach((block, i) => {
-            const imageColCount = Math.round(imageBlocks.length / 2);
-            let startCol = 2; 
-            let col;
-            if (textBlocks.length <= 2) {
-                col = i+1 > 1 ? startCol + 1 : startCol;
-            } else {
-                col = i+1 > 1 ? startCol + 2 : startCol + 1;
-            }
-            block.style.gridColumn = col.toString();
-            block.style.gridRow = "1";
-        });
-    }
+      </script>
 
-    document.querySelectorAll(".submenu").forEach(arrangeSubmenu);
+      <nav class="navbar__container">
+        <div class="submenu__bg-animation-background"></div>
+        <div class="submenu__bg-animation--left"></div>
+        <div class="submenu__bg-animation--right"></div>
 
-    
+        <ul class="navbar__content" data-type="navbar"></ul>
 
-
-
-
-
-
-
-
-
-
-
-                const options = document.querySelectorAll(".navbar__option");
-                const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
-                const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
-                const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
-
-                options.forEach(option => {
-                    const submenu = option.nextElementSibling; 
-                    const sections = Array.from(submenu.children);
-
-                    const sectionHeights = sections.map(section => {
-                        let bottom = section.offsetTop + section.offsetHeight;
-
-                        // check for absolutely positioned divs with background images
-                        const imgDivs = section.querySelectorAll("div[style*='background-image']");
-                        imgDivs.forEach(imgDiv => {
-                            const imgDivRect = imgDiv.getBoundingClientRect();
-                            const parentRect = section.getBoundingClientRect();
-
-                            // bottom relative to section
-                            const divBottomRelative = (imgDivRect.bottom - parentRect.top); //clientrect coordinates is relative to viewport, the other offsetTop and Height are not. therefore we need to chop off the parent rect top, to have a similar effect as the offset.
-                            bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
-
-                        });
-
-                        return bottom;
-                    });
-
-                    const highestSection = Math.max(...sectionHeights);
-                    
-
-                    window.addEventListener("scroll", () => {
-                        submenuAnimLeft.classList.remove("active");
-                        submenuAnimRight.classList.remove("active");
-                        submenuAnimBG.classList.remove("active");
-                        submenu.classList.remove("active");
-                    });
-
-                    
-                        option.addEventListener("mouseleave", () => {
-
-
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-                        });
-
-                        option.addEventListener("mouseenter", () => {
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-                            submenuAnimLeft.classList.add("active");
-                            submenuAnimRight.classList.add("active");
-                            submenuAnimBG.classList.add("active");
-                            submenu.classList.add("active");
-
-                            submenu.style.height = highestSection + "px";
-                            let ultimateHeight = submenu.offsetHeight;
-                            submenuAnimLeft.style.height = ultimateHeight + "px";
-                            submenuAnimRight.style.height = ultimateHeight + "px";
-                            submenuAnimBG.style.height = ultimateHeight + "px";
-                            
-
-                        });
-
-                        
-
-                        submenu.addEventListener("mouseenter", () => {
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-                            submenuAnimLeft.classList.add("active");
-                            submenuAnimRight.classList.add("active");
-                            submenuAnimBG.classList.add("active");
-                            submenu.classList.add("active");
-
-                            submenu.style.height = highestSection + "px";
-                            let ultimateHeight = submenu.offsetHeight;
-                            submenuAnimLeft.style.height = ultimateHeight + "px";
-                            submenuAnimRight.style.height = ultimateHeight + "px";
-                            submenuAnimBG.style.height = ultimateHeight + "px";
-
-                        
-                        });
-
-                        submenu.addEventListener("mouseleave", () => {
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-
-                        });
-                    
-                });
-
-                
-
-            });
-
-            window.addEventListener("load", () => { 
-  const shopButton = document.querySelector(".quick-menu__content-item--shopping");
-  const shopWindow = document.querySelector(".shopping-cart__container");
-
-  // Toggle cart on button click
-  shopButton.addEventListener("click", (event) => {
-    event.stopPropagation(); // stop it from bubbling to document
-    shopWindow.classList.toggle("active");
-  });
-
-  // Prevent closing when clicking inside the cart
-  shopWindow.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-
-  // Close the cart when clicking anywhere else
-  document.addEventListener("click", (event) => {
-    shopWindow.classList.remove("active");
-  });
-});
-
-
-        </script>
-        
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-        <div class="empty-space2"></div>
-        
-
-        <section class="promo-banner__container">
-            <article class="promo-banner__content" data-type="promo-banner" data-categories='[""]' data-articles='[""]'>
-                
-                <div class="promo-banner__text-content">
-                    <div class="promo-banner__title">
-                        <h1>Limited Units</h1>
-                    </div>
-                </div>
-                <div class="promo-banner__image-content">
-                    <div class="promo-banner__image" style="background-image: url(&quot;media/promo-banner.jpg&quot;); background-size: 100%; background-position: center center;">
-
-                    </div>
-                    <a href="#" class="go-to-checkout"></a>
-                </div>
-
-            </article>
-        </section>
-
-        <section class="poster__container" >
-            <div class="poster__content" data-type="poster" data-categories='[""]' data-articles='["A0000"]' data-image-orientation="left" style="padding-bottom:1%">
-                </div>
-            </section>
-        <section class="poster__container" >
-            <div class="poster__content" data-type="poster" data-categories='[""]' data-articles='["A0001"]' data-image-orientation="right">
-                
-                
+        <div class="quick-menu">
+          <div class="quick-menu__content">
+            <!-- Profile Icon -->
+            <div class="quick-menu__content-item quick-menu__content-item--profile">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 100 100"
+              >
+                <circle
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  fill="black"
+                  stroke="white"
+                  stroke-width="1"
+                />
+                <text
+                  x="50%"
+                  y="55.5%"
+                  text-anchor="middle"
+                  dominant-baseline="middle"
+                  font-size="70"
+                  font-family="Arial, sans-serif"
+                  fill="white"
+                >
+                  C
+                </text>
+              </svg>
             </div>
-        
-        </section>
 
-        <div class="horizontal-separator__bg">
-        <hr class="horizontal-separator" style="width:90%;
-                        height:0.001%;
-                        background:rgba(83, 83, 83, 0.43);
+            <!-- Shopping Cart Icon -->
+            <div class="quick-menu__content-item quick-menu__content-item--shopping">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="black"
+                stroke="whitesmoke"
+                stroke-width="0.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"
+                />
+              </svg>
+
+              <div class="quick-menu__shopping-cart-counter">
+                <div class="quick-menu__shopping-cart-counter-text">
+                  <p>1</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Shopping Cart Dropdown -->
+            <div class="shopping-cart__container">
+              <div class="shopping-cart__content">
+                <div class="shopping-cart__top-content">
+                  <div class="horizontal-separator__bg" style="background-color: transparent">
+                    <hr
+                      class="horizontal-separator"
+                      style="
+                        width: 90%;
+                        height: 0.001%;
+                        background: rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
-                        border-radius: 100%;">
-        </div>
-<section class="reel-promo__container">
-    <div class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'>
-        <div class="reel-promo__title-content">
-            <h1>Limited Units</h1>
-        </div>
-        <div class="reel-promo__article-mask">
-            <article class="reel-promo__article-container">
-                <div class="reel-promo__article-content">
-                    <div class="reel-promo__image-cell">
-                        <div class="reel-promo__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                        background-size: 120%;
-                        background-position: center 50%;"></div>
-                    </div>
-                    <div class="reel-promo__text-cell">
-                        <div class="reel-promo__text-layout"></div>
-                        <div class="reel-promo__text-content">
-                            <h1>Placeholder</h1>
-                            <p>Placeholder</p>
+                        border-radius: 100%;
+                      "
+                    />
+                  </div>
+
+                  <div
+                    class="shopping-cart__product-scroll-mask"
+                    data-type="shopping-bag"
+                    data-articles='[""]'
+                  >
+                    <article class="shopping-cart__product-item">
+                      <div
+                        class="shopping-cart__product-image"
+                        style="
+                          background-image: url('media/rings-special1.png');
+                          background-size: 100%;
+                          background-position: center center;
+                        "
+                      ></div>
+
+                      <div
+                        class="shopping-cart__product-details shopping-cart__product-title"
+                      >
+                        <h1>Product Name</h1>
+                      </div>
+
+                      <div class="shopping-cart__quantity-container">
+                        <div
+                          class="shopping-cart__product-details shopping-cart__product-quantity"
+                        >
+                          <p>Qty:</p>
                         </div>
-                    </div>
-                </div>
-            </article>
-            
-        </div>
-        <div class="reel-promo__navi-container">
-            <div class="reel-promo__navi-content">
-                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--left"></button>
-                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--right"></button>
-            </div>
+                      </div>
 
-        </div>
-    </div>
-</section>
+                      <div
+                        class="shopping-cart__product-details shopping-cart__product-price"
+                      >
+                        <p>Price:</p>
+                      </div>
 
-<section class="reel-promo__container reel-promo__container--selection">
-    <div class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'>
-        <div class="reel-promo__title-content">
-            <h1>Limited Units</h1>
-        </div>
-        <div class="reel-promo__article-mask reel-promo__article-mask--selection">
-            <article class="reel-promo__article-container">
-                <div class="reel-promo__article-content">
-                    <div class="reel-promo__image-cell">
-                        <div class="reel-promo__image-content" style="background-image: url('media/bracelet-gold_2.jpg');
-                        background-size: 120%;
-                        background-position: center 50%;"></div>
-                    </div>
-                    <div class="reel-promo__text-cell">
-                        <div class="reel-promo__text-layout"></div>
-                        <div class="reel-promo__text-content">
-                            <h1>Placeholder</h1>
-                            <p>Placeholder</p>
+                      <button class="shopping-cart__product-remove-button">
+                        <svg
+                          class="shopping-cart__trash-icon"
+                          xmlns="http://www.w3.org/2000/svg"
+                          overflow="visible"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          height="24"
+                        >
+                          <title>Remove Product</title>
+                          <g class="lid">
+                            <path
+                              d="M3 6h18"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.6"
+                              stroke-linecap="round"
+                            ></path>
+                            <path
+                              d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"
+                              fill="white"
+                              stroke="black"
+                              stroke-width="1.6"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            ></path>
+                          </g>
+                          <rect
+                            x="4"
+                            y="6.5"
+                            width="16"
+                            height="14"
+                            rx="2"
+                            ry="2"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.6"
+                          ></rect>
+                          <line
+                            x1="10"
+                            y1="10"
+                            x2="10"
+                            y2="17"
+                            stroke="black"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                          ></line>
+                          <line
+                            x1="14"
+                            y1="10"
+                            x2="14"
+                            y2="17"
+                            stroke="black"
+                            stroke-width="1.6"
+                            stroke-linecap="round"
+                          ></line>
+                        </svg>
+                      </button>
+
+                      <div class="shopping-cart__product-remove-carpet active">
+                        <div class="remove-carpet__confirmation-container">
+                          <h1>
+                            "Remove this item<br />
+                            from your cart?"
+                          </h1>
                         </div>
-                    </div>
+                      </div>
+                    </article>
+                  </div>
                 </div>
-            </article>
-            
-        </div>
-        <div class="reel-promo__navi-container">
-            <div class="reel-promo__navi-content">
-                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--left"></button>
-                <button class="reel-promo__navi-dir-button reel-promo__navi-dir-button--right"></button>
-            </div>
 
-        </div>
-    </div>
-</section>
+                <div class="horizontal-separator__bg" style="background-color: transparent">
+                  <hr
+                    class="horizontal-separator"
+                    style="
+                      width: 90%;
+                      height: 0.001%;
+                      background: rgba(83, 83, 83, 0.43);
+                      border: 1px solid rgba(83, 83, 83, 0.18);
+                      border-radius: 100%;
+                    "
+                  />
+                </div>
 
-         <script>
-          window.addEventListener("load", () => {
-            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-
-            // Set a CSS variable that CSS can use
-            document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-            const contentElements = document.querySelectorAll(".reel-promo__article-mask");
-
-            contentElements.forEach(content => {
-                const contentNavi = content.nextElementSibling?.querySelector(".reel-promo__navi-content");
-                if (!contentNavi) console.warn("Navigation content not found!");
-                const vwToPx = v => window.innerWidth * (v / 100);
-                const buttonLeft = contentNavi.querySelector(".reel-promo__navi-dir-button--left");
-                const buttonRight = contentNavi.querySelector(".reel-promo__navi-dir-button--right");
-                const visibleItems = parseInt(getComputedStyle(content).getPropertyValue("--reel-promo-number-of-visible-items").trim(), 10); // trim for whitespace trimming, 10 is the number base (radix), to use decimal system
-                const columnGap = vwToPx(parseInt(getComputedStyle(document.documentElement).getPropertyValue("--reel-promo-column-gap")));
-                
-                let items = Array.from(content.children);
-                let itemPositions = [];
-                itemPositions = items.map(item => item.offsetLeft - item.clientLeft);
-                let currentIndex = 0;
-
-                const batchPosition = [];
-                const batchButton = [];
-                const batchSize = visibleItems; // or use visibleItems if you want it dynamic
-
-                for (let i = 0; i < items.length; i += batchSize) {
-                    batchPosition.push(itemPositions[i]);
-                    const midButton = document.createElement("button");
-                    midButton.classList.add("reel-promo__navi-mid-button");
-                    contentNavi.appendChild(midButton);
-                    batchButton.push(midButton); // append to array sequentially
-                }
-
-                
-
-
-                initialItemPositions();
-
-                
-
-
-                function initialItemPositions() {
-                    content.scrollLeft = itemPositions[0];
-                }
-
-                let resizeTimeout;
-                window.addEventListener("resize", () => {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(initialItemPositions, 50);
-                });
-
-                batchButton.forEach((button, index) => {
-                    button.addEventListener("click", () => {
-                    let targetScroll = batchPosition[index];
-                    const distance = targetScroll - content.scrollLeft;
-                    smoothScroll(content, distance, 0.5);
-                    });
-                });
-                
-
-                buttonLeft.addEventListener("click", () => {
-                    // Find the index of the first fully visible item
-                    let closestIndex = items.findIndex(item => item.offsetLeft >= content.scrollLeft);
-                    if (closestIndex === -1) closestIndex = items.length - 1;
-
-                    // Move left by visibleItems - in order to rasterize them into batches of ex: 3 (number of visible items)
-                    currentIndex = Math.max(0, closestIndex - visibleItems);
-
-                    let targetScroll = itemPositions[currentIndex];
-                    const distance = targetScroll - content.scrollLeft;
-                    smoothScroll(content, distance, 0.5);
-                });
-
-
-
-                buttonRight.addEventListener("click", () => {
-                    currentIndex = Math.min(items.length - 1, currentIndex + visibleItems);
-
-                    // Adjust if last item would overshoot
-                    const containerWidth = content.clientWidth;
-                    const lastItemRight = items[items.length - 1].offsetLeft + items[items.length - 1].offsetWidth;
-                    const maxScrollLeft = lastItemRight - containerWidth;
-                    let targetScroll = itemPositions[currentIndex];
-                    if (targetScroll > maxScrollLeft) {
-                        targetScroll = maxScrollLeft;
-                        currentIndex = items.length - 1;
-                    }
-
-                    const distance = targetScroll - content.scrollLeft;
-                    smoothScroll(content, distance, 0.5);
-                });
-
-                function scrollToIndex(index) {
-                    const distance = itemPositions[index] - content.scrollLeft;
-                    smoothScroll(content, distance, 0.5);
-                }
-
-                function smoothScroll(element, distance, durationInSeconds) {
-                    const duration = durationInSeconds * 1000;
-                    const start = element.scrollLeft;
-                    const startTime = performance.now();
-
-                    function animate(time) {
-                        const elapsed = time - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        element.scrollLeft = start + distance * easeOutQuad(progress);
-                        if (progress < 1) requestAnimationFrame(animate);
-                    }
-
-                    requestAnimationFrame(animate);
-                }
-
-                function easeOutQuad(t) {
-                    return t * (2 - t);
-                }
-                });
-
-    });
-        </script>
-        
-        
-        <section class="poster-slideshow__container">
-            <article class="poster-slideshow__image-container" data-type="slideshow" data-categories='[""]' data-articles='[""]'>
-                
-            </article>
-        </section>
-
-        <div class="horizontal-separator__bg">
-        <hr class="horizontal-separator" style="width:90%;
-                        height:0.001%;
-                        background:rgb(83, 83, 83);
-                        border: 1px solid rgb(83, 83, 83);
-                        border-radius: 100%;">
-        </div>
-
-        <section class="contact-form__container">
-            <div class="contact-form__content">
-                <h1>Get in Touch</h1>
-                <p>Have questions? Fill out the form and we’ll get back to you.</p>
-                
-                <form class="contact-form__form">
-                    <div class="contact-form__form-group">
-                        <label for="name">Name</label>
-                        <input class="contact-form__input-box" type="text" id="name" name="name" placeholder="Your name" required>
-                    </div>
-
-                    <div class="contact-form__form-group">
-                        <label for="email">Email</label>
-                        <input class="contact-form__input-box" type="email" id="email" name="email" placeholder="you@example.com" required>
-                    </div>
-
-                    <div class="contact-form__form-group" style="height:80%;">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-                        <button type="submit">Send Message</button>
-                    </div>
-
-                    
-                </form>
-            </div>
-        </section>
-        <div class="horizontal-separator__bg">
-        <hr class="horizontal-separator" style="width:90%;
-                        height:0.001%;
-                        background:rgba(83, 83, 83, 0.43);
+                <div class="shopping-cart__product-bottom-content">
+                  <div
+                    class="horizontal-separator__bg"
+                    style="background-color: transparent; height: 0.1vh"
+                  >
+                    <hr
+                      class="horizontal-separator"
+                      style="
+                        width: 90%;
+                        height: 0.001%;
+                        background: rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
-                        border-radius: 100%;">
+                        border-radius: 100%;
+                      "
+                    />
+                  </div>
+
+                  <div class="shopping-cart__product-total-price">
+                    <h2>Total price:</h2>
+                  </div>
+
+                  <div class="shopping-cart__product-edit-bag">
+                    <h2>Edit bag</h2>
+                  </div>
+
+                  <div class="shopping-cart__go-to-checkout">
+                    <h1>Go to Checkout</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <footer>
+      </nav>
+
+      <script src="navbar.js"></script>
+      <script src="shopping-cart.js"></script>
+
+      <div class="empty-space2"></div>
+
+      <!-- Promo Banner -->
+      <section class="promo-banner__container">
+        <article
+          class="promo-banner__content"
+          data-type="promo-banner"
+          data-categories='[""]'
+          data-articles='[""]'
+        ></article>
+      </section>
+
+      <!-- Posters -->
+      <section class="poster__container">
+        <article
+          class="poster__content"
+          data-type="poster"
+          data-categories='[""]'
+          data-articles='["A0000"]'
+          data-image-orientation="left"
+          style="padding-bottom: 1%"
+        ></article>
+      </section>
+
+      <section class="poster__container">
+        <article
+          class="poster__content"
+          data-type="poster"
+          data-categories='[""]'
+          data-articles='["A0001"]'
+          data-image-orientation="right"
+        ></article>
+      </section>
+
+      <div class="horizontal-separator__bg">
+        <hr
+          class="horizontal-separator"
+          style="
+            width: 90%;
+            height: 0.001%;
+            background: rgba(83, 83, 83, 0.43);
+            border: 1px solid rgba(83, 83, 83, 0.18);
+            border-radius: 100%;
+          "
+        />
+      </div>
+
+      <!-- Reels -->
+      <section class="reel-promo__container">
+        <article
+          class="reel-promo__content"
+          data-type="reel"
+          data-categories='[""]'
+          data-articles='[""]'
+        ></article>
+      </section>
+
+      <section class="reel-promo__container reel-promo__container--selection">
+        <article
+          class="reel-promo__content"
+          data-type="reel"
+          data-categories='[""]'
+          data-articles='[""]'
+        ></article>
+      </section>
+
+      <script src="reel.js"></script>
+
+      <!-- Slideshow -->
+      <section class="poster-slideshow__container">
+        <article
+          class="poster-slideshow__image-container"
+          data-type="slideshow"
+          data-categories='[""]'
+          data-articles='[""]'
+        ></article>
+      </section>
+
+      <div class="horizontal-separator__bg">
+        <hr
+          class="horizontal-separator"
+          style="
+            width: 90%;
+            height: 0.001%;
+            background: rgb(83, 83, 83);
+            border: 1px solid rgb(83, 83, 83);
+            border-radius: 100%;
+          "
+        />
+      </div>
+
+      <!-- Contact Form -->
+      <section class="contact-form__container">
+        <div class="contact-form__content">
+          <h1>Get in Touch</h1>
+          <p>Have questions? Fill out the form and we’ll get back to you.</p>
+
+          <form class="contact-form__form">
+            <div class="contact-form__form-group">
+              <label for="name">Name</label>
+              <input
+                class="contact-form__input-box"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+
+            <div class="contact-form__form-group">
+              <label for="email">Email</label>
+              <input
+                class="contact-form__input-box"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="contact-form__form-group" style="height: 80%">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Write your message..."
+                required
+              ></textarea>
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div class="horizontal-separator__bg">
+        <hr
+          class="horizontal-separator"
+          style="
+            width: 90%;
+            height: 0.001%;
+            background: rgba(83, 83, 83, 0.43);
+            border: 1px solid rgba(83, 83, 83, 0.18);
+            border-radius: 100%;
+          "
+        />
+      </div>
+
+      <!-- Footer -->
+      <footer>
         <section class="footer__container">
-            <div class="footer__content">
-                <article class="footer__content-item">
-                    <div class="footer__text-container">
-                        <h1>Customer Area</h1>
-                        <a href="#">Track your order</a>
-                        <a href="#">Returns</a>
-                        <a href="#">FAQ</a>
-                        <a href="#">Services</a>
-                    </div>
-
-                </article>
-                <article class="footer__content-item">
-                    <div class="footer__text-container">
-                        <h1>Contact Us</h1>
-                        <a href="#">Contact Info & Form</a>
-                    </div>
-                    <div class="footer__text-container">
-                        <h1>Find A Store</h1>
-                        <a href="#">Store Locator</a>
-                    </div>
-                    
-
-                </article>
-                <article class="footer__content-item">
-                    <div class="footer__text-container">
-                        <h1>About M & G</h1>
-                        <a href="#">Our History</a>
-                        <a href="#">Origin of Materials</a>
-                        <a href="#">Values</a>
-                        <a href="#">Partners</a>
-                    </div>
-
-                </article>
-                <article class="footer__content-item">
-                    <div class="footer__text-container">
-                        <h1>Privacy Center</h1>
-                        <a href="#">Cookie Settings</a>
-                        <a href="#">Privacy Settings</a>
-                        <a href="#">Policies</a>
-                    </div>
-                    <div class="footer__text-container">
-                        <h1>Terms & Conditions</h1>
-                        <a href="#">Lega Notices</a>
-                        <a href="#">Privacy Settings</a>
-                        <a href="#">Terms of use</a>
-                    </div>
-
-                </article>
-            </div>
-        </section>
-         <div class="horizontal-separator__bg">
-        <hr class="horizontal-separator" style="width:100%;
-                        height:0.001%;
-                        background:rgba(83, 83, 83, 1);
-                        border: 1px solid rgba(83, 83, 83, 1);
-                        border-radius: 100%;">
-        </div>
-        <section class="trademark__container">
-            <article class="trademark__content">
-                <div class="trademark__text-container">
-                    <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
-                </div>
+          <div class="footer__content">
+            <article class="footer__content-item">
+              <div class="footer__text-container">
+                <h1>Customer Area</h1>
+                <a href="#">Track your order</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+                <a href="#">Services</a>
+              </div>
             </article>
+
+            <article class="footer__content-item">
+              <div class="footer__text-container">
+                <h1>Contact Us</h1>
+                <a href="#">Contact Info & Form</a>
+              </div>
+
+              <div class="footer__text-container">
+                <h1>Find A Store</h1>
+                <a href="#">Store Locator</a>
+              </div>
+            </article>
+
+            <article class="footer__content-item">
+              <div class="footer__text-container">
+                <h1>About M & G</h1>
+                <a href="#">Our History</a>
+                <a href="#">Origin of Materials</a>
+                <a href="#">Values</a>
+                <a href="#">Partners</a>
+              </div>
+            </article>
+
+            <article class="footer__content-item">
+              <div class="footer__text-container">
+                <h1>Privacy Center</h1>
+                <a href="#">Cookie Settings</a>
+                <a href="#">Privacy Settings</a>
+                <a href="#">Policies</a>
+              </div>
+
+              <div class="footer__text-container">
+                <h1>Terms & Conditions</h1>
+                <a href="#">Legal Notices</a>
+                <a href="#">Privacy Settings</a>
+                <a href="#">Terms of Use</a>
+              </div>
+            </article>
+          </div>
         </section>
 
-    </footer>
-</body>
+        <div class="horizontal-separator__bg">
+          <hr
+            class="horizontal-separator"
+            style="
+              width: 100%;
+              height: 0.001%;
+              background: rgba(83, 83, 83, 1);
+              border: 1px solid rgba(83, 83, 83, 1);
+              border-radius: 100%;
+            "
+          />
+        </div>
+
+        <section class="trademark__container">
+          <article class="trademark__content">
+            <div class="trademark__text-container">
+              <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
+            </div>
+          </article>
+        </section>
+      </footer>
+    </main>
+  </body>
 </html>
