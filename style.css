@@ -1622,7 +1622,7 @@ main .empty-filler{
 .poster-slideshow__container {
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:start;
   width:100%;
   height:100vh;
   /*! outline: 1px solid red; */

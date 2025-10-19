@@ -95,6 +95,7 @@ function articleSetup(articles, elementArticleCategories, elementArticleArray, e
   return articles;
 }
 
+
 function createNavbarList(navbarContents,elementId) {
   let content = document.getElementById(elementId);
   if (!content) return;
@@ -291,12 +292,12 @@ function createPosters(articles, elementId) {
 function createReel(articles, elementId) {
   let content = document.getElementById(elementId);
   if (!content) return;
-      if (!content.dataset.cleared) {
-      content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
+  if (!content.dataset.cleared) {
+  content.innerHTML = "";
+  content.dataset.cleared = "true"; // mark this container as cleared
   }
-   //Title
-  
+  //Title
+
   let selectionEl = content.parentElement;
   if (!selectionEl.classList.contains("reel-promo__container--selection")) {
     let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
@@ -323,6 +324,7 @@ function createReel(articles, elementId) {
    let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
     if (selectionEl.classList.contains("reel-promo__container--selection")) {
       articleContainer.classList.add("reel-promo__article-container--selection");
+      content.parentElement.style.height = "70vh";
     }
     let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
     
@@ -954,14 +956,6 @@ if (!localStorage.getItem("selectedArticles")) {
 }
 
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "f" || event.key === "F") {
-      console.log("F pressed – clearing bag");
-      localStorage.setItem("shoppingBag", JSON.stringify([])); // clear storage
-     let assignedArticles = JSON.parse(localStorage.getItem("shoppingBag"));
-    renderShoppingBag(articles, assignedArticles);
-    }
-  });
 
 
 
