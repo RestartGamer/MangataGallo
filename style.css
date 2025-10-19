@@ -2445,7 +2445,6 @@ main .empty-filler{
 .shopping-cart__product-quantity {
   flex: 0 0 auto;
   /*! outline: 1px solid blue; */
-  flex: 0 0 auto;
   /*! position: absolute; */
   /*! top: 37.9%; */
   display: flex;
@@ -2864,8 +2863,7 @@ main .empty-filler{
   border: 1px solid #b2b200;
   opacity:0;
 }
-.quick-menu__shopping-cart-counter-text {
-}
+
 .quick-menu__shopping-cart-counter-text p {
   color: white;
   font-weight: bold;

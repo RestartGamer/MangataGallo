@@ -472,6 +472,8 @@
             window.addEventListener("load", () => { 
                 const shopButton = document.querySelector(".quick-menu__content-item--shopping");
                 const shopWindow = document.querySelector(".shopping-cart__container");
+                const confirmationContainer = document.querySelector(".remove-carpet__confirmation-container");
+                const quantityNavigator = document.querySelector(".shopping-cart__product-quantity-navigator")
 
                 shopButton.addEventListener("click", (event) => {
                 // Prevent the click from bubbling to the document
@@ -481,7 +483,8 @@
                 // Listen for clicks anywhere in the document
                 document.addEventListener("click", (event) => {
                 // If the click is outside the shopWindow and shopButton, close it
-                if (!shopWindow.contains(event.target) && !shopButton.contains(event.target)) {
+                if (!shopWindow.contains(event.target) && !shopButton.contains(event.target) 
+                && !confirmationContainer.contains(event.target) && !quantityNavigator.contains(event.target)) {
                     shopWindow.classList.remove("active");
                 }
                 });

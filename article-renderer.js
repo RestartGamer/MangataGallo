@@ -770,8 +770,8 @@ function renderShoppingBag(articles, shoppingArticleIds) {
       let shoppingArticle = check;
       shoppingArticle.quantity += 1; 
     } else {
-      let getFirstArticles = articles.find(article => article.id === shoppingArticleId);
-      if (getFirstArticles) duplicateArticles.push({ ...getFirstArticles, quantity: 1 });
+      let getDuplicateArticles = articles.find(article => article.id === shoppingArticleId);
+      if (getDuplicateArticles) duplicateArticles.push({ ...getDuplicateArticles, quantity: 1 });
     }
   });
 
