@@ -822,7 +822,7 @@ function renderShoppingBag(articles, shoppingArticleIds) {
     const productDetailsQuantity = document.createElement("div");
     productDetailsQuantity.classList.add("shopping-cart__product-quantity");
     const textQuantity = document.createElement("p");
-    textQuantity.textContent = `Qty: ${shoppingArticle.quantity}`;
+    textQuantity.textContent = `Qty: `;
     quantityContainer.appendChild(productDetailsQuantity);
     productDetailsQuantity.appendChild(textQuantity);
     
@@ -831,17 +831,22 @@ function renderShoppingBag(articles, shoppingArticleIds) {
 
     const quantityPlusContainer = document.createElement("div"); quantityPlusContainer.classList.add("shopping-cart__product-quantity-button-container");
     const quantityMinusContainer = document.createElement("div");quantityMinusContainer.classList.add("shopping-cart__product-quantity-button-container");
+    const quantityNumberContainer = document.createElement("div"); quantityNumberContainer.classList.add("shopping-cart__product-quantity-number-container")
+
+
 
     quantityNavigator.appendChild(quantityPlusContainer);
+    quantityNavigator.appendChild(quantityNumberContainer);
     quantityNavigator.appendChild(quantityMinusContainer);
 
     const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--plus");
     const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-button","shopping-cart__product-quantity-button--minus");
-    
-    
+    const quantityNumber = document.createElement("p"); quantityNumber.classList.add("shopping-cart__product-quantity-number");
+    quantityNumber.textContent = shoppingArticle.quantity;
     
     
     quantityPlusContainer.appendChild(quantityPlus);
+    quantityNumberContainer.appendChild(quantityNumber);
     quantityMinusContainer.appendChild(quantityMinus);
 
     quantityPlus.parentElement.addEventListener("click", ()=>{
