@@ -1,0 +1,14 @@
+#logo{
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 14px;
+  background-color: rgba(52, 80, 80, 0.85);
+  z-index: 1;
+  
+}
+
+#logo__image{
+  display:block; /*Since images are always inline, text-align also work on centering etc.*/
+  margin:0 auto;
+  z-index: 1;
+}

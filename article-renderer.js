@@ -323,7 +323,7 @@ window.addEventListener("load", () => {
       let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
       if (selectionEl.classList.contains("reel-promo__container--selection")) {
         articleContainer.classList.add("reel-promo__article-container--selection");
-        content.parentElement.style.height = "70vh";
+        content.parentElement.style.height = "80vh";
       }
       let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
 
@@ -491,16 +491,16 @@ window.addEventListener("load", () => {
 
     // LEFT SIDE
     const leftContainer = document.createElement("div");
-    leftContainer.className = "checkout__left-side-container";
+    leftContainer.className = "product-page__left-side-container";
 
     const leftContent = document.createElement("div");
-    leftContent.className = "checkout__left-side-content";
+    leftContent.className = "product-page__left-side-content";
 
     // Product images
     checkoutContent.forEach(checkCont => {
       assignedArticle.checkImages.forEach((image, i) => {
         const div = document.createElement("div");
-        div.className = "checkout__grid-item";
+        div.className = "product-page__grid-item";
         div.style.gridArea = i === 0 ? "main" : "secondary";
         div.style.backgroundImage = `url("${image}")`;
         div.style.backgroundSize = assignedArticle.checkImageSizes[i] || "100%";
@@ -512,11 +512,11 @@ window.addEventListener("load", () => {
 
       // Video
       const videoDiv = document.createElement("div");
-      videoDiv.className = "checkout__grid-item";
+      videoDiv.className = "product-page__grid-item";
       videoDiv.style.gridArea = "video";
 
       const videoEl = document.createElement("video");
-      videoEl.className = "checkout__grid-item-video";
+      videoEl.className = "product-page__grid-item-video";
       videoEl.controls = true;
       videoEl.muted = true;
       videoEl.loop = true;
@@ -535,17 +535,17 @@ window.addEventListener("load", () => {
 
       // RIGHT SIDE
       const rightContainer = document.createElement("div");
-      rightContainer.className = "checkout__right-side-container";
+      rightContainer.className = "product-page__right-side-container";
 
       const rightContent = document.createElement("div");
-      rightContent.className = "checkout__right-side-content";
+      rightContent.className = "product-page__right-side-content";
 
       // Title & Price
       const titlePrice = document.createElement("div");
-      titlePrice.className = "checkout__titleandprice-container";
+      titlePrice.className = "product-page__titleandprice-container";
 
       const titleDiv = document.createElement("div");
-      titleDiv.className = "checkout__flex-item checkout__flex-item-title";
+      titleDiv.className = "product-page__flex-item product-page__flex-item-title";
       const titleH1 = document.createElement("h1");
       titleH1.style.fontSize = "2.1rem";
       titleH1.style.padding = "2rem";
@@ -553,7 +553,7 @@ window.addEventListener("load", () => {
       titleDiv.appendChild(titleH1);
 
       const priceDiv = document.createElement("div");
-      priceDiv.className = "checkout__flex-item checkout__flex-item-price";
+      priceDiv.className = "product-page__flex-item product-page__flex-item-price";
       const priceH1 = document.createElement("h1");
       priceH1.style.fontSize = "1.3rem";
       priceH1.style.padding = "2rem";
@@ -566,10 +566,10 @@ window.addEventListener("load", () => {
 
       // Purchase Buttons
       const purchaseDiv = document.createElement("div");
-      purchaseDiv.className = "checkout__flex-item checkout__flex-item-purchase";
+      purchaseDiv.className = "product-page__flex-item product-page__flex-item-purchase";
 
       const addBag = document.createElement("div");
-      addBag.className = "checkout__flex-subitem checkout__flex-item--button-white checkout__flex-subitem-addtobag";
+      addBag.className = "product-page__flex-subitem product-page__flex-item--button-white product-page__flex-subitem-addtobag";
       const addBagH1 = document.createElement("h1");
       addBagH1.textContent = "Add to bag";
       addBag.appendChild(addBagH1);
@@ -592,22 +592,22 @@ window.addEventListener("load", () => {
 
 
       const checkoutNow = document.createElement("div");
-      checkoutNow.className = "checkout__flex-subitem checkout__flex-item--button-green checkout__flex-subitem-checkout";
+      checkoutNow.className = "product-page__flex-subitem product-page__flex-item--button-green product-page__flex-subitem-checkout";
       const checkoutH1 = document.createElement("h1");
       checkoutH1.textContent = "Checkout Now";
       checkoutNow.appendChild(checkoutH1);
 
       const splitBtn = document.createElement("div");
-      splitBtn.className = "checkout__flex-subitem checkout__flex-subitem-split-button";
+      splitBtn.className = "product-page__flex-subitem product-page__flex-subitem-split-button";
 
       const giftBtn = document.createElement("div");
-      giftBtn.className = "checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-gift";
+      giftBtn.className = "product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-gift";
       const giftH1 = document.createElement("h1");
       giftH1.textContent = "Send as Gift 📧";
       giftBtn.appendChild(giftH1);
 
       const favBtn = document.createElement("div");
-      favBtn.className = "checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-favorites";
+      favBtn.className = "product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-favorites";
       const favH1 = document.createElement("h1");
       favH1.textContent = "Add to Favorites ❤️";
       favBtn.appendChild(favH1);
@@ -623,10 +623,10 @@ window.addEventListener("load", () => {
 
       // Promo Section
       let promoDiv2 = document.createElement("div");
-      promoDiv2.className = "checkout__flex-item checkout__flex-item-promo";
+      promoDiv2.className = "product-page__flex-item product-page__flex-item-promo";
 
       let promoLeft = document.createElement("div");
-      promoLeft.className = "checkout__promo checkout__promo-left";
+      promoLeft.className = "product-page__promo product-page__promo-left";
       let promoTitle = document.createElement("h1");
       promoTitle.textContent = checkCont.promoTitle;
       let promoDesc = document.createElement("p");
@@ -635,9 +635,9 @@ window.addEventListener("load", () => {
       promoLeft.appendChild(promoDesc);
 
       let promoRight = document.createElement("div");
-      promoRight.className = "checkout__promo checkout__promo-right";
+      promoRight.className = "product-page__promo product-page__promo-right";
       let promoImg = document.createElement("img");
-      promoImg.className = "checkout__promo checkout__promo-image";
+      promoImg.className = "product-page__promo product-page__promo-image";
       promoImg.style.backgroundImage = 'url("media/earrings-special2.PNG")';
       promoImg.style.backgroundSize = "150%";
       promoImg.style.backgroundPosition = "center center";
@@ -668,7 +668,7 @@ window.addEventListener("load", () => {
 
       // Shipping
       const shippingDiv = document.createElement("div");
-      shippingDiv.className = "checkout__flex-item checkout__flex-item-shipping";
+      shippingDiv.className = "product-page__flex-item product-page__flex-item-shipping";
       shippingDiv.innerHTML = `
     <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping & Returns</button>
     <div class="collapsible-content">
@@ -683,7 +683,7 @@ window.addEventListener("load", () => {
 
       // Details
       let detailsDiv = document.createElement("div");
-      detailsDiv.className = "checkout__flex-item checkout__flex-item-details";
+      detailsDiv.className = "product-page__flex-item product-page__flex-item-details";
       detailsDiv.innerHTML = `
     <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
     <div class="collapsible-content">
@@ -701,7 +701,7 @@ window.addEventListener("load", () => {
 
       // Payment Options
       let paymentDiv = document.createElement("div");
-      paymentDiv.className = "checkout__flex-item checkout__flex-item-payment-options";
+      paymentDiv.className = "product-page__flex-item product-page__flex-item-payment-options";
       paymentDiv.innerHTML = `
     <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
     <div class="collapsible-content">
@@ -880,9 +880,9 @@ window.addEventListener("load", () => {
       trashButton.classList.add("shopping-cart__product-remove-button");
 
 
-      const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-remove-carpet");
+      const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-item-removal-confirmation");
       productContainer.appendChild(removeCarpet);
-      const removeConfirmation = document.createElement("div"); removeConfirmation.classList.add("remove-carpet__confirmation-container");
+      const removeConfirmation = document.createElement("div"); removeConfirmation.classList.add("item-removal-confirmation__container");
       removeCarpet.appendChild(removeConfirmation);
 
       const removeText = document.createElement("h1");

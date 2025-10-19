@@ -1,0 +1,23 @@
+
+.add-to-bag:hover {
+  background-color: #8080803d;
+  cursor:pointer;
+}
+.add-to-bag:active {
+  background-color: #00000070;
+}
+
+.add-to-bag {
+  all:unset;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.go-to-checkout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}

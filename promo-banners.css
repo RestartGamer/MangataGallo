@@ -1,0 +1,51 @@
+.promo-banner__container {
+  
+  width: 100%;
+  height:66vh;
+  background-color: #f0e9e9;
+  /*! margin-top: 1vh; */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+  flex-direction: column;
+}
+
+.promo-banner__content {
+  width:100%;
+  height:100%;
+  flex:0 0 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+}
+.promo-banner__image-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.promo-banner__text-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: max-content;
+  background-color: white;
+}
+
+.promo-banner__image {
+  width:55.3%;
+  height:100%; 
+  flex: 0 0 auto;
+}
+
+.promo-banner__title{
+  display:flex;
+  align-items:start;
+  font-family: 'EB Garamond', serif;
+  
+  flex: 0 0 auto;
+  padding: 0.5%;
+}

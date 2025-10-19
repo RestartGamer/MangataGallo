@@ -1,0 +1,94 @@
+
+.contact-form__container {
+  width:100%;
+  height:84vh;
+  background-color:white;
+  /*! outline: 2px solid red; */
+  display:flex;
+  flex-direction:column;
+  align-items:start;
+  gap:1%;
+  padding-top: 1.1%;
+}
+
+.contact-form__content {
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:start;
+  flex: 0 0 auto;
+  margin-left:10%;
+  margin-top:2%;
+}
+
+.contact-form__container h1 {
+ font-size: clamp(2rem, 0.1vw + 1.9rem, 3rem);
+ margin-bottom: 0.8%;
+}
+
+.contact-form__container p {
+ font-size: clamp(1.5rem, 0.1vw + 1.5rem, 2rem);
+ margin-bottom: 1.6%;
+}
+
+.contact-form__container label {
+ font-size: clamp(1rem, 0.1vw + 1rem, 2rem);
+}
+
+.contact-form__input-box {
+  width: 291%;
+  height: 97%;
+  flex: 0 0 auto;
+}
+.contact-form__form {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  align-items: start;
+}
+.contact-form__form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: 362%;
+  /*! outline: 2px solid green; */
+  height: 32%;
+  margin-bottom: 3.1%;
+}
+.contact-form__form-group label {
+  all:unset;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+.contact-form__form-group input {
+  all:unset;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  outline: 1px solid #8a8a8a;
+  height: 39%;
+  padding-left: 1%;
+}
+
+.contact-form__form-group textarea {
+  font-size: 1.2rem;
+  outline: 1px solid #8a8a8a;
+  height: 75.1%;
+  padding-left: 1%;
+}
+.contact-form__form button {
+  all: unset;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  outline: 1px solid #8a8a8a;
+  width: 21.5%;
+  text-align: center;
+  height: 12.9%;
+  margin-top: 1%;
+  align-self: end;
+}
+
+

@@ -1,0 +1,15 @@
+
+.track-menu__container {
+  width:29.0%;
+  height:8.5vh;
+  
+  margin-left: 1.7%;
+}
+.track-menu__content {
+  display:flex;
+  justify-content:start;
+  width:100%;
+  height:100.0%;
+  /*! outline: 2px solid green; */
+  align-items: center;
+}

@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<meta http-equiv="refresh" content="5"-->
     <title>Document2</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap"
+        rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div id="logo">
-                <img id="logo__image" src="media/logo2.png" alt="Company Logo" style="width: 632px;">
+            <img id="logo__image" src="media/logo2.png" alt="Company Logo" style="width: 632px;">
         </div>
+        <link rel="stylesheet" href="base.css" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="logo.css" />
+        <link rel="stylesheet" href="body.css" />
+        <link rel="stylesheet" href="promo-banners.css" />
+        <link rel="stylesheet" href="navbar.css" />
+        <link rel="stylesheet" href="quick-menu.css" />
+        <link rel="stylesheet" href="reel.css" />
+        <link rel="stylesheet" href="slideshow.css" />
+        <link rel="stylesheet" href="path-tracker.css" />
+        <link rel="stylesheet" href="footer.css" />
+        <link rel="stylesheet" href="trademark.css" />
+        <link rel="stylesheet" href="product-page.css" />
+        <link rel="stylesheet" href="shopping-cart.css" />
+        <link rel="stylesheet" href="utilities.css" />
+        <link rel="stylesheet" href="pseudo-responses.css" />
+        <link rel="stylesheet" href="contact-form.css" />
+        <link rel="stylesheet" href="stages-to-checkout.css" />
+        <link rel="stylesheet" href="poster.css" />
         <script src="dynamic-header.js"></script>
         <script src="database.js"></script>
         <script src="article-renderer.js"></script>
@@ -26,33 +51,35 @@
                 const buttons = document.querySelectorAll('.navbar__option');
                 buttons.forEach(button => {
                     button.addEventListener('mouseenter', () => {
-                    const rect = button.getBoundingClientRect();
-                    const hoverX = rect.left + rect.width / 2;
-                    document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
+                        const rect = button.getBoundingClientRect();
+                        const hoverX = rect.left + rect.width / 2;
+                        document.documentElement.style.setProperty('--hover-x', hoverX + 'px');
                     });
                 });
             });
-        </script> 
-            
+        </script>
+
         <nav class="navbar__container">
             <div class="submenu__bg-animation-background"></div>
             <div class="submenu__bg-animation--left"></div>
             <div class="submenu__bg-animation--right"></div>
-            
+
             <ul class="navbar__content" data-type="navbar">
             </ul>
             <div class="quick-menu">
                 <div class="quick-menu__content">
                     <div class="quick-menu__content-item quick-menu__content-item--profile">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1"/>
-                            <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" 
-                                font-size="70" font-family="Arial, sans-serif" fill="white">C</text>
+                            <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1" />
+                            <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" font-size="70"
+                                font-family="Arial, sans-serif" fill="white">C</text>
                         </svg>
                     </div>
                     <div class="quick-menu__content-item quick-menu__content-item--shopping">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke" stroke-width="0.5" viewBox="0 0 24 24">
-                            <path d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke"
+                            stroke-width="0.5" viewBox="0 0 24 24">
+                            <path
+                                d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z" />
                         </svg>
                         <div class="quick-menu__shopping-cart-counter">
                             <div class="quick-menu__shopping-cart-counter-text">
@@ -61,213 +88,233 @@
                         </div>
                     </div>
                     <div class="shopping-cart__container">
-                            <div class="shopping-cart__content">
-                                <div class="shopping-cart__top-content">
-                                    <!--<div class="shopping-cart__main-title">
+                        <div class="shopping-cart__content">
+                            <div class="shopping-cart__top-content">
+                                <!--<div class="shopping-cart__main-title">
                                         <h1>My Shopping Cart</h1>
                                     </div>-->
-                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
-                                        <hr class="horizontal-separator" style="width:90%;
+                                <div class="horizontal-separator__bg" style="background-color: transparent;">
+                                    <hr class="horizontal-separator" style="width:90%;
                                                         height:0.001%;
                                                         background:rgba(83, 83, 83, 0.43);
                                                         border: 1px solid rgba(83, 83, 83, 0.18);
                                                         border-radius: 100%;">
-                                    </div>
-                                    <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag" data-articles='[""]'>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
+                                </div>
+                                <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag"
+                                    data-articles='[""]'>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/necklace-highlight1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/necklace-highlight1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/watch-variant1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/watch-variant1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/earrings-special1.PNG");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/earrings-special1.PNG");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/necklace-highlight1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/necklace-highlight1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/watch-variant1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/watch-variant1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/earrings-special1.PNG");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/earrings-special1.PNG");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/rings-special1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/necklace-highlight1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/necklace-highlight1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/watch-variant1.png");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/watch-variant1.png");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                        <article class="shopping-cart__product-item">
-                                            <div class="shopping-cart__product-image" style='background-image: url("media/earrings-special1.PNG");
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style='background-image: url("media/earrings-special1.PNG");
                                             background-size:100%;
                                             background-position:center center;'>
 
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-title">
-                                                <h1>Product Name</h1>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
-                                            <div class="shopping-cart__product-details shopping-cart__product-price">
-                                                <p>Price:</p>
-                                            </div>
-                                        </article>
-                                       
-                                    </div>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
+                                        </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
+                                    </article>
+
+                                </div>
+                            </div>
+                            <div class="horizontal-separator__bg" style="background-color: transparent;">
+                                <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                            </div>
+                            <div class="shopping-cart__product-bottom-content">
+                                <div class="horizontal-separator__bg"
+                                    style="background-color: transparent;height: 0.1vh;">
+                                    <hr class="horizontal-separator" style="width:90%;
+                                                    height:0.001%;
+                                                    background:rgba(83, 83, 83, 0.43);
+                                                    border: 1px solid rgba(83, 83, 83, 0.18);
+                                                    border-radius: 100%;">
+                                </div>
+                                <div class="shopping-cart__product-total-price">
+                                    <h2>Total price:</h2>
                                 </div>
                                 <div class="horizontal-separator__bg" style="background-color: transparent;">
                                     <hr class="horizontal-separator" style="width:90%;
@@ -276,276 +323,94 @@
                                                     border: 1px solid rgba(83, 83, 83, 0.18);
                                                     border-radius: 100%;">
                                 </div>
-                                <div class="shopping-cart__product-bottom-content">
-                                    <div class="horizontal-separator__bg" style="background-color: transparent;height: 0.1vh;">
-                                    <hr class="horizontal-separator" style="width:90%;
-                                                    height:0.001%;
-                                                    background:rgba(83, 83, 83, 0.43);
-                                                    border: 1px solid rgba(83, 83, 83, 0.18);
-                                                    border-radius: 100%;">
+                                <div class="shopping-cart__product-edit-bag">
+                                    <h2>Edit bag</h2>
                                 </div>
-                                    <div class="shopping-cart__product-total-price">
-                                        <h2>Total price:</h2>
-                                    </div>
-                                    <div class="horizontal-separator__bg" style="background-color: transparent;">
-                                    <hr class="horizontal-separator" style="width:90%;
-                                                    height:0.001%;
-                                                    background:rgba(83, 83, 83, 0.43);
-                                                    border: 1px solid rgba(83, 83, 83, 0.18);
-                                                    border-radius: 100%;">
+                                <div class="shopping-cart__go-to-checkout">
+                                    <h1>Go to Checkout</h1>
                                 </div>
-                                    <div class="shopping-cart__product-edit-bag">
-                                        <h2>Edit bag</h2>
-                                    </div>
-                                    <div class="shopping-cart__go-to-checkout">
-                                        <h1>Go to Checkout</h1>
-                                    </div>
-                                </div>
-
                             </div>
+
                         </div>
+                    </div>
                 </div>
             </div>
         </nav>
-
-        <script>
-                window.addEventListener("load", () => {
-
-    function arrangeSubmenu(submenu) {
-        const sections = Array.from(submenu.children);
-
-        const textBlocks = sections.filter(sec => sec.querySelector("ul, p")); // texts
-        const imageBlocks = sections.filter(sec => sec.querySelector("div[style*='background-image'], img")); // images
-            
-        const colCount = Math.ceil(sections.length / 2);
-        const currentGap = parseFloat(getComputedStyle(submenu).columnGap);
-
-
-        submenu.style.columnGap = (currentGap / colCount) + "%";
-        
-        // Place text blocks
-        textBlocks.forEach((block, i) => {
-            textColCount = Math.round(textBlocks.length / 2);
-            let startCol = 1;
-            if (imageBlocks.length > 0) {
-                // Images exist → text stays in col 1 (stacked)
-                let col = i+1 > 2 ? startCol + 1 : startCol
-                let row = i % 2 + 1; //The one is to shift it to 1 2 1 2, instead of 0 1 0 1
-                block.style.gridColumn = col.toString();
-                block.style.gridRow = row.toString();
-            } else {
-                // No images → text flows naturally
-                block.style.gridColumn = "";
-                block.style.gridRow = "";
-            }
-        });
-        
-        // Place image blocks
-        imageBlocks.forEach((block, i) => {
-            const imageColCount = Math.round(imageBlocks.length / 2);
-            let startCol = 2; 
-            let col;
-            if (textBlocks.length <= 2) {
-                col = i+1 > 1 ? startCol + 1 : startCol;
-            } else {
-                col = i+1 > 1 ? startCol + 2 : startCol + 1;
-            }
-            block.style.gridColumn = col.toString();
-            block.style.gridRow = "1";
-        });
-    }
-
-    document.querySelectorAll(".submenu").forEach(arrangeSubmenu);
-
-    
-
-
-
-
-
-
-
-
-
-
-
-                const options = document.querySelectorAll(".navbar__option");
-                const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
-                const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
-                const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
-
-                options.forEach(option => {
-                    const submenu = option.nextElementSibling; 
-                    const sections = Array.from(submenu.children);
-
-                    const sectionHeights = sections.map(section => {
-                        let bottom = section.offsetTop + section.offsetHeight;
-
-                        // check for absolutely positioned divs with background images
-                        const imgDivs = section.querySelectorAll("div[style*='background-image']");
-                        imgDivs.forEach(imgDiv => {
-                            const imgDivRect = imgDiv.getBoundingClientRect();
-                            const parentRect = section.getBoundingClientRect();
-
-                            // bottom relative to section
-                            const divBottomRelative = (imgDivRect.bottom - parentRect.top); //clientrect coordinates is relative to viewport, the other offsetTop and Height are not. therefore we need to chop off the parent rect top, to have a similar effect as the offset.
-                            bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
-
-                        });
-
-                        return bottom;
-                    });
-
-                    const highestSection = Math.max(...sectionHeights);
-
-
-                    window.addEventListener("scroll", () => {
-                        submenuAnimLeft.classList.remove("active");
-                        submenuAnimRight.classList.remove("active");
-                        submenuAnimBG.classList.remove("active");
-                        submenu.classList.remove("active");
-                    });
-
-                    
-                        option.addEventListener("mouseleave", () => {
-
-
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-                        });
-
-                        option.addEventListener("mouseenter", () => {
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-                            submenuAnimLeft.classList.add("active");
-                            submenuAnimRight.classList.add("active");
-                            submenuAnimBG.classList.add("active");
-                            submenu.classList.add("active");
-
-                            submenu.style.height = highestSection + "px";
-                            let ultimateHeight = submenu.offsetHeight;
-                            submenuAnimLeft.style.height = ultimateHeight + "px";
-                            submenuAnimRight.style.height = ultimateHeight + "px";
-                            submenuAnimBG.style.height = ultimateHeight + "px";
-                            
-
-                        });
-
-                        
-
-                        submenu.addEventListener("mouseenter", () => {
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-                            submenuAnimLeft.classList.add("active");
-                            submenuAnimRight.classList.add("active");
-                            submenuAnimBG.classList.add("active");
-                            submenu.classList.add("active");
-
-                            submenu.style.height = highestSection + "px";
-                            let ultimateHeight = submenu.offsetHeight;
-                            submenuAnimLeft.style.height = ultimateHeight + "px";
-                            submenuAnimRight.style.height = ultimateHeight + "px";
-                            submenuAnimBG.style.height = ultimateHeight + "px";
-
-                        
-                        });
-
-                        submenu.addEventListener("mouseleave", () => {
-                            submenuAnimLeft.classList.remove("active");
-                            submenuAnimRight.classList.remove("active");
-                            submenuAnimBG.classList.remove("active");
-                            submenu.classList.remove("active");
-
-                        });
-                });
-
-                
-
-            });
-
-            window.addEventListener("load", () => { 
-  const shopButton = document.querySelector(".quick-menu__content-item--shopping");
-  const shopWindow = document.querySelector(".shopping-cart__container");
-
-  // Toggle cart on button click
-  shopButton.addEventListener("click", (event) => {
-    event.stopPropagation(); // stop it from bubbling to document
-    shopWindow.classList.toggle("active");
-  });
-
-  // Prevent closing when clicking inside the cart
-  shopWindow.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-
-  // Close the cart when clicking anywhere else
-  document.addEventListener("click", (event) => {
-    shopWindow.classList.remove("active");
-  });
-});
-        </script>
+        <script src="navbar.js"></script>
+        <script src="shopping-cart.js"></script>
 
         <section class="track-menu__container">
             <div class="track-menu__content">
                 <p>Home / Category / Product</p>
             </div>
         </section>
-        <section class="checkout__container">
-            <article class="checkout__content" data-type="checkout" data-categories='[""]' data-articles='[""]'> 
-                <div class="checkout__left-side-container"> 
-                    <div class="checkout__left-side-content"> 
-                        <div class="checkout__grid-item" style="grid-area: main;
+        <section class="product-page__container">
+            <article class="product-page__content" data-type="checkout" data-categories='[""]' data-articles='[""]'>
+                <div class="product-page__left-side-container">
+                    <div class="product-page__left-side-content">
+                        <div class="product-page__grid-item" style="grid-area: main;
                         background-image: url(&quot;media/bracelet-gold_1.jpg&quot;);
                         background-size: 100%;
                         background-position: center center;"></div>
-                        <div class="checkout__grid-item" style="grid-area: secondary;
+                        <div class="product-page__grid-item" style="grid-area: secondary;
                         background-image: url(&quot;media/bracelet-gold_2.jpg&quot;);
                         background-size: 100%;
                         background-position: center center;"></div>
-                        <div class="checkout__grid-item" style="grid-area: video;">
-                            <video controls="" muted="" loop="" playsinline="" class="checkout__grid-item-video">
-                            <source src="media/rings-hands-downscaled.mp4" type="video/mp4">
-                            optional fallback 
-                            Your browser does not support the video tag.
+                        <div class="product-page__grid-item" style="grid-area: video;">
+                            <video controls="" muted="" loop="" playsinline="" class="product-page__grid-item-video">
+                                <source src="media/rings-hands-downscaled.mp4" type="video/mp4">
+                                optional fallback
+                                Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
                 </div>
-                <div class="checkout__right-side-container"> 
-                    <div class="checkout__right-side-content"> 
-                        <div class="checkout__titleandprice-container">
-                            <div class="checkout__flex-item checkout__flex-item-title"><h1 style="font-size:2.1rem; padding: 2rem;">Precious Gold Bracelet</h1></div>
-                            <div class="checkout__flex-item checkout__flex-item-price"><h1 style="font-size: 1.3rem; padding: 2rem;">12.960€</h1></div>
-                        </div>
-                        
-                        <div class="checkout__flex-item checkout__flex-item-purchase">
-                            <div class="checkout__flex-subitem checkout__flex-item--button-white checkout__flex-subitem-addtobag"><h1>Add to bag</h1></div>
-                            <div class="checkout__flex-subitem checkout__flex-item--button-green checkout__flex-subitem-checkout"><h1>Checkout Now</h1></div>
-                            <div class="checkout__flex-subitem checkout__flex-subitem-split-button">
-                                <div class="checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-gift"><h1>Send as Gift 📧</h1></div>
-                                <div class="checkout__flex-subsubitem checkout__flex-item--button-white checkout__flex-subsubitem-favorites"><h1>Add to Favorites ❤️
-</h1></div>
-                                    
+                <div class="product-page__right-side-container">
+                    <div class="product-page__right-side-content">
+                        <div class="product-page__titleandprice-container">
+                            <div class="product-page__flex-item product-page__flex-item-title">
+                                <h1 style="font-size:2.1rem; padding: 2rem;">Precious Gold Bracelet</h1>
                             </div>
-                            
+                            <div class="product-page__flex-item product-page__flex-item-price">
+                                <h1 style="font-size: 1.3rem; padding: 2rem;">12.960€</h1>
+                            </div>
                         </div>
-                        <div class="checkout__flex-item checkout__flex-item-promo">
-                            <div class="checkout__promo checkout__promo-left">
+
+                        <div class="product-page__flex-item product-page__flex-item-purchase">
+                            <div
+                                class="product-page__flex-subitem product-page__flex-item--button-white product-page__flex-subitem-addtobag">
+                                <h1>Add to bag</h1>
+                            </div>
+                            <div
+                                class="product-page__flex-subitem product-page__flex-item--button-green product-page__flex-subitem-checkout">
+                                <h1>Checkout Now</h1>
+                            </div>
+                            <div class="product-page__flex-subitem product-page__flex-subitem-split-button">
+                                <div
+                                    class="product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-gift">
+                                    <h1>Send as Gift 📧</h1>
+                                </div>
+                                <div
+                                    class="product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-favorites">
+                                    <h1>Add to Favorites ❤️
+                                    </h1>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="product-page__flex-item product-page__flex-item-promo">
+                            <div class="product-page__promo product-page__promo-left">
                                 <h1>Limited Units</h1>
-                                <p>Exclusive Offer ✨ Take 2 dazzling red crystal earrings for the price of 1 on purchases over €X. Elegance doubled, only while stocks last.</p>
+                                <p>Exclusive Offer ✨ Take 2 dazzling red crystal earrings for the price of 1 on
+                                    purchases over €X. Elegance doubled, only while stocks last.</p>
                             </div>
-                            <div class="checkout__promo checkout__promo-right">
-                                <img class="checkout__promo checkout__promo-image" style="background-image: url(&quot;media/earrings-special2.PNG&quot;);
+                            <div class="product-page__promo product-page__promo-right">
+                                <img class="product-page__promo product-page__promo-image" style="background-image: url(&quot;media/earrings-special2.PNG&quot;);
                                 background-size:150%;
                                 background-position:center center;">
                             </div>
-                        
+
                         </div>
 
                         <hr class="horizontal-separator" style="width:85%;
@@ -553,68 +418,72 @@
                         background:rgb(83, 83, 83);
                         border: 1px solid rgb(83, 83, 83);
                         border-radius: 100%;
-                        margin-top: 2%;"></hr>
+                        margin-top: 2%;">
+                        </hr>
 
-                        <div class="checkout__flex-item checkout__flex-item-shipping">
-                                <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping &amp; Returns</button>
-                                
-                                <div class="collapsible-content">
-                                    <p>Enjoy a seamless shopping experience with our complimentary shipping
+                        <div class="product-page__flex-item product-page__flex-item-shipping">
+                            <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping &amp;
+                                Returns</button>
+
+                            <div class="collapsible-content">
+                                <p>Enjoy a seamless shopping experience with our complimentary shipping
                                     service. Every order is carefully packed and delivered to your door with
                                     priority handling. If it’s not a perfect match, returns are simple and free
                                     of charge.</p>
-                                    <ul>
-                                        <li>Free standard shipping on all orders above €X</li>
-                                        <li>30-day free returns, no questions asked</li>
-                                        <li>Fast & secure delivery with tracking included</li>
-                                    </ul>
-                                </div>
-                        </div>
-                        
-                        <hr class="horizontal-separator" style="width:85%;
-                        height:0.001%;
-                        background:rgb(83, 83, 83);
-                        border: 1px solid rgb(83, 83, 83);
-                        border-radius: 100%;"></hr>
-
-                       <div class="checkout__flex-item checkout__flex-item-details">
-                                <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
-                                
-                                <div class="collapsible-content">
-                                    <p>Crafted with precision and elegance, this piece was designed to highlight your
-                                         unique style. Luxurious materials meet timeless craftsmanship to create jewelry
-                                          that lasts a lifetime.</p>
-                                    <ul>
-                                        <li>Hand-polished red crystal centerpiece</li>
-                                        <li>Premium hypoallergenic metal finish</li>
-                                        <li>Lightweight yet durable for daily wear</li>
-                                        <li>Designed in limited quantities</li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                    <li>Free standard shipping on all orders above €X</li>
+                                    <li>30-day free returns, no questions asked</li>
+                                    <li>Fast & secure delivery with tracking included</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <hr class="horizontal-separator" style="width:85%;
                         height:0.001%;
                         background:rgb(83, 83, 83);
                         border: 1px solid rgb(83, 83, 83);
-                        border-radius: 100%;"></hr>
+                        border-radius: 100%;">
+                        </hr>
 
-                        <div class="checkout__flex-item checkout__flex-item-payment-options">
-                                <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
-                                
-                                <div class="collapsible-content">
-                                    <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your
-                                         lifestyle and complete your purchase with confidence.</p>
-                                    <ul>
-                                        <li>Secure credit & debit card payments</li>
-                                        <li>PayPal and trusted digital wallets</li>
-                                        <li>Flexible installment plans available</li>
-                                        <li>Encrypted transactions for full protection</li>
-                                    </ul>
-                                </div>
+                        <div class="product-page__flex-item product-page__flex-item-details">
+                            <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
+
+                            <div class="collapsible-content">
+                                <p>Crafted with precision and elegance, this piece was designed to highlight your
+                                    unique style. Luxurious materials meet timeless craftsmanship to create jewelry
+                                    that lasts a lifetime.</p>
+                                <ul>
+                                    <li>Hand-polished red crystal centerpiece</li>
+                                    <li>Premium hypoallergenic metal finish</li>
+                                    <li>Lightweight yet durable for daily wear</li>
+                                    <li>Designed in limited quantities</li>
+                                </ul>
+                            </div>
                         </div>
-                    
-                        
+
+                        <hr class="horizontal-separator" style="width:85%;
+                        height:0.001%;
+                        background:rgb(83, 83, 83);
+                        border: 1px solid rgb(83, 83, 83);
+                        border-radius: 100%;">
+                        </hr>
+
+                        <div class="product-page__flex-item product-page__flex-item-payment-options">
+                            <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
+
+                            <div class="collapsible-content">
+                                <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your
+                                    lifestyle and complete your purchase with confidence.</p>
+                                <ul>
+                                    <li>Secure credit & debit card payments</li>
+                                    <li>PayPal and trusted digital wallets</li>
+                                    <li>Flexible installment plans available</li>
+                                    <li>Encrypted transactions for full protection</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -628,7 +497,7 @@
                         background:rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
                         border-radius: 100%;">
-        </div>
+    </div>
     <footer>
         <section class="footer__container">
             <div class="footer__content">
@@ -651,7 +520,7 @@
                         <h1>Find A Store</h1>
                         <a href="#">Store Locator</a>
                     </div>
-                    
+
 
                 </article>
                 <article class="footer__content-item">

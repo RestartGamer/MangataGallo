@@ -56,6 +56,8 @@ window.addEventListener("load", () => {
   const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
   const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
 
+  
+
   options.forEach(option => {
     const submenu = option.nextElementSibling;
     const sections = Array.from(submenu.children);
@@ -78,6 +80,7 @@ window.addEventListener("load", () => {
     });
 
     const highestSection = Math.max(...sectionHeights);
+    const bottomDistance = 70;
 
     window.addEventListener("scroll", () => {
       submenuAnimLeft.classList.remove("active");
@@ -104,7 +107,7 @@ window.addEventListener("load", () => {
       submenuAnimBG.classList.add("active");
       submenu.classList.add("active");
 
-      submenu.style.height = highestSection + "px";
+      submenu.style.height = highestSection + bottomDistance + "px";
       let ultimateHeight = submenu.offsetHeight;
 
       submenuAnimLeft.style.height = ultimateHeight + "px";
@@ -123,7 +126,7 @@ window.addEventListener("load", () => {
       submenuAnimBG.classList.add("active");
       submenu.classList.add("active");
 
-      submenu.style.height = highestSection + "px";
+      submenu.style.height = highestSection + bottomDistance + "px";
       let ultimateHeight = submenu.offsetHeight;
 
       submenuAnimLeft.style.height = ultimateHeight + "px";
