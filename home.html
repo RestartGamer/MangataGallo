@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--<meta http-equiv="refresh" content="5" />-->
     <title>Document</title>
 
-    
 
 
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400&family=Montserrat:wght@400&display=swap"
+        rel="stylesheet" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-      rel="stylesheet"
-    />
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="logo.css" />
@@ -40,501 +37,365 @@
     <link rel="stylesheet" href="contact-form.css" />
     <link rel="stylesheet" href="stages-to-checkout.css" />
     <link rel="stylesheet" href="poster.css" />
-    
+
     <script src="database.js"></script>
     <script src="article-renderer.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <video autoplay muted loop playsinline id="video-background">
-        <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
-        optional fallback Your browser does not support the video tag.
-      </video>
+        <video autoplay muted loop playsinline id="video-background">
+            <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
+            optional fallback Your browser does not support the video tag.
+        </video>
 
-      <div id="logo">
-        <img id="logo__image" src="media/logo2.png" alt="Company Logo" />
-      </div>
+        <div id="logo">
+            <img id="logo__image" src="media/logo2.png" alt="Company Logo" />
+        </div>
 
-      <script src="dynamic-header.js"></script>
+        <script src="dynamic-header.js"></script>
     </header>
 
     <main>
-      <script>
-        window.addEventListener("load", () => {
-          window.scrollTo(0, 0);
-          const buttons = document.querySelectorAll(".navbar__option");
-          buttons.forEach(button => {
-            button.addEventListener("mouseenter", () => {
-              const rect = button.getBoundingClientRect();
-              const hoverX = rect.left + rect.width / 2;
-              document.documentElement.style.setProperty("--hover-x", hoverX + "px");
+        <script>
+            window.addEventListener("load", () => {
+                window.scrollTo(0, 0);
+                const buttons = document.querySelectorAll(".navbar__option");
+                buttons.forEach(button => {
+                    button.addEventListener("mouseenter", () => {
+                        const rect = button.getBoundingClientRect();
+                        const hoverX = rect.left + rect.width / 2;
+                        document.documentElement.style.setProperty("--hover-x", hoverX + "px");
+                    });
+                });
             });
-          });
-        });
-      </script>
+        </script>
 
-      <nav class="navbar__container">
-        <div class="submenu__bg-animation-background"></div>
-        <div class="submenu__bg-animation--left"></div>
-        <div class="submenu__bg-animation--right"></div>
+        <nav class="navbar__container">
+            <div class="submenu__bg-animation-background"></div>
+            <div class="submenu__bg-animation--left"></div>
+            <div class="submenu__bg-animation--right"></div>
 
-        <ul class="navbar__content" data-type="navbar"></ul>
+            <ul class="navbar__content" data-type="navbar"></ul>
 
-        <div class="quick-menu">
-          <div class="quick-menu__content">
-            <!-- Profile Icon -->
-            <div class="quick-menu__content-item quick-menu__content-item--profile">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 100 100"
-              >
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  fill="black"
-                  stroke="white"
-                  stroke-width="1"
-                />
-                <text
-                  x="50%"
-                  y="55.5%"
-                  text-anchor="middle"
-                  dominant-baseline="middle"
-                  font-size="70"
-                  font-family="Arial, sans-serif"
-                  fill="white"
-                >
-                  C
-                </text>
-              </svg>
-            </div>
+            <div class="quick-menu">
+                <div class="quick-menu__content">
+                    <!-- Profile Icon -->
+                    <div class="quick-menu__content-item quick-menu__content-item--profile">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1" />
+                            <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" font-size="70"
+                                font-family="Arial, sans-serif" fill="white">
+                                C
+                            </text>
+                        </svg>
+                    </div>
 
-            <!-- Shopping Cart Icon -->
-            <div class="quick-menu__content-item quick-menu__content-item--shopping">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="black"
-                stroke="whitesmoke"
-                stroke-width="0.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z"
-                />
-              </svg>
+                    <!-- Shopping Cart Icon -->
+                    <div class="quick-menu__content-item quick-menu__content-item--shopping">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke"
+                            stroke-width="0.5" viewBox="0 0 24 24">
+                            <path
+                                d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z" />
+                        </svg>
 
-              <div class="quick-menu__shopping-cart-counter">
-                <div class="quick-menu__shopping-cart-counter-text">
-                  <p>1</p>
-                </div>
-              </div>
-            </div>
+                        <div class="quick-menu__shopping-cart-counter">
+                            <div class="quick-menu__shopping-cart-counter-text">
+                                <p>1</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Shopping Cart Dropdown -->
-            <div class="shopping-cart__container">
-              <div class="shopping-cart__content">
-                <div class="shopping-cart__top-content">
-                  <div class="horizontal-separator__bg" style="background-color: transparent">
-                    <hr
-                      class="horizontal-separator"
-                      style="
+                    <!-- Shopping Cart Dropdown -->
+                    <div class="shopping-cart__container">
+                        <div class="shopping-cart__content">
+                            <div class="shopping-cart__top-content">
+                                <div class="horizontal-separator__bg" style="background-color: transparent">
+                                    <hr class="horizontal-separator" style="
                         width: 90%;
                         height: 0.001%;
                         background: rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
                         border-radius: 100%;
-                      "
-                    />
-                  </div>
+                      " />
+                                </div>
 
-                  <div
-                    class="shopping-cart__product-scroll-mask"
-                    data-type="shopping-bag"
-                    data-articles='[""]'
-                  >
-                    <article class="shopping-cart__product-item">
-                      <div
-                        class="shopping-cart__product-image"
-                        style="
+                                <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag"
+                                    data-articles='[""]'>
+                                    <article class="shopping-cart__product-item">
+                                        <div class="shopping-cart__product-image" style="
                           background-image: url('media/rings-special1.png');
                           background-size: 100%;
                           background-position: center center;
-                        "
-                      ></div>
+                        "></div>
 
-                      <div
-                        class="shopping-cart__product-details shopping-cart__product-title"
-                      >
-                        <h1>Product Name</h1>
-                      </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-title">
+                                            <h1>Product Name</h1>
+                                        </div>
 
-                      <div class="shopping-cart__quantity-container">
-                        <div
-                          class="shopping-cart__product-details shopping-cart__product-quantity"
-                        >
-                          <p>Qty:</p>
-                        </div>
-                      </div>
+                                        <div class="shopping-cart__quantity-container">
+                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                                <p>Qty:</p>
+                                            </div>
+                                        </div>
 
-                      <div
-                        class="shopping-cart__product-details shopping-cart__product-price"
-                      >
-                        <p>Price:</p>
-                      </div>
+                                        <div class="shopping-cart__product-details shopping-cart__product-price">
+                                            <p>Price:</p>
+                                        </div>
 
-                      <button class="shopping-cart__product-remove-button">
-                        <svg
-                          class="shopping-cart__trash-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          overflow="visible"
-                          viewBox="0 0 24 24"
-                          width="24"
-                          height="24"
-                        >
-                          <title>Remove Product</title>
-                          <g class="lid">
-                            <path
-                              d="M3 6h18"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                            ></path>
-                            <path
-                              d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"
-                              fill="white"
-                              stroke="black"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            ></path>
-                          </g>
-                          <rect
-                            x="4"
-                            y="6.5"
-                            width="16"
-                            height="14"
-                            rx="2"
-                            ry="2"
-                            fill="white"
-                            stroke="black"
-                            stroke-width="1.6"
-                          ></rect>
-                          <line
-                            x1="10"
-                            y1="10"
-                            x2="10"
-                            y2="17"
-                            stroke="black"
-                            stroke-width="1.6"
-                            stroke-linecap="round"
-                          ></line>
-                          <line
-                            x1="14"
-                            y1="10"
-                            x2="14"
-                            y2="17"
-                            stroke="black"
-                            stroke-width="1.6"
-                            stroke-linecap="round"
-                          ></line>
-                        </svg>
-                      </button>
+                                        <button class="shopping-cart__product-remove-button">
+                                            <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg"
+                                                overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+                                                <title>Remove Product</title>
+                                                <g class="lid">
+                                                    <path d="M3 6h18" fill="none" stroke="currentColor"
+                                                        stroke-width="1.6" stroke-linecap="round"></path>
+                                                    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="white"
+                                                        stroke="black" stroke-width="1.6" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </g>
+                                                <rect x="4" y="6.5" width="16" height="14" rx="2" ry="2" fill="white"
+                                                    stroke="black" stroke-width="1.6"></rect>
+                                                <line x1="10" y1="10" x2="10" y2="17" stroke="black" stroke-width="1.6"
+                                                    stroke-linecap="round"></line>
+                                                <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6"
+                                                    stroke-linecap="round"></line>
+                                            </svg>
+                                        </button>
 
-                      <div class="shopping-cart__product-item-removal-confirmation active">
-                        <div class="item-removal-confirmation__container">
-                          <h1>
-                            "Remove this item<br />
-                            from your cart?"
-                          </h1>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
+                                        <div class="shopping-cart__product-item-removal-confirmation active">
+                                            <div class="item-removal-confirmation__container">
+                                                <h1>
+                                                    "Remove this item<br />
+                                                    from your cart?"
+                                                </h1>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
 
-                <div class="horizontal-separator__bg" style="background-color: transparent">
-                  <hr
-                    class="horizontal-separator"
-                    style="
+                            <div class="horizontal-separator__bg" style="background-color: transparent">
+                                <hr class="horizontal-separator" style="
                       width: 90%;
                       height: 0.001%;
                       background: rgba(83, 83, 83, 0.43);
                       border: 1px solid rgba(83, 83, 83, 0.18);
                       border-radius: 100%;
-                    "
-                  />
-                </div>
+                    " />
+                            </div>
 
-                <div class="shopping-cart__product-bottom-content">
-                  <div
-                    class="horizontal-separator__bg"
-                    style="background-color: transparent; height: 0.1vh"
-                  >
-                    <hr
-                      class="horizontal-separator"
-                      style="
+                            <div class="shopping-cart__product-bottom-content">
+                                <div class="horizontal-separator__bg"
+                                    style="background-color: transparent; height: 0.1vh">
+                                    <hr class="horizontal-separator" style="
                         width: 90%;
                         height: 0.001%;
                         background: rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
                         border-radius: 100%;
-                      "
-                    />
-                  </div>
+                      ">
+                                </div>
 
-                  <div class="shopping-cart__product-total-price">
-                    <h2>Total price:</h2>
-                  </div>
+                                <div class="shopping-cart__product-total-price">
+                                    <h2>Total price:</h2>
+                                </div>
 
-                  <div class="shopping-cart__product-edit-bag">
-                    <h2>Edit bag</h2>
-                  </div>
+                                <div class="horizontal-separator__bg"
+                                    style="background-color: transparent; height: 0.1vh">
+                                    <hr class="horizontal-separator" style="
+                        width: 90%;
+                        height: 0.001%;
+                        background: rgba(83, 83, 83, 0.43);
+                        border: 1px solid rgba(83, 83, 83, 0.18);
+                        border-radius: 100%;
+                      ">
+                                </div>
+                                <div class="shopping-cart__product-edit-bag">
+                                    <h2>Edit bag</h2>
+                                </div>
 
-                  <div class="shopping-cart__go-to-checkout">
-                    <h1>Go to Checkout</h1>
-                  </div>
+                                <div class="shopping-cart__go-to-checkout">
+                                    <h1>Go to Checkout</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </nav>
+        </nav>
 
-      <script src="navbar.js"></script>
-      <script src="shopping-cart.js"></script>
+        <script src="navbar.js"></script>
+        <script src="shopping-cart.js"></script>
 
-      <div class="empty-space2"></div>
+        <div class="empty-space2"></div>
 
-      <!-- Promo Banner -->
-      <section class="promo-banner__container">
-        <article
-          class="promo-banner__content"
-          data-type="promo-banner"
-          data-categories='[""]'
-          data-articles='[""]'
-        ></article>
-      </section>
+        <!-- Promo Banner -->
+        <section class="promo-banner__container">
+            <article class="promo-banner__content" data-type="promo-banner" data-categories='[""]' data-articles='[""]'>
+            </article>
+        </section>
 
-      <!-- Posters -->
-      <section class="poster poster__container">
-        <article
-          class="poster__content"
-          data-type="poster"
-          data-categories='[""]'
-          data-articles='["A0000"]'
-          data-image-orientation="left"
-          style="padding-bottom: 1%"
-        ></article>
-      </section>
+        <!-- Posters -->
+        <section class="poster poster__container">
+            <article class="poster__content" data-type="poster" data-categories='[""]' data-articles='["A0000"]'
+                data-image-orientation="left" style="padding-bottom: 1%"></article>
+        </section>
 
-      <section class="poster poster__container">
-        <article
-          class="poster__content"
-          data-type="poster"
-          data-categories='[""]'
-          data-articles='["A0001"]'
-          data-image-orientation="right"
-        ></article>
-      </section>
+        <section class="poster poster__container">
+            <article class="poster__content" data-type="poster" data-categories='[""]' data-articles='["A0001"]'
+                data-image-orientation="right"></article>
+        </section>
 
-      <div class="horizontal-separator__bg">
-        <hr
-          class="horizontal-separator"
-          style="
+        <div class="horizontal-separator__bg">
+            <hr class="horizontal-separator" style="
             width: 90%;
             height: 0.001%;
             background: rgba(83, 83, 83, 0.43);
             border: 1px solid rgba(83, 83, 83, 0.18);
             border-radius: 100%;
-          "
-        />
-      </div>
+          " />
+        </div>
 
-      <!-- Reels -->
-      <section class="reel reel-promo__container">
-        <article
-          class="reel-promo__content"
-          data-type="reel"
-          data-categories='[""]'
-          data-articles='[""]'
-        ></article>
-      </section>
+        <!-- Reels -->
+        <section class="reel reel-promo__container">
+            <article class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'></article>
+        </section>
 
-      <section class="reel reel-promo__container reel-promo__container--selection">
-        <article
-          class="reel-promo__content"
-          data-type="reel"
-          data-categories='[""]'
-          data-articles='[""]'
-        ></article>
-      </section>
+        <section class="reel reel-promo__container reel-promo__container--selection">
+            <article class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'></article>
+        </section>
 
-      <script src="reel.js"></script>
+        <script src="reel.js"></script>
 
-      <!-- Slideshow -->
-      <section class="poster-slideshow__container">
-        <article
-          class="poster-slideshow__image-container"
-          data-type="slideshow"
-          data-categories='[""]'
-          data-articles='[""]'
-        ></article>
-      </section>
+        <!-- Slideshow -->
+        <section class="poster-slideshow__container">
+            <article class="poster-slideshow__image-container" data-type="slideshow" data-categories='[""]'
+                data-articles='[""]'></article>
+        </section>
 
-      <div class="horizontal-separator__bg">
-        <hr
-          class="horizontal-separator"
-          style="
+        <div class="horizontal-separator__bg">
+            <hr class="horizontal-separator" style="
             width: 90%;
             height: 0.001%;
             background: rgb(83, 83, 83);
             border: 1px solid rgb(83, 83, 83);
             border-radius: 100%;
-          "
-        />
-      </div>
-
-      <!-- Contact Form -->
-      <section class="contact-form__container">
-        <div class="contact-form__content">
-          <h1>Get in Touch</h1>
-          <p>Have questions? Fill out the form and we’ll get back to you.</p>
-
-          <form class="contact-form__form">
-            <div class="contact-form__form-group">
-              <label for="name">Name</label>
-              <input
-                class="contact-form__input-box"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your name"
-                required
-              />
-            </div>
-
-            <div class="contact-form__form-group">
-              <label for="email">Email</label>
-              <input
-                class="contact-form__input-box"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-
-            <div class="contact-form__form-group" style="height: 80%">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Write your message..."
-                required
-              ></textarea>
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
+          " />
         </div>
-      </section>
 
-      <div class="horizontal-separator__bg">
-        <hr
-          class="horizontal-separator"
-          style="
+        <!-- Contact Form -->
+        <section class="contact-form__container">
+            <div class="contact-form__content">
+                <h1>Get in Touch</h1>
+                <p>Have questions? Fill out the form and we’ll get back to you.</p>
+
+                <form class="contact-form__form">
+                    <div class="contact-form__form-group">
+                        <label for="name">Name</label>
+                        <input class="contact-form__input-box" type="text" id="name" name="name" placeholder="Your name"
+                            required />
+                    </div>
+
+                    <div class="contact-form__form-group">
+                        <label for="email">Email</label>
+                        <input class="contact-form__input-box" type="email" id="email" name="email"
+                            placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="contact-form__form-group" style="height: 80%">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message..."
+                            required></textarea>
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <div class="horizontal-separator__bg">
+            <hr class="horizontal-separator" style="
             width: 90%;
             height: 0.001%;
             background: rgba(83, 83, 83, 0.43);
             border: 1px solid rgba(83, 83, 83, 0.18);
             border-radius: 100%;
-          "
-        />
-      </div>
+          " />
+        </div>
 
-      <!-- Footer -->
-      <footer>
-        <section class="footer__container">
-          <div class="footer__content">
-            <article class="footer__content-item">
-              <div class="footer__text-container">
-                <h1>Customer Area</h1>
-                <a href="#">Track your order</a>
-                <a href="#">Returns</a>
-                <a href="#">FAQ</a>
-                <a href="#">Services</a>
-              </div>
-            </article>
+        <!-- Footer -->
+        <footer>
+            <section class="footer__container">
+                <div class="footer__content">
+                    <article class="footer__content-item">
+                        <div class="footer__text-container">
+                            <h1>Customer Area</h1>
+                            <a href="#">Track your order</a>
+                            <a href="#">Returns</a>
+                            <a href="#">FAQ</a>
+                            <a href="#">Services</a>
+                        </div>
+                    </article>
 
-            <article class="footer__content-item">
-              <div class="footer__text-container">
-                <h1>Contact Us</h1>
-                <a href="#">Contact Info & Form</a>
-              </div>
+                    <article class="footer__content-item">
+                        <div class="footer__text-container">
+                            <h1>Contact Us</h1>
+                            <a href="#">Contact Info & Form</a>
+                        </div>
 
-              <div class="footer__text-container">
-                <h1>Find A Store</h1>
-                <a href="#">Store Locator</a>
-              </div>
-            </article>
+                        <div class="footer__text-container">
+                            <h1>Find A Store</h1>
+                            <a href="#">Store Locator</a>
+                        </div>
+                    </article>
 
-            <article class="footer__content-item">
-              <div class="footer__text-container">
-                <h1>About M & G</h1>
-                <a href="#">Our History</a>
-                <a href="#">Origin of Materials</a>
-                <a href="#">Values</a>
-                <a href="#">Partners</a>
-              </div>
-            </article>
+                    <article class="footer__content-item">
+                        <div class="footer__text-container">
+                            <h1>About M & G</h1>
+                            <a href="#">Our History</a>
+                            <a href="#">Origin of Materials</a>
+                            <a href="#">Values</a>
+                            <a href="#">Partners</a>
+                        </div>
+                    </article>
 
-            <article class="footer__content-item">
-              <div class="footer__text-container">
-                <h1>Privacy Center</h1>
-                <a href="#">Cookie Settings</a>
-                <a href="#">Privacy Settings</a>
-                <a href="#">Policies</a>
-              </div>
+                    <article class="footer__content-item">
+                        <div class="footer__text-container">
+                            <h1>Privacy Center</h1>
+                            <a href="#">Cookie Settings</a>
+                            <a href="#">Privacy Settings</a>
+                            <a href="#">Policies</a>
+                        </div>
 
-              <div class="footer__text-container">
-                <h1>Terms & Conditions</h1>
-                <a href="#">Legal Notices</a>
-                <a href="#">Privacy Settings</a>
-                <a href="#">Terms of Use</a>
-              </div>
-            </article>
-          </div>
-        </section>
+                        <div class="footer__text-container">
+                            <h1>Terms & Conditions</h1>
+                            <a href="#">Legal Notices</a>
+                            <a href="#">Privacy Settings</a>
+                            <a href="#">Terms of Use</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
 
-        <div class="horizontal-separator__bg">
-          <hr
-            class="horizontal-separator"
-            style="
+            <div class="horizontal-separator__bg">
+                <hr class="horizontal-separator" style="
               width: 100%;
               height: 0.001%;
               background: rgba(83, 83, 83, 1);
               border: 1px solid rgba(83, 83, 83, 1);
               border-radius: 100%;
-            "
-          />
-        </div>
-
-        <section class="trademark__container">
-          <article class="trademark__content">
-            <div class="trademark__text-container">
-              <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
+            " />
             </div>
-          </article>
-        </section>
-      </footer>
+
+            <section class="trademark__container">
+                <article class="trademark__content">
+                    <div class="trademark__text-container">
+                        <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
+                    </div>
+                </article>
+            </section>
+        </footer>
     </main>
-  </body>
+</body>
+
 </html>
