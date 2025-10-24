@@ -12,3 +12,56 @@
   margin:0 auto;
   z-index: 1;
 }
+
+@media (min-width: 1200px) {
+  #logo {
+    padding: 15px 0;
+  }
+
+  #logo__image {
+    width: 316px;
+  }
+  
+}
+@media (max-width: 1200px) {
+  #logo {
+    padding: 15px 0;
+  }
+
+  #logo__image {
+    width: 280px;
+  }
+  
+}
+@media (max-width: 992px) {
+  #logo {
+    padding: 12.5px 0;
+  }
+
+  #logo__image {
+    width: 280px;
+  }
+  
+}
+@media (max-width: 768px) {
+  #logo {
+    padding: 15px 0;
+  }
+
+  #logo__image {
+    width: 280px;
+  }
+}
+@media (max-width: 480px) {
+  #logo {
+    padding: 11.5px 0;
+  }
+
+  #logo__image {
+    width: 171px;
+  }
+}
+
+
+
+ 
