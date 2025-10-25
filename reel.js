@@ -44,7 +44,10 @@ window.addEventListener("load", () => {
       midButton.classList.add("reel-promo__navi-mid-button");
       contentNavi.appendChild(midButton);
       batchButton.push(midButton); // append to array sequentially
+
     }
+
+
 
     initialItemPositions();
 
@@ -60,13 +63,32 @@ window.addEventListener("load", () => {
 
     batchButton.forEach((button, index) => {
       button.addEventListener("click", () => {
+        currentIndex = index * visibleItems; // synchronize the index
+        setActiveButton(index);
+
         let targetScroll = batchPosition[index];
         const distance = targetScroll - content.scrollLeft;
         smoothScroll(content, distance, 0.5);
+
+
       });
+
     });
+    function setActiveButton(index) {
+      batchButton.forEach(btn => btn.classList.remove("active"));
+      if (batchButton[index]) batchButton[index].classList.add("active");
+    }
+    setActiveButton(0);
+
+
+    // Add these two variables anywhere above the left/right event listeners
+    const totalBatches = Math.ceil(items.length / visibleItems);
+    let currentBatch = 0;
 
     buttonLeft.addEventListener("click", () => {
+      // move one batch left
+      currentBatch = Math.max(0, currentBatch - 1);
+
       // Find the index of the first fully visible item
       let closestIndex = items.findIndex(item => item.offsetLeft >= content.scrollLeft);
       if (closestIndex === -1) closestIndex = items.length - 1;
@@ -77,9 +99,15 @@ window.addEventListener("load", () => {
       let targetScroll = itemPositions[currentIndex];
       const distance = targetScroll - content.scrollLeft;
       smoothScroll(content, distance, 0.5);
+
+      // Highlight correct mid button (optional, non-breaking)
+      setActiveButton(currentBatch);
     });
 
     buttonRight.addEventListener("click", () => {
+      // move one batch right
+      currentBatch = Math.min(totalBatches - 1, currentBatch + 1);
+
       currentIndex = Math.min(items.length - 1, currentIndex + visibleItems);
 
       // Adjust if last item would overshoot
@@ -96,6 +124,9 @@ window.addEventListener("load", () => {
 
       const distance = targetScroll - content.scrollLeft;
       smoothScroll(content, distance, 0.5);
+
+      // Highlight correct mid button (optional, non-breaking)
+      setActiveButton(currentBatch);
     });
 
     function scrollToIndex(index) {

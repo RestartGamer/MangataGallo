@@ -323,7 +323,6 @@ window.addEventListener("load", () => {
       let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
       if (selectionEl.classList.contains("reel-promo__container--selection")) {
         articleContainer.classList.add("reel-promo__article-container--selection");
-        content.parentElement.style.height = "80vh";
       }
       let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
 

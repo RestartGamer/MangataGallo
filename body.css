@@ -13,7 +13,7 @@ header{
 
 
 .empty-space2 {
-  height: 100vh;
+  height: 728.8px;
 }
 
 @media (min-width: 1200px) {
@@ -26,7 +26,7 @@ header{
 }
 @media (max-width: 992px) {
   .empty-space2 {
-  height: 49.3vh;
+  height: 531.8px;
   }
 }
 @media (max-width: 768px) {
@@ -35,6 +35,6 @@ header{
 }
 @media (max-width: 480px) {
   .empty-space2 {
-  height: 20.4vh;
+  height: 436px;
   }
 }
