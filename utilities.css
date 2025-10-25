@@ -127,3 +127,19 @@
   height:0.1%;
   background:black;
 }
+
+@media (min-width: 1200px) {
+  
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 480px) {
+  
+}

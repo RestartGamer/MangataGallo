@@ -15,11 +15,12 @@
 
 @media (min-width: 1200px) {
   #logo {
-    padding: 15px 0;
+  --padding: 25px;
+  padding: var(--padding) 0px;
   }
 
   #logo__image {
-    width: 316px;
+    width: 406px;
   }
   
 }

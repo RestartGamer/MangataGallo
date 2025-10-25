@@ -80,8 +80,9 @@
 @media (min-width: 1200px) {
   .quick-menu {
 
-  top: -50px;
-  right: 30px;
+  top: -69px;
+    right: 53px;
+    height: 52px;
   }
   .quick-menu__content-item--profile {
 
