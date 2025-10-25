@@ -51,17 +51,47 @@
 }
 
 @media (min-width: 1200px) {
-  
+  .promo-banner__image {
+
+  background-size: 107.2%;
+  }
+  .promo-banner__container{
+
+  }
 }
 @media (max-width: 1200px) {
-  
+  .promo-banner__image {
+
+  }
+  .promo-banner__container{
+    
+  }
 }
 @media (max-width: 992px) {
-  
+  .promo-banner__image {
+
+  background-size: 101.9%;
+  }
+  .promo-banner__container{
+    
+  height: 28vh;
+  }
 }
 @media (max-width: 768px) {
-  
+  .promo-banner__image {
+
+  }
+  .promo-banner__container{
+    
+  }
 }
 @media (max-width: 480px) {
-  
+  .promo-banner__image {
+
+  background-size: 106.4%;
+  }
+  .promo-banner__container{
+    
+  height: 19.7vh;
+  }
 }

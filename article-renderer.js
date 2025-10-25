@@ -197,7 +197,7 @@ window.addEventListener("load", () => {
       let imageCont = document.createElement("div"); imageCont.classList.add("promo-banner__image-content");
       let image = document.createElement("div"); image.classList.add("promo-banner__image");
       image.style.backgroundImage = `url(${banner.image})`;
-      image.style.backgroundSize = banner.imageSize;
+      //image.style.backgroundSize = banner.imageSize;
       image.style.backgroundPosition = banner.imagePosition;
 
       content.appendChild(imageCont);
@@ -238,9 +238,9 @@ window.addEventListener("load", () => {
 
       //Image
       let posterImage = document.createElement("article"); posterImage.classList.add("poster__image");
-      posterImage.style.backgroundImage = `url(${article.image})`;
-      posterImage.style.backgroundSize = article.imageSize;
-      posterImage.style.backgroundPosition = article.imagePosition;
+      posterImage.style.backgroundImage = `url(${article.posterImage})`;
+      //posterImage.style.backgroundSize = article.imageSize;
+      //posterImage.style.backgroundPosition = article.imagePosition;
 
       let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
       hyperlink1.href = "product.html";

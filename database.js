@@ -15,6 +15,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage: "media/jewelry-model1.jpg",
         },
 
     {
@@ -32,6 +33,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage: "media/jewelry-model2.jpg",
     },
 
     {
@@ -49,6 +51,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -66,6 +69,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -83,6 +87,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
     {
         id: "A0005",
@@ -99,6 +104,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
         },
 
     {
@@ -116,6 +122,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -133,6 +140,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -150,6 +158,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -167,6 +176,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 ];
 
