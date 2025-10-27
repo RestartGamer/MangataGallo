@@ -1,19 +1,19 @@
 
 .contact-form__container {
-  width:100%;
-  height:894px;
+  width:100vw;
+  height:968px;
   background-color:white;
   /*! outline: 2px solid red; */
   display:flex;
   flex-direction:column;
   align-items:start;
   gap:1%;
-  padding-top: 1.1%;
+  padding-bottom: 1.7%;
 }
 
 .contact-form__content {
   width:100%;
-  height:100%;
+  height:747.7px;
   display:flex;
   flex-direction:column;
   align-items:start;
@@ -46,15 +46,18 @@
   flex-direction: column;
   flex: 0 0 auto;
   align-items: start;
+  width: 100%;
+  height: 100%;
+  margin-top: 1.3%;
 }
 .contact-form__form-group {
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
-  width: 362%;
+  /*! flex: 0 0 auto; */
+  width: 53%;
   /*! outline: 2px solid green; */
-  height: 32%;
-  margin-bottom: 3.1%;
+  height: 11.0%;
+  /*! margin-bottom: 3.1%; */
 }
 .contact-form__form-group label {
   all:unset;
@@ -90,20 +93,60 @@
   margin-top: 1%;
   align-self: end;
 }
+.contact-form__form button:hover {
+  background-color:grey;
+  cursor:pointer;
+  
+}
+.contact-form__form button:active {
+  background-color:darkgray;
+  
+}
 
 @media (min-width: 1200px) {
+  .contact-form__container {}
+  .contact-form__content {}
+  .contact-form__content h1 {}
+  .contact-form__content p {}
+  .contact-form__form {}
+  .contact-form__form-group {}
+  .contact-form__form button {}
   
 }
 @media (max-width: 1200px) {
-  
+  .contact-form__container {}
+  .contact-form__content {}
+  .contact-form__content h1 {}
+  .contact-form__content p {}
+  .contact-form__form {}
+  .contact-form__form-group {}
+  .contact-form__form button {}
 }
 @media (max-width: 992px) {
-  
+  .contact-form__container {height: 819px;padding-bottom: 21.5%;}
+  .contact-form__content {}
+  .contact-form__content h1 {}
+  .contact-form__content p {}
+  .contact-form__form {width: 151.9%;}
+  .contact-form__form-group {}
+  .contact-form__form button {height: 18%;width: 41.5%;}
 }
 @media (max-width: 768px) {
-  
+  .contact-form__container {}
+  .contact-form__content {}
+  .contact-form__content h1 {}
+  .contact-form__content p {}
+  .contact-form__form {}
+  .contact-form__form-group {}
+  .contact-form__form button {}
 }
 @media (max-width: 480px) {
-  
+  .contact-form__container {height: 622px;}
+  .contact-form__content {height: 255px;}
+  .contact-form__content h1 {font-size: 1.7rem;}
+  .contact-form__content p {font-size: 1rem;text-wrap: wrap;width: 80.2%;}
+  .contact-form__form {height: 78%;width: 100%;}
+  .contact-form__form-group {min-width: 79.6%;min-height: 76.1%;}
+  .contact-form__form button {width: 48%;height: 21%;}
 }
 

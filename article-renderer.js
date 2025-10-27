@@ -546,16 +546,12 @@ window.addEventListener("load", () => {
       const titleDiv = document.createElement("div");
       titleDiv.className = "product-page__flex-item product-page__flex-item-title";
       const titleH1 = document.createElement("h1");
-      titleH1.style.fontSize = "2.1rem";
-      titleH1.style.padding = "2rem";
       titleH1.textContent = assignedArticle.title;
       titleDiv.appendChild(titleH1);
 
       const priceDiv = document.createElement("div");
       priceDiv.className = "product-page__flex-item product-page__flex-item-price";
       const priceH1 = document.createElement("h1");
-      priceH1.style.fontSize = "1.3rem";
-      priceH1.style.padding = "2rem";
       priceH1.textContent = assignedArticle.price;
       priceDiv.appendChild(priceH1);
 

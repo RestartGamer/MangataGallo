@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////
 //REEL SCROLL NAVIGATION
 /////////////////////////////////////////////////////////////////
-window.addEventListener("load", () => {
+function configureReel() {
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
   // Set a CSS variable that CSS can use
@@ -153,4 +153,23 @@ window.addEventListener("load", () => {
       return t * (2 - t);
     }
   });
-});
+}
+
+
+
+window.addEventListener("load", configureReel);
+
+// re-run when viewport width crosses breakpoints
+window.addEventListener("resize", debounce(() => {
+  // clear old navigation buttons to prevent duplicates
+  document.querySelectorAll(".reel-promo__navi-mid-button").forEach(btn => btn.remove());
+  configureReel();
+}, 300));
+
+function debounce(fn, delay) {
+  let t;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), delay);
+  };
+}
