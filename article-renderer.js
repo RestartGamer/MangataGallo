@@ -237,10 +237,8 @@ window.addEventListener("load", () => {
       p.textContent = article.description;
 
       //Image
-      let posterImage = document.createElement("article"); posterImage.classList.add("poster__image");
-      posterImage.style.backgroundImage = `url(${article.posterImage})`;
-      //posterImage.style.backgroundSize = article.imageSize;
-      //posterImage.style.backgroundPosition = article.imagePosition;
+      let posterImage = document.createElement("img"); posterImage.classList.add("poster__image");
+      posterImage.src = article.posterImage;
 
       let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
       hyperlink1.href = "product.html";
@@ -268,7 +266,7 @@ window.addEventListener("load", () => {
         textCell.appendChild(textContent);
         textContent.appendChild(h1);
         textContent.appendChild(p);
-        posterImage.appendChild(hyperlink1);
+        content.appendChild(hyperlink1);
         textCell.appendChild(hyperlink2);
 
       } else if (article.imageOrientation === "right") {
@@ -279,7 +277,7 @@ window.addEventListener("load", () => {
         textContent.appendChild(h1);
         textContent.appendChild(p);
         content.appendChild(posterImage);
-        posterImage.appendChild(hyperlink1);
+        content.appendChild(hyperlink1);
         textCell.appendChild(hyperlink2);
 
       }
@@ -881,7 +879,7 @@ window.addEventListener("load", () => {
       removeCarpet.appendChild(removeConfirmation);
 
       const removeText = document.createElement("h1");
-      removeText.textContent = "Remove this item\n from your cart?";
+      removeText.textContent = "Remove this item from your cart?";
       removeConfirmation.appendChild(removeText);
 
       const confirmButton = document.createElement("button");

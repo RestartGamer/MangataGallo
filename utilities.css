@@ -15,13 +15,14 @@
 
 .item-removal-confirmation__container h1 {
   font-size: 1.1rem;
-  width: 100%;
+  width: 150px;
   height: 100%;
   text-wrap: balance;
   text-align: center;
   opacity:0;
   transition: opacity 0.4s ease;
   margin-top:20%;
+  /*! outline: 1px solid green; */
 }
 
 .item-removal-confirmation__container h1.active {

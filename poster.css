@@ -4,7 +4,7 @@
 }
 .poster__container{
   width:100%;
-  height: 1540.7px;
+  /*! height: 1540.7px; */
   background-color:white;
   padding-top: 153px;
   padding-bottom: 6.5%;
@@ -12,7 +12,7 @@
 
 .poster__content {
   width:100%;
-  height:100%;
+  /*! height:100%; */
   display:grid;  
   grid-template-rows: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -21,8 +21,8 @@
 .poster__text-cell{
   position:relative;
   
-  width: 100%;
-  height: 100%;
+  /*! width: 100%; */
+  /*! height: 100%; */
 }
 
 .poster__text-content{
@@ -51,9 +51,7 @@
 }
 
 .poster__image {
-  position: 100%;
-  width: 100%;
-  height: 100%;
+  object-fit: cover;
 }
 
 .poster__image img{
@@ -65,8 +63,6 @@
 @media (min-width: 1200px) {
   .poster__image {
 
-  background-size: 215%;
-  background-position: 50% 400%;
   }
   .poster__container {
 
@@ -101,8 +97,6 @@
 @media (max-width: 992px) {
   .poster__image {
 
-  background-size: 1525px;
-  background-position: 55% 400.5%;
   }
   .poster__container {
     
@@ -141,8 +135,6 @@
 @media (max-width: 480px) {
   .poster__image {
 
-  background-size: 345%;
-  background-position: 55% 400.5%;
   }
   .poster__container {
     
