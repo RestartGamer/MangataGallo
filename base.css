@@ -13,6 +13,7 @@ html, body {
 img, video {
   max-width: 100%;
   display: block;
+  object-fit: cover;
 }
 
 @media (min-width: 1200px) {

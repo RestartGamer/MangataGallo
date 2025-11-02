@@ -1,10 +1,10 @@
-
 .track-menu__container {
   width:100vw;
   height:45px;
   
   margin-left: 1.7%;
 }
+
 .track-menu__content {
   display:flex;
   justify-content:start;
@@ -14,10 +14,12 @@
   align-items: center;
   column-gap: 0.5%;
 }
+
 .track-menu__content a{
   text-decoration:none;
   color: black;
 }
+
 .track-menu__content a:hover{
   text-decoration:underline;
 }

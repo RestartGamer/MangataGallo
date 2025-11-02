@@ -155,11 +155,9 @@ window.addEventListener("load", () => {
         } else if (section.image) {
           const imgCont = document.createElement("div");
           imgCont.classList.add("submenu__section-image-container");
-          const imgDiv = document.createElement("div");
+          const imgDiv = document.createElement("img");
           imgDiv.classList.add("submenu__section-image");
-          imgDiv.style.backgroundImage = `url(${section.image})`;
-          imgDiv.style.backgroundSize = section.imageSize;
-          imgDiv.style.backgroundPosition = section.imagePosition;
+          imgDiv.src = section.image;
           sectionElement.appendChild(imgCont);
           imgCont.appendChild(imgDiv);
           sectionElement.classList.add("submenu__section--image");
@@ -498,6 +496,7 @@ window.addEventListener("load", () => {
         gridImage.className = "product-page__grid-item";
         gridImage.style.gridArea = i === 0 ? "main" : "secondary";
         gridImage.src = image;
+        gridImage.alt = "Product Image of: " + assignedArticle.title;
         leftContent.appendChild(gridImage);
       });
 
@@ -623,13 +622,12 @@ window.addEventListener("load", () => {
       promoLeft.appendChild(promoTitle);
       promoLeft.appendChild(promoDesc);
 
-      let promoRight = document.createElement("div");
+      let promoRight = document.createElement("figure");
       promoRight.className = "product-page__promo product-page__promo-right";
       let promoImg = document.createElement("img");
       promoImg.className = "product-page__promo product-page__promo-image";
-      promoImg.style.backgroundImage = 'url("media/earrings-special2.PNG")';
-      promoImg.style.backgroundSize = "150%";
-      promoImg.style.backgroundPosition = "center center";
+      promoImg.src =  "media/earrings-special2.PNG";
+      promoImg.alt = "Red Earrings"
       promoRight.appendChild(promoImg);
 
       promoDiv2.appendChild(promoLeft);

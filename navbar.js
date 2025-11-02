@@ -66,7 +66,7 @@ window.addEventListener("load", () => {
       let bottom = section.offsetTop + section.offsetHeight;
 
       // check for absolutely positioned divs with background images
-      const imgDivs = section.querySelectorAll("div[style*='background-image']");
+      const imgDivs = section.querySelectorAll("img");
       imgDivs.forEach(imgDiv => {
         const imgDivRect = imgDiv.getBoundingClientRect();
         const parentRect = section.getBoundingClientRect();
