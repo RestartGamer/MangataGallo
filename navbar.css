@@ -226,6 +226,12 @@
   .quick-menu {
     width: 100px;
   }
+  .submenu {
+    column-gap: 22.7%;
+  }
+  .submenu__section {
+    width:155%;
+  }
 }
 
 /* ====== ≤1200px ====== */
@@ -245,6 +251,12 @@
 
   .quick-menu {
     width: 90px;
+  }
+  .submenu {
+    column-gap: 12.7%;
+  }
+  .submenu__section {
+    width:111%;
   }
 }
 
@@ -270,6 +282,12 @@
   .navbar__option + .navbar__option {
     margin-left: 0.8rem;
   }
+  .submenu {
+    column-gap: 12.7%;
+  }
+  .submenu__section {
+    width:111%;
+  }
 }
 
 /* ====== ≤768px ====== */
@@ -293,6 +311,12 @@
 
   .navbar__option + .navbar__option {
     margin-left: 0.6rem;
+  }
+  .submenu {
+    column-gap: 12.7%;
+  }
+  .submenu__section {
+    width:111%;
   }
 }
 
@@ -320,5 +344,11 @@
 
   .navbar__option + .navbar__option {
     margin-left: 0rem;
+  }
+  .submenu {
+    column-gap: 12.7%;
+  }
+  .submenu__section {
+    width:111%;
   }
 }

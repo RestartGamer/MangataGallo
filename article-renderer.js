@@ -195,10 +195,8 @@ window.addEventListener("load", () => {
 
       //Image
       let imageCont = document.createElement("div"); imageCont.classList.add("promo-banner__image-content");
-      let image = document.createElement("div"); image.classList.add("promo-banner__image");
-      image.style.backgroundImage = `url(${banner.image})`;
-      //image.style.backgroundSize = banner.imageSize;
-      image.style.backgroundPosition = banner.imagePosition;
+      let image = document.createElement("img"); image.classList.add("promo-banner__image");
+      image.src = banner.image;
 
       content.appendChild(imageCont);
       imageCont.appendChild(image);
