@@ -494,13 +494,11 @@ window.addEventListener("load", () => {
     // Product images
     checkoutContent.forEach(checkCont => {
       assignedArticle.checkImages.forEach((image, i) => {
-        const div = document.createElement("div");
-        div.className = "product-page__grid-item";
-        div.style.gridArea = i === 0 ? "main" : "secondary";
-        div.style.backgroundImage = `url("${image}")`;
-        div.style.backgroundSize = assignedArticle.checkImageSizes[i] || "100%";
-        div.style.backgroundPosition = assignedArticle.checkImagePositions[i] || "center center";
-        leftContent.appendChild(div);
+        const gridImage = document.createElement("img");
+        gridImage.className = "product-page__grid-item";
+        gridImage.style.gridArea = i === 0 ? "main" : "secondary";
+        gridImage.src = image;
+        leftContent.appendChild(gridImage);
       });
 
 

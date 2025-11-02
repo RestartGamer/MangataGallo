@@ -1,7 +1,7 @@
 
 .track-menu__container {
-  width:29.0%;
-  height:8.5vh;
+  width:100vw;
+  height:45px;
   
   margin-left: 1.7%;
 }
@@ -12,6 +12,14 @@
   height:100.0%;
   /*! outline: 2px solid green; */
   align-items: center;
+  column-gap: 0.5%;
+}
+.track-menu__content a{
+  text-decoration:none;
+  color: black;
+}
+.track-menu__content a:hover{
+  text-decoration:underline;
 }
 
 @media (min-width: 1200px) {
