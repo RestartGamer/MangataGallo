@@ -15,7 +15,7 @@
 
 @media (min-width: 1200px) {
   #logo {
-  --padding: 25px;
+  --padding: 15px;
   padding: var(--padding) 0px;
   }
 
