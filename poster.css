@@ -73,9 +73,7 @@
   .poster__text-content p {
 
   }
-  .poster-slideshow__container {}
-  .poster-slideshow__text-container h1 {}
-  .poster-slideshow__text-container p {}
+  
 }
 @media (max-width: 1200px) {
   .poster__image {
@@ -90,9 +88,7 @@
   .poster__text-content p {
 
   }
-  .poster-slideshow__container {}
-  .poster-slideshow__text-container h1 {}
-  .poster-slideshow__text-container p {}
+  
 }
 @media (max-width: 992px) {
   .poster__image {
@@ -111,9 +107,6 @@
 
   font-size: 0.9rem;
   }
-  .poster-slideshow__container {height: 600px;}
-  .poster-slideshow__text-container h1 {font-size: 1.0rem;}
-  .poster-slideshow__text-container p {font-size: 0.7rem;}
 }
 @media (max-width: 768px) {
   .poster__image {
@@ -128,9 +121,6 @@
   .poster__text-content p {
 
   }
-  .poster-slideshow__container {}
-  .poster-slideshow__text-container h1 {}
-  .poster-slideshow__text-container p {}
 }
 @media (max-width: 480px) {
   .poster__image {
@@ -148,7 +138,4 @@
 
   font-size: 0.6rem;
   }
-  .poster-slideshow__container {height: 328.7px;}
-  .poster-slideshow__text-container h1 {font-size: 0.7rem;}
-  .poster-slideshow__text-container p {font-size: 0.4rem;}
 }

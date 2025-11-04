@@ -409,6 +409,8 @@ window.addEventListener("load", () => {
       textContainer.classList.add("poster-slideshow__text-container");
       let title1 = document.createElement("h1");
       let descrip1 = document.createElement("p");
+      let textHyper = document.createElement("a");
+      textHyper.href = "product.html";
 
       title1.textContent = article.title;
       descrip1.textContent = article.description;
@@ -416,6 +418,7 @@ window.addEventListener("load", () => {
       content.appendChild(textContainer);
       textContainer.appendChild(title1);
       textContainer.appendChild(descrip1);
+      textContainer.appendChild(textHyper);
 
 
     });
