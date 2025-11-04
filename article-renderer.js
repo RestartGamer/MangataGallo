@@ -1,5 +1,7 @@
 const dataTypes = ["navbar", "poster", "promo-banner", "reel", "slideshow", "checkout", "shopping-bag"]
 
+let productPageContainer = document.querySelector(".product-page__container");
+if (productPageContainer) productPageContainer.style.opacity = 0;
 
 window.addEventListener("load", () => {
   dataTypes.forEach(dataType => {
@@ -58,8 +60,9 @@ window.addEventListener("load", () => {
             console.warn("No selected article found");
             return;
           }
+          let productPageContainer = document.querySelector(".product-page__container");
           renderCheckout(checkoutContent, element.id, selectedArticles);
-
+          if (productPageContainer) productPageContainer.style.opacity = 1;
 
           break;
         case dataTypes[6]:

@@ -99,6 +99,7 @@
   font-weight: normal;
   font-size: 2.1rem;
   /*! padding: 2rem; */
+  user-select: none;
 }
 
 .product-page__flex-item-purchase {
@@ -122,6 +123,7 @@
   /*! outline: 2px solid blue; */
   flex: 0 0 auto;
   gap: 1%;
+  user-select: none;
 }
 
 .product-page__flex-subitem h1 {
@@ -135,6 +137,7 @@
   width:calc(100% / 2);
   height:100%;
   /*! outline: 2px solid blue; */
+  user-select: none;
 }
 
 .product-page__right-side-content h1 {

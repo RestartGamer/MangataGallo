@@ -247,6 +247,11 @@
   .submenu__section {
     width: 155%;
   }
+  .submenu__section--image {
+    
+  width: 102.0%;
+  object-fit: cover;
+  }
 
   .submenu__section h2 {
     color: rgb(143, 143, 143);
@@ -315,6 +320,9 @@
 
   .submenu__section {
     width: 111%;
+  }
+  .submenu__section--image {
+    
   }
 
   .submenu__section h2 {
@@ -389,6 +397,9 @@
   .submenu__section {
     width: 207.8%;
   }
+  .submenu__section--image {
+    
+  }
 
   .submenu__section h2 {
     color: rgb(143, 143, 143);
@@ -458,6 +469,9 @@
 
   .submenu__section {
     width: 111%;
+  }
+  .submenu__section--image {
+    
   }
 
   .submenu__section h2 {
@@ -534,6 +548,9 @@
 
   .submenu__section {
     width: 111%;
+  }
+  .submenu__section--image {
+    
   }
 
   .submenu__section h2 {
