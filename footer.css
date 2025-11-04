@@ -63,8 +63,8 @@ footer {
 
 @media (min-width: 1200px) {
   .footer__container {}
-  .footer__text-container h1 {}
-  .footer__text-container a {}
+  .footer__text-container h1 {font-size: 1.5rem;}
+  .footer__text-container a {font-size: 1.15rem;}
 }
 @media (max-width: 1200px) {
   .footer__container {}

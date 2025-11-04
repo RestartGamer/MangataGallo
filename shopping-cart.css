@@ -231,11 +231,15 @@
   margin-left: 3.0%;
 }
 
-.shopping-cart__go-to-checkout h1 {
+.shopping-cart__go-to-checkout a {
   font-size: 1.2rem;
+  text-decoration:none;
+  color:black;
 }
-.shopping-cart__product-edit-bag h2 {
+.shopping-cart__product-edit-bag a {
   font-size: 1.2rem;
+  text-decoration:none;
+  color:black;
 }
 .shopping-cart__product-total-price h2 {
   font-size: 1.2rem;

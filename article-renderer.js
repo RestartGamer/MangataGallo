@@ -158,6 +158,7 @@ window.addEventListener("load", () => {
           const imgDiv = document.createElement("img");
           imgDiv.classList.add("submenu__section-image");
           imgDiv.src = section.image;
+          imgDiv.alt = "image of " + navbarContent.option
           sectionElement.appendChild(imgCont);
           imgCont.appendChild(imgDiv);
           sectionElement.classList.add("submenu__section--image");
@@ -195,6 +196,7 @@ window.addEventListener("load", () => {
       let imageCont = document.createElement("div"); imageCont.classList.add("promo-banner__image-content");
       let image = document.createElement("img"); image.classList.add("promo-banner__image");
       image.src = banner.image;
+      image.alt = "image of " + banner.title;
 
       content.appendChild(imageCont);
       imageCont.appendChild(image);
@@ -235,6 +237,7 @@ window.addEventListener("load", () => {
       //Image
       let posterImage = document.createElement("img"); posterImage.classList.add("poster__image");
       posterImage.src = article.posterImage;
+      posterImage.alt = "image of " + article.title;
 
       let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
       hyperlink1.href = "product.html";
@@ -627,7 +630,7 @@ window.addEventListener("load", () => {
       let promoImg = document.createElement("img");
       promoImg.className = "product-page__promo product-page__promo-image";
       promoImg.src =  "media/earrings-special2.PNG";
-      promoImg.alt = "Red Earrings"
+      promoImg.alt = "Image of Red Earrings"
       promoRight.appendChild(promoImg);
 
       promoDiv2.appendChild(promoLeft);
