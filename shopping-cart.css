@@ -28,10 +28,10 @@
   height: 68.7vh;
   position: absolute;
   top: 100%;
-  right: -33px;
+  right: -52px;
   outline: 1px solid black;
   background-color: #ffffffd6;
-  border-radius: 28.0px;
+  border-radius: 28px 0px 0px 28px;
   border: 8px solid white;
   max-width: 0%;
   font-size: 30%;
