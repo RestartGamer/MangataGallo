@@ -259,6 +259,7 @@
     /*was 18px*/
     font-family: 'EB Garamond', serif;
     margin-bottom: 19px;
+    font-weight: bold;
   }
 
   .submenu__section ul {

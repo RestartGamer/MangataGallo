@@ -1,6 +1,6 @@
 .poster {
-  --poster-h1-fontsize:30px;
-  --poster-p-fontsize:28px;
+  --poster-h1-fontsize:29.8px;
+  --poster-p-fontsize:25.2px;
 }
 .poster__container{
   width:100%;
@@ -32,10 +32,11 @@
   transform:  translateX(-50%) translateY(-50%);;
 }
 
-.poster__text-content h1{
+.poster__text-content h2{
   font-size:var(--poster-h1-fontsize);
   font-family: var(--standard-font-family);
   text-align:center;
+  font-weight: bold;
 }
 .poster__text-content p {
   font-size:var(--poster-p-fontsize);

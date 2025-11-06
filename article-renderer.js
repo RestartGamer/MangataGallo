@@ -188,7 +188,7 @@ window.addEventListener("load", () => {
       //Text
       let textCont = document.createElement("div"); textCont.classList.add("promo-banner__text-content");
       let title = document.createElement("div"); title.classList.add("promo-banner__title");
-      let h1 = document.createElement("h1");
+      let h1 = document.createElement("h2");
       h1.textContent = banner.title;
 
       content.appendChild(textCont);
@@ -232,7 +232,7 @@ window.addEventListener("load", () => {
       let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");
       let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
       let textContent = document.createElement("div"); textContent.classList.add("poster__text-content");
-      let h1 = document.createElement("h1");
+      let h1 = document.createElement("h2");
       let p = document.createElement("p");
       h1.textContent = article.title;
       p.textContent = article.description;
@@ -300,7 +300,7 @@ window.addEventListener("load", () => {
     let selectionEl = content.parentElement;
     if (!selectionEl.classList.contains("reel-promo__container--selection")) {
       let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
-      let titleH1 = document.createElement("h1");
+      let titleH1 = document.createElement("h2");
       content.appendChild(titleContent);
       let currentReel = reelContent.find(rCont => rCont.id === elementId);
       if (currentReel) {
@@ -351,7 +351,7 @@ window.addEventListener("load", () => {
 
       let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
       let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
-      let textH1 = document.createElement("h1");
+      let textH1 = document.createElement("h2");
       let textP = document.createElement("p");
       textH1.textContent = article.title;
       textP.textContent = article.description;
@@ -410,7 +410,7 @@ window.addEventListener("load", () => {
 
       let textContainer = document.createElement("div");
       textContainer.classList.add("poster-slideshow__text-container");
-      let title1 = document.createElement("h1");
+      let title1 = document.createElement("h2");
       let descrip1 = document.createElement("p");
       let textHyper = document.createElement("a");
       textHyper.href = "product.html";
@@ -546,13 +546,13 @@ window.addEventListener("load", () => {
 
       const titleDiv = document.createElement("div");
       titleDiv.className = "product-page__flex-item product-page__flex-item-title";
-      const titleH1 = document.createElement("h1");
+      const titleH1 = document.createElement("h2");
       titleH1.textContent = assignedArticle.title;
       titleDiv.appendChild(titleH1);
 
       const priceDiv = document.createElement("div");
       priceDiv.className = "product-page__flex-item product-page__flex-item-price";
-      const priceH1 = document.createElement("h1");
+      const priceH1 = document.createElement("h2");
       priceH1.textContent = assignedArticle.price;
       priceDiv.appendChild(priceH1);
 
@@ -566,7 +566,7 @@ window.addEventListener("load", () => {
 
       const addBag = document.createElement("div");
       addBag.className = "product-page__flex-subitem product-page__flex-item--button-white product-page__flex-subitem-addtobag";
-      const addBagH1 = document.createElement("h1");
+      const addBagH1 = document.createElement("h2");
       addBagH1.textContent = "Add to bag";
       addBag.appendChild(addBagH1);
 
@@ -589,7 +589,7 @@ window.addEventListener("load", () => {
 
       const checkoutNow = document.createElement("div");
       checkoutNow.className = "product-page__flex-subitem product-page__flex-item--button-green product-page__flex-subitem-checkout";
-      const checkoutH1 = document.createElement("h1");
+      const checkoutH1 = document.createElement("h2");
       checkoutH1.textContent = "Checkout Now";
       checkoutNow.appendChild(checkoutH1);
 
@@ -598,13 +598,13 @@ window.addEventListener("load", () => {
 
       const giftBtn = document.createElement("div");
       giftBtn.className = "product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-gift";
-      const giftH1 = document.createElement("h1");
+      const giftH1 = document.createElement("h2");
       giftH1.textContent = "Send as Gift 📧";
       giftBtn.appendChild(giftH1);
 
       const favBtn = document.createElement("div");
       favBtn.className = "product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-favorites";
-      const favH1 = document.createElement("h1");
+      const favH1 = document.createElement("h2");
       favH1.textContent = "Add to Favorites ❤️";
       favBtn.appendChild(favH1);
 
@@ -623,7 +623,7 @@ window.addEventListener("load", () => {
 
       let promoLeft = document.createElement("div");
       promoLeft.className = "product-page__promo product-page__promo-left";
-      let promoTitle = document.createElement("h1");
+      let promoTitle = document.createElement("h2");
       promoTitle.textContent = checkCont.promoTitle;
       let promoDesc = document.createElement("p");
       promoDesc.textContent = checkCont.promoDescription;
@@ -804,7 +804,7 @@ window.addEventListener("load", () => {
 
       const productDetailsTitle = document.createElement("div");
       productDetailsTitle.classList.add("shopping-cart__product-title");
-      const title = document.createElement("h1");
+      const title = document.createElement("h2");
       title.textContent = shoppingArticle.title;
       textContainer.appendChild(productDetailsTitle);
       productDetailsTitle.appendChild(title);
@@ -885,7 +885,7 @@ window.addEventListener("load", () => {
       const removeConfirmation = document.createElement("div"); removeConfirmation.classList.add("item-removal-confirmation__container");
       removeCarpet.appendChild(removeConfirmation);
 
-      const removeText = document.createElement("h1");
+      const removeText = document.createElement("h2");
       removeText.textContent = "Remove this item from your cart?";
       removeConfirmation.appendChild(removeText);
 

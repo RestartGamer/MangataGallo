@@ -279,6 +279,9 @@
   font-size: 185%;
 }
 
+.shopping-cart__product-title h2 {
+  font-size: 1rem;
+}
 
 .shopping-cart__product-remove-button {
   all:unset;

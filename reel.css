@@ -251,6 +251,7 @@
 .reel-promo__navi-mid-button:hover {
   background-color: black;
   border: 1px solid whitesmoke;
+  cursor:pointer;
 }
 
 .reel-promo__navi-mid-button.active {
@@ -323,7 +324,7 @@
   .reel-promo__article-container {
     position: relative;
     width: var(--reel-promo-cell-width);
-    height: 614px;
+    height: 527.4px;
     border: var(--reel-promo-border) solid #c3ffd5eb;
 
     background-color: #f2f2f278;
@@ -376,22 +377,22 @@
   }
 
 
-  .reel-promo__text-content h1 {
+  .reel-promo__text-content h2 {
     margin-bottom: 3.0vh;
     font-size: 1.6rem;
   }
 
   .reel-promo__text-content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
-  .reel-promo__article-container--selection .reel-promo__text-content h1 {
+  .reel-promo__article-container--selection .reel-promo__text-content h2 {
     margin-bottom: 17.7px;
     font-size: 1.3rem;
   }
 
   .reel-promo__article-container--selection .reel-promo__text-content p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     /*! text-align: start; */
     /*! padding-left: 2.5%; */
   }
@@ -407,8 +408,9 @@
     background-color: #e4fffc;
   }
 
-  .reel-promo__title-content h1 {
-    font-size: 3.7rem;
+  .reel-promo__title-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
   }
 
 
