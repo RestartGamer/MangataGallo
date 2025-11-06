@@ -477,7 +477,6 @@ window.addEventListener("load", () => {
   }
 
   function renderCheckout(checkoutContent, elementId, assignedArticleId) {
-
     // Reference to the checkout container
     let container = document.getElementById(elementId);
     console.log(elementId);
@@ -635,7 +634,7 @@ window.addEventListener("load", () => {
       promoRight.className = "product-page__promo product-page__promo-right";
       let promoImg = document.createElement("img");
       promoImg.className = "product-page__promo product-page__promo-image";
-      promoImg.src =  "media/earrings-special2.PNG";
+      promoImg.src = "media/earrings-special2.PNG";
       promoImg.alt = "Image of Red Earrings"
       promoRight.appendChild(promoImg);
 
@@ -760,6 +759,7 @@ window.addEventListener("load", () => {
 
     // Combine duplicates (count quantities)
     const duplicateArticles = [];
+    const totalArticlePrices = [];
 
     shoppingArticleIds.forEach(shoppingArticleId => {
       let check = duplicateArticles.find(article => article.id === shoppingArticleId);
@@ -782,7 +782,6 @@ window.addEventListener("load", () => {
     let shoppingCounterText = document.querySelector(".quick-menu__shopping-cart-counter-text p");
     shoppingCounterText.innerHTML = "";
     shoppingCounterText.textContent = shoppingArticleIds.length;
-
 
 
     duplicateArticles.forEach(shoppingArticle => {
@@ -872,6 +871,11 @@ window.addEventListener("load", () => {
       textContainer.appendChild(productDetailsPrice);
       productDetailsPrice.appendChild(textPrice);
 
+
+      let price = parseFloat(shoppingArticle.price.replace("€", "").trim());
+      let quantity = Number(shoppingArticle.quantity);
+
+
       const trashButton = document.createElement("button");
       trashButton.classList.add("shopping-cart__product-remove-button");
 
@@ -893,6 +897,7 @@ window.addEventListener("load", () => {
         getArticleBag = getArticleBag.filter(id => id !== shoppingArticle.id);
         localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
         renderShoppingBag(articles, getArticleBag);
+
       });
 
 
@@ -937,12 +942,30 @@ window.addEventListener("load", () => {
 
       productContainer.appendChild(trashButton);
 
-
+      
 
 
     });
+    function parsePrice(str) {
+        return parseFloat(String(str).replace(/[^0-9.,]/g, "").replace(",", "."));
+      }
+      const totalBagPrice = duplicateArticles.reduce((sum, item) => {
+        const price = parsePrice(item.price);
+        return sum + price * Number(item.quantity);
+      }, 0);
+      console.log("TOTAL BAG PRICE: ", totalBagPrice);
+
+      let totalPriceElement = document.querySelector(".shopping-cart__product-total-price-value");
+
+      totalPriceElement.textContent = String(totalBagPrice) + "€";
+
   }
 
+
+
+
+
+  //SEPARATE STUFF
   if (!localStorage.getItem("shoppingBag")) {
     localStorage.setItem("shoppingBag", JSON.stringify([]));
   }

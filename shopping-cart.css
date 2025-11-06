@@ -180,7 +180,14 @@
   justify-content: start;
   align-items: center;
   overflow: hidden;
+  column-gap: 2.2%;
 }
+
+.shopping-cart__product-total-price-value {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
 .shopping-cart__product-edit-bag {
   outline: 1px solid blue;
   width: 38.8%;
@@ -241,7 +248,7 @@
   text-decoration:none;
   color:black;
 }
-.shopping-cart__product-total-price h2 {
+.shopping-cart__product-total-price-title {
   font-size: 1.2rem;
 }
 
