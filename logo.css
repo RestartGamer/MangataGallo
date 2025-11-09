@@ -1,16 +1,27 @@
-#logo{
+.logo__container{
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 14px;
   background-color: rgba(52, 80, 80, 0.85);
-  z-index: 1;
-  
+  /*! z-index: 100; */
+  /*! display: inline-block; */
+  height: 79px;
 }
 
-#logo__image{
-  display:block; /*Since images are always inline, text-align also work on centering etc.*/
-  margin:0 auto;
-  z-index: 1;
+
+.logo__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.logo__image {
+  width: 32%;
+  /*! object-fit: cover; */
+  /*! aspect-ratio: 1 / 1; */
+  /*! height: auto; */
+  display: inline;
 }
 
 @media (min-width: 1200px) {

@@ -10,6 +10,8 @@
   align-items: center;
   justify-content: center;
   height: 60px;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .navbar__content {
@@ -217,6 +219,73 @@
 .submenu__section h2:hover {
   cursor: pointer;
 }
+
+/*THE MOBILE VERSION*/
+
+
+
+.navbar-mobile__container {
+  width: 28px;
+  outline: 1px solid red;
+  aspect-ratio: 1 / 1;
+  /*! overflow: hidden; */
+  position: fixed;
+  top: 0.7%;
+  left: 0%;
+}
+.navbar-mobile__content {
+  width: 100%;
+  height: 100%;
+}
+.navbar-mobile__menu-container {
+  background-color: white;
+  width: 100svw;
+  height: 100vh;
+  outline: 1px solid blue;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+}
+.navbar-mobile__menu-content {
+  width: 100%;
+  height: 100%;
+}
+.navbar-mobile__menu-option-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  height: 64%;
+  outline: 1px solid green;
+  margin-top: 6.6%;
+  row-gap: 7.4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.icon-hamburger {
+  width: 100%;
+  height: 100%;
+}
+.navbar-mobile__menu-option {
+  --padding-vertical: 7.7px;
+  width: 100%;
+  height: max-content;
+  outline: 1px solid red;
+  padding-left: 8.2%;
+  padding-top: var(--padding-vertical);
+  padding-bottom: var(--padding-vertical);
+}
+
+
+
+
+
+
+
+
+
 
 /* ─────────── NAVBAR RESPONSIVE DESKTOP-TO-MOBILE SCALE ─────────── */
 
@@ -521,6 +590,8 @@
 @media (max-width: 480px) {
   .navbar__container {
     height: 30px;
+    visibility: hidden;
+    pointer-events: none;
   }
 
 
