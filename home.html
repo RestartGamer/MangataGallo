@@ -50,10 +50,7 @@
 
 <body>
     <header>
-        <video autoplay muted loop playsinline id="video-background">
-            <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
-            optional fallback Your browser does not support the video tag.
-        </video>
+
 
         <div href="#" class="logo__container">
             <a href="#" class="logo__content">
@@ -472,7 +469,14 @@
         <script src="navbar.js"></script>
         <script src="shopping-cart.js"></script>
 
-        <div class="empty-space2"></div>
+        <div class="video-background__container">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
+                optional fallback Your browser does not support the video tag.
+            </video>
+            <div class="empty-space2"></div>
+        </div>
+
 
         <!-- Promo Banner -->
         <section class="promo-banner__container">

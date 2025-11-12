@@ -26,7 +26,7 @@ main.active {
 
 
 .empty-space2 {
-  height: 728.8px;
+  height: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -39,7 +39,7 @@ main.active {
 }
 @media (max-width: 992px) {
   .empty-space2 {
-  height: 531.8px;
+  /*! height: 531.8px; */
   }
 }
 @media (max-width: 768px) {
@@ -48,6 +48,6 @@ main.active {
 }
 @media (max-width: 480px) {
   .empty-space2 {
-  height: 100vh;
+  /*! height: 29vh; */
   }
 }

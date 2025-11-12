@@ -1,33 +1,37 @@
 
-#video-background {
+.video-background {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -1.1%;
+  left: 0%;
   z-index: -1;
   width: 100%;
   height: 100%;
   object-fit: cover; /*the fill type of the media*/
 }
 
+.video-background__container {
+  width:100vw;
+  height:24.8vh;
+}
 
 
 
 @media (min-width: 1200px) {
-  #video-background {height: 93.5%;}
+  .video-background {height: 93.5%;}
 }
 @media (max-width: 1200px) {
-    #video-background {}
+    .video-background {}
   
 }
 @media (max-width: 992px) {
-    #video-background {height: 39.5%;}
+    .video-background {/*! height: 39.5%; */}
   
 }
 @media (max-width: 768px) {
-    #video-background {}
+    .video-background {}
   
 }
 @media (max-width: 480px) {
-    #video-background {height: 23.1%;}
+    .video-background {height: 28.2%;width: 73%;}
   
 }

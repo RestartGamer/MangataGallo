@@ -716,8 +716,9 @@
 
   .navbar__container {
     height: 30px;
-    visibility: hidden;
-    pointer-events: none;
+    /*! visibility: hidden; */
+    /*! pointer-events: none; */
+    display: none;
   }
 
   .navbar-mobile__menu-container.active { 

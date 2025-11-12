@@ -191,7 +191,7 @@ window.addEventListener("load", () => {
       let h1 = document.createElement("h2");
       h1.textContent = banner.title;
 
-      content.appendChild(textCont);
+      content.parentElement.insertAdjacentElement("beforebegin", textCont)
       textCont.appendChild(title);
       title.appendChild(h1);
 
