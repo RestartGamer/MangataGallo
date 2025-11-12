@@ -1,15 +1,31 @@
 body {
   background-color:rgb(255, 255, 255);
   overflow-x: hidden;
+  overflow-y: auto;
+  /*! width:100vw; */
+}
+
+body.active {
+  background-color:rgb(255, 255, 255);
+  overflow: hidden;
   /*! width:100vw; */
 }
 
 header {
   display:flex;
   flex-direction:column;
-  position: relative;
+  /*position: relative;*/
   z-index: -1;
+  --logo-height: 79px;
 }
+
+main {
+  display:none;
+}
+main.active {
+  display:block;
+}
+
 
 .empty-space2 {
   height: 728.8px;

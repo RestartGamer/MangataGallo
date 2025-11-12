@@ -48,15 +48,15 @@ window.addEventListener("load", () => {
   }
 
   document.querySelectorAll(".submenu").forEach(arrangeSubmenu);
-///////////////////////////////////////////////////////////////
-//BACKGROUND ANIMATION
-///////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////
+  //BACKGROUND ANIMATION
+  ///////////////////////////////////////////////////////////////
   const options = document.querySelectorAll(".navbar__option");
   const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
   const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
   const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
 
-  
+
 
   options.forEach(option => {
     const submenu = option.nextElementSibling;
@@ -141,4 +141,33 @@ window.addEventListener("load", () => {
       submenu.classList.remove("active");
     });
   });
+  ///////////////////////////////////////////////////////////////
+  //NAVBAR-MOBILE
+  ///////////////////////////////////////////////////////////////
+
+let closeButton = document.querySelector(".hamburger-button__container--close");
+let hamburgerButton = document.querySelector(".hamburger-button__container");
+let main = document.querySelector("main");
+let body = document. querySelector("body");
+let mobileMenu = document.querySelector(".navbar-mobile__menu-container");
+
+closeButton.addEventListener("click", ()=> {
+  closeButton.classList.toggle("active");
+  hamburgerButton.classList.toggle("active");
+  main.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+  body.classList.toggle("active");
+
+});
+
+hamburgerButton.addEventListener("click", ()=> {
+  closeButton.classList.toggle("active");
+  hamburgerButton.classList.toggle("active");
+  main.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+  body.classList.toggle("active");
+});
+
+
+
 });

@@ -4,6 +4,8 @@
   /*! z-index: 100; */
   /*! display: inline-block; */
   height: 79px;
+  display: block;
+  position: sticky;
 }
 
 
