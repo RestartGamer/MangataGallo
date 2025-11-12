@@ -457,17 +457,18 @@
 }
 
 @media (min-width: 1200px) {
+  .shopping-cart__container {}
   
 }
 @media (max-width: 1200px) {
-  
+  .shopping-cart__container {}
 }
 @media (max-width: 992px) {
-  
+  .shopping-cart__container {}
 }
 @media (max-width: 768px) {
-  
+  .shopping-cart__container {}
 }
 @media (max-width: 480px) {
-  
+  .shopping-cart__container {right: 0%;}
 }
