@@ -1,7 +1,7 @@
 .logo__container{
   width: 100%;
   background-color: rgba(52, 80, 80, 0.85);
-  /*! z-index: 100; */
+  z-index: 100;
   /*! display: inline-block; */
   height: 79px;
   display: block;

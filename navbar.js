@@ -145,29 +145,49 @@ window.addEventListener("load", () => {
   //NAVBAR-MOBILE
   ///////////////////////////////////////////////////////////////
 
-let closeButton = document.querySelector(".hamburger-button__container--close");
-let hamburgerButton = document.querySelector(".hamburger-button__container");
-let main = document.querySelector("main");
-let body = document. querySelector("body");
-let mobileMenu = document.querySelector(".navbar-mobile__menu-container");
+  let closeButton = document.querySelector(".hamburger-button__container--close");
+  let hamburgerButton = document.querySelector(".hamburger-button__container");
+  let main = document.querySelector("main");
+  let body = document.querySelector("body");
+  let mobileMenu = document.querySelector(".navbar-mobile__menu-container");
 
-closeButton.addEventListener("click", ()=> {
-  closeButton.classList.toggle("active");
-  hamburgerButton.classList.toggle("active");
-  main.classList.toggle("active");
-  mobileMenu.classList.toggle("active");
-  body.classList.toggle("active");
+  const mobileMenuOptionParent = document.querySelector(".navbar-mobile__menu-content");
+  const menuOptions = mobileMenuOptionParent.querySelectorAll(".navbar-mobile__menu-option");
+  //nodeList
 
-});
 
-hamburgerButton.addEventListener("click", ()=> {
-  closeButton.classList.toggle("active");
-  hamburgerButton.classList.toggle("active");
-  main.classList.toggle("active");
-  mobileMenu.classList.toggle("active");
-  body.classList.toggle("active");
-});
+  closeButton.addEventListener("click", () => {
+    closeButton.classList.toggle("active");
+    hamburgerButton.classList.toggle("active");
+    main.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+    body.classList.toggle("active");
+    menuOptions.forEach(menuOption => {
+      let siblingSubmenu = menuOption.nextElementSibling;
+      if (siblingSubmenu && siblingSubmenu.classList.contains("navbar-mobile__submenu-container")) {
+        siblingSubmenu.classList.remove("active");
+      }
+      });
 
+  });
+
+  hamburgerButton.addEventListener("click", () => {
+    closeButton.classList.toggle("active");
+    hamburgerButton.classList.toggle("active");
+    main.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+    body.classList.toggle("active");
+  });
+
+
+  menuOptions.forEach(menuOption => {
+    menuOption.addEventListener("click", () => {
+      let siblingSubmenu = menuOption.nextElementSibling;
+      if (siblingSubmenu && siblingSubmenu.classList.contains("navbar-mobile__submenu-container")) {
+        siblingSubmenu.classList.toggle("active");
+      }
+      });
+  });
 
 
 });

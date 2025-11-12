@@ -1,3 +1,7 @@
+.navbar__wrapper{
+  height: 100%;
+}
+
 .navbar__container {
   position: sticky;
   top: 0;
@@ -5,7 +9,7 @@
   height: 6vh;
   background-color: rgba(73, 104, 104, 0.85);
 
-  z-index: 10;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -323,6 +327,10 @@
   top: 0;
   left: 0;
   display: none;
+}
+
+.navbar-mobile__submenu-container.active {
+  display:block;
 }
 
 .navbar-mobile__submenu-content {

@@ -1,8 +1,5 @@
-body {
-  background-color:rgb(255, 255, 255);
-  overflow-x: hidden;
-  overflow-y: auto;
-  /*! width:100vw; */
+html, body {
+  height:100%;
 }
 
 body.active {
@@ -20,6 +17,7 @@ header {
 }
 
 main {
+  
   display:none;
 }
 main.active {

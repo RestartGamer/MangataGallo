@@ -738,173 +738,181 @@ window.addEventListener("load", () => {
   }
 
   function renderShoppingBag(articles, shoppingArticleIds) {
-    const content = document.querySelector(`[data-type="${dataTypes[6]}"]`);
-    if (!content) return;
+    const contents = document.querySelectorAll(`[data-type="${dataTypes[6]}"]`);
 
-    content.innerHTML = "";
+    contents.forEach(content => {
+      if (!content) return;
 
-    console.log("shopping bag function is running", shoppingArticleIds);
+      content.innerHTML = "";
 
-    // Filter valid articles (only those that exist)
-    const shoppingArticles = articles.filter(article =>
-      shoppingArticleIds.includes(article.id)
-    );
+      console.log("shopping bag function is running", shoppingArticleIds);
 
-    console.log("filtered", shoppingArticles);
+      // Filter valid articles (only those that exist)
+      const shoppingArticles = articles.filter(article =>
+        shoppingArticleIds.includes(article.id)
+      );
 
-    // 🧹 Remove invalid IDs from localStorage (nonexistent articles)
-    const validIds = shoppingArticles.map(a => a.id);
-    const cleanedIds = shoppingArticleIds.filter(id => validIds.includes(id));
-    localStorage.setItem("shoppingBag", JSON.stringify(cleanedIds));
+      console.log("filtered", shoppingArticles);
 
-    // Combine duplicates (count quantities)
-    const duplicateArticles = [];
-    const totalArticlePrices = [];
+      // 🧹 Remove invalid IDs from localStorage (nonexistent articles)
+      const validIds = shoppingArticles.map(a => a.id);
+      const cleanedIds = shoppingArticleIds.filter(id => validIds.includes(id));
+      localStorage.setItem("shoppingBag", JSON.stringify(cleanedIds));
 
-    shoppingArticleIds.forEach(shoppingArticleId => {
-      let check = duplicateArticles.find(article => article.id === shoppingArticleId);
-      if (check) {
-        let shoppingArticle = check;
-        shoppingArticle.quantity += 1;
-      } else {
-        let getDuplicateArticles = articles.find(article => article.id === shoppingArticleId);
-        if (getDuplicateArticles) duplicateArticles.push({ ...getDuplicateArticles, quantity: 1 });
-      }
-    });
+      // Combine duplicates (count quantities)
+      const duplicateArticles = [];
+      const totalArticlePrices = [];
 
-    let shoppingCounter = document.querySelector(".quick-menu__shopping-cart-counter");
-    if (shoppingArticleIds.length > 0) {
-      shoppingCounter.classList.add("active");
-    } else {
-      shoppingCounter.classList.remove("active");
-    }
-
-    let shoppingCounterText = document.querySelector(".quick-menu__shopping-cart-counter-text p");
-    shoppingCounterText.innerHTML = "";
-    shoppingCounterText.textContent = shoppingArticleIds.length;
-
-
-    duplicateArticles.forEach(shoppingArticle => {
-      const productContainer = document.createElement("article");
-      productContainer.classList.add("shopping-cart__product-item");
-      productContainer.dataset.article = shoppingArticle.id;
-      content.appendChild(productContainer);
-
-
-
-      const productImage = document.createElement("div");
-      productImage.classList.add("shopping-cart__product-image");
-      productImage.style.backgroundImage = `url(${shoppingArticle.image})`;
-      productImage.style.backgroundSize = shoppingArticle.imageSize;
-      productImage.style.backgroundPosition = shoppingArticle.imagePosition;
-      productContainer.appendChild(productImage);
-
-      const textContainer = document.createElement("div"); textContainer.classList.add("shopping-cart__product-text-container");
-      productContainer.appendChild(textContainer)
-
-      const productDetailsTitle = document.createElement("div");
-      productDetailsTitle.classList.add("shopping-cart__product-title");
-      const title = document.createElement("h2");
-      title.textContent = shoppingArticle.title;
-      textContainer.appendChild(productDetailsTitle);
-      productDetailsTitle.appendChild(title);
-
-      const quantityContainer = document.createElement("div"); quantityContainer.classList.add("shopping-cart__quantity-container");
-      textContainer.appendChild(quantityContainer);
-
-
-
-
-      const productDetailsQuantity = document.createElement("div");
-      productDetailsQuantity.classList.add("shopping-cart__product-quantity");
-      const textQuantity = document.createElement("p");
-      textQuantity.textContent = `Qty: `;
-      quantityContainer.appendChild(productDetailsQuantity);
-      productDetailsQuantity.appendChild(textQuantity);
-
-      const quantityNavigator = document.createElement("div"); quantityNavigator.classList.add("shopping-cart__product-quantity-navigator");
-      quantityContainer.appendChild(quantityNavigator);
-
-      const quantityPlusContainer = document.createElement("div"); quantityPlusContainer.classList.add("shopping-cart__product-quantity-button-container");
-      const quantityMinusContainer = document.createElement("div"); quantityMinusContainer.classList.add("shopping-cart__product-quantity-button-container");
-      const quantityNumberContainer = document.createElement("div"); quantityNumberContainer.classList.add("shopping-cart__product-quantity-number-container")
-
-
-
-      quantityNavigator.appendChild(quantityPlusContainer);
-      quantityNavigator.appendChild(quantityNumberContainer);
-      quantityNavigator.appendChild(quantityMinusContainer);
-
-      const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-button", "shopping-cart__product-quantity-button--plus");
-      const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-button", "shopping-cart__product-quantity-button--minus");
-      const quantityNumber = document.createElement("p"); quantityNumber.classList.add("shopping-cart__product-quantity-number");
-      quantityNumber.textContent = shoppingArticle.quantity;
-
-
-      quantityPlusContainer.appendChild(quantityPlus);
-      quantityNumberContainer.appendChild(quantityNumber);
-      quantityMinusContainer.appendChild(quantityMinus);
-
-      quantityPlus.parentElement.addEventListener("click", () => {
-        let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
-        getArticleBag.push(shoppingArticle.id);
-        localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
-        renderShoppingBag(articles, getArticleBag);
-      });
-
-      quantityMinus.parentElement.addEventListener("click", () => {
-        let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
-        // Remove only one occurrence
-        const index = getArticleBag.lastIndexOf(shoppingArticle.id);
-        if (index !== -1) {
-          getArticleBag.splice(index, 1);
+      shoppingArticleIds.forEach(shoppingArticleId => {
+        let check = duplicateArticles.find(article => article.id === shoppingArticleId);
+        if (check) {
+          let shoppingArticle = check;
+          shoppingArticle.quantity += 1;
+        } else {
+          let getDuplicateArticles = articles.find(article => article.id === shoppingArticleId);
+          if (getDuplicateArticles) duplicateArticles.push({ ...getDuplicateArticles, quantity: 1 });
         }
-        localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
-        renderShoppingBag(articles, getArticleBag);
       });
 
-      const productDetailsPrice = document.createElement("div");
-      productDetailsPrice.classList.add("shopping-cart__product-price");
-      const textPrice = document.createElement("p");
-      textPrice.textContent = shoppingArticle.price;
-
-      textContainer.appendChild(productDetailsPrice);
-      productDetailsPrice.appendChild(textPrice);
-
-
-      let price = parseFloat(shoppingArticle.price.replace("€", "").trim());
-      let quantity = Number(shoppingArticle.quantity);
-
-
-      const trashButton = document.createElement("button");
-      trashButton.classList.add("shopping-cart__product-remove-button");
-
-
-      const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-item-removal-confirmation");
-      productContainer.appendChild(removeCarpet);
-      const removeConfirmation = document.createElement("div"); removeConfirmation.classList.add("item-removal-confirmation__container");
-      removeCarpet.appendChild(removeConfirmation);
-
-      const removeText = document.createElement("h2");
-      removeText.textContent = "Remove this item from your cart?";
-      removeConfirmation.appendChild(removeText);
-
-      const confirmButton = document.createElement("button");
-      confirmButton.textContent = "Confirm";
-
-      confirmButton.addEventListener("click", () => {
-        let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
-        getArticleBag = getArticleBag.filter(id => id !== shoppingArticle.id);
-        localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
-        renderShoppingBag(articles, getArticleBag);
-
+      let shoppingCounters = document.querySelectorAll(".quick-menu__shopping-cart-counter");
+      shoppingCounters.forEach(shoppingCounter => {
+        if (shoppingArticleIds.length > 0) {
+          shoppingCounter.classList.add("active");
+        } else {
+          shoppingCounter.classList.remove("active");
+        }
       });
 
 
-      removeConfirmation.appendChild(confirmButton);
+      let shoppingCounterTexts = document.querySelectorAll(".quick-menu__shopping-cart-counter-text p");
+      shoppingCounterTexts.forEach(shoppingCounterText => {
+        shoppingCounterText.innerHTML = "";
+        shoppingCounterText.textContent = shoppingArticleIds.length;
+      });
 
-      // Add SVG via innerHTML
-      trashButton.innerHTML = `
+
+
+      duplicateArticles.forEach(shoppingArticle => {
+        const productContainer = document.createElement("article");
+        productContainer.classList.add("shopping-cart__product-item");
+        productContainer.dataset.article = shoppingArticle.id;
+        content.appendChild(productContainer);
+
+
+
+        const productImage = document.createElement("div");
+        productImage.classList.add("shopping-cart__product-image");
+        productImage.style.backgroundImage = `url(${shoppingArticle.image})`;
+        productImage.style.backgroundSize = shoppingArticle.imageSize;
+        productImage.style.backgroundPosition = shoppingArticle.imagePosition;
+        productContainer.appendChild(productImage);
+
+        const textContainer = document.createElement("div"); textContainer.classList.add("shopping-cart__product-text-container");
+        productContainer.appendChild(textContainer)
+
+        const productDetailsTitle = document.createElement("div");
+        productDetailsTitle.classList.add("shopping-cart__product-title");
+        const title = document.createElement("h2");
+        title.textContent = shoppingArticle.title;
+        textContainer.appendChild(productDetailsTitle);
+        productDetailsTitle.appendChild(title);
+
+        const quantityContainer = document.createElement("div"); quantityContainer.classList.add("shopping-cart__quantity-container");
+        textContainer.appendChild(quantityContainer);
+
+
+
+
+        const productDetailsQuantity = document.createElement("div");
+        productDetailsQuantity.classList.add("shopping-cart__product-quantity");
+        const textQuantity = document.createElement("p");
+        textQuantity.textContent = `Qty: `;
+        quantityContainer.appendChild(productDetailsQuantity);
+        productDetailsQuantity.appendChild(textQuantity);
+
+        const quantityNavigator = document.createElement("div"); quantityNavigator.classList.add("shopping-cart__product-quantity-navigator");
+        quantityContainer.appendChild(quantityNavigator);
+
+        const quantityPlusContainer = document.createElement("div"); quantityPlusContainer.classList.add("shopping-cart__product-quantity-button-container");
+        const quantityMinusContainer = document.createElement("div"); quantityMinusContainer.classList.add("shopping-cart__product-quantity-button-container");
+        const quantityNumberContainer = document.createElement("div"); quantityNumberContainer.classList.add("shopping-cart__product-quantity-number-container")
+
+
+
+        quantityNavigator.appendChild(quantityPlusContainer);
+        quantityNavigator.appendChild(quantityNumberContainer);
+        quantityNavigator.appendChild(quantityMinusContainer);
+
+        const quantityPlus = document.createElement("div"); quantityPlus.classList.add("shopping-cart__product-quantity-button", "shopping-cart__product-quantity-button--plus");
+        const quantityMinus = document.createElement("div"); quantityMinus.classList.add("shopping-cart__product-quantity-button", "shopping-cart__product-quantity-button--minus");
+        const quantityNumber = document.createElement("p"); quantityNumber.classList.add("shopping-cart__product-quantity-number");
+        quantityNumber.textContent = shoppingArticle.quantity;
+
+
+        quantityPlusContainer.appendChild(quantityPlus);
+        quantityNumberContainer.appendChild(quantityNumber);
+        quantityMinusContainer.appendChild(quantityMinus);
+
+        quantityPlus.parentElement.addEventListener("click", () => {
+          let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
+          getArticleBag.push(shoppingArticle.id);
+          localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
+          renderShoppingBag(articles, getArticleBag);
+        });
+
+        quantityMinus.parentElement.addEventListener("click", () => {
+          let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
+          // Remove only one occurrence
+          const index = getArticleBag.lastIndexOf(shoppingArticle.id);
+          if (index !== -1) {
+            getArticleBag.splice(index, 1);
+          }
+          localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
+          renderShoppingBag(articles, getArticleBag);
+        });
+
+        const productDetailsPrice = document.createElement("div");
+        productDetailsPrice.classList.add("shopping-cart__product-price");
+        const textPrice = document.createElement("p");
+        textPrice.textContent = shoppingArticle.price;
+
+        textContainer.appendChild(productDetailsPrice);
+        productDetailsPrice.appendChild(textPrice);
+
+
+        let price = parseFloat(shoppingArticle.price.replace("€", "").trim());
+        let quantity = Number(shoppingArticle.quantity);
+
+
+        const trashButton = document.createElement("button");
+        trashButton.classList.add("shopping-cart__product-remove-button");
+
+
+        const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-item-removal-confirmation");
+        productContainer.appendChild(removeCarpet);
+        const removeConfirmation = document.createElement("div"); removeConfirmation.classList.add("item-removal-confirmation__container");
+        removeCarpet.appendChild(removeConfirmation);
+
+        const removeText = document.createElement("h2");
+        removeText.textContent = "Remove this item from your cart?";
+        removeConfirmation.appendChild(removeText);
+
+        const confirmButton = document.createElement("button");
+        confirmButton.textContent = "Confirm";
+
+        confirmButton.addEventListener("click", () => {
+          let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
+          getArticleBag = getArticleBag.filter(id => id !== shoppingArticle.id);
+          localStorage.setItem("shoppingBag", JSON.stringify(getArticleBag));
+          renderShoppingBag(articles, getArticleBag);
+
+        });
+
+
+        removeConfirmation.appendChild(confirmButton);
+
+        // Add SVG via innerHTML
+        trashButton.innerHTML = `
 <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
   <title>Remove Product</title>
   <!-- Lid group for rotation -->
@@ -919,34 +927,34 @@ window.addEventListener("load", () => {
   <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6" stroke-linecap="round"/>
 </svg>
 `;
-      trashButton.addEventListener("click", () => {
+        trashButton.addEventListener("click", () => {
 
-        if (removeCarpet.classList.contains("active")) {
-          removeText.classList.remove("active");
-          confirmButton.classList.remove("active");
-          removeCarpet.classList.remove("active");
-        } else {
-          function textTransition() {
-            removeText.classList.add("active");
-            confirmButton.classList.add("active");
-            removeCarpet.removeEventListener("transitionend", textTransition);
+          if (removeCarpet.classList.contains("active")) {
+            removeText.classList.remove("active");
+            confirmButton.classList.remove("active");
+            removeCarpet.classList.remove("active");
+          } else {
+            function textTransition() {
+              removeText.classList.add("active");
+              confirmButton.classList.add("active");
+              removeCarpet.removeEventListener("transitionend", textTransition);
+            }
+            removeCarpet.addEventListener("transitionend", textTransition);
+            removeCarpet.classList.add("active");
           }
-          removeCarpet.addEventListener("transitionend", textTransition);
-          removeCarpet.classList.add("active");
-        }
+
+
+
+        });
+
+
+        productContainer.appendChild(trashButton);
+
 
 
 
       });
-
-
-      productContainer.appendChild(trashButton);
-
-      
-
-
-    });
-    function parsePrice(str) {
+      function parsePrice(str) {
         return parseFloat(String(str).replace(/[^0-9.,]/g, "").replace(",", "."));
       }
       const totalBagPrice = duplicateArticles.reduce((sum, item) => {
@@ -959,6 +967,8 @@ window.addEventListener("load", () => {
 
       totalPriceElement.textContent = String(totalBagPrice) + "€";
 
+
+    });
   }
 
 
