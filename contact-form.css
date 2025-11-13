@@ -81,6 +81,7 @@
   outline: 1px solid #8a8a8a;
   height: 112px;
   padding-left: 1%;
+  flex: 1;
 }
 .contact-form__form button {
   all: unset;
