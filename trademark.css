@@ -34,17 +34,47 @@
 }
 
 @media (min-width: 1200px) {
+  .trademark__text-container p{
+  font-size:1.3rem;
+  color: black;
+  
+  font-weight: 600;
+}
   
 }
 @media (max-width: 1200px) {
+  .trademark__text-container p{
+  font-size:1.3rem;
+  color: black;
+  
+  font-weight: 600;
+}
   
 }
 @media (max-width: 992px) {
+  .trademark__text-container p{
+  font-size:1.3rem;
+  color: black;
+  
+  font-weight: 600;
+}
   
 }
 @media (max-width: 768px) {
+  .trademark__text-container p{
+  font-size:1.3rem;
+  color: black;
+  
+  font-weight: 600;
+}
   
 }
 @media (max-width: 480px) {
+  .trademark__text-container p{
+  font-size:0.8rem;
+  color: black;
+  
+  font-weight: 600;
+}
   
 }

@@ -11,7 +11,7 @@
 
 .video-background__container {
   width:100vw;
-  height:24.8vh;
+  height:100vh;
 }
 
 
@@ -32,6 +32,6 @@
   
 }
 @media (max-width: 480px) {
-    .video-background {height: 28.2%;width: 73%;}
+    .video-background {height: 77.6%;width: 91%;object-position: 82%;transform: translateY(-2%);}
   
 }

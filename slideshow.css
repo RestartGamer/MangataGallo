@@ -44,10 +44,10 @@
 
 .poster-slideshow__text-container {
   position: absolute;
-  top: 65%;
-  left: 60%;
-  width: 29.2%;
-  height: 20.5%;
+  top: 38%;
+  left: 54%;
+  width: 37.2%;
+  height: max-content;
   /*! outline: 1px solid rgb(47, 255, 0); */
   background-color: rgba(0, 0, 0, 0.599);
   opacity: 0;
@@ -138,6 +138,6 @@
   }
 
   .poster-slideshow__text-container p {
-    font-size: 0.4rem;
+    font-size: 0.6rem;
   }
 }

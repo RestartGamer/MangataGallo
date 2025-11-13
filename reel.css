@@ -975,7 +975,7 @@
 
   .reel-promo__container {
     width: 100vw;
-    height: 997.3px;
+    height: 838.3px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -995,7 +995,7 @@
 
   .reel-promo__article-mask {
     width: 41%;
-    height: 78%;
+    height: max-content;
   }
 
   .reel-promo__title-content h1 {
@@ -1031,7 +1031,7 @@
   .reel-promo__article-container {
     position: relative;
     width: var(--reel-promo-cell-width);
-    height: 614px;
+    height: 518px;
     border: var(--reel-promo-border) solid #c3ffd5eb;
 
     background-color: #f2f2f278;

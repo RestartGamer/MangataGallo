@@ -227,6 +227,36 @@ window.addEventListener("load", () => {
     }
 
     articles.forEach(article => {
+      
+      let compMobileContainer = document.createElement("section");
+      compMobileContainer.classList.add("poster__comp-mobile-container");
+      let compMobileContent = document.createElement("div");
+      compMobileContent.classList.add("poster__comp-mobile-content");
+      let compTextCell = document.createElement("div");
+      compTextCell.classList.add("poster__comp-mobile-text");
+      let compImageCell = document.createElement("div");
+      compImageCell.classList.add("poster__comp-mobile-image");
+
+      content.parentElement.insertAdjacentElement("beforebegin",compMobileContainer);
+
+      compMobileContainer.appendChild(compMobileContent);
+      compMobileContent.appendChild(compTextCell);
+      compMobileContent.appendChild(compImageCell);
+
+      let compH2 = document.createElement("h2");
+      compH2.textContent = article.title;
+      let compP = document.createElement("p");
+      compP.textContent = article.description;
+      let compImage = document.createElement("img");
+
+      compTextCell.appendChild(compH2);
+      compTextCell.appendChild(compP);
+      
+      compImage.src = article.image;
+      compImageCell.appendChild(compImage);
+
+      
+
 
       //Text
       let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");

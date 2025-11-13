@@ -112,7 +112,9 @@
   }
   .promo-banner__container{
     
-  height: 19.7vh;
+  height: 37.2vh;
+  padding-bottom: 16%;
+  background-color: white;
   }
   .promo-banner__title h1 {
   font-size: 1rem;
