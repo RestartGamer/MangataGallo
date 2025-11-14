@@ -292,7 +292,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 8.7%;
+  row-gap: 5.6%;
   /*This is for testing*/
   overflow-y: auto;
   padding-top: 13.6%;

@@ -90,7 +90,7 @@
 .contact-form__form button {
   all: unset;
   flex: 0 0 auto;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   outline: 1px solid #8a8a8a;
   width: 21.5%;
   text-align: center;
@@ -152,6 +152,6 @@
   .contact-form__content p {font-size: 1rem;text-wrap: wrap;width: 80.2%;}
   .contact-form__form {height: auto;width: 100%;}
   .contact-form__form-group {/*! height: auto; */}
-  .contact-form__form button {width: 48%;height: 50px;}
+  .contact-form__form button {width: 47.4%;height: 38.4px;}
 }
 
