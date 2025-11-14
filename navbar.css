@@ -351,6 +351,7 @@
   width: 100%;
   height: 100%;
   row-gap: 4.7%;
+  overflow-y: auto;
 }
 
 .navbar-mobile__submenu-section-container {
@@ -419,6 +420,7 @@
 .navbar-mobile__submenu-title-container {
   --border-color:#34534436;
   --border-width:2.5px;
+  --margin-top:6px;
   width: 100%;
   height: 50px;
   border-top: var(--border-width) solid var(--border-color);
@@ -426,10 +428,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 6px;
+  margin-top: var(--margin-top);
   column-gap: 29.3%;
   border-radius: 100px;
   padding: 25px 0;
+  position: sticky;
+  top: var(--margin-top);
+  background-color: white;
 }
 .navbar-mobile__submenu-title-content {
   display: flex;
