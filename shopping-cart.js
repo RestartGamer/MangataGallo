@@ -11,6 +11,7 @@ window.addEventListener("load", () => {
             shopButton.addEventListener("click", (event) => {
                 event.stopPropagation(); // stop it from bubbling to document
                 shopWindow.classList.toggle("active");
+                shopButton.classList.toggle("active");
             });
 
             // Prevent closing when clicking inside the cart
