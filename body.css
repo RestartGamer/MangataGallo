@@ -70,5 +70,6 @@ main.active {
 
   main.active {
     display: block;
+    margin-top: var(--logo-height);
   }
 }
