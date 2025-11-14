@@ -376,7 +376,7 @@
   align-items: start;
   justify-content: start;
   /*! padding:5px 5px; */
-  width: max-content;
+  width: auto;
   /*! outline: 1px solid blue; */
 }
 
