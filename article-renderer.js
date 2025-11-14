@@ -105,10 +105,51 @@ window.addEventListener("load", () => {
       content.innerHTML = "";
       content.dataset.cleared = "true"; // mark this container as cleared
     }
+
+    const mobileContent = document.querySelector("header #navbar-mobile");
+    mobileContent.innerHTML="";
     navbarContents.forEach(navbarContent => {
 
-      let navbarOption = navbarContent.option;
-      // Create option li and submenu li
+      ////MOBILE SECTION
+      let menuOptionContainer = document.createElement("div");
+      menuOptionContainer.classList.add("navbar-mobile__menu-option");
+      mobileContent.appendChild(menuOptionContainer);
+      let menuOptionA = document.createElement("a");
+      menuOptionA.textContent = navbarContent.option;
+      menuOptionA.href = "#";
+      menuOptionContainer.appendChild(menuOptionA);
+
+      let mobileSubContainer = document.createElement("div");
+      mobileSubContainer.classList.add("navbar-mobile__submenu-container");
+      mobileContent.appendChild(mobileSubContainer);
+
+      let mobileSubTitleContainer = document.createElement("div");
+      mobileSubTitleContainer.classList.add("navbar-mobile__submenu-title-container");
+      let mobileSubContent = document.createElement("div");
+      mobileSubContent.classList.add("navbar-mobile__submenu-content");
+      mobileSubContainer.appendChild(mobileSubTitleContainer);
+      mobileSubContainer.appendChild(mobileSubContent);
+
+      let mobileTitleDesignBoxL = document.createElement("div");
+      mobileTitleDesignBoxL.classList.add("navbar-mobile__submenu-title-box","navbar-mobile__submenu-title-box--left");
+      let mobileTitleDesignBoxR = document.createElement("div");
+      mobileTitleDesignBoxR.classList.add("navbar-mobile__submenu-title-box","navbar-mobile__submenu-title-box--right");
+      let mobileTitleContent = document.createElement("div");
+      mobileTitleContent.classList.add("navbar-mobile__submenu-title-content");
+      let mobileTitleH2 = document.createElement("h2");
+      mobileTitleH2.textContent = navbarContent.option;
+
+      mobileSubTitleContainer.appendChild(mobileTitleDesignBoxL);
+      mobileSubTitleContainer.appendChild(mobileTitleContent);
+      mobileSubTitleContainer.appendChild(mobileTitleDesignBoxR);
+      mobileTitleContent.appendChild(mobileTitleH2);
+
+
+      ////////////
+      ////DESKTOP SECTION
+      
+      let navbarOption = navbarContent.option; 
+
       let navbarOptionContainer = document.createElement("li");
       navbarOptionContainer.classList.add("navbar__option");
 
@@ -131,6 +172,18 @@ window.addEventListener("load", () => {
       submenuElement.classList.add(navbarOption);
 
       navbarContent.sections.forEach(section => {
+
+        ////MOBILE SECTION
+        let mobileSubSectionContainer = document.createElement("section");
+        mobileSubSectionContainer.classList.add("navbar-mobile__submenu-sections", "navbar-mobile__submenu-section-container");
+        mobileSubContent.appendChild(mobileSubSectionContainer);
+
+        let mobileSubSectionTitleH2  = document.createElement("h2");
+        mobileSubSectionTitleH2.textContent = section.sectionName;
+        mobileSubSectionContainer.appendChild(mobileSubSectionTitleH2);
+        /////////////////////
+        ////DESKTOP SECTION
+
         const sectionElement = document.createElement("div");
         sectionElement.classList.add("submenu__section");
         submenuElement.appendChild(sectionElement);
@@ -140,10 +193,31 @@ window.addEventListener("load", () => {
         sectionElement.appendChild(sectionTitle);
 
         if (section.listItems && Array.isArray(section.listItems)) {
+
+          let mobileSubUl = document.createElement("ul");
+          mobileSubUl.classList.add("navbar-mobile__submenu-section-text-container");
+          mobileSubSectionContainer.appendChild(mobileSubUl);
+
+          ///////////
+          ////DESKTOP SECTION
           const ul = document.createElement("ul");
           sectionElement.appendChild(ul);
 
           section.listItems.forEach(listItem => {
+
+            ////MOBILE SECTION
+            let mobileSubTextLi = document.createElement("li");
+            mobileSubTextLi.classList.add("navbar-mobile__submenu-section-text");
+            let mobileSubTextA = document.createElement("a");
+            mobileSubTextA.textContent = listItem;
+            mobileSubTextA.href = "#";
+
+            mobileSubUl.appendChild(mobileSubTextLi);
+            mobileSubTextLi.appendChild(mobileSubTextA);
+
+
+            //////////////
+            ////DESKTOP SECTION
             const liItem = document.createElement("li");
             const aItem = document.createElement("a");
             aItem.textContent = listItem;
@@ -156,6 +230,18 @@ window.addEventListener("load", () => {
           p.textContent = section.listItems;
           sectionElement.appendChild(p);
         } else if (section.image) {
+
+          ////MOBILE SECTION
+          let mobileSubSectionImageContainer = document.createElement("div");
+          let mobileSubSectionImage = document.createElement("img");
+          mobileSubSectionImage.src = section.image;
+
+          mobileSubSectionContainer.appendChild(mobileSubSectionImageContainer);
+          mobileSubSectionImageContainer.appendChild(mobileSubSectionImage);
+
+
+          ////////////
+          /////DESKTOP SECTION
           const imgCont = document.createElement("div");
           imgCont.classList.add("submenu__section-image-container");
           const imgDiv = document.createElement("img");

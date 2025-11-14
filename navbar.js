@@ -150,16 +150,22 @@ window.addEventListener("load", () => {
   let main = document.querySelector("main");
   let body = document.querySelector("body");
   let mobileMenu = document.querySelector(".navbar-mobile__menu-container");
-  let submenu = document.querySelector(".navbar-mobile__submenu-container");
-  let returnButton = document.querySelector(".navbar-mobile__submenu-title-box--left");
+  let submenus = document.querySelectorAll(".navbar-mobile__submenu-container");
+  let returnButtons = document.querySelectorAll(".navbar-mobile__submenu-title-box--left");
 
   const mobileMenuOptionParent = document.querySelector(".navbar-mobile__menu-content");
   const menuOptions = mobileMenuOptionParent.querySelectorAll(".navbar-mobile__menu-option");
   //nodeList
-
-  returnButton.addEventListener("click", ()=> {
-    submenu.classList.remove("active");
+  submenus.forEach(submenu => {
+    returnButtons.forEach(returnButton => {
+      returnButton.addEventListener("click", () => {
+        submenu.classList.remove("active");
+      });
+    });
   });
+
+
+
 
   closeButton.addEventListener("click", () => {
     closeButton.classList.toggle("active");

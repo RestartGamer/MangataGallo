@@ -429,7 +429,7 @@
   justify-content: center;
   align-items: center;
   margin-top: var(--margin-top);
-  column-gap: 29.3%;
+  column-gap: 21.3%;
   border-radius: 100px;
   padding: 25px 0;
   position: sticky;
@@ -443,6 +443,8 @@
 }
 .navbar-mobile__submenu-title-content h2 {
   font-size: 2.1rem;
+  width: 115.6px;
+  text-align: center;
 }
 
 
@@ -465,6 +467,10 @@
   border-right: var(--border-width) solid var(--border-color);
   border-top: var(--border-width) solid var(--border-color);
   
+}
+
+.navbar-mobile__submenu-title-box--left:hover {
+  cursor: pointer;
 }
 
 
