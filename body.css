@@ -70,6 +70,5 @@ main.active {
 
   main.active {
     display: block;
-    transform: translateY(var(--logo-height));
   }
 }
