@@ -13,8 +13,8 @@ body.active {
 header {
   display:flex;
   flex-direction:column;
-  /*position: relative;*/
-  z-index: -1;
+  position: relative;
+  /*! z-index: -1; */
   --logo-height: 79px;
 }
 

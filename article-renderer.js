@@ -236,10 +236,15 @@ window.addEventListener("load", () => {
       compTextCell.classList.add("poster__comp-mobile-text");
       let compImageCell = document.createElement("div");
       compImageCell.classList.add("poster__comp-mobile-image");
+      let compA = document.createElement("a");
+      compA.href ="product.html";
 
       content.parentElement.insertAdjacentElement("beforebegin",compMobileContainer);
 
       compMobileContainer.appendChild(compMobileContent);
+      compMobileContainer.appendChild(compA);
+
+
       compMobileContent.appendChild(compTextCell);
       compMobileContent.appendChild(compImageCell);
 
@@ -251,7 +256,7 @@ window.addEventListener("load", () => {
 
       compTextCell.appendChild(compH2);
       compTextCell.appendChild(compP);
-      
+
       compImage.src = article.image;
       compImageCell.appendChild(compImage);
 

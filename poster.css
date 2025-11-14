@@ -71,6 +71,7 @@
   background-color: white;
   /*! outline: 1px solid blue; */
   padding: 31px;
+  position: relative;
 }
 .poster__comp-mobile-content {
   width: 100%;
@@ -102,6 +103,14 @@
   font-size: 0.9rem;
   font-weight: normal;
   text-align: center;
+}
+.poster__comp-mobile-container a {
+  display:block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 
