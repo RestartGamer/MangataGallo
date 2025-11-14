@@ -5,7 +5,9 @@
   /*! display: inline-block; */
   height: 79px;
   display: block;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 
