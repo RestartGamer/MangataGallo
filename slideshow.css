@@ -84,6 +84,12 @@
   margin-left: 1%;
 }
 
+.poster-slideshow__text-container h2 {
+  color: white;
+  font-weight: bold;
+  width: 165px;
+}
+
 @media (min-width: 1200px) {
   .poster-slideshow__container {}
 
