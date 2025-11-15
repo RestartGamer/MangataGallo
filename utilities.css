@@ -8,12 +8,12 @@
   flex-direction:column;
   justify-content: center;
   align-items: center;
-  row-gap:130%;
+  row-gap:181%;
 }
 
 
 
-.item-removal-confirmation__container h1 {
+.item-removal-confirmation__container h2 {
   font-size: 1.1rem;
   width: 150px;
   height: 100%;
@@ -21,11 +21,11 @@
   text-align: center;
   opacity:0;
   transition: opacity 0.4s ease;
-  margin-top:20%;
+  /*! margin-top:20%; */
   /*! outline: 1px solid green; */
 }
 
-.item-removal-confirmation__container h1.active {
+.item-removal-confirmation__container h2.active {
   opacity:1;
   transition: opacity 0.4s ease-in;
 }
@@ -34,11 +34,13 @@
   opacity:0;
   transition: opacity 0.4s ease;
 
+  margin-bottom: 21px;
 }
 
 .item-removal-confirmation__container button.active {
   opacity:1;
   transition: opacity 0.4s ease-in;
+  margin-bottom: 21px;
 }
 
 

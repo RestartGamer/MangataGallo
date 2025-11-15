@@ -1083,12 +1083,13 @@ window.addEventListener("load", () => {
         return sum + price * Number(item.quantity);
       }, 0);
       console.log("TOTAL BAG PRICE: ", totalBagPrice);
+      
+      let totalPriceElements = document.querySelectorAll(".shopping-cart__product-total-price-value");
 
-      let totalPriceElement = document.querySelector(".shopping-cart__product-total-price-value");
-
-      totalPriceElement.textContent = String(totalBagPrice) + "€";
-
-
+      totalPriceElements.forEach(totalPriceElement => {
+        totalPriceElement.textContent = String(totalBagPrice) + "€";
+      });
+      
     });
   }
 
