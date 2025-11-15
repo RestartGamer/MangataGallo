@@ -17,7 +17,7 @@
 
 
 @media (min-width: 1200px) {
-  .video-background {height: 93.5%;}
+  .video-background {height: 105.5%;top: -1%;}
 }
 @media (max-width: 1200px) {
     .video-background {}

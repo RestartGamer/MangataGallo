@@ -20,6 +20,7 @@ footer {
   /*! column-gap: -0.0%; */
   align-items: center;
   gap: 8.4%;
+  justify-items: center;
 }
 
 .footer__content-item {
@@ -95,8 +96,8 @@ footer {
 }
 }
 @media (max-width: 480px) {
-  .footer__container {height: 268.8px;}
-  .footer__content {gap: 4.3%;}
+  .footer__container {height: 295.5px;padding-bottom: 291px;}
+  .footer__content {gap: 8.3px;display: grid;grid-template-columns: 1fr 1fr 1fr;grid-template-rows: auto auto;}
   .footer__text-container h2 {font-size: 0.7rem;}
   .footer__text-container a {font-size: 0.6rem;line-height: 1.5rem;}
   footer {

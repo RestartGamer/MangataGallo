@@ -71,7 +71,7 @@
   flex-direction:column;
   align-items:center;
   width:100%;
-  /*! height:140%; */
+  height:140%;
   gap: 1.7%;
   margin-top: 6.1%;
   
@@ -180,10 +180,11 @@
 
 .product-page__flex-item-promo{
   display:flex;
-  gap:3.8%;
+  column-gap:6.4px;
   height: 10.5%;
   width: 81.0%;
   background-color: #b8ceb8;
+  border-radius: 5px;
 }
 .product-page__promo{
   /*! flex: 0 0 auto; */
@@ -195,7 +196,7 @@
   /*! outline:2px solid red; */
   /*! text-align: right; */
   display: flex;
-  gap: 8.0%;
+  column-gap: 19.8px;
   align-items: center;
 }
 .product-page__promo-left h2 {
