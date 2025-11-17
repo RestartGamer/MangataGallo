@@ -2,89 +2,93 @@
 //REEL SCROLL NAVIGATION
 /////////////////////////////////////////////////////////////////
 window.addEventListener("load", () => {
-  const scrollContainer = document.querySelector(".reel-promo__article-mask");
-  const navigationContainer = document.querySelector(".reel-promo__navi-content");
-  const buttonLeft = document.querySelector(".reel-promo__navi-dir-button--left");
-  const buttonRight = document.querySelector(".reel-promo__navi-dir-button--right");
-  const scrollContainerBorderWidth = scrollContainer.clientLeft;
-  const scrollContainerPaddingWidth = parseInt(getComputedStyle(scrollContainer).paddingLeft);
-  const scrollContainerRect = scrollContainer.getBoundingClientRect();
-  const visibleItems = parseInt(
-    getComputedStyle(scrollContainer)
-      .getPropertyValue("--reel-promo-number-of-visible-items")
-      .trim(),
-    10
-  ); // Trim whitespace, base 10 for decimal system
+  const scrollContainers = document.querySelectorAll(".reel-promo__article-mask");
 
-  const scrollElements = scrollContainer.querySelectorAll(":scope > *");
+  scrollContainers.forEach(scrollContainer => {
+    // navigation wrapper next to this specific scrollContainer
+    const naviReference = scrollContainer.nextElementSibling;
+    const navigationContainer = naviReference.querySelector(".reel-promo__navi-content");
 
-  const batchPositions = [];
-  let currentScroll = 0;
-  let currentScrollIndex = 0;
+    const buttonLeft = naviReference.querySelector(".reel-promo__navi-dir-button--left");
+    const buttonRight = naviReference.querySelector(".reel-promo__navi-dir-button--right");
 
+    const scrollContainerBorderWidth = scrollContainer.clientLeft;
+    const scrollContainerPaddingWidth = parseInt(getComputedStyle(scrollContainer).paddingLeft);
+    const scrollContainerRect = scrollContainer.getBoundingClientRect();
+    const visibleItems = parseInt(
+      getComputedStyle(scrollContainer)
+        .getPropertyValue("--reel-promo-number-of-visible-items")
+        .trim(),
+      10
+    );
 
+    const scrollElements = scrollContainer.querySelectorAll(":scope > *");
 
+    const batchPositions = [];
+    let currentScrollIndex = 0;
 
-  console.log("scrollElementslength", scrollElements.length);
-  scrollElements.forEach((scrollElement, index) => {
-    //MAPPING SCROLL POSITIONS//
+    console.log("scrollElementslength", scrollElements.length);
 
-    const elementRect = scrollElement.getBoundingClientRect();
+    scrollElements.forEach((scrollElement, index) => {
+      const elementRect = scrollElement.getBoundingClientRect();
 
-    let elementScrollLeft = elementRect.left - scrollContainerRect.left + scrollContainerBorderWidth + scrollContainerPaddingWidth + scrollContainer.scrollLeft;
+      let elementScrollLeft =
+        elementRect.left -
+        scrollContainerRect.left +
+        scrollContainerBorderWidth +
+        scrollContainerPaddingWidth +
+        scrollContainer.scrollLeft;
 
+      if (index % visibleItems === 0) {
+        batchPositions.push(elementScrollLeft); // 0,1,2,...
 
-    if (index % visibleItems === 0) { //This is going 3 6 9
+        const buttonMid = document.createElement("button");
+        buttonMid.classList.add("reel-promo__navi-mid-button");
+        navigationContainer.appendChild(buttonMid);
 
-      batchPositions.push(elementScrollLeft); //This is going 0 1 2
+        buttonMid.addEventListener("click", () => {
+          newScrollTo(index / visibleItems);
+          midButtonChecker();
+        });
+      }
+    });
 
-      let buttonMid = document.createElement("button");
-      buttonMid.classList.add("reel-promo__navi-mid-button");
-      navigationContainer.appendChild(buttonMid);
+    buttonLeft.addEventListener("click", () => {
+      newScrollTo(Math.max(currentScrollIndex - 1, 0));
+      midButtonChecker();
+    });
 
-      buttonMid.addEventListener("click", () => {
-        newScrollTo(index / visibleItems);
-        midButtonChecker();
+    buttonRight.addEventListener("click", () => {
+      newScrollTo(Math.min(currentScrollIndex + 1, batchPositions.length - 1));
+      midButtonChecker();
+    });
+
+    newScrollTo(0);
+    midButtonChecker();
+
+    function newScrollTo(index) {
+      scrollContainer.scrollTo({
+        left: batchPositions[index],
+        behavior: "smooth"
       });
+      currentScrollIndex = index;
     }
 
-
+    function midButtonChecker() {
+      const allMidButtons = navigationContainer.querySelectorAll(".reel-promo__navi-mid-button");
+      allMidButtons.forEach((midButton, index) => {
+        if (index === currentScrollIndex) {
+          midButton.classList.add("active");
+        } else {
+          midButton.classList.remove("active");
+        }
+        console.log("MID BUTTONS:", index);
+        console.log("CURRENT SCROLL INDEX:", currentScrollIndex);
+      });
+    }
   });
-
-  buttonLeft.addEventListener("click", () => {
-    newScrollTo(Math.max(currentScrollIndex - 1, 0));
-    midButtonChecker();
-  });
-
-  buttonRight.addEventListener("click", () => {
-    newScrollTo(Math.min(currentScrollIndex + 1, batchPositions.length - 1));
-    midButtonChecker();
-  });
-
-  newScrollTo(0);
-
-  function newScrollTo(index) {
-    scrollContainer.scrollTo({
-      left: batchPositions[index],
-      behavior: "smooth"
-    })
-    //scrollContainer.scrollLeft = batchPositions[index];
-    currentScrollIndex = index;
-  }
-  function midButtonChecker(){
-    let allMidButtons = document.querySelectorAll(".reel-promo__navi-mid-button");
-    allMidButtons.forEach((midButton,index) => {
-      if (index === currentScrollIndex) {
-        midButton.classList.add("active");
-      } else {
-        midButton.classList.remove("active");
-      }
-      console.log("MID BUTTONS:", index);
-      console.log("CURRENT SCROLL INDEX:", currentScrollIndex);
-    });
-  }
-  
 });
+
 
 
 
