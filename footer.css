@@ -1,0 +1,108 @@
+
+footer {
+}
+
+.footer__container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:558.1px;
+  background-color: white
+}
+
+.footer__content {
+  display:flex;
+  justify-content:center;
+  width:94.8%;
+  height: 90.6%;
+  /*! background-color: rgb(158, 127, 127); */
+  /*! column-gap: -0.0%; */
+  align-items: center;
+  gap: 8.4%;
+  justify-items: center;
+}
+
+.footer__content-item {
+  display:flex;
+  flex-direction:column;
+  align-items:start;
+  width:max-content;
+  height:91.1%;
+  /*! background-color: rgb(255, 249, 168); */
+  /*! outline: 1px solid red; */
+}
+
+.footer__text-container {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:start;
+  /*! outline: 1px solid rgb(60, 255, 0); */
+  margin-bottom: 5.2%;
+}
+
+.footer__text-container h2 {
+  color:black;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  user-select: none;
+  font-weight: bold;
+}
+
+
+.footer__text-container a {
+  font-size:157%;
+  color:black;
+  text-decoration:none;
+  /*! margin-bottom: 0.4rem; */
+  line-height: 2.9rem;
+}
+
+.footer__text-container a:hover {
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+@media (min-width: 1200px) {
+  .footer__container {}
+  .footer__text-container h2 {font-size: 1.5rem;}
+  .footer__text-container a {font-size: 1.4rem;}
+  footer {
+}
+}
+@media (max-width: 1200px) {
+  .footer__container {}
+  .footer__content {}
+  .footer__text-container h2 {}
+  .footer__text-container a {}
+  footer {
+}
+}
+@media (max-width: 992px) {
+  .footer__container {height: 526.6px;}
+  .footer__content {gap: 4.9%;}
+  .footer__text-container h2 {font-size: 1.3rem;}
+  .footer__text-container a {font-size: 1.1rem;}
+  footer {
+}
+}
+@media (max-width: 768px) {
+  .footer__container {}
+  .footer__content {}
+  .footer__text-container h2 {}
+  .footer__text-container a {}
+  footer {
+}
+}
+@media (max-width: 480px) {
+  .footer__container {height: 295.5px;padding-bottom: 291px;}
+  .footer__content {gap: 8.3px;display: grid;grid-template-columns: 1fr 1fr 1fr;grid-template-rows: auto auto;}
+  .footer__text-container h2 {font-size: 0.7rem;}
+  .footer__text-container a {font-size: 0.6rem;line-height: 1.5rem;}
+  footer {
+  /*! transform: translateY(var(--logo-height)); */
+  padding-top: var(--logo-height);
+  background-color: white;
+}
+}

@@ -4,7 +4,7 @@ articles = [
         id: "A0000",
         category: "rings",
         title: "Timeless Ring",
-        description: `Discover rings that capture emotion and elegance — from minimalist bands to bold statement pieces, each crafted to celebrate life’s most meaningful connections.`,
+        description: `Discover rings that capture emotion and elegance — bold statement pieces, each crafted to celebrate life’s most meaningful connections.`,
         video: "video",
         image: "media/ring-variant1.png",
         imageSize: "100%",
@@ -15,6 +15,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage: "media/jewelry-model1.jpg",
         },
 
     {
@@ -32,6 +33,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage: "media/jewelry-model2.jpg",
     },
 
     {
@@ -49,6 +51,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -66,6 +69,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -83,12 +87,13 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
     {
         id: "A0005",
         category: "rings",
         title: "Timeless Ring",
-        description: `Discover rings that capture emotion and elegance — from minimalist bands to bold statement pieces, each crafted to celebrate life’s most meaningful connections.`,
+        description: `Discover rings that capture emotion and elegance — bold statement pieces, each crafted to celebrate life’s most meaningful connections.`,
         video: "video",
         image: "media/ring-variant1.png",
         imageSize: "100%",
@@ -99,6 +104,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
         },
 
     {
@@ -116,6 +122,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -133,6 +140,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -150,6 +158,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 
     {
@@ -167,6 +176,7 @@ articles = [
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",
+        posterImage:""
     },
 ];
 

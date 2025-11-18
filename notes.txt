@@ -1,11 +1,7 @@
 to do:
-
-
-- apply fixes to scrollbar functionality
-- apply fixes to scrollbar dimensions
-- also apply fix to slideshow bug
-- Add the shopping cart and profile icons on the top right
-- Start working on the next few pages for the purchasing of items and all the other stuff. Should be simple enough.
+- For total price in the shopping bag
+ create an array that holds all totals of all the items in the shopping bag.
+ Afterwards, use the reduce() function to accumulate and sum all values in the array.
 
 btw update your profile pick to fit your frame
 
@@ -13,13 +9,13 @@ btw update your profile pick to fit your frame
 
 
 
+https://www.brilliantearth.com/Ballad-Three-Quarter-Coverage-Lab-Diamond-Ring-(1/4-ct.-tw.)-Gold-BE264LC/
 
 
 
 
 
-
-
+https://www.tiffany.com/cart/
 
 
 

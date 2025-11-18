@@ -1,12 +1,35 @@
+/* 1️⃣ RESET / NORMALIZE */
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  font-family: 'EB Garamond', serif;
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
 }
 
-.button-text {
-    font-size: 20px;
+img, video {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 480px) {
+  
 }
