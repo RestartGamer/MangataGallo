@@ -54,11 +54,13 @@ window.addEventListener("load", () => {
     });
 
     buttonLeft.addEventListener("click", () => {
+      console.log("LEFT CLICK", currentScrollIndex);
       newScrollTo(Math.max(currentScrollIndex - 1, 0));
       midButtonChecker();
     });
 
     buttonRight.addEventListener("click", () => {
+      console.log("RIGHT CLICK", currentScrollIndex);
       newScrollTo(Math.min(currentScrollIndex + 1, batchPositions.length - 1));
       midButtonChecker();
     });
@@ -82,8 +84,6 @@ window.addEventListener("load", () => {
         } else {
           midButton.classList.remove("active");
         }
-        console.log("MID BUTTONS:", index);
-        console.log("CURRENT SCROLL INDEX:", currentScrollIndex);
       });
     }
   });

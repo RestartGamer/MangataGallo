@@ -256,7 +256,7 @@
 
 .reel-promo__navi-mid-button.active {
   background-color: black;
-  border: 1px solid whitesmoke;
+  border: 1px solid black;
 }
 
 @media (min-width: 1200px) {

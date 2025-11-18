@@ -776,6 +776,9 @@
 
 /* ====== ≤480px ====== */
 @media (max-width: 480px) {
+  .hamburger-button__container:hover{
+    cursor:pointer;
+  }
 
   .hamburger-button__container.active {
     opacity:1;
