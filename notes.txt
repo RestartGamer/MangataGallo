@@ -1,11 +1,8 @@
 to do:
-- For total price in the shopping bag
- create an array that holds all totals of all the items in the shopping bag.
- Afterwards, use the reduce() function to accumulate and sum all values in the array.
-
-btw update your profile pick to fit your frame
-
-- make submenu disappear when scrolling and add a slight timer when hovering
+- fix the semantic html structure. Nav should not be insideof the main or the header. It is a separate element.
+- Fix the navigation layout for the reels.
+- Adjust the contact form.
+- Adjust the productpage a little bit. (Later you can do the full job)
 
 
 
