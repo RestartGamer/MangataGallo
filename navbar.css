@@ -332,6 +332,7 @@
   padding-top: var(--padding-vertical);
   padding-bottom: var(--padding-vertical);
   border: 1px solid #4a5b4161;
+  background-color: #80808017;
 }
 
 .navbar-mobile__submenu-container {
