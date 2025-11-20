@@ -225,7 +225,7 @@
         </div>
 
 
-        <div class="navbar-mobile__menu-container">
+        <nav class="navbar-mobile__menu-container">
             <div class="navbar-mobile__menu-content" id="navbar-mobile">
                 <div class="navbar-mobile__menu-option">
                     <a href="#">Rings</a>
@@ -289,183 +289,174 @@
                     <a href="#">About</a>
                 </div>
             </div>
+        </nav>
+        <div class="video-background__container">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
+                optional fallback Your browser does not support the video tag.
+            </video>
         </div>
 
 
 
 
 
-
     </header>
-    <main class="active">
-        <script>
-            window.addEventListener("load", () => {
-                window.scrollTo(0, 0);
-                const buttons = document.querySelectorAll(".navbar__option");
-                buttons.forEach(button => {
-                    button.addEventListener("mouseenter", () => {
-                        const rect = button.getBoundingClientRect();
-                        const hoverX = rect.left + rect.width / 2;
-                        document.documentElement.style.setProperty("--hover-x", hoverX + "px");
-                    });
-                });
-            });
-        </script>
+    <nav class="navbar__container">
+        <div class="submenu__bg-animation-background"></div>
+        <div class="submenu__bg-animation--left"></div>
+        <div class="submenu__bg-animation--right"></div>
 
-        <nav class="navbar__container">
-            <div class="submenu__bg-animation-background"></div>
-            <div class="submenu__bg-animation--left"></div>
-            <div class="submenu__bg-animation--right"></div>
+        <ul class="navbar__content" data-type="navbar"></ul>
 
-            <ul class="navbar__content" data-type="navbar"></ul>
+        <div class="quick-menu">
+            <div class="quick-menu__content">
+                <!-- Profile Icon -->
+                <div class="quick-menu__content-item quick-menu__content-item--profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1" />
+                        <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" font-size="70"
+                            font-family="Arial, sans-serif" fill="white">
+                            C
+                        </text>
+                    </svg>
+                </div>
 
-            <div class="quick-menu">
-                <div class="quick-menu__content">
-                    <!-- Profile Icon -->
-                    <div class="quick-menu__content-item quick-menu__content-item--profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1" />
-                            <text x="50%" y="55.5%" text-anchor="middle" dominant-baseline="middle" font-size="70"
-                                font-family="Arial, sans-serif" fill="white">
-                                C
-                            </text>
-                        </svg>
-                    </div>
+                <!-- Shopping Cart Icon -->
+                <div class="quick-menu__content-item quick-menu__content-item--shopping">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke"
+                        stroke-width="0.5" viewBox="0 0 24 24">
+                        <path
+                            d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z" />
+                    </svg>
 
-                    <!-- Shopping Cart Icon -->
-                    <div class="quick-menu__content-item quick-menu__content-item--shopping">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke"
-                            stroke-width="0.5" viewBox="0 0 24 24">
-                            <path
-                                d="M6 2h12a1 1 0 011 1v2h-2V4H7v1H5V3a1 1 0 011-1zm-1 5h14l-1.5 15h-11L5 7zm3 3a1 1 0 112 0v4a1 1 0 11-2 0V10zm6 0a1 1 0 112 0v4a1 1 0 11-2 0V10z" />
-                        </svg>
-
-                        <div class="quick-menu__shopping-cart-counter">
-                            <div class="quick-menu__shopping-cart-counter-text">
-                                <p>1</p>
-                            </div>
+                    <div class="quick-menu__shopping-cart-counter">
+                        <div class="quick-menu__shopping-cart-counter-text">
+                            <p>1</p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Shopping Cart Dropdown -->
-                    <div class="shopping-cart__container">
-                        <div class="shopping-cart__content">
-                            <div class="shopping-cart__top-content">
-                                <div class="horizontal-separator__bg" style="background-color: transparent">
-                                    <hr class="horizontal-separator" style="
+                <!-- Shopping Cart Dropdown -->
+                <div class="shopping-cart__container">
+                    <div class="shopping-cart__content">
+                        <div class="shopping-cart__top-content">
+                            <div class="horizontal-separator__bg" style="background-color: transparent">
+                                <hr class="horizontal-separator" style="
                         width: 90%;
                         height: 0.001%;
                         background: rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
                         border-radius: 100%;
                       " />
-                                </div>
+                            </div>
 
-                                <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag"
-                                    data-articles='[""]'>
-                                    <article class="shopping-cart__product-item">
-                                        <div class="shopping-cart__product-image" style="
+                            <div class="shopping-cart__product-scroll-mask" data-type="shopping-bag"
+                                data-articles='[""]'>
+                                <article class="shopping-cart__product-item">
+                                    <div class="shopping-cart__product-image" style="
                           background-image: url('media/rings-special1.png');
                           background-size: 100%;
                           background-position: center center;
                         "></div>
 
-                                        <div class="shopping-cart__product-details shopping-cart__product-title">
-                                            <h2>Product Name</h2>
-                                        </div>
+                                    <div class="shopping-cart__product-details shopping-cart__product-title">
+                                        <h2>Product Name</h2>
+                                    </div>
 
-                                        <div class="shopping-cart__quantity-container">
-                                            <div class="shopping-cart__product-details shopping-cart__product-quantity">
-                                                <p>Qty:</p>
-                                            </div>
+                                    <div class="shopping-cart__quantity-container">
+                                        <div class="shopping-cart__product-details shopping-cart__product-quantity">
+                                            <p>Qty:</p>
                                         </div>
+                                    </div>
 
-                                        <div class="shopping-cart__product-details shopping-cart__product-price">
-                                            <p>Price:</p>
+                                    <div class="shopping-cart__product-details shopping-cart__product-price">
+                                        <p>Price:</p>
+                                    </div>
+
+                                    <button class="shopping-cart__product-remove-button">
+                                        <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg"
+                                            overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+                                            <title>Remove Product</title>
+                                            <g class="lid">
+                                                <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.6"
+                                                    stroke-linecap="round"></path>
+                                                <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="white"
+                                                    stroke="black" stroke-width="1.6" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </g>
+                                            <rect x="4" y="6.5" width="16" height="14" rx="2" ry="2" fill="white"
+                                                stroke="black" stroke-width="1.6"></rect>
+                                            <line x1="10" y1="10" x2="10" y2="17" stroke="black" stroke-width="1.6"
+                                                stroke-linecap="round"></line>
+                                            <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6"
+                                                stroke-linecap="round"></line>
+                                        </svg>
+                                    </button>
+
+                                    <div class="shopping-cart__product-item-removal-confirmation active">
+                                        <div class="item-removal-confirmation__container">
+                                            <h2>
+                                                "Remove this item<br />
+                                                from your cart?"
+                                            </h2>
                                         </div>
-
-                                        <button class="shopping-cart__product-remove-button">
-                                            <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg"
-                                                overflow="visible" viewBox="0 0 24 24" width="24" height="24">
-                                                <title>Remove Product</title>
-                                                <g class="lid">
-                                                    <path d="M3 6h18" fill="none" stroke="currentColor"
-                                                        stroke-width="1.6" stroke-linecap="round"></path>
-                                                    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" fill="white"
-                                                        stroke="black" stroke-width="1.6" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
-                                                </g>
-                                                <rect x="4" y="6.5" width="16" height="14" rx="2" ry="2" fill="white"
-                                                    stroke="black" stroke-width="1.6"></rect>
-                                                <line x1="10" y1="10" x2="10" y2="17" stroke="black" stroke-width="1.6"
-                                                    stroke-linecap="round"></line>
-                                                <line x1="14" y1="10" x2="14" y2="17" stroke="black" stroke-width="1.6"
-                                                    stroke-linecap="round"></line>
-                                            </svg>
-                                        </button>
-
-                                        <div class="shopping-cart__product-item-removal-confirmation active">
-                                            <div class="item-removal-confirmation__container">
-                                                <h2>
-                                                    "Remove this item<br />
-                                                    from your cart?"
-                                                </h2>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
+                                    </div>
+                                </article>
                             </div>
+                        </div>
 
-                            <div class="horizontal-separator__bg" style="background-color: transparent">
-                                <hr class="horizontal-separator" style="
+                        <div class="horizontal-separator__bg" style="background-color: transparent">
+                            <hr class="horizontal-separator" style="
                       width: 90%;
                       height: 0.001%;
                       background: rgba(83, 83, 83, 0.43);
                       border: 1px solid rgba(83, 83, 83, 0.18);
                       border-radius: 100%;
                     " />
+                        </div>
+
+                        <div class="shopping-cart__product-bottom-content">
+                            <div class="horizontal-separator__bg" style="background-color: transparent; height: 0.1vh">
+                                <hr class="horizontal-separator" style="
+                        width: 90%;
+                        height: 0.001%;
+                        background: rgba(83, 83, 83, 0.43);
+                        border: 1px solid rgba(83, 83, 83, 0.18);
+                        border-radius: 100%;
+                      ">
                             </div>
 
-                            <div class="shopping-cart__product-bottom-content">
-                                <div class="horizontal-separator__bg"
-                                    style="background-color: transparent; height: 0.1vh">
-                                    <hr class="horizontal-separator" style="
+                            <div class="shopping-cart__product-total-price">
+                                <h2 class="shopping-cart__product-total-price-title">Total price:</h2>
+                                <h2 class="shopping-cart__product-total-price-value"></h2>
+                            </div>
+
+                            <div class="horizontal-separator__bg" style="background-color: transparent; height: 0.1vh">
+                                <hr class="horizontal-separator" style="
                         width: 90%;
                         height: 0.001%;
                         background: rgba(83, 83, 83, 0.43);
                         border: 1px solid rgba(83, 83, 83, 0.18);
                         border-radius: 100%;
                       ">
-                                </div>
+                            </div>
+                            <div class="shopping-cart__product-edit-bag">
+                                <a href="#">Edit bag</a>
+                            </div>
 
-                                <div class="shopping-cart__product-total-price">
-                                    <h2 class="shopping-cart__product-total-price-title">Total price:</h2>
-                                    <h2 class="shopping-cart__product-total-price-value"></h2>
-                                </div>
-
-                                <div class="horizontal-separator__bg"
-                                    style="background-color: transparent; height: 0.1vh">
-                                    <hr class="horizontal-separator" style="
-                        width: 90%;
-                        height: 0.001%;
-                        background: rgba(83, 83, 83, 0.43);
-                        border: 1px solid rgba(83, 83, 83, 0.18);
-                        border-radius: 100%;
-                      ">
-                                </div>
-                                <div class="shopping-cart__product-edit-bag">
-                                    <a href="#">Edit bag</a>
-                                </div>
-
-                                <div class="shopping-cart__go-to-checkout">
-                                    <a href="#">Go to Checkout</a>
-                                </div>
+                            <div class="shopping-cart__go-to-checkout">
+                                <a href="#">Go to Checkout</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
+    <main class="active">
+
+
 
 
 
@@ -475,13 +466,7 @@
         <script src="navbar.js"></script>
         <script src="shopping-cart.js"></script>
 
-        <div class="video-background__container">
-            <video autoplay muted loop playsinline class="video-background">
-                <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
-                optional fallback Your browser does not support the video tag.
-            </video>
-            <div class="empty-space2"></div>
-        </div>
+
 
 
         <!-- Promo Banner -->
@@ -628,13 +613,13 @@
                     </article>
                     <article class="footer__content-item">
                         <div class="footer__text-container">
-                        <h2>Terms & Conditions</h2>
-                        <a href="#">Legal Notices</a>
-                        <a href="#">Privacy Settings</a>
-                        <a href="#">Terms of Use</a>
-                    </div>
+                            <h2>Terms & Conditions</h2>
+                            <a href="#">Legal Notices</a>
+                            <a href="#">Privacy Settings</a>
+                            <a href="#">Terms of Use</a>
+                        </div>
                     </article>
-                    
+
                 </div>
             </section>
 

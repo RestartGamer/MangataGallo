@@ -38,6 +38,7 @@ main.active {
 
   main.active {
     display: block;
+    margin-top: 100vh;
   }
 }
 
@@ -70,6 +71,6 @@ main.active {
 
   main.active {
     display: block;
-    margin-top: var(--logo-height);
+    margin-top: 100vh;
   }
 }

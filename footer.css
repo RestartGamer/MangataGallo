@@ -66,10 +66,12 @@ footer {
 
 @media (min-width: 1200px) {
   .footer__container {}
+  .footer__content {gap: 4.6%;}
   .footer__text-container h2 {font-size: 1.5rem;}
   .footer__text-container a {font-size: 1.4rem;}
   footer {
 }
+  
 }
 @media (max-width: 1200px) {
   .footer__container {}

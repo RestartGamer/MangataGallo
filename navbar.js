@@ -141,6 +141,17 @@ window.addEventListener("load", () => {
       submenu.classList.remove("active");
     });
   });
+  window.addEventListener("load", () => {
+                window.scrollTo(0, 0);
+                const buttons = document.querySelectorAll(".navbar__option");
+                buttons.forEach(button => {
+                    button.addEventListener("mouseenter", () => {
+                        const rect = button.getBoundingClientRect();
+                        const hoverX = rect.left + rect.width / 2;
+                        document.documentElement.style.setProperty("--hover-x", hoverX + "px");
+                    });
+                });
+            });
   ///////////////////////////////////////////////////////////////
   //NAVBAR-MOBILE
   ///////////////////////////////////////////////////////////////

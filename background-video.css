@@ -11,13 +11,13 @@
 
 .video-background__container {
   width:100vw;
-  height:100vh;
+  /*! height:100vh; */
 }
 
 
 
 @media (min-width: 1200px) {
-  .video-background {height: 105.5%;top: -1%;}
+  .video-background {height: 121.5%;top: -7%;}
 }
 @media (max-width: 1200px) {
     .video-background {}
