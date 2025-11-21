@@ -416,8 +416,8 @@ window.addEventListener("load", () => {
       content.innerHTML = "";
       content.dataset.cleared = "true"; // mark this container as cleared
     }
-    //Title
 
+    //Title
     let selectionEl = content.parentElement;
     if (!selectionEl.classList.contains("reel-promo__container--selection")) {
       let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
@@ -490,16 +490,21 @@ window.addEventListener("load", () => {
     //Navigation
     let naviContainer = document.createElement("div"); naviContainer.classList.add("reel-promo__navi-container");
     let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
-    let naviButtonLeft = document.createElement("button"); naviButtonLeft.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--left");
-    let naviButtonRight = document.createElement("button"); naviButtonRight.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--right");
+    //left and right buttons are created in reel.js
 
     content.appendChild(naviContainer);
     naviContainer.appendChild(naviContent);
-    naviContent.appendChild(naviButtonLeft);
-    naviContent.appendChild(naviButtonRight);
+    
+
+
+
+
 
 
   }
+
+
+
 
   function createSlideshow(articles, elementId) {
     let content = document.getElementById(elementId)

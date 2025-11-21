@@ -1,5 +1,4 @@
 to do:
-- fix the semantic html structure. Nav should not be insideof the main or the header. It is a separate element.
 - Fix the navigation layout for the reels.
 - Adjust the contact form.
 - Adjust the productpage a little bit. (Later you can do the full job)
