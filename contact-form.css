@@ -132,7 +132,7 @@
   .contact-form__content {}
   .contact-form__content h2 {}
   .contact-form__content p {}
-  .contact-form__form {width: 151.9%;}
+  .contact-form__form {width: 100%;}
   .contact-form__form-group {}
   .contact-form__form button {height: 18%;width: 41.5%;}
 }
