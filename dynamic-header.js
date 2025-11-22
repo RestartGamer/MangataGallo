@@ -1,6 +1,3 @@
-
-
-
 function dynamicQuickMenu() {
   const quickMenu = document.querySelector(".quick-menu");
   const scrollThreshold = 100;

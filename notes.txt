@@ -1,5 +1,4 @@
 to do:
-- Fix the navigation layout for the reels.
 - Adjust the contact form.
 - Adjust the productpage a little bit. (Later you can do the full job)
 
