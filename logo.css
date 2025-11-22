@@ -1,5 +1,5 @@
 .logo__container {
-  width: 100%;
+  width: 100vw;
   background-color: rgba(52, 80, 80, 0.85);
   z-index: 100;
   /*! display: inline-block; */
