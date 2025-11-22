@@ -324,6 +324,10 @@ window.addEventListener("load", () => {
       compImageCell.classList.add("poster__comp-mobile-image");
       let compA = document.createElement("a");
       compA.href = "product.html";
+      compA.addEventListener("click", (e) => {
+        localStorage.setItem("selectedArticles", article.id);
+        window.location.href = "product.html";
+      });
 
       content.parentElement.insertAdjacentElement("beforebegin", compMobileContainer);
 
