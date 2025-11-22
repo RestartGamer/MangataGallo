@@ -107,7 +107,7 @@ window.addEventListener("load", () => {
     }
 
     const mobileContent = document.querySelector("header #navbar-mobile");
-    mobileContent.innerHTML="";
+    mobileContent.innerHTML = "";
     navbarContents.forEach(navbarContent => {
 
       ////MOBILE SECTION
@@ -131,9 +131,9 @@ window.addEventListener("load", () => {
       mobileSubContainer.appendChild(mobileSubContent);
 
       let mobileTitleDesignBoxL = document.createElement("div");
-      mobileTitleDesignBoxL.classList.add("navbar-mobile__submenu-title-box","navbar-mobile__submenu-title-box--left");
+      mobileTitleDesignBoxL.classList.add("navbar-mobile__submenu-title-box", "navbar-mobile__submenu-title-box--left");
       let mobileTitleDesignBoxR = document.createElement("div");
-      mobileTitleDesignBoxR.classList.add("navbar-mobile__submenu-title-box","navbar-mobile__submenu-title-box--right");
+      mobileTitleDesignBoxR.classList.add("navbar-mobile__submenu-title-box", "navbar-mobile__submenu-title-box--right");
       let mobileTitleContent = document.createElement("div");
       mobileTitleContent.classList.add("navbar-mobile__submenu-title-content");
       let mobileTitleH2 = document.createElement("h2");
@@ -147,8 +147,8 @@ window.addEventListener("load", () => {
 
       ////////////
       ////DESKTOP SECTION
-      
-      let navbarOption = navbarContent.option; 
+
+      let navbarOption = navbarContent.option;
 
       let navbarOptionContainer = document.createElement("li");
       navbarOptionContainer.classList.add("navbar__option");
@@ -178,7 +178,7 @@ window.addEventListener("load", () => {
         mobileSubSectionContainer.classList.add("navbar-mobile__submenu-sections", "navbar-mobile__submenu-section-container");
         mobileSubContent.appendChild(mobileSubSectionContainer);
 
-        let mobileSubSectionTitleH2  = document.createElement("h2");
+        let mobileSubSectionTitleH2 = document.createElement("h2");
         mobileSubSectionTitleH2.textContent = section.sectionName;
         mobileSubSectionContainer.appendChild(mobileSubSectionTitleH2);
         /////////////////////
@@ -313,7 +313,7 @@ window.addEventListener("load", () => {
     }
 
     articles.forEach(article => {
-      
+
       let compMobileContainer = document.createElement("section");
       compMobileContainer.classList.add("poster__comp-mobile-container");
       let compMobileContent = document.createElement("div");
@@ -323,9 +323,9 @@ window.addEventListener("load", () => {
       let compImageCell = document.createElement("div");
       compImageCell.classList.add("poster__comp-mobile-image");
       let compA = document.createElement("a");
-      compA.href ="product.html";
+      compA.href = "product.html";
 
-      content.parentElement.insertAdjacentElement("beforebegin",compMobileContainer);
+      content.parentElement.insertAdjacentElement("beforebegin", compMobileContainer);
 
       compMobileContainer.appendChild(compMobileContent);
       compMobileContainer.appendChild(compA);
@@ -346,7 +346,7 @@ window.addEventListener("load", () => {
       compImage.src = article.image;
       compImageCell.appendChild(compImage);
 
-      
+
 
 
       //Text
@@ -494,7 +494,7 @@ window.addEventListener("load", () => {
 
     content.appendChild(naviContainer);
     naviContainer.appendChild(naviContent);
-    
+
 
 
 
@@ -670,11 +670,22 @@ window.addEventListener("load", () => {
       const titlePrice = document.createElement("div");
       titlePrice.className = "product-page__titleandprice-container";
 
+      const titleDivContainer = document.createElement("div");
+      titleDivContainer.classList.add("product-page__flex-item-title-container");
+
       const titleDiv = document.createElement("div");
       titleDiv.className = "product-page__flex-item product-page__flex-item-title";
       const titleH1 = document.createElement("h2");
       titleH1.textContent = assignedArticle.title;
       titleDiv.appendChild(titleH1);
+
+
+      if (window.matchMedia("(max-width: 480px)").matches) {
+        titleDivContainer.appendChild(titleDiv);
+        container.parentElement.parentNode.insertBefore(titleDivContainer, container.parentElement);
+      } else{
+        titlePrice.appendChild(titleDiv);
+      }
 
       const priceDiv = document.createElement("div");
       priceDiv.className = "product-page__flex-item product-page__flex-item-price";
@@ -682,7 +693,9 @@ window.addEventListener("load", () => {
       priceH1.textContent = assignedArticle.price;
       priceDiv.appendChild(priceH1);
 
-      titlePrice.appendChild(titleDiv);
+
+      
+
       titlePrice.appendChild(priceDiv);
       rightContent.appendChild(titlePrice);
 
@@ -1088,13 +1101,13 @@ window.addEventListener("load", () => {
         return sum + price * Number(item.quantity);
       }, 0);
       console.log("TOTAL BAG PRICE: ", totalBagPrice);
-      
+
       let totalPriceElements = document.querySelectorAll(".shopping-cart__product-total-price-value");
 
       totalPriceElements.forEach(totalPriceElement => {
         totalPriceElement.textContent = String(totalBagPrice) + "€";
       });
-      
+
     });
   }
 
