@@ -26,7 +26,6 @@ window.addEventListener("load", () => {
     const batchPositions = [];
     let currentScrollIndex = 0;
 
-    console.log("scrollElementslength", scrollElements.length);
 
 
     let naviButtonLeft = document.createElement("button"); naviButtonLeft.classList.add("reel-promo__navi-dir-button", "reel-promo__navi-dir-button--left");
@@ -34,7 +33,6 @@ window.addEventListener("load", () => {
     const buttonLeft = naviReference.querySelector(".reel-promo__navi-dir-button--left");
 
     buttonLeft.addEventListener("click", () => {
-      console.log("LEFT CLICK", currentScrollIndex);
       newScrollTo(Math.max(currentScrollIndex - 1, 0));
       midButtonChecker();
     });
@@ -75,7 +73,6 @@ window.addEventListener("load", () => {
     const buttonRight = naviReference.querySelector(".reel-promo__navi-dir-button--right");
 
     buttonRight.addEventListener("click", () => {
-      console.log("RIGHT CLICK", currentScrollIndex);
       newScrollTo(Math.min(currentScrollIndex + 1, batchPositions.length - 1));
       midButtonChecker();
     });

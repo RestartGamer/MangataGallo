@@ -45,7 +45,6 @@ window.addEventListener("load", () => {
           elementArticleArray = JSON.parse(element.dataset.articles);
           filteredArticles = articleSetup(articles, elementArticleCategories, elementArticleArray, element);
           createReel(filteredArticles, element.id);
-          console.log(filteredArticles);
           break;
         case dataTypes[4]:
           element.id = `S${String(index).padStart(4, '0')}`;
@@ -53,7 +52,6 @@ window.addEventListener("load", () => {
           elementArticleArray = JSON.parse(element.dataset.articles);
           filteredArticles = articleSetup(articles, elementArticleCategories, elementArticleArray, element);
           createSlideshow(filteredArticles, element.id);
-          console.log(filteredArticles);
           break;
         case dataTypes[5]:
           element.id = `CH${String(index).padStart(4, '0')}`;
@@ -718,7 +716,6 @@ window.addEventListener("load", () => {
   function renderCheckout(checkoutContent, elementId, assignedArticleId) {
     // Reference to the checkout container
     let container = document.getElementById(elementId);
-    console.log(elementId);
     if (!container) return;
 
     if (!container.dataset.cleared) {
@@ -997,14 +994,11 @@ window.addEventListener("load", () => {
 
       content.innerHTML = "";
 
-      console.log("shopping bag function is running", shoppingArticleIds);
-
       // Filter valid articles (only those that exist)
       const shoppingArticles = articles.filter(article =>
         shoppingArticleIds.includes(article.id)
       );
 
-      console.log("filtered", shoppingArticles);
 
       // 🧹 Remove invalid IDs from localStorage (nonexistent articles)
       const validIds = shoppingArticles.map(a => a.id);
@@ -1213,7 +1207,6 @@ window.addEventListener("load", () => {
         const price = parsePrice(item.price);
         return sum + price * Number(item.quantity);
       }, 0);
-      console.log("TOTAL BAG PRICE: ", totalBagPrice);
 
       let totalPriceElements = document.querySelectorAll(".shopping-cart__product-total-price-value");
 
