@@ -74,5 +74,6 @@ main.active {
     display: block;
     /*! margin-top: 100vh; */
     overflow-y: initial;
+    overflow-x: clip;
   }
 }
