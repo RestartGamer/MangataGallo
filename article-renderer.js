@@ -230,67 +230,92 @@ window.addEventListener("load", () => {
             aItem.textContent = listItem;
             switch (navbarContent.option) {
               case "Rings":
+                
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
-                aItem.addEventListener("click", (e) => {
+                mobileSubTextA.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
-                navbarOptionLink.addEventListener("click", (e) => {
+                aItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
                 break;
               case "Necklaces":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "necklaces");
-                aItem.addEventListener("click", (e) => {
+                mobileSubTextA.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
-                navbarOptionLink.addEventListener("click", (e) => {
+                aItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
                 break;
               case "Earrings":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "earrings");
-                aItem.addEventListener("click", (e) => {
+                mobileSubTextA.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
-                navbarOptionLink.addEventListener("click", (e) => {
+                aItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
                 break;
               case "Bracelets":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "bracelets");
-                aItem.addEventListener("click", (e) => {
+                mobileSubTextA.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
-                navbarOptionLink.addEventListener("click", (e) => {
+                aItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
                 break;
               case "Watches":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "watches");
-                aItem.addEventListener("click", (e) => {
+                mobileSubTextA.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
-                navbarOptionLink.addEventListener("click", (e) => {
+                aItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
                 break;
               case "Collections":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
-                aItem.addEventListener("click", (e) => {
+                mobileSubTextA.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
-                navbarOptionLink.addEventListener("click", (e) => {
+                aItem.addEventListener("click", () => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", () => {
                   localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
                   window.location.href = "product.html";
                 });
@@ -302,6 +327,14 @@ window.addEventListener("load", () => {
             ul.appendChild(liItem);
           });
         } else if (typeof section.listItems === "string" && section.listItems !== "none") {
+
+          ////MOBILE SECTION
+          const mobileP = document.createElement("p");
+          mobileP.textContent = section.listItems;
+          mobileSubSectionContainer.appendChild(mobileP);
+
+
+          ////DESKTOP SECTION
           const p = document.createElement("p");
           p.textContent = section.listItems;
           sectionElement.appendChild(p);
