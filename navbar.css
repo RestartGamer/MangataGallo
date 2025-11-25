@@ -296,11 +296,11 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 3.5%;
+  row-gap: 26px;
   /*This is for testing*/
-  overflow-y: auto;
-  padding-top: 8.2%;
-  padding-bottom: 18.5%;
+  /*! overflow-y: clip; */
+  padding-top: 31px;
+  padding-bottom: 20px;
 }
 
 .navbar-mobile__menu-option-content {
@@ -328,7 +328,7 @@
   width: 100%;
   height: max-content;
   /*! outline: 1px solid red; */
-  padding-left: 8.2%;
+  padding-left: 40px;
   padding-top: var(--padding-vertical);
   padding-bottom: var(--padding-vertical);
   border: 1px solid #4a5b4161;
@@ -357,8 +357,8 @@
   align-items: center;
   justify-content: start;
   width: 100%;
-  height: max-content;
-  row-gap: 4.7%;
+  height: 100%;
+  row-gap: 32px;
   overflow-y: auto;
   padding-bottom: 102px;
 }
@@ -815,6 +815,7 @@
     pointer-events: auto;
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
+    height: 100vh;
   }
 
 

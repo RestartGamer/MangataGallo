@@ -20,7 +20,8 @@ header {
 
 main {
 
-  display: none;
+  /*! display: none; */
+  overflow-y: hidden;
 }
 
 main.active {
@@ -46,7 +47,7 @@ main.active {
 
   main.active {
     display: block;
-    margin-top: 100vh;
+    /*! margin-top: 100vh; */
   }
 }
 
@@ -71,6 +72,7 @@ main.active {
 
   main.active {
     display: block;
-    margin-top: 100vh;
+    /*! margin-top: 100vh; */
+    overflow-y: initial;
   }
 }
