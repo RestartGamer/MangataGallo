@@ -65,7 +65,7 @@ articles = [
         imagePosition: "center center",
         link: "link",
         price: "360€",
-        checkImages: ["media/bracelet-variant1.jpg", "media/bracelet-gold1.jpg"],
+        checkImages: ["media/bracelet-variant1.jpg", "media/bracelet-gold_1.jpg"],
         checkImageSizes: ["100%", "100%"],
         checkImagePositions: ["center center", "center center"],
         checkVideo: "media/rings-hands-downscaled.mp4",

@@ -13,7 +13,10 @@ window.addEventListener("load", () => {
       switch (dataType) {
         case dataTypes[0]:
           element.id = `N${String(index).padStart(4, '0')}`;
-          createNavbarList(navbarContent, element.id);
+          elementArticleCategories = JSON.parse(element.dataset.categories);
+          elementArticleArray = JSON.parse(element.dataset.articles);
+          filteredArticles = articleSetup(articles, elementArticleCategories, elementArticleArray, element);
+          createNavbarList(navbarContent, element.id, filteredArticles);
           break;
 
         case dataTypes[1]:
@@ -98,7 +101,7 @@ window.addEventListener("load", () => {
   }
 
 
-  function createNavbarList(navbarContents, elementId) {
+  function createNavbarList(navbarContents, elementId, filteredArticles) {
     let content = document.getElementById(elementId);
     if (!content) return;
     if (!content.dataset.cleared) {
@@ -157,7 +160,10 @@ window.addEventListener("load", () => {
       navbarOptionLink.classList.add("navbar__option-link");
       navbarOptionLink.textContent = navbarOption;
 
-      navbarOptionLink.href = navbarContent.optionLink;
+      if (navbarContent.option === "Home"){
+        menuOptionA.href = "home.html";
+        navbarOptionLink.href = "home.html";
+      }
 
       navbarOptionContainer.appendChild(navbarOptionLink);
 
@@ -220,7 +226,77 @@ window.addEventListener("load", () => {
             ////DESKTOP SECTION
             const liItem = document.createElement("li");
             const aItem = document.createElement("a");
+            let selectedArticle = [];
             aItem.textContent = listItem;
+            switch (navbarContent.option) {
+              case "Rings":
+                selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
+                aItem.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                break;
+              case "Necklaces":
+                selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "necklaces");
+                aItem.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                break;
+              case "Earrings":
+                selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "earrings");
+                aItem.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                break;
+              case "Bracelets":
+                selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "bracelets");
+                aItem.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                break;
+              case "Watches":
+                selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "watches");
+                aItem.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                break;
+              case "Collections":
+                selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
+                aItem.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                navbarOptionLink.addEventListener("click", (e) => {
+                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+                  window.location.href = "product.html";
+                });
+                break;
+            }
+
             aItem.href = "#";
             liItem.appendChild(aItem);
             ul.appendChild(liItem);
@@ -687,7 +763,7 @@ window.addEventListener("load", () => {
       if (window.matchMedia("(max-width: 480px)").matches) {
         titleDivContainer.appendChild(titleDiv);
         container.parentElement.parentNode.insertBefore(titleDivContainer, container.parentElement);
-      } else{
+      } else {
         titlePrice.appendChild(titleDiv);
       }
 
@@ -698,7 +774,7 @@ window.addEventListener("load", () => {
       priceDiv.appendChild(priceH1);
 
 
-      
+
 
       titlePrice.appendChild(priceDiv);
       rightContent.appendChild(titlePrice);
