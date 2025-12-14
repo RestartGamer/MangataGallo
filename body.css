@@ -33,31 +33,7 @@ main.active {
   height: 100%;
 }
 
-/* Skip link (keyboard accessibility) */
-.skip-link {
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  z-index: 9999;
 
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-
-  background: #fff;
-  color: #000;
-  text-decoration: none;
-
-  transform: translateY(-200%);
-  transition: transform 0.2s ease;
-}
-
-/* Show when tabbed to */
-.skip-link:focus,
-.skip-link:focus-visible {
-  transform: translateY(0);
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-}
 
 
 @media (min-width: 1200px) {
