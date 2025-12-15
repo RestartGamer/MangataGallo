@@ -22,7 +22,7 @@
   width: 32%;
   /*! object-fit: cover; */
   /*! aspect-ratio: 1 / 1; */
-  /*! height: auto; */
+  height: auto;
   display: inline;
 }
 
@@ -53,7 +53,7 @@
     width: 32%;
     /*! object-fit: cover; */
     /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
+    height: auto;
     display: inline;
   }
 
@@ -70,7 +70,7 @@
     width: 32%;
     /*! object-fit: cover; */
     /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
+    height: auto;
     display: inline;
   }
 
@@ -87,7 +87,7 @@
     width: 32%;
     /*! object-fit: cover; */
     /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
+    height: auto;
     display: inline;
   }
 
@@ -104,7 +104,7 @@
     width: 71.8%;
     /*! object-fit: cover; */
     /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
+    height: auto;
     display: inline;
   }
 
