@@ -194,6 +194,7 @@
 .reel-promo__navi-dir-button {
   all: unset;
   font-size: 3.0rem;
+  aspect-ratio: 1 / 1;
 }
 
 .reel-promo__navi-dir-button--left {
@@ -202,7 +203,7 @@
   width: max-content;
   height: max-content;
   width: 20px;
-  height: 20px;
+  /*! height: 20px; */
   border: 3px solid black;
   border-left: none;
   border-top: none;
@@ -216,7 +217,7 @@
   /*! position: absolute; */
   /*! right: 28.5%; */
   width: 20px;
-  height: 20px;
+  /*! height: 18px; */
   border: 3px solid black;
   border-top-width: 3px;
   border-top-style: solid;
