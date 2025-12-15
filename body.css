@@ -29,40 +29,29 @@ main.active {
 }
 
 
-.empty-space2 {
-  height: 100%;
-}
 
 
 
 
 @media (min-width: 1200px) {
-  .empty-space2 {}
 
   main.active {
     display: block;
-    margin-top: 100vh;
     overflow-x: clip;
   }
 }
 
 @media (max-width: 1200px) {
-  .empty-space2 {}
 
   main.active {
     display: block;
-    /*! margin-top: 100vh; */
   }
 }
 
 @media (max-width: 992px) {
-  .empty-space2 {
-    /*! height: 531.8px; */
-  }
 }
 
 @media (max-width: 768px) {
-  .empty-space2 {}
 
   main.active {
     display: block;
@@ -70,14 +59,13 @@ main.active {
 }
 
 @media (max-width: 480px) {
-  .empty-space2 {
-    /*! height: 29vh; */
-  }
 
   main.active {
     display: block;
-    /*! margin-top: 100vh; */
     overflow-y: initial;
     overflow-x: clip;
+  }
+  .page-home{
+    margin-bottom:100vh;
   }
 }

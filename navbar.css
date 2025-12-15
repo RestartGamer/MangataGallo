@@ -16,6 +16,7 @@
   height: 60px;
   visibility: visible;
   pointer-events: auto;
+  margin-bottom: 100vh;
 }
 
 .navbar__content {
