@@ -142,16 +142,16 @@ window.addEventListener("load", () => {
     });
   });
   window.addEventListener("load", () => {
-                window.scrollTo(0, 0);
-                const buttons = document.querySelectorAll(".navbar__option");
-                buttons.forEach(button => {
-                    button.addEventListener("mouseenter", () => {
-                        const rect = button.getBoundingClientRect();
-                        const hoverX = rect.left + rect.width / 2;
-                        document.documentElement.style.setProperty("--hover-x", hoverX + "px");
-                    });
-                });
-            });
+    window.scrollTo(0, 0);
+    const buttons = document.querySelectorAll(".navbar__option");
+    buttons.forEach(button => {
+      button.addEventListener("mouseenter", () => {
+        const rect = button.getBoundingClientRect();
+        const hoverX = rect.left + rect.width / 2;
+        document.documentElement.style.setProperty("--hover-x", hoverX + "px");
+      });
+    });
+  });
   ///////////////////////////////////////////////////////////////
   //NAVBAR-MOBILE
   ///////////////////////////////////////////////////////////////
@@ -166,7 +166,14 @@ window.addEventListener("load", () => {
 
   const mobileMenuOptionParent = document.querySelector(".navbar-mobile__menu-content");
   const menuOptions = mobileMenuOptionParent.querySelectorAll(".navbar-mobile__menu-option");
-  //nodeList
+
+  // ✅ Add this helper (keeps ARIA in sync with your CSS state)
+  function syncMenuAria() {
+    const isOpen = mobileMenu.classList.contains("active");
+    hamburgerButton.setAttribute("aria-expanded", String(isOpen));
+    closeButton.setAttribute("aria-expanded", String(isOpen));
+  }
+
   submenus.forEach(submenu => {
     returnButtons.forEach(returnButton => {
       returnButton.addEventListener("click", () => {
@@ -174,9 +181,6 @@ window.addEventListener("load", () => {
       });
     });
   });
-
-
-
 
   closeButton.addEventListener("click", () => {
     closeButton.classList.toggle("active");
@@ -191,6 +195,8 @@ window.addEventListener("load", () => {
       }
     });
 
+    // ✅ Add this
+    syncMenuAria();
   });
 
   hamburgerButton.addEventListener("click", () => {
@@ -199,8 +205,10 @@ window.addEventListener("load", () => {
     main.classList.toggle("active");
     mobileMenu.classList.toggle("active");
     body.classList.toggle("active");
-  });
 
+    // ✅ Add this
+    syncMenuAria();
+  });
 
   menuOptions.forEach(menuOption => {
     menuOption.addEventListener("click", () => {
@@ -210,6 +218,4 @@ window.addEventListener("load", () => {
       }
     });
   });
-
-
 });

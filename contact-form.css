@@ -107,6 +107,9 @@
   background-color:darkgray;
   
 }
+#message {
+  resize: vertical;
+}
 
 @media (min-width: 1200px) {
   .contact-form__container {}

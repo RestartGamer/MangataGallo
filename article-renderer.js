@@ -159,6 +159,7 @@ window.addEventListener("load", () => {
       let navbarOptionLink = document.createElement("a");
       navbarOptionLink.classList.add("navbar__option-link");
       navbarOptionLink.textContent = navbarOption;
+      navbarOptionLink.href="product.html";
       navbarOptionLink.setAttribute("aria-label", `${navbarOption} category`);
       navbarOptionLink.setAttribute("title", navbarOption);
 
@@ -484,7 +485,7 @@ window.addEventListener("load", () => {
 
 
       //Text
-      let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");
+      let textCell = document.createElement("div"); textCell.classList.add("poster__text-cell");
       let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
       let textContent = document.createElement("div"); textContent.classList.add("poster__text-content");
       let h1 = document.createElement("h2");
@@ -1045,6 +1046,12 @@ window.addEventListener("load", () => {
           }
         });
       });
+
+      const hamburgerButton = document.querySelector(".hamburger-button__container");
+      const closeButton = document.querySelector(".hamburger-button__container--close");
+
+      if (hamburgerButton) hamburgerButton.setAttribute("aria-expanded", "false");
+      if (closeButton) closeButton.setAttribute("aria-expanded", "false");
     });
   }
 
@@ -1307,9 +1314,4 @@ window.addEventListener("load", () => {
   if (!localStorage.getItem("selectedArticles")) {
     localStorage.setItem("selectedArticles", "");
   }
-
-
-
-
-
 });
