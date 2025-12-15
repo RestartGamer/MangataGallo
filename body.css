@@ -33,12 +33,16 @@ main.active {
   height: 100%;
 }
 
+
+
+
 @media (min-width: 1200px) {
   .empty-space2 {}
 
   main.active {
     display: block;
     margin-top: 100vh;
+    overflow-x: clip;
   }
 }
 

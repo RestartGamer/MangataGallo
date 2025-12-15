@@ -2,11 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--<meta http-equiv="refresh" content="5" />-->
-    <title>Portfolio-Website</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Front-end developer in Lisbon building clean, responsive interfaces with HTML, CSS, and JavaScript.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Can Korkmaz">
+    <meta property="og:title" content="Can Korkmaz | Front-End Developer">
+    <meta property="og:description"
+        content="Front-end developer in Lisbon building clean, responsive interfaces with HTML, CSS, and JavaScript.">
+    <meta property="og:url" content="https://can-k-portfolio.netlify.app/">
+
+    <meta property="og:image" content="https://can-k-cv.netlify.app/media/preview-CV.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Can Korkmaz portfolio preview">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Can Korkmaz | Front-End Developer">
+    <meta name="twitter:description"
+        content="Front-end developer in Lisbon building clean, responsive interfaces with HTML, CSS, and JavaScript.">
+    <meta name="twitter:image" content="https://can-k-cv.netlify.app/media/preview-CV.png">
+
+    <link rel="canonical" href="https://can-k-portfolio.netlify.app/">
+    <meta name="robots" content="index,follow">
+
+
+    <title>Can Korkmaz | Front-End Developer</title>
+
+    <link rel="icon" href="media/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="media/apple-touch-icon.png">
+    <link rel="manifest" href="media/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 
 
@@ -49,28 +82,30 @@
 </head>
 
 <body>
+
     <header>
-
-
         <div href="#" class="logo__container">
             <a href="#" class="logo__content">
-                <img src="media/logo2.png" class="logo__image">
+                <img src="media/logo2.png" class="logo__image" alt="Mangata &amp; Gallo" width="160" height="40"
+                    decoding="async">
             </a>
-            <button class="hamburger-button__container active">
+            <button class="hamburger-button__container active" type="button" aria-label="Open menu"
+                aria-controls="navbar-mobile" aria-expanded="false">
                 <div class="hamburger-button__content">
                     <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-                        height="24" aria-hidden="true">
+                        height="24" aria-hidden="true" focusable="false">
                         <rect x="3" y="5" width="18" height="2" rx="1" />
                         <rect x="3" y="11" width="18" height="2" rx="1" />
                         <rect x="3" y="17" width="18" height="2" rx="1" />
                     </svg>
                 </div>
             </button>
-            <button class="hamburger-button__container--close">
+            <button class="hamburger-button__container--close" type="button" aria-label="Close menu"
+                aria-controls="navbar-mobile" aria-expanded="true">
                 <div class="hamburger-button__content--close">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        aria-hidden="true">
+                        aria-hidden="true" focusable="false">
                         <path d="M18 6L6 18M6 6l12 12" />
                     </svg>
                 </div>
@@ -141,9 +176,11 @@
                                             <p>Price:</p>
                                         </div>
 
-                                        <button class="shopping-cart__product-remove-button">
+                                        <button class="shopping-cart__product-remove-button" type="button"
+                                            aria-label="Remove item from cart">
                                             <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg"
-                                                overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+                                                overflow="visible" viewBox="0 0 24 24" width="24" height="24"
+                                                aria-hidden="true" focusable="false">
                                                 <title>Remove Product</title>
                                                 <g class="lid">
                                                     <path d="M3 6h18" fill="none" stroke="currentColor"
@@ -225,7 +262,7 @@
         </div>
 
 
-        <nav class="navbar-mobile__menu-container">
+        <nav class="navbar-mobile__menu-container" aria-label="Mobile navigation">
             <div class="navbar-mobile__menu-content" id="navbar-mobile">
                 <div class="navbar-mobile__menu-option">
                     <a href="#">Rings</a>
@@ -258,7 +295,8 @@
                         <section class="navbar-mobile__submenu-sections navbar-mobile__submenu-section-container">
                             <h2>Moments</h2>
                             <div class="navbar-mobile__submenu-section-image">
-                                <img src="media/earrings-special2.PNG">
+                                <img src="media/earrings-special2.PNG" alt="Red crystal earrings" width="420"
+                                    height="320" loading="lazy" decoding="async">
                             </div>
 
                         </section>
@@ -290,10 +328,10 @@
                 </div>
             </div>
         </nav>
-        <div class="video-background__container">
-            <video autoplay muted loop playsinline class="video-background">
+        <div class="video-background__container" aria-hidden="true">
+            <video autoplay muted loop playsinline class="video-background" preload="metadata" aria-hidden="true">
                 <source src="media/rings-hands-downscaled.mp4" type="video/mp4" />
-                optional fallback Your browser does not support the video tag.
+                Your browser does not support the video tag.
             </video>
         </div>
 
@@ -302,7 +340,7 @@
 
 
     </header>
-    <nav class="navbar__container">
+    <nav class="navbar__container" aria-label="Primary navigation">
         <div class="submenu__bg-animation-background"></div>
         <div class="submenu__bg-animation--left"></div>
         <div class="submenu__bg-animation--right"></div>
@@ -311,7 +349,6 @@
 
         <div class="quick-menu">
             <div class="quick-menu__content">
-                <!-- Profile Icon -->
                 <div class="quick-menu__content-item quick-menu__content-item--profile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="45" fill="black" stroke="white" stroke-width="1" />
@@ -322,7 +359,6 @@
                     </svg>
                 </div>
 
-                <!-- Shopping Cart Icon -->
                 <div class="quick-menu__content-item quick-menu__content-item--shopping">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" stroke="whitesmoke"
                         stroke-width="0.5" viewBox="0 0 24 24">
@@ -374,9 +410,11 @@
                                         <p>Price:</p>
                                     </div>
 
-                                    <button class="shopping-cart__product-remove-button">
+                                    <button class="shopping-cart__product-remove-button" type="button"
+                                        aria-label="Remove item from cart">
                                         <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg"
-                                            overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+                                            overflow="visible" viewBox="0 0 24 24" width="24" height="24"
+                                            aria-hidden="true" focusable="false">
                                             <title>Remove Product</title>
                                             <g class="lid">
                                                 <path d="M3 6h18" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -454,7 +492,7 @@
             </div>
         </div>
     </nav>
-    <main class="active">
+    <main id="main" class="active">
 
 
 
@@ -469,7 +507,6 @@
 
 
 
-        <!-- Promo Banner -->
         <section class="promo-banner__container">
             <article class="promo-banner__content" data-type="promo-banner" data-categories='[""]' data-articles='[""]'>
             </article>
@@ -499,7 +536,6 @@
           " />
         </div>
 
-        <!-- Reels -->
         <section class="reel reel-promo__container">
             <article class="reel-promo__content" data-type="reel" data-categories='[""]' data-articles='[""]'></article>
         </section>
@@ -510,7 +546,6 @@
 
         <script src="reel.js"></script>
 
-        <!-- Slideshow -->
         <section class="poster-slideshow__container">
             <article class="poster-slideshow__image-container" data-type="slideshow" data-categories='[""]'
                 data-articles='[""]'></article>
@@ -526,7 +561,6 @@
           " />
         </div>
 
-        <!-- Contact Form -->
         <section class="contact-form__container">
             <div class="contact-form__content">
                 <h2>Get in Touch</h2>
@@ -565,87 +599,89 @@
           " />
         </div>
 
-        <!-- Footer -->
-        <footer>
-            <section class="footer__container">
-                <div class="footer__content">
-                    <article class="footer__content-item">
-                        <div class="footer__text-container">
-                            <h2>Customer Area</h2>
-                            <a href="#">Track your order</a>
-                            <a href="#">Returns</a>
-                            <a href="#">FAQ</a>
-                            <a href="#">Services</a>
-                        </div>
-                    </article>
 
-                    <article class="footer__content-item">
-                        <div class="footer__text-container">
-                            <h2>Contact Us</h2>
-                            <a href="#">Contact Info & Form</a>
-                        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <section class="footer__container">
+            <div class="footer__content">
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h2>Customer Area</h2>
+                        <a href="#">Track your order</a>
+                        <a href="#">Returns</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Services</a>
+                    </div>
+                </article>
 
-                        <div class="footer__text-container">
-                            <h2>Find A Store</h2>
-                            <a href="#">Store Locator</a>
-                        </div>
-                    </article>
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h2>Contact Us</h2>
+                        <a href="#">Contact Info & Form</a>
+                    </div>
 
-                    <article class="footer__content-item">
-                        <div class="footer__text-container">
-                            <h2>About M & G</h2>
-                            <a href="#">Our History</a>
-                            <a href="#">Origin of Materials</a>
-                            <a href="#">Values</a>
-                            <a href="#">Partners</a>
-                        </div>
-                    </article>
+                    <div class="footer__text-container">
+                        <h2>Find A Store</h2>
+                        <a href="#">Store Locator</a>
+                    </div>
+                </article>
 
-                    <article class="footer__content-item">
-                        <div class="footer__text-container">
-                            <h2>Privacy Center</h2>
-                            <a href="#">Cookie Settings</a>
-                            <a href="#">Privacy Settings</a>
-                            <a href="#">Policies</a>
-                        </div>
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h2>About M & G</h2>
+                        <a href="#">Our History</a>
+                        <a href="#">Origin of Materials</a>
+                        <a href="#">Values</a>
+                        <a href="#">Partners</a>
+                    </div>
+                </article>
+
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h2>Privacy Center</h2>
+                        <a href="#">Cookie Settings</a>
+                        <a href="#">Privacy Settings</a>
+                        <a href="#">Policies</a>
+                    </div>
 
 
-                    </article>
-                    <article class="footer__content-item">
-                        <div class="footer__text-container">
-                            <h2>Terms & Conditions</h2>
-                            <a href="#">Legal Notices</a>
-                            <a href="#">Privacy Settings</a>
-                            <a href="#">Terms of Use</a>
-                        </div>
-                    </article>
+                </article>
+                <article class="footer__content-item">
+                    <div class="footer__text-container">
+                        <h2>Terms & Conditions</h2>
+                        <a href="#">Legal Notices</a>
+                        <a href="#">Privacy Settings</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </article>
 
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <div class="horizontal-separator__bg">
-                <hr class="horizontal-separator" style="
+        <div class="horizontal-separator__bg">
+            <hr class="horizontal-separator" style="
               width: 100%;
               height: 0.001%;
               background: rgba(83, 83, 83, 1);
               border: 1px solid rgba(83, 83, 83, 1);
               border-radius: 100%;
             " />
-            </div>
+        </div>
 
-            <section class="trademark__container">
-                <article class="trademark__content">
-                    <div class="trademark__text-container">
-                        <span class="trademark__disclaimer">This website is a student portfolio project for educational
-                            purposes only.
-                            Mangata & Gallo is a fictional brand provided by Coursera. No products are for sale.</span>
-                        <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
-                    </div>
-                </article>
-            </section>
+        <section class="trademark__container">
+            <article class="trademark__content">
+                <div class="trademark__text-container">
+                    <span class="trademark__disclaimer">This website is a student portfolio project for educational
+                        purposes only.
+                        Mangata & Gallo is a fictional brand provided by Coursera. No products are for sale.</span>
+                    <p>Mangatta & Gallo<sup>(tm)</sup> 2025</p>
+                </div>
+            </article>
+        </section>
 
-        </footer>
-    </main>
+    </footer>
 </body>
 
 </html>
+```
