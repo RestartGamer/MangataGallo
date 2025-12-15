@@ -118,6 +118,8 @@ window.addEventListener("load", () => {
       let menuOptionA = document.createElement("a");
       menuOptionA.textContent = navbarContent.option;
       menuOptionA.href = "#";
+      menuOptionA.setAttribute("aria-label", `Open ${navbarContent.option} menu`);
+      menuOptionA.setAttribute("title", navbarContent.option);
       menuOptionContainer.appendChild(menuOptionA);
 
       let mobileSubContainer = document.createElement("div");
@@ -157,6 +159,8 @@ window.addEventListener("load", () => {
       let navbarOptionLink = document.createElement("a");
       navbarOptionLink.classList.add("navbar__option-link");
       navbarOptionLink.textContent = navbarOption;
+      navbarOptionLink.setAttribute("aria-label", `${navbarOption} category`);
+      navbarOptionLink.setAttribute("title", navbarOption);
 
       if (navbarContent.option === "Home"){
         menuOptionA.href = "home.html";
@@ -215,6 +219,8 @@ window.addEventListener("load", () => {
             let mobileSubTextA = document.createElement("a");
             mobileSubTextA.textContent = listItem;
             mobileSubTextA.href = "#";
+            mobileSubTextA.setAttribute("aria-label", listItem);
+            mobileSubTextA.setAttribute("title", listItem);
 
             mobileSubUl.appendChild(mobileSubTextLi);
             mobileSubTextLi.appendChild(mobileSubTextA);
@@ -226,6 +232,9 @@ window.addEventListener("load", () => {
             const aItem = document.createElement("a");
             let selectedArticle = [];
             aItem.textContent = listItem;
+            aItem.setAttribute("aria-label", listItem);
+            aItem.setAttribute("title", listItem);
+
             switch (navbarContent.option) {
               case "Rings":
                 
@@ -342,6 +351,9 @@ window.addEventListener("load", () => {
           let mobileSubSectionImageContainer = document.createElement("div");
           let mobileSubSectionImage = document.createElement("img");
           mobileSubSectionImage.src = section.image;
+          mobileSubSectionImage.alt = `Image for ${navbarContent.option} - ${section.sectionName}`;
+          mobileSubSectionImage.loading = "lazy";
+          mobileSubSectionImage.decoding = "async";
 
           mobileSubSectionContainer.appendChild(mobileSubSectionImageContainer);
           mobileSubSectionImageContainer.appendChild(mobileSubSectionImage);
@@ -355,6 +367,8 @@ window.addEventListener("load", () => {
           imgDiv.classList.add("submenu__section-image");
           imgDiv.src = section.image;
           imgDiv.alt = "image of " + navbarContent.option
+          imgDiv.loading = "lazy";
+          imgDiv.decoding = "async";
           sectionElement.appendChild(imgCont);
           imgCont.appendChild(imgDiv);
           sectionElement.classList.add("submenu__section--image");
@@ -393,6 +407,8 @@ window.addEventListener("load", () => {
       let image = document.createElement("img"); image.classList.add("promo-banner__image");
       image.src = banner.image;
       image.alt = "image of " + banner.title;
+      image.loading = "lazy";
+      image.decoding = "async";
 
       content.appendChild(imageCont);
       imageCont.appendChild(image);
@@ -400,6 +416,8 @@ window.addEventListener("load", () => {
       let hyperlink = document.createElement("a");
       hyperlink.classList.add("go-to-checkout");
       hyperlink.href = "product.html";
+      hyperlink.setAttribute("aria-label", `View product: ${banner.title}`);
+      hyperlink.setAttribute("title", `View ${banner.title}`);
       imageCont.appendChild(hyperlink);
 
 
@@ -431,6 +449,8 @@ window.addEventListener("load", () => {
       compImageCell.classList.add("poster__comp-mobile-image");
       let compA = document.createElement("a");
       compA.href = "product.html";
+      compA.setAttribute("aria-label", `View product: ${article.title}`);
+      compA.setAttribute("title", `View ${article.title}`);
       compA.addEventListener("click", (e) => {
         localStorage.setItem("selectedArticles", article.id);
         window.location.href = "product.html";
@@ -450,11 +470,14 @@ window.addEventListener("load", () => {
       let compP = document.createElement("p");
       compP.textContent = article.description;
       let compImage = document.createElement("img");
+      compImage.src = article.image;
+      compImage.alt = `Image of ${article.title}`;
+      compImage.loading = "lazy";
+      compImage.decoding = "async";
 
       compTextCell.appendChild(compH2);
       compTextCell.appendChild(compP);
 
-      compImage.src = article.image;
       compImageCell.appendChild(compImage);
 
 
@@ -473,9 +496,13 @@ window.addEventListener("load", () => {
       let posterImage = document.createElement("img"); posterImage.classList.add("poster__image");
       posterImage.src = article.posterImage;
       posterImage.alt = "image of " + article.title;
+      posterImage.loading = "lazy";
+      posterImage.decoding = "async";
 
       let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
       hyperlink1.href = "product.html";
+      hyperlink1.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink1.setAttribute("title", `View ${article.title}`);
 
 
       hyperlink1.addEventListener("click", (e) => {
@@ -484,6 +511,8 @@ window.addEventListener("load", () => {
       });
       let hyperlink2 = document.createElement("a"); hyperlink2.classList.add("go-to-checkout");
       hyperlink2.href = "product.html";
+      hyperlink2.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink2.setAttribute("title", `View ${article.title}`);
 
 
       hyperlink2.addEventListener("click", (e) => {
@@ -563,6 +592,8 @@ window.addEventListener("load", () => {
 
       let hyperlink = document.createElement("a"); hyperlink.classList.add("go-to-checkout");
       hyperlink.href = "product.html";
+      hyperlink.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink.setAttribute("title", `View ${article.title}`);
       articleContainer.appendChild(hyperlink);
 
       hyperlink.addEventListener("click", (e) => {
@@ -580,6 +611,8 @@ window.addEventListener("load", () => {
       imageContent.style.backgroundImage = `url(${article.image})`;
       imageContent.style.backgroundSize = article.imageSize;
       imageContent.style.backgroundPosition = article.imagePosition;
+      imageContent.setAttribute("role", "img");
+      imageContent.setAttribute("aria-label", `Image of ${article.title}`);
 
       let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
       let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
@@ -632,11 +665,15 @@ window.addEventListener("load", () => {
       imageContainer.style.backgroundImage = `url(${article.image})`;
       imageContainer.style.backgroundSize = article.imageSize;
       imageContainer.style.backgroundPosition = article.imagePosition;
+      imageContainer.setAttribute("role", "img");
+      imageContainer.setAttribute("aria-label", `Image of ${article.title}`);
       content.appendChild(imageContainer);
 
       let hyperlink = document.createElement("a");
       hyperlink.classList.add("go-to-checkout");
       hyperlink.href = "product.html";
+      hyperlink.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink.setAttribute("title", `View ${article.title}`);
       imageContainer.appendChild(hyperlink);
 
 
@@ -651,6 +688,8 @@ window.addEventListener("load", () => {
       let descrip1 = document.createElement("p");
       let textHyper = document.createElement("a");
       textHyper.href = "product.html";
+      textHyper.setAttribute("aria-label", `View product: ${article.title}`);
+      textHyper.setAttribute("title", `View ${article.title}`);
 
       title1.textContent = article.title;
       descrip1.textContent = article.description;
@@ -741,6 +780,8 @@ window.addEventListener("load", () => {
         gridImage.style.gridArea = i === 0 ? "main" : "secondary";
         gridImage.src = image;
         gridImage.alt = "Product Image of: " + assignedArticle.title;
+        gridImage.loading = i === 0 ? "eager" : "lazy";
+        gridImage.decoding = "async";
         leftContent.appendChild(gridImage);
       });
 
@@ -757,6 +798,10 @@ window.addEventListener("load", () => {
       videoEl.muted = true;
       videoEl.loop = true;
       videoEl.playsInline = true;
+      videoEl.preload = "metadata";
+      videoEl.setAttribute("aria-label", `Product video for ${assignedArticle.title}`);
+      videoEl.setAttribute("title", `Product video: ${assignedArticle.title}`);
+      videoEl.setAttribute("controlslist", "nodownload");
 
       const sourceEl = document.createElement("source");
       sourceEl.src = assignedArticle.checkVideo;
@@ -821,6 +866,9 @@ window.addEventListener("load", () => {
 
       let addBagLink = document.createElement("button");
       addBagLink.classList.add("add-to-bag");
+      addBagLink.type = "button";
+      addBagLink.setAttribute("aria-label", `Add ${assignedArticle.title} to bag`);
+      addBagLink.setAttribute("title", "Add to bag");
       addBag.appendChild(addBagLink);
 
       addBagLink.addEventListener("click", () => {
@@ -885,6 +933,8 @@ window.addEventListener("load", () => {
       promoImg.className = "product-page__promo product-page__promo-image";
       promoImg.src = "media/earrings-special2.PNG";
       promoImg.alt = "Image of Red Earrings"
+      promoImg.loading = "lazy";
+      promoImg.decoding = "async";
       promoRight.appendChild(promoImg);
 
       promoDiv2.appendChild(promoLeft);
@@ -910,12 +960,16 @@ window.addEventListener("load", () => {
         hr.style.marginTop = "2%";
       }
 
+      const shippingPanelId = `${elementId}-shipping-panel`;
+      const detailsPanelId = `${elementId}-details-panel`;
+      const paymentPanelId = `${elementId}-payment-panel`;
+
       // Shipping
       const shippingDiv = document.createElement("div");
       shippingDiv.className = "product-page__flex-item product-page__flex-item-shipping";
       shippingDiv.innerHTML = `
-    <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping & Returns</button>
-    <div class="collapsible-content">
+    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${shippingPanelId}">Free Shipping & Returns</button>
+    <div class="collapsible-content" id="${shippingPanelId}">
       <p>Enjoy a seamless shopping experience with our complimentary shipping service. Every order is carefully packed and delivered to your door with priority handling. If it’s not a perfect match, returns are simple and free of charge.</p>
       <ul>
         ${checkCont.productDescriptionList.map(item => `<li>${item}</li>`).join('')}
@@ -929,8 +983,8 @@ window.addEventListener("load", () => {
       let detailsDiv = document.createElement("div");
       detailsDiv.className = "product-page__flex-item product-page__flex-item-details";
       detailsDiv.innerHTML = `
-    <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
-    <div class="collapsible-content">
+    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${detailsPanelId}">Details</button>
+    <div class="collapsible-content" id="${detailsPanelId}">
       <p>${assignedArticle.description}</p>
       <ul>
         <li>Hand-polished red crystal centerpiece</li>
@@ -947,8 +1001,8 @@ window.addEventListener("load", () => {
       let paymentDiv = document.createElement("div");
       paymentDiv.className = "product-page__flex-item product-page__flex-item-payment-options";
       paymentDiv.innerHTML = `
-    <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
-    <div class="collapsible-content">
+    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${paymentPanelId}">Payment Options</button>
+    <div class="collapsible-content" id="${paymentPanelId}">
       <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your lifestyle and complete your purchase with confidence.</p>
       <ul>
         <li>Secure credit & debit card payments</li>
@@ -966,20 +1020,28 @@ window.addEventListener("load", () => {
       document.querySelectorAll(".collapsible-btn").forEach(button => {
         button.addEventListener("click", () => {
           const content = button.nextElementSibling;
+          const allButtons = document.querySelectorAll(".collapsible-btn");
           const allContents = document.querySelectorAll(".collapsible-content");
 
           // First, close all panels
-          allContents.forEach(c => {
+          allContents.forEach((c, i) => {
             if (c !== content) {
               c.style.maxHeight = null;
             }
           });
 
+          // Keep aria-expanded in sync
+          allButtons.forEach(b => {
+            if (b !== button) b.setAttribute("aria-expanded", "false");
+          });
+
           // Then toggle the clicked one
           if (content.style.maxHeight) {
             content.style.maxHeight = null;
+            button.setAttribute("aria-expanded", "false");
           } else {
             content.style.maxHeight = content.scrollHeight + "px";
+            button.setAttribute("aria-expanded", "true");
           }
         });
       });
@@ -1051,6 +1113,8 @@ window.addEventListener("load", () => {
         productImage.style.backgroundImage = `url(${shoppingArticle.image})`;
         productImage.style.backgroundSize = shoppingArticle.imageSize;
         productImage.style.backgroundPosition = shoppingArticle.imagePosition;
+        productImage.setAttribute("role", "img");
+        productImage.setAttribute("aria-label", `Image of ${shoppingArticle.title}`);
         productContainer.appendChild(productImage);
 
         const textContainer = document.createElement("div"); textContainer.classList.add("shopping-cart__product-text-container");
@@ -1082,6 +1146,16 @@ window.addEventListener("load", () => {
         const quantityPlusContainer = document.createElement("div"); quantityPlusContainer.classList.add("shopping-cart__product-quantity-button-container");
         const quantityMinusContainer = document.createElement("div"); quantityMinusContainer.classList.add("shopping-cart__product-quantity-button-container");
         const quantityNumberContainer = document.createElement("div"); quantityNumberContainer.classList.add("shopping-cart__product-quantity-number-container")
+
+        quantityPlusContainer.setAttribute("role", "button");
+        quantityPlusContainer.setAttribute("tabindex", "0");
+        quantityPlusContainer.setAttribute("aria-label", `Increase quantity of ${shoppingArticle.title}`);
+        quantityPlusContainer.setAttribute("title", "Increase quantity");
+
+        quantityMinusContainer.setAttribute("role", "button");
+        quantityMinusContainer.setAttribute("tabindex", "0");
+        quantityMinusContainer.setAttribute("aria-label", `Decrease quantity of ${shoppingArticle.title}`);
+        quantityMinusContainer.setAttribute("title", "Decrease quantity");
 
 
 
@@ -1132,7 +1206,9 @@ window.addEventListener("load", () => {
 
         const trashButton = document.createElement("button");
         trashButton.classList.add("shopping-cart__product-remove-button");
-
+        trashButton.type = "button";
+        trashButton.setAttribute("aria-label", `Remove ${shoppingArticle.title} from cart`);
+        trashButton.setAttribute("title", `Remove ${shoppingArticle.title}`);
 
         const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-item-removal-confirmation");
         productContainer.appendChild(removeCarpet);
@@ -1145,6 +1221,9 @@ window.addEventListener("load", () => {
 
         const confirmButton = document.createElement("button");
         confirmButton.textContent = "Confirm";
+        confirmButton.type = "button";
+        confirmButton.setAttribute("aria-label", `Confirm removal of ${shoppingArticle.title}`);
+        confirmButton.setAttribute("title", "Confirm removal");
 
         confirmButton.addEventListener("click", () => {
           let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
@@ -1159,7 +1238,7 @@ window.addEventListener("load", () => {
 
         // Add SVG via innerHTML
         trashButton.innerHTML = `
-<svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+<svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
   <title>Remove Product</title>
   <!-- Lid group for rotation -->
   <g class="lid">
