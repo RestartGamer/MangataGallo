@@ -4,6 +4,14 @@ let productPageContainer = document.querySelector(".product-page__container");
 if (productPageContainer) productPageContainer.style.opacity = 0;
 
 window.addEventListener("load", () => {
+
+  // ✅ Helper: add intrinsic size attributes to prevent layout shift
+  const setImgDimensions = (img, width, height) => {
+    if (!img) return;
+    img.setAttribute("width", String(width));
+    img.setAttribute("height", String(height));
+  };
+
   dataTypes.forEach(dataType => {
     let elements = document.querySelectorAll(`[data-type="${dataType}"]`);
     let elementArticleCategories = [];
@@ -355,6 +363,7 @@ window.addEventListener("load", () => {
           mobileSubSectionImage.alt = `Image for ${navbarContent.option} - ${section.sectionName}`;
           mobileSubSectionImage.loading = "lazy";
           mobileSubSectionImage.decoding = "async";
+          setImgDimensions(mobileSubSectionImage, 480, 320);
 
           mobileSubSectionContainer.appendChild(mobileSubSectionImageContainer);
           mobileSubSectionImageContainer.appendChild(mobileSubSectionImage);
@@ -370,6 +379,8 @@ window.addEventListener("load", () => {
           imgDiv.alt = "image of " + navbarContent.option
           imgDiv.loading = "lazy";
           imgDiv.decoding = "async";
+          setImgDimensions(imgDiv, 480, 320);
+
           sectionElement.appendChild(imgCont);
           imgCont.appendChild(imgDiv);
           sectionElement.classList.add("submenu__section--image");
@@ -410,6 +421,7 @@ window.addEventListener("load", () => {
       image.alt = "image of " + banner.title;
       image.loading = "lazy";
       image.decoding = "async";
+      setImgDimensions(image, 1600, 900);
 
       content.appendChild(imageCont);
       imageCont.appendChild(image);
@@ -475,6 +487,7 @@ window.addEventListener("load", () => {
       compImage.alt = `Image of ${article.title}`;
       compImage.loading = "lazy";
       compImage.decoding = "async";
+      setImgDimensions(compImage, 900, 900);
 
       compTextCell.appendChild(compH2);
       compTextCell.appendChild(compP);
@@ -499,6 +512,7 @@ window.addEventListener("load", () => {
       posterImage.alt = "image of " + article.title;
       posterImage.loading = "lazy";
       posterImage.decoding = "async";
+      setImgDimensions(posterImage, 1600, 900);
 
       let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
       hyperlink1.href = "product.html";
@@ -783,6 +797,8 @@ window.addEventListener("load", () => {
         gridImage.alt = "Product Image of: " + assignedArticle.title;
         gridImage.loading = i === 0 ? "eager" : "lazy";
         gridImage.decoding = "async";
+        setImgDimensions(gridImage, 1200, 1200);
+
         leftContent.appendChild(gridImage);
       });
 
@@ -936,6 +952,8 @@ window.addEventListener("load", () => {
       promoImg.alt = "Image of Red Earrings"
       promoImg.loading = "lazy";
       promoImg.decoding = "async";
+      setImgDimensions(promoImg, 800, 800);
+
       promoRight.appendChild(promoImg);
 
       promoDiv2.appendChild(promoLeft);
