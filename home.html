@@ -81,9 +81,9 @@
     <script src="article-renderer.js"></script>
 </head>
 
-<body>
+<body class="page-home">
 
-    <header class="page-home">
+    <header>
         <div class="logo__container">
             <a href="#" class="logo__content">
                 <img src="media/logo2.png" class="logo__image" alt="Mangata &amp; Gallo" width="160" height="40"
@@ -493,7 +493,7 @@
         </div>
     </nav>
     <main id="main" class="active">
-
+        <section class="spacer"></section>
 
 
 
@@ -567,19 +567,19 @@
                 <p>Have questions? Fill out the form and we’ll get back to you.</p>
 
                 <form class="contact-form__form" method="post" action="#" autocomplete="on">
-                    <div class="contact-form__form-group" style="width: 24%">
+                    <div class="contact-form__form-group name">
                         <label for="name">Name</label>
                         <input class="contact-form__input-box" type="text" id="name" name="name" placeholder="Your name"
                             autocomplete="name" required>
                     </div>
 
-                    <div class="contact-form__form-group" style="width: 24%">
+                    <div class="contact-form__form-group email">
                         <label for="email">Email</label>
                         <input class="contact-form__input-box" type="email" id="email" name="email"
                             placeholder="you@example.com" autocomplete="email" required>
                     </div>
 
-                    <div class="contact-form__form-group" style="height: 60%">
+                    <div class="contact-form__form-group message">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" rows="5" placeholder="Write your message..."
                             autocomplete="off" required></textarea>

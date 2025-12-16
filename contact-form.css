@@ -9,7 +9,7 @@
 }
 
 .contact-form__content {
-  width: min(900px, 100%);
+  width: 80%;
   margin-left: 10%;
   margin-top: 2%;
 }
@@ -36,7 +36,8 @@
 .contact-form__form-group {
   display: flex;
   flex-direction: column;
-  width: min(520px, 100%);
+  width: 100%;
+  width: max-content;
 }
 
 .contact-form__form-group label {
@@ -102,5 +103,8 @@
   .contact-form__form button {
     width: auto;
     min-width: 0;
+  }
+  .contact-form__form button {
+    align-self:flex-start;
   }
 }

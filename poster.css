@@ -5,15 +5,13 @@
 
 .poster__container {
   width: 100%;
-  /*! height: 1540.7px; */
   background-color: white;
-  padding-top: 136px;
+  padding-top: 0;           /* was overridden for all sizes anyway */
   padding-bottom: 6.5%;
 }
 
 .poster__content {
   width: 100%;
-  /*! height:100%; */
   display: grid;
   grid-template-rows: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -22,9 +20,6 @@
 
 .poster__text-cell {
   position: relative;
-
-  /*! width: 100%; */
-  /*! height: 100%; */
 }
 
 .poster__text-content {
@@ -32,7 +27,6 @@
   top: 50%;
   left: 49%;
   transform: translateX(-50%) translateY(-50%);
-  ;
 }
 
 .poster__text-content h2 {
@@ -51,34 +45,29 @@
 .poster__text-layout {
   width: 100%;
   height: 100%;
-
-
 }
 
 .poster__image {
-  object-fit: cover;
+  display: block;          /* harmless + avoids inline gap */
   width: 100%;
   height: auto;
-}
-
-.poster__image img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
+/* MOBILE COMPONENT (the one you insert before the poster on small screens) */
 .poster__comp-mobile-container {
   width: 100vw;
   height: max-content;
   background-color: white;
-  /*! outline: 1px solid blue; */
   padding: 16px;
   position: relative;
+
   --border-color: #00000070;
   --border-width: 2px;
   border-top: var(--border-width) solid var(--border-color);
   border-bottom: var(--border-width) solid var(--border-color);
 }
+
 .poster__comp-mobile-content {
   width: 100%;
   height: 100%;
@@ -87,31 +76,32 @@
   align-items: center;
   column-gap: 12%;
 }
+
 .poster__comp-mobile-text {
   width: 48.4%;
-  /*! outline: 1px solid red; */
-  /*! aspect-ratio: 1 / 1; */
   height: 86%;
 }
+
 .poster__comp-mobile-image {
-  /*! width: 51.8%; */
-  /*! outline: 1px solid red; */
   aspect-ratio: 1 / 1;
   border-radius: 27px;
   overflow: hidden;
 }
+
 .poster__comp-mobile-text h2 {
   font-size: 1.7rem;
   font-weight: bold;
   text-align: center;
 }
+
 .poster__comp-mobile-text p {
   font-size: 0.9rem;
   font-weight: normal;
   text-align: center;
 }
+
 .poster__comp-mobile-container a {
-  display:block;
+  display: block;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -119,238 +109,72 @@
   left: 0;
 }
 
+.poster__comp-mobile-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
-
+/* ≥1200px */
 @media (min-width: 1200px) {
-  .poster__image {}
-
-  .poster__container {padding-top: 0;}
-
-  .poster__text-content h1 {}
-
-  .poster__text-content p {}
-
-  .poster__content {
-    width: 100%;
-    /*! height:100%; */
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
-  }
-
-  .poster__text-cell {
-    position: relative;
-
-    /*! width: 100%; */
-    /*! height: 100%; */
-  }
-  .poster__comp-mobile-text h2 {font-size: 2.5rem;margin-bottom: 15.9px;}
   .poster__comp-mobile-text {
-  width: 22.8%;
-  /*! outline: 1px solid red; */
-  /*! aspect-ratio: 1 / 1; */
-  height: 86%;
-}
-  .poster__comp-mobile-text p {
-  font-size: 1.4rem;
-  font-weight: normal;
-  text-align: center;
-  line-height: 2.3rem;
-}
-  .poster__comp-mobile-content {column-gap: 22.4%;}
-
-}
-
-@media (max-width: 1200px) {
-  .poster__image {}
-
-  .poster__container {padding-top: 0;}
-
-  .poster__text-content h1 {}
-
-  .poster__text-content p {}
-
-  .poster__content {
-    width: 100%;
-    /*! height:100%; */
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
+    width: 22.8%;
+    height: 86%;
   }
 
-  .poster__text-cell {
-    position: relative;
-
-    /*! width: 100%; */
-    /*! height: 100%; */
+  .poster__comp-mobile-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15.9px;
   }
-  
-  .poster__comp-mobile-text h2 {}
-  .poster__comp-mobile-text p {}
-  .poster__comp-mobile-text {
-  width: 48.4%;
-  /*! outline: 1px solid red; */
-  /*! aspect-ratio: 1 / 1; */
-  height: 86%;
-}
+
   .poster__comp-mobile-text p {
-  font-size: 0.9rem;
-  font-weight: normal;
-  text-align: center;
-}
-  .poster__comp-mobile-content {}
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+  }
 
+  .poster__comp-mobile-content {
+    column-gap: 22.4%;
+  }
 }
 
+/* ≤992px */
 @media (max-width: 992px) {
-  .poster__image {}
-
   .poster__container {
-
     height: 1034.4px;
-    /*! padding-top: 55.1px; */
   }
-
-  .poster__text-content h1 {
-
-    font-size: 1.2rem;
-  }
-
-  .poster__text-content p {
-
-    font-size: 0.9rem;
-  }
-
-  .poster__content {
-    width: 100%;
-    /*! height:100%; */
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
-  }
-
-  .poster__text-cell {
-    position: relative;
-
-    /*! width: 100%; */
-    /*! height: 100%; */
-  }
-  
-  .poster__comp-mobile-text h2 {}
-  .poster__comp-mobile-text p {}
-  .poster__comp-mobile-text {
-  width: 48.4%;
-  /*! outline: 1px solid red; */
-  /*! aspect-ratio: 1 / 1; */
-  height: 86%;
-}
-  .poster__comp-mobile-text p {
-  font-size: 0.9rem;
-  font-weight: normal;
-  text-align: center;
-}
-  .poster__comp-mobile-content {}
-  
 }
 
-@media (max-width: 768px) {
-  .poster__image {}
-
-  .poster__container {}
-
-  .poster__text-content h1 {}
-
-  .poster__text-content p {}
-
-  .poster__content {
-    width: 100%;
-    /*! height:100%; */
-    display: grid;
-    grid-template-rows: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
-  }
-
-  .poster__text-cell {
-    position: relative;
-
-    /*! width: 100%; */
-    /*! height: 100%; */
-  }
-  
-  .poster__comp-mobile-text h2 {}
-  .poster__comp-mobile-text p {}
-  .poster__comp-mobile-text {
-  width: 48.4%;
-  /*! outline: 1px solid red; */
-  /*! aspect-ratio: 1 / 1; */
-  height: 86%;
-}
-  .poster__comp-mobile-text p {
-  font-size: 0.9rem;
-  font-weight: normal;
-  text-align: center;
-}
-  .poster__comp-mobile-content {}
-  
-}
-
+/* ≤480px */
 @media (max-width: 480px) {
-  .poster__image {}
-
   .poster__container {
-
     height: max-content;
-    padding-top: 0;
     padding-bottom: 0;
   }
 
-  .poster__text-content h1 {
-
-    font-size: 1rem;
-  }
-
-  .poster__text-content p {
-
-    font-size: 0.6rem;
-  }
-
   .poster__content {
-    width: 100%;
-    /*! height:100%; */
-    display: grid;
-    grid-template-rows: 100%;
     grid-template-columns: 1fr;
-    position: relative;
   }
 
   .poster__text-cell {
     position: absolute;
-
-    /*! width: 100%; */
-    /*! height: 100%; */
     top: -17%;
     left: 25%;
     display: none;
   }
-  
-  .poster__comp-mobile-text h2 {font-size: 1.2rem;}
-  .poster__comp-mobile-text p {font-size: 0.7rem;}
-  
+
   .poster__comp-mobile-text {
-  width: 185.4%;
-  /*! outline: 1px solid red; */
-  /*! aspect-ratio: 1 / 1; */
-  height: 86%;
-}
+    width: 185.4%;
+    height: 86%;
+  }
+
+  .poster__comp-mobile-text h2 {
+    font-size: 1.2rem;
+  }
+
   .poster__comp-mobile-text p {
-  font-size: 0.9rem;
-  font-weight: normal;
-  text-align: center;
-}
-  .poster__comp-mobile-content {}
-  
+    font-size: 0.9rem; /* you had 0.7 then later 0.9; 0.9 is what ends up applied */
+    font-weight: normal;
+    text-align: center;
+  }
 }
