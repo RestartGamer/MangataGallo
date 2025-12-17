@@ -13,25 +13,24 @@
   align-items: center;
   justify-content: center;
 
-  /* keep the same final height (you had 6vh + 60px; 60px wins anyway) */
-
   visibility: visible;
   pointer-events: auto;
-
-  /* ❌ removed margin-bottom: 100vh; */
-  padding-block: 10px;
+  /* Hover-bridge: prevents tiny gap between option and submenu without shifting submenu down */
 }
+
 
 .navbar__content {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.9%;
-  max-width: 1400px;
+  /*! max-width: 1400px; */
   width: 100%;
   height: 100%;
   /*! outline: 1px solid red; */
-  margin: 0 auto;
+  /*! margin: 0 auto; */
+  position: relative;
+  padding-block: 10px;
 }
 
 .navbar__option {
@@ -62,6 +61,7 @@
   flex: 0 0 auto;
   width: 100%;
   justify-content: center;
+  border: 2px solid transparent;
 }
 
 .navbar__option-link:hover {
@@ -83,7 +83,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: max-content;
   /*! outline: 2px solid red; */
   justify-content: center;
@@ -484,6 +484,16 @@
   object-fit: cover;
   width: 100%;
   height: auto;
+}
+
+.navbar-mobile__submenu-image-container {
+  width: 100%;
+  height: max-content;
+}
+.navbar-mobile__submenu-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /* ─────────── NAVBAR RESPONSIVE DESKTOP-TO-MOBILE SCALE ─────────── */

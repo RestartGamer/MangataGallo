@@ -90,6 +90,10 @@
   outline-offset: 2px;
 }
 
+.contact-form__form-group.message {
+  width: 60.0%;
+}
+
 @media (max-width: 480px) {
   .contact-form__content {
     margin-left: 8%;

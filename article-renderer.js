@@ -70,7 +70,7 @@ window.addEventListener("load", () => {
             return;
           }
           let productPageContainer = document.querySelector(".product-page__container");
-          renderCheckout(checkoutContent, element.id, selectedArticles);
+          renderProductPage(checkoutContent, element.id, selectedArticles);
           if (productPageContainer) productPageContainer.style.opacity = 1;
 
           break;
@@ -126,6 +126,7 @@ window.addEventListener("load", () => {
       let menuOptionA = document.createElement("a");
       menuOptionA.textContent = navbarContent.option;
       menuOptionA.href = "#";
+
       menuOptionA.setAttribute("aria-label", `Open ${navbarContent.option} menu`);
       menuOptionA.setAttribute("title", navbarContent.option);
       menuOptionContainer.appendChild(menuOptionA);
@@ -159,19 +160,19 @@ window.addEventListener("load", () => {
       ////////////
       ////DESKTOP SECTION
 
-      let navbarOption = navbarContent.option;
+      let navbarOptionText = navbarContent.option;
 
       let navbarOptionContainer = document.createElement("li");
       navbarOptionContainer.classList.add("navbar__option");
 
       let navbarOptionLink = document.createElement("a");
       navbarOptionLink.classList.add("navbar__option-link");
-      navbarOptionLink.textContent = navbarOption;
-      navbarOptionLink.href="product.html";
-      navbarOptionLink.setAttribute("aria-label", `${navbarOption} category`);
-      navbarOptionLink.setAttribute("title", navbarOption);
+      navbarOptionLink.textContent = navbarOptionText;
+      navbarOptionLink.href = "product.html";
+      navbarOptionLink.setAttribute("aria-label", `${navbarOptionText} category`);
+      navbarOptionLink.setAttribute("title", navbarOptionText);
 
-      if (navbarContent.option === "Home"){
+      if (navbarContent.option === "Home") {
         menuOptionA.href = "home.html";
         navbarOptionLink.href = "home.html";
       }
@@ -184,9 +185,8 @@ window.addEventListener("load", () => {
       content.appendChild(navbarOptionContainer);
       content.appendChild(submenuContainer);
 
-      // Use the newly created li2 as the submenu container
       let submenuElement = submenuContainer;
-      submenuElement.classList.add(navbarOption);
+      submenuElement.classList.add(navbarOptionText);
 
       navbarContent.sections.forEach(section => {
 
@@ -246,97 +246,36 @@ window.addEventListener("load", () => {
 
             switch (navbarContent.option) {
               case "Rings":
-                
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Necklaces":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "necklaces");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Earrings":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "earrings");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Bracelets":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "bracelets");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Watches":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "watches");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Collections":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
             }
+            mobileSubTextA.addEventListener("click", () => {
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              window.location.href = "product.html";
+            });
+            aItem.addEventListener("click", () => {
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              window.location.href = "product.html";
+            });
+            navbarOptionLink.addEventListener("click", () => {
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              window.location.href = "product.html";
+            });
 
             aItem.href = "#";
             liItem.appendChild(aItem);
@@ -357,7 +296,9 @@ window.addEventListener("load", () => {
         } else if (section.image) {
 
           ////MOBILE SECTION
-          let mobileSubSectionImageContainer = document.createElement("div");
+          let mobileSubSectionImageContainer = document.createElement("a");
+          mobileSubSectionImageContainer.classList.add("navbar-mobile__submenu-image-container")
+          mobileSubSectionImageContainer.href = "product.html"
           let mobileSubSectionImage = document.createElement("img");
           mobileSubSectionImage.src = section.image;
           mobileSubSectionImage.alt = `Image for ${navbarContent.option} - ${section.sectionName}`;
@@ -371,18 +312,49 @@ window.addEventListener("load", () => {
 
           ////////////
           /////DESKTOP SECTION
-          const imgCont = document.createElement("div");
-          imgCont.classList.add("submenu__section-image-container");
-          const imgDiv = document.createElement("img");
-          imgDiv.classList.add("submenu__section-image");
-          imgDiv.src = section.image;
-          imgDiv.alt = "image of " + navbarContent.option
-          imgDiv.loading = "lazy";
-          imgDiv.decoding = "async";
-          setImgDimensions(imgDiv, 480, 320);
+          const imgA = document.createElement("a");
+          imgA.classList.add("submenu__section-image-container");
+          imgA.href = section.sectionLink;
 
-          sectionElement.appendChild(imgCont);
-          imgCont.appendChild(imgDiv);
+          switch (navbarContent.option) {
+            case "Rings":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
+              break;
+            case "Necklaces":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "necklaces");
+              break;
+            case "Earrings":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "earrings");
+              break;
+            case "Bracelets":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "bracelets");
+              break;
+            case "Watches":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "watches");
+              break;
+            case "Collections":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
+              break;
+          }
+          imgA.addEventListener("click", (e) => {
+            localStorage.setItem("selectedArticles", selectedArticle[0].id);
+            window.location.href = "product.html";
+          });
+          mobileSubSectionImageContainer.addEventListener("click", (e) => {
+            localStorage.setItem("selectedArticles", selectedArticle[0].id);
+            window.location.href = "product.html";
+          });
+
+          const img = document.createElement("img");
+          img.classList.add("submenu__section-image");
+          img.src = section.image;
+          img.alt = "image of " + navbarContent.option
+          img.loading = "lazy";
+          img.decoding = "async";
+          setImgDimensions(img, 480, 320);
+
+          sectionElement.appendChild(imgA);
+          imgA.appendChild(img);
           sectionElement.classList.add("submenu__section--image");
         }
       });
@@ -475,24 +447,9 @@ window.addEventListener("load", () => {
       compMobileContainer.appendChild(compA);
 
 
-      compMobileContent.appendChild(compTextCell);
-      compMobileContent.appendChild(compImageCell);
 
-      let compH2 = document.createElement("h2");
-      compH2.textContent = article.title;
-      let compP = document.createElement("p");
-      compP.textContent = article.description;
-      let compImage = document.createElement("img");
-      compImage.src = article.image;
-      compImage.alt = `Image of ${article.title}`;
-      compImage.loading = "lazy";
-      compImage.decoding = "async";
-      setImgDimensions(compImage, 900, 900);
 
-      compTextCell.appendChild(compH2);
-      compTextCell.appendChild(compP);
 
-      compImageCell.appendChild(compImage);
 
 
 
@@ -547,6 +504,9 @@ window.addEventListener("load", () => {
         content.appendChild(hyperlink1);
         textCell.appendChild(hyperlink2);
 
+        compMobileContent.appendChild(compTextCell);
+        compMobileContent.appendChild(compImageCell);
+
       } else if (article.imageOrientation === "right") {
         content.appendChild(textCell);
 
@@ -558,7 +518,27 @@ window.addEventListener("load", () => {
         content.appendChild(hyperlink1);
         textCell.appendChild(hyperlink2);
 
+        compMobileContent.appendChild(compImageCell);
+        compMobileContent.appendChild(compTextCell);
+
+
       }
+
+      let compH2 = document.createElement("h2");
+      compH2.textContent = article.title;
+      let compP = document.createElement("p");
+      compP.textContent = article.description;
+      let compImage = document.createElement("img");
+      compImage.src = article.image;
+      compImage.alt = `Image of ${article.title}`;
+      compImage.loading = "lazy";
+      compImage.decoding = "async";
+      setImgDimensions(compImage, 900, 900);
+
+      compTextCell.appendChild(compH2);
+      compTextCell.appendChild(compP);
+
+      compImageCell.appendChild(compImage);
 
     });
 
@@ -767,7 +747,7 @@ window.addEventListener("load", () => {
     images[currentIndex].classList.add("active");
   }
 
-  function renderCheckout(checkoutContent, elementId, assignedArticleId) {
+  function renderProductPage(checkoutContent, elementId, assignedArticleId) {
     // Reference to the checkout container
     let container = document.getElementById(elementId);
     if (!container) return;
@@ -932,8 +912,13 @@ window.addEventListener("load", () => {
 
 
       // Promo Section
-      let promoDiv2 = document.createElement("div");
-      promoDiv2.className = "product-page__flex-item product-page__flex-item-promo";
+      let promoA = document.createElement("a");
+      promoA.className = "product-page__flex-item product-page__flex-item-promo";
+      promoA.href = "product.html";
+      promoA.addEventListener("click", (e) => {
+        localStorage.setItem("selectedArticles", checkCont.promoArticleId);
+        window.location.href = "product.html";
+      });
 
       let promoLeft = document.createElement("div");
       promoLeft.className = "product-page__promo product-page__promo-left";
@@ -956,9 +941,9 @@ window.addEventListener("load", () => {
 
       promoRight.appendChild(promoImg);
 
-      promoDiv2.appendChild(promoLeft);
-      promoDiv2.appendChild(promoRight);
-      rightContent.appendChild(promoDiv2);
+      promoA.appendChild(promoLeft);
+      promoA.appendChild(promoRight);
+      rightContent.appendChild(promoA);
 
       // Horizontal separator helper
       const createHr = () => {

@@ -55,103 +55,131 @@ window.addEventListener("load", () => {
   const submenuAnimLeft = document.querySelector(".submenu__bg-animation--left");
   const submenuAnimRight = document.querySelector(".submenu__bg-animation--right");
   const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
+  const optionsContainer = document.querySelector(".navbar__content");
 
+  // moved outside loop (single source of truth)
+  let optionContainerTouch = false;
+  const optionControllers = [];
 
+  function deactivateAllSubmenus() {
+    document.querySelectorAll(".submenu.active").forEach(s => s.classList.remove("active"));
+    submenuAnimLeft.classList.remove("active");
+    submenuAnimRight.classList.remove("active");
+    submenuAnimBG.classList.remove("active");
+  }
+
+  // moved outside loop (attach once)
+  window.addEventListener("scroll", () => {
+    deactivateAllSubmenus();
+  });
 
   options.forEach(option => {
     const submenu = option.nextElementSibling;
-    const sections = Array.from(submenu.children);
+    const bottomDistance = 70;
+    let optionTouch = false;
+    let submenuTouch = false;
 
-    const sectionHeights = sections.map(section => {
-      let bottom = section.offsetTop + section.offsetHeight;
+    // measure AFTER classes are applied (so layout is final)
+    function measureAndApplyHeights() {
+      const sections = Array.from(submenu.children);
 
-      // check for absolutely positioned divs with background images
-      const imgDivs = section.querySelectorAll("img");
-      imgDivs.forEach(imgDiv => {
-        const imgDivRect = imgDiv.getBoundingClientRect();
-        const parentRect = section.getBoundingClientRect();
+      const sectionHeights = sections.map(section => {
+        let bottom = section.offsetTop + section.offsetHeight;
 
-        // bottom relative to section
-        const divBottomRelative = imgDivRect.bottom - parentRect.top;
-        bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
+        // check for absolutely positioned divs with background images
+        const imgDivs = section.querySelectorAll("img");
+        imgDivs.forEach(imgDiv => {
+          const imgDivRect = imgDiv.getBoundingClientRect();
+          const parentRect = section.getBoundingClientRect();
+
+          // bottom relative to section
+          const divBottomRelative = imgDivRect.bottom - parentRect.top;
+          bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
+        });
+
+        return bottom;
       });
 
-      return bottom;
-    });
-
-    const highestSection = Math.max(...sectionHeights);
-    const bottomDistance = 70;
-
-    window.addEventListener("scroll", () => {
-      submenuAnimLeft.classList.remove("active");
-      submenuAnimRight.classList.remove("active");
-      submenuAnimBG.classList.remove("active");
-      submenu.classList.remove("active");
-    });
-
-    option.addEventListener("mouseleave", () => {
-      submenuAnimLeft.classList.remove("active");
-      submenuAnimRight.classList.remove("active");
-      submenuAnimBG.classList.remove("active");
-      submenu.classList.remove("active");
-    });
-
-    option.addEventListener("mouseenter", () => {
-      submenuAnimLeft.classList.remove("active");
-      submenuAnimRight.classList.remove("active");
-      submenuAnimBG.classList.remove("active");
-      submenu.classList.remove("active");
-
-      submenuAnimLeft.classList.add("active");
-      submenuAnimRight.classList.add("active");
-      submenuAnimBG.classList.add("active");
-      submenu.classList.add("active");
+      const highestSection = Math.max(...sectionHeights);
 
       submenu.style.height = highestSection + bottomDistance + "px";
-      let ultimateHeight = submenu.offsetHeight;
+      const ultimateHeight = submenu.offsetHeight;
 
       submenuAnimLeft.style.height = ultimateHeight + "px";
       submenuAnimRight.style.height = ultimateHeight + "px";
       submenuAnimBG.style.height = ultimateHeight + "px";
+    }
+
+    function deactivateSubmenu() {
+      document.querySelectorAll(".submenu.active").forEach(s => s.classList.remove("active"));
+      submenuAnimLeft.classList.remove("active");
+      submenuAnimRight.classList.remove("active");
+      submenuAnimBG.classList.remove("active");
+      submenu.classList.remove("active");
+    }
+
+    function activateSubmenu() {
+      submenuAnimLeft.classList.add("active");
+      submenuAnimRight.classList.add("active");
+      submenuAnimBG.classList.add("active");
+      submenu.classList.add("active");
+    }
+
+    function touchChecker() {
+      if (optionTouch == true || submenuTouch == true) {
+        deactivateSubmenu();
+        activateSubmenu();
+        measureAndApplyHeights();
+      } else if (optionTouch == false && optionContainerTouch == false && submenuTouch == false) {
+        deactivateSubmenu();
+      }
+    }
+
+    option.addEventListener("mouseenter", () => {
+      optionTouch = true;
+      touchChecker();
     });
 
     submenu.addEventListener("mouseenter", () => {
-      submenuAnimLeft.classList.remove("active");
-      submenuAnimRight.classList.remove("active");
-      submenuAnimBG.classList.remove("active");
-      submenu.classList.remove("active");
-
-      submenuAnimLeft.classList.add("active");
-      submenuAnimRight.classList.add("active");
-      submenuAnimBG.classList.add("active");
-      submenu.classList.add("active");
-
-      submenu.style.height = highestSection + bottomDistance + "px";
-      let ultimateHeight = submenu.offsetHeight;
-
-      submenuAnimLeft.style.height = ultimateHeight + "px";
-      submenuAnimRight.style.height = ultimateHeight + "px";
-      submenuAnimBG.style.height = ultimateHeight + "px";
+      submenuTouch = true;
+      touchChecker();
     });
 
     submenu.addEventListener("mouseleave", () => {
-      submenuAnimLeft.classList.remove("active");
-      submenuAnimRight.classList.remove("active");
-      submenuAnimBG.classList.remove("active");
-      submenu.classList.remove("active");
+      submenuTouch = false;
+      touchChecker();
+    });
+
+    option.addEventListener("mouseleave", () => {
+      optionTouch = false;
+      touchChecker();
+    });
+
+    // store controller so the single container listeners can trigger the same updates
+    optionControllers.push({ touchChecker, deactivateSubmenu });
+  });
+
+  // moved outside loop (attach once)
+  optionsContainer.addEventListener("mouseenter", () => {
+    optionContainerTouch = true;
+    optionControllers.forEach(c => c.touchChecker());
+  });
+
+  optionsContainer.addEventListener("mouseleave", () => {
+    optionContainerTouch = false;
+    optionControllers.forEach(c => c.touchChecker());
+  });
+
+  window.scrollTo(0, 0);
+  const buttons = document.querySelectorAll(".navbar__option");
+  buttons.forEach(button => {
+    button.addEventListener("mouseenter", () => {
+      const rect = button.getBoundingClientRect();
+      const hoverX = rect.left + rect.width / 2;
+      document.documentElement.style.setProperty("--hover-x", hoverX + "px");
     });
   });
-  window.addEventListener("load", () => {
-    window.scrollTo(0, 0);
-    const buttons = document.querySelectorAll(".navbar__option");
-    buttons.forEach(button => {
-      button.addEventListener("mouseenter", () => {
-        const rect = button.getBoundingClientRect();
-        const hoverX = rect.left + rect.width / 2;
-        document.documentElement.style.setProperty("--hover-x", hoverX + "px");
-      });
-    });
-  });
+
   ///////////////////////////////////////////////////////////////
   //NAVBAR-MOBILE
   ///////////////////////////////////////////////////////////////
