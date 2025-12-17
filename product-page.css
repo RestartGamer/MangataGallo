@@ -188,9 +188,9 @@
 
 .product-page__promo-right {
   width: 25.8%;
-  height: 90%;
+  height: max-content;
   overflow: hidden;
-  border-radius: 10.4px;
+  padding-block: 1px;
 }
 
 .product-page__promo-image {
@@ -198,6 +198,7 @@
   object-fit: cover;
   aspect-ratio: 1 / 1;
   height: auto;
+  border-radius: 10px;
 }
 
 .product-page__flex-item-shipping {
@@ -438,7 +439,7 @@
   }
 
   .product-page__flex-item-promo {
-    height: 8.2%;
+    height: max-content;
     width: 352px;
   }
 
