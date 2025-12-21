@@ -361,10 +361,6 @@ window.addEventListener("load", () => {
 
     });
 
-
-
-
-
   }
 
   function createPromoBanner(promoBannerContent, elementId) {
@@ -404,7 +400,6 @@ window.addEventListener("load", () => {
       hyperlink.setAttribute("aria-label", `View product: ${banner.title}`);
       hyperlink.setAttribute("title", `View ${banner.title}`);
       imageCont.appendChild(hyperlink);
-
 
       hyperlink.addEventListener("click", () => {
         localStorage.setItem("selectedArticles", banner.assignedArticleId);
@@ -446,14 +441,6 @@ window.addEventListener("load", () => {
       compMobileContainer.appendChild(compMobileContent);
       compMobileContainer.appendChild(compA);
 
-
-
-
-
-
-
-
-
       //Text
       let textCell = document.createElement("div"); textCell.classList.add("poster__text-cell");
       let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
@@ -476,7 +463,6 @@ window.addEventListener("load", () => {
       hyperlink1.setAttribute("aria-label", `View product: ${article.title}`);
       hyperlink1.setAttribute("title", `View ${article.title}`);
 
-
       hyperlink1.addEventListener("click", (e) => {
         localStorage.setItem("selectedArticles", article.id);
         window.location.href = "product.html";
@@ -485,7 +471,6 @@ window.addEventListener("load", () => {
       hyperlink2.href = "product.html";
       hyperlink2.setAttribute("aria-label", `View product: ${article.title}`);
       hyperlink2.setAttribute("title", `View ${article.title}`);
-
 
       hyperlink2.addEventListener("click", (e) => {
         localStorage.setItem("selectedArticles", article.id);
@@ -520,8 +505,6 @@ window.addEventListener("load", () => {
 
         compMobileContent.appendChild(compImageCell);
         compMobileContent.appendChild(compTextCell);
-
-
       }
 
       let compH2 = document.createElement("h2");
@@ -544,103 +527,98 @@ window.addEventListener("load", () => {
 
   }
 
-  function createReel(articles, elementId) {
-    let content = document.getElementById(elementId);
-    if (!content) return;
-    if (!content.dataset.cleared) {
-      content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
-    }
-
-    //Title
-    let selectionEl = content.parentElement;
-    if (!selectionEl.classList.contains("reel-promo__container--selection")) {
-      let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
-      let titleH1 = document.createElement("h2");
-      content.appendChild(titleContent);
-      let currentReel = reelContent.find(rCont => rCont.id === elementId);
-      if (currentReel) {
-        titleH1.textContent = currentReel.overheadTitle;
-      }
-
-      titleContent.appendChild(titleH1);
-    }
-
-    //Articles
-    let articleMask = document.createElement("div"); articleMask.classList.add("reel-promo__article-mask");
-    content.appendChild(articleMask);
-
-
-
-
-
-
-    articles.forEach(article => {
-      let articleContainer = document.createElement("article"); articleContainer.classList.add("reel-promo__article-container");
-      if (selectionEl.classList.contains("reel-promo__container--selection")) {
-        articleContainer.classList.add("reel-promo__article-container--selection");
-      }
-      let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
-
-      articleMask.appendChild(articleContainer);
-      articleContainer.appendChild(articleContent);
-
-      let hyperlink = document.createElement("a"); hyperlink.classList.add("go-to-checkout");
-      hyperlink.href = "product.html";
-      hyperlink.setAttribute("aria-label", `View product: ${article.title}`);
-      hyperlink.setAttribute("title", `View ${article.title}`);
-      articleContainer.appendChild(hyperlink);
-
-      hyperlink.addEventListener("click", (e) => {
-        localStorage.setItem("selectedArticles", article.id);
-        window.location.href = "product.html";
-      });
-
-
-      let imageCell = document.createElement("div"); imageCell.classList.add("reel-promo__image-cell");
-      let textCell = document.createElement("div"); textCell.classList.add("reel-promo__text-cell");
-      articleContent.appendChild(imageCell);
-      articleContent.appendChild(textCell);
-
-      let imageContent = document.createElement("div"); imageContent.classList.add("reel-promo__image-content");
-      imageContent.style.backgroundImage = `url(${article.image})`;
-      imageContent.style.backgroundSize = article.imageSize;
-      imageContent.style.backgroundPosition = article.imagePosition;
-      imageContent.setAttribute("role", "img");
-      imageContent.setAttribute("aria-label", `Image of ${article.title}`);
-
-      let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
-      let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
-      let textH1 = document.createElement("h2");
-      let textP = document.createElement("p");
-      textH1.textContent = article.title;
-      textP.textContent = article.description;
-
-
-      imageCell.appendChild(imageContent);
-      textCell.appendChild(textLayout);
-      textCell.appendChild(text);
-      text.appendChild(textH1);
-      text.appendChild(textP);
-
-
-
-    });
-    //Navigation
-    let naviContainer = document.createElement("div"); naviContainer.classList.add("reel-promo__navi-container");
-    let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
-    //left and right buttons are created in reel.js
-
-    content.appendChild(naviContainer);
-    naviContainer.appendChild(naviContent);
-
-
-
-
-
-
-
+ function createReel(articles, elementId) {
+  let content = document.getElementById(elementId);
+  if (!content) return;
+  if (!content.dataset.cleared) {
+    content.innerHTML = "";
+    content.dataset.cleared = "true"; // mark this container as cleared
   }
+
+  //Title
+  let selectionEl = content.parentElement;
+  if (!selectionEl.classList.contains("reel-promo__container--selection")) {
+    let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
+    let titleH1 = document.createElement("h2");
+    content.appendChild(titleContent);
+    let currentReel = reelContent.find(rCont => rCont.id === elementId);
+    if (currentReel) {
+      titleH1.textContent = currentReel.overheadTitle;
+    }
+
+    titleContent.appendChild(titleH1);
+  }
+
+  //Articles
+  let articleMask = document.createElement("div"); articleMask.classList.add("reel-promo__article-mask");
+  content.appendChild(articleMask);
+
+  // ✅ Side frame margin that is INCLUDED in sizing calculations
+  // (viewport becomes narrower, so items/gaps remain consistent inside the frame)
+  const sideMargin = "var(--reel-side-margin, 1.2rem)";
+  articleMask.style.marginLeft = sideMargin;
+  articleMask.style.marginRight = sideMargin;
+  articleMask.style.width = `calc(100% - (2 * ${sideMargin}))`;
+  articleMask.style.maxWidth = `calc(100% - (2 * ${sideMargin}))`;
+  articleMask.style.boxSizing = "border-box";
+
+  articles.forEach(article => {
+    // ✅ Turn the container into an anchor tag (and remove the inner anchor)
+    let articleContainer = document.createElement("a"); articleContainer.classList.add("reel-promo__article-container");
+    articleContainer.href = "product.html";
+    articleContainer.setAttribute("aria-label", `View product: ${article.title}`);
+    articleContainer.setAttribute("title", `View ${article.title}`);
+
+    if (selectionEl.classList.contains("reel-promo__container--selection")) {
+      articleContainer.classList.add("reel-promo__article-container--selection");
+    }
+
+    let articleContent = document.createElement("div"); articleContent.classList.add("reel-promo__article-content");
+
+    articleMask.appendChild(articleContainer);
+    articleContainer.appendChild(articleContent);
+
+    articleContainer.addEventListener("click", (e) => {
+      localStorage.setItem("selectedArticles", article.id);
+      window.location.href = "product.html";
+    });
+
+    let imageCell = document.createElement("div"); imageCell.classList.add("reel-promo__image-cell");
+    let textCell = document.createElement("div"); textCell.classList.add("reel-promo__text-cell");
+    articleContent.appendChild(imageCell);
+    articleContent.appendChild(textCell);
+
+    let imageContent = document.createElement("div"); imageContent.classList.add("reel-promo__image-content");
+    imageContent.style.backgroundImage = `url(${article.image})`;
+    imageContent.style.backgroundSize = article.imageSize;
+    imageContent.style.backgroundPosition = article.imagePosition;
+    imageContent.setAttribute("role", "img");
+    imageContent.setAttribute("aria-label", `Image of ${article.title}`);
+
+    let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
+    let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
+    let textH1 = document.createElement("h2");
+    let textP = document.createElement("p");
+    textH1.textContent = article.title;
+    textP.textContent = article.description;
+
+    imageCell.appendChild(imageContent);
+    textCell.appendChild(textLayout);
+    textCell.appendChild(text);
+    text.appendChild(textH1);
+    text.appendChild(textP);
+  });
+
+  //Navigation
+  let naviContainer = document.createElement("div"); naviContainer.classList.add("reel-promo__navi-container");
+  let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
+  //left and right buttons are created in reel.js
+
+  content.appendChild(naviContainer);
+  naviContainer.appendChild(naviContent);
+}
+
+
 
 
 
@@ -671,7 +649,6 @@ window.addEventListener("load", () => {
       hyperlink.setAttribute("title", `View ${article.title}`);
       imageContainer.appendChild(hyperlink);
 
-
       hyperlink.addEventListener("click", (e) => {
         localStorage.setItem("selectedArticles", article.id);
         window.location.href = "product.html";
@@ -693,9 +670,8 @@ window.addEventListener("load", () => {
       textContainer.appendChild(title1);
       textContainer.appendChild(descrip1);
       textContainer.appendChild(textHyper);
-
-
     });
+
     let slideshowLayout = document.createElement("div");
     slideshowLayout.classList.add("poster-slideshow__layout");
     content.appendChild(slideshowLayout);
@@ -1306,11 +1282,6 @@ window.addEventListener("load", () => {
     });
   }
 
-
-
-
-
-  //SEPARATE STUFF
   if (!localStorage.getItem("shoppingBag")) {
     localStorage.setItem("shoppingBag", JSON.stringify([]));
   }

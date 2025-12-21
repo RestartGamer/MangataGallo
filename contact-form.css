@@ -1,114 +1,105 @@
 .contact-form__container {
   width: 100%;
-  background-color: white;
+  height: max-content;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 2% 0 1.7%;
+  justify-content: center;
+  --bg-color: #eaeaea;
+  margin-bottom: var(--element-gap);
+  background-color: white;
+}
+
+.contact-form__container * {
+  color: black;
+}
+
+.contact-form__content {
 }
 
 .contact-form__content {
   width: 80%;
-  margin-left: 10%;
-  margin-top: 2%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
 }
 
-.contact-form__container h1 {
-  font-size: clamp(2rem, 0.6vw + 1.7rem, 3rem);
-  margin-bottom: 0.8%;
+.contact-form__content p {
+  font-size: var(--p-main);
+  margin-bottom: 0.9em;
 }
 
-.contact-form__container p {
-  font-size: clamp(1rem, 0.6vw + 1rem, 1.4rem);
-  margin-bottom: 1.6%;
+.contact-form__content h2 {
+  margin-bottom: 1em;
 }
 
 .contact-form__form {
+  width: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-  width: 100%;
-  margin-top: 1.3%;
+  row-gap: 0.7em;
 }
 
 .contact-form__form-group {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  width: max-content;
 }
 
 .contact-form__form-group label {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.contact-form__form-group input,
-.contact-form__form-group textarea {
-  font-size: 1rem;
-  border: 1px solid #8a8a8a;
-  padding: 10px 12px;
-  width: 100%;
-  border-radius: 0; /* keep your sharp style */
+  font-size: var(--p-submain);
+  font-weight: bold;
 }
 
 .contact-form__form-group input {
-  min-height: 40px;
+  width: 28.5%;
+  height: auto;
+  padding-block: 0.4em;
+  color: black;
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  min-width: 153px;
 }
 
-.contact-form__form-group textarea {
-  min-height: 120px;
-  resize: vertical;
+.contact-form__form-group.message textarea {
+  margin-bottom: 0.6em;
+  width: 100%;
+  min-height: 189px;
+  color: black;
+  font-size: 1rem;
+  background-color: var(--bg-color);
 }
 
-.contact-form__form button {
-  font-size: 1.1rem;
-  border: 1px solid #8a8a8a;
-  padding: 10px 16px;
-  min-width: 160px;
+.contact-form__form-group.message button[type="submit"] {
+  all: unset;
+  width: auto;
+  height: auto;
+  align-self: end;
+
+  background-color: #000;
+  color: #54e7ff;           /* lightning blue */
+  border: 2px solid #54e7ff;
+
   text-align: center;
-  align-self: flex-end;
+  padding-block: 0.35em;
+  padding-inline: 0.95em;
+  border-radius: 0.3em;
+
   cursor: pointer;
+  transition: transform 0.18s ease-in-out, background-color 0.18s ease-in-out, color 0.18s ease-in-out, border-color 0.18s ease-in-out;
 }
 
-.contact-form__form button:hover {
-  background-color: grey;
+.contact-form__form-group.message button[type="submit"]:hover {
+  background-color: #54e7ff;
+  color: #000;
+  transform: translateY(-1px);
 }
 
-.contact-form__form button:active {
-  background-color: darkgray;
-}
-
-/* Important if you remove `all: unset`: */
-.contact-form__form button:focus-visible,
-.contact-form__form-group input:focus-visible,
-.contact-form__form-group textarea:focus-visible {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
-.contact-form__form-group.message {
-  width: 60.0%;
-}
-
-@media (max-width: 480px) {
-  .contact-form__content {
-    margin-left: 8%;
-  }
-
-  .contact-form__container p {
-    width: 80.2%;
-    text-wrap: wrap;
-  }
-
-  .contact-form__form button {
-    width: auto;
-    min-width: 0;
-  }
-  .contact-form__form button {
-    align-self:flex-start;
-  }
+.contact-form__form-group.message button[type="submit"]:active {
+  transform: translateY(0);
+  background-color: #000;
+  color: #fff;
+  border-color: #fff;
 }

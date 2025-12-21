@@ -4,6 +4,10 @@ body {
   --logo-height: 79px;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 header {
   display: flex;
   flex-direction: column;

@@ -498,11 +498,11 @@
 
 
 
-        
-        
-        
+
+
+
         <script src="dynamic-header.js"></script>
-        
+
         <script src="shopping-cart.js"></script>
         <script src="article-renderer.js"></script>
         <script src="navbar.js"></script>
@@ -563,21 +563,21 @@
           " />
         </div>
 
-        <section class="contact-form__container">
+        <section class="contact-form__container animated">
             <div class="contact-form__content">
                 <h2>Get in Touch</h2>
                 <p>Have questions? Fill out the form and we’ll get back to you.</p>
 
-                <form class="contact-form__form" method="post" action="#" autocomplete="on">
+                <form class="contact-form__form" id="contactForm" autocomplete="on">
                     <div class="contact-form__form-group name">
                         <label for="name">Name</label>
-                        <input class="contact-form__input-box" type="text" id="name" name="name" placeholder="Your name"
-                            autocomplete="name" required>
+                        <input class="contact-form__input-box name" type="text" id="name" name="name"
+                            placeholder="Your name" autocomplete="name" required>
                     </div>
 
                     <div class="contact-form__form-group email">
                         <label for="email">Email</label>
-                        <input class="contact-form__input-box" type="email" id="email" name="email"
+                        <input class="contact-form__input-box email" type="email" id="email" name="email"
                             placeholder="you@example.com" autocomplete="email" required>
                     </div>
 
@@ -588,6 +588,30 @@
                         <button type="submit">Send Message</button>
                     </div>
                 </form>
+
+                <script>
+                    const form = document.getElementById("contactForm");
+
+                    form.addEventListener("submit", (e) => {
+                        e.preventDefault();
+
+                        const name = document.getElementById("name").value.trim();
+                        const email = document.getElementById("email").value.trim();
+                        const message = document.getElementById("message").value.trim();
+
+                        const to = "ckorkmaz56@gmail.com";
+                        const subject = encodeURIComponent(`Portfolio contact from ${name || "Someone"}`);
+                        const body = encodeURIComponent(
+                            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+                        );
+
+                        // Opens the user's default mail app/handler
+                        window.location.href = `mailto:${to}?subject=${subject}&body=${encodeURIComponent(`From: ${name || "Someone"} (${email || "no-email"})\n---\nMessage:\n${message}`)}`;
+
+                    });
+                </script>
+
+
             </div>
         </section>
 
@@ -600,7 +624,7 @@
             border-radius: 100%;
           " />
         </div>
-        
+
     </main>
     <!-- Footer -->
     <footer>
@@ -682,7 +706,7 @@
         </section>
 
     </footer>
-    
+
 </body>
 
 </html>
