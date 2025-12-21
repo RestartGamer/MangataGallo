@@ -6,32 +6,34 @@
   position: sticky;
   top: 0;
   width: 100%;
-  height: 6vh;
   background-color: rgba(73, 104, 104, 0.85);
 
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+
   visibility: visible;
   pointer-events: auto;
+  /* Hover-bridge: prevents tiny gap between option and submenu without shifting submenu down */
 }
+
 
 .navbar__content {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.9%;
-  max-width: 1400px;
+  /*! max-width: 1400px; */
   width: 100%;
   height: 100%;
   /*! outline: 1px solid red; */
-  margin: 0 auto;
+  /*! margin: 0 auto; */
+  position: relative;
+  padding-block: 10px;
 }
 
 .navbar__option {
-
   --navbar-box-width: max-content;
   cursor: pointer;
   list-style: none;
@@ -43,7 +45,7 @@
   align-items: center;
 }
 
-.navbar__option+.navbar__option {
+.navbar__option + .navbar__option {
   margin-left: clamp(0.5rem, 1vw, 1.5rem);
 }
 
@@ -59,6 +61,7 @@
   flex: 0 0 auto;
   width: 100%;
   justify-content: center;
+  border: 2px solid transparent;
 }
 
 .navbar__option-link:hover {
@@ -68,6 +71,11 @@
   border: 2px solid black;
 }
 
+/* kept for compatibility (doesn't hurt even though margin-bottom is gone now) */
+.navbar__container.product {
+  margin-bottom: 0;
+}
+
 .submenu {
   display: grid;
   grid-template-columns: repeat(2, 17%);
@@ -75,14 +83,13 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: max-content;
   /*! outline: 2px solid red; */
   justify-content: center;
   align-items: start;
   column-gap: 12.7%;
   row-gap: 12.7%;
-  opacity: 1;
   pointer-events: none;
   opacity: 0;
   padding-bottom: 5%;
@@ -96,7 +103,6 @@
   background-color: #ffffffa6;
   transition: opacity 0.6s ease-in-out, background-color 2s ease-in-out;
 }
-
 
 .submenu__section {
   position: relative;
@@ -143,7 +149,8 @@
 
 .submenu__section-image {
   width: 100%;
-  height: 100%;
+  height: auto;
+  border-radius: 23px;
 }
 
 .submenu__bg-animation-background {
@@ -184,7 +191,6 @@
   pointer-events: none;
   opacity: 1;
   /*KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK*/
-
 }
 
 .submenu__bg-animation--left.active {
@@ -200,8 +206,6 @@
 .submenu__bg-animation-background.active {
   opacity: 1;
 }
-
-
 
 .submenu__section p {
   line-height: 25.6px;
@@ -220,14 +224,9 @@
   cursor: pointer;
 }
 
-.submenu__section h2:hover {
-  cursor: pointer;
-}
-
 /*THE MOBILE VERSION*/
 
 .hamburger-button__container--close {
-
   all: unset;
   width: 28px;
   /*! outline: 1px solid red; */
@@ -252,7 +251,6 @@
 .hamburger-button__content {
   display: flex;
 }
-
 
 .hamburger-button__container {
   all: unset;
@@ -288,7 +286,6 @@
   pointer-events: none;
   transform: translateX(-100%);
   transition: transform 0.6s ease-in-out, visibility 0s linear 1s;
-
 }
 
 .navbar-mobile__menu-content {
@@ -370,7 +367,6 @@
   height: max-content;
   /*! outline: 1px solid red; */
   margin-top: 10.1%;
-
 }
 
 .navbar-mobile__submenu-section-text-container {
@@ -425,7 +421,6 @@
   font-weight: 200;
 }
 
-
 .navbar-mobile__submenu-title-container {
   --border-color: #34534436;
   --border-width: 2.5px;
@@ -458,7 +453,6 @@
   text-align: center;
 }
 
-
 .navbar-mobile__submenu-title-box {
   --border-width: 3.9px;
   --border-color: #1e2f28;
@@ -479,21 +473,34 @@
   transform: rotate(45deg);
   border-right: var(--border-width) solid var(--border-color);
   border-top: var(--border-width) solid var(--border-color);
-
 }
 
 .navbar-mobile__submenu-title-box--left:hover {
   cursor: pointer;
 }
 
+.navbar-mobile__submenu-section-container div img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
 
+.navbar-mobile__submenu-image-container {
+  width: 100%;
+  height: max-content;
+}
+.navbar-mobile__submenu-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
 /* ─────────── NAVBAR RESPONSIVE DESKTOP-TO-MOBILE SCALE ─────────── */
 
 /* ====== ≥1200px ====== */
 @media (min-width: 1200px) {
   .navbar__container {
-    height: 60px;
   }
 
   .navbar__content {
@@ -504,7 +511,6 @@
     font-size: 1.4rem;
     padding: 0 16px;
   }
-
 
   .quick-menu {
     width: 100px;
@@ -519,7 +525,6 @@
   }
 
   .submenu__section--image {
-
     width: 102.0%;
     object-fit: cover;
   }
@@ -562,8 +567,6 @@
   }
 
   .submenu__section-image {
-    width: 100%;
-    height: 100%;
   }
 }
 
@@ -582,7 +585,6 @@
     gap: 0.5rem;
   }
 
-
   .quick-menu {
     width: 90px;
   }
@@ -595,7 +597,8 @@
     width: 111%;
   }
 
-  .submenu__section--image {}
+  .submenu__section--image {
+  }
 
   .submenu__section h2 {
     color: rgb(143, 143, 143);
@@ -658,7 +661,7 @@
     width: 80px;
   }
 
-  .navbar__option+.navbar__option {
+  .navbar__option + .navbar__option {
     margin-left: 0.4rem;
   }
 
@@ -670,7 +673,8 @@
     width: 166.8%;
   }
 
-  .submenu__section--image {}
+  .submenu__section--image {
+  }
 
   .submenu__section h2 {
     color: rgb(143, 143, 143);
@@ -726,12 +730,11 @@
     gap: 0.2rem;
   }
 
-
   .quick-menu {
     width: 70px;
   }
 
-  .navbar__option+.navbar__option {
+  .navbar__option + .navbar__option {
     margin-left: 0.6rem;
   }
 
@@ -743,7 +746,8 @@
     width: 111%;
   }
 
-  .submenu__section--image {}
+  .submenu__section--image {
+  }
 
   .submenu__section h2 {
     color: rgb(143, 143, 143);
@@ -818,23 +822,20 @@
     height: 100vh;
   }
 
-
   .navbar__content {
     gap: 0.4%;
   }
-
 
   .navbar__option-link {
     font-size: 0.7rem;
     padding: 0 1px;
   }
 
-
   .quick-menu {
     width: 60px;
   }
 
-  .navbar__option+.navbar__option {
+  .navbar__option + .navbar__option {
     margin-left: 0rem;
   }
 
@@ -846,7 +847,8 @@
     width: 111%;
   }
 
-  .submenu__section--image {}
+  .submenu__section--image {
+  }
 
   .submenu__section h2 {
     color: rgb(143, 143, 143);

@@ -1,13 +1,12 @@
+/* logo.css */
+
 .logo__container {
-  width: 100vw;
+  width: 100%; /* use 100% instead of 100vw to avoid overflow issues */
+  height: var(--logo-height, 79px);
   background-color: rgba(52, 80, 80, 0.85);
   z-index: 100;
-  /*! display: inline-block; */
-  height: 79px;
   display: block;
-
 }
-
 
 .logo__content {
   width: 100%;
@@ -15,103 +14,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0px;
+  padding-block: 15px; /* default padding */
 }
 
 .logo__image {
-  width: 32%;
-  /*! object-fit: cover; */
-  /*! aspect-ratio: 1 / 1; */
-  /*! height: auto; */
-  display: inline;
+  width: clamp(220px, 32vw, 480px); /* scales nicely without being tiny/huge */
+  height: auto;
+  display: block; /* avoid inline-image baseline gaps */
 }
 
-@media (min-width: 1200px) {
-  #logo {
-    --padding: 15px;
-    padding: var(--padding) 0px;
-  }
-
-  .logo__image {
-    width: 32%;
-    /*! object-fit: cover; */
-    /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
-    display: inline;
-  }
-
-  .logo__container {}
-
-}
-
-@media (max-width: 1200px) {
-  #logo {
-    padding: 15px 0;
-  }
-
-  .logo__image {
-    width: 32%;
-    /*! object-fit: cover; */
-    /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
-    display: inline;
-  }
-
-  .logo__container {}
-
-}
-
+/* tablet-ish tweak (optional) */
 @media (max-width: 992px) {
-  #logo {
-    padding: 12.5px 0;
+  .logo__content {
+    padding-block: 12.5px;
   }
-
-  .logo__image {
-    width: 32%;
-    /*! object-fit: cover; */
-    /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
-    display: inline;
-  }
-
-  .logo__container {}
-
 }
 
-@media (max-width: 768px) {
-  #logo {
-    padding: 15px 0;
-  }
-
-  .logo__image {
-    width: 32%;
-    /*! object-fit: cover; */
-    /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
-    display: inline;
-  }
-
-  .logo__container {}
-
-}
-
+/* mobile */
 @media (max-width: 480px) {
-  #logo {
-    padding: 11.5px 0;
-  }
-
-  .logo__image {
-    width: 71.8%;
-    /*! object-fit: cover; */
-    /*! aspect-ratio: 1 / 1; */
-    /*! height: auto; */
-    display: inline;
-  }
-
   .logo__container {
     position: fixed;
     top: 0;
     left: 0;
   }
 
+  .logo__content {
+    padding-block: 11.5px;
+  }
+
+  .logo__image {
+    width: 71.8%;
+    max-width: 520px; /* optional safety cap */
+  }
 }

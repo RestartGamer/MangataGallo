@@ -4,6 +4,14 @@ let productPageContainer = document.querySelector(".product-page__container");
 if (productPageContainer) productPageContainer.style.opacity = 0;
 
 window.addEventListener("load", () => {
+
+  // ✅ Helper: add intrinsic size attributes to prevent layout shift
+  const setImgDimensions = (img, width, height) => {
+    if (!img) return;
+    img.setAttribute("width", String(width));
+    img.setAttribute("height", String(height));
+  };
+
   dataTypes.forEach(dataType => {
     let elements = document.querySelectorAll(`[data-type="${dataType}"]`);
     let elementArticleCategories = [];
@@ -62,7 +70,7 @@ window.addEventListener("load", () => {
             return;
           }
           let productPageContainer = document.querySelector(".product-page__container");
-          renderCheckout(checkoutContent, element.id, selectedArticles);
+          renderProductPage(checkoutContent, element.id, selectedArticles);
           if (productPageContainer) productPageContainer.style.opacity = 1;
 
           break;
@@ -118,6 +126,9 @@ window.addEventListener("load", () => {
       let menuOptionA = document.createElement("a");
       menuOptionA.textContent = navbarContent.option;
       menuOptionA.href = "#";
+
+      menuOptionA.setAttribute("aria-label", `Open ${navbarContent.option} menu`);
+      menuOptionA.setAttribute("title", navbarContent.option);
       menuOptionContainer.appendChild(menuOptionA);
 
       let mobileSubContainer = document.createElement("div");
@@ -149,16 +160,19 @@ window.addEventListener("load", () => {
       ////////////
       ////DESKTOP SECTION
 
-      let navbarOption = navbarContent.option;
+      let navbarOptionText = navbarContent.option;
 
       let navbarOptionContainer = document.createElement("li");
       navbarOptionContainer.classList.add("navbar__option");
 
       let navbarOptionLink = document.createElement("a");
       navbarOptionLink.classList.add("navbar__option-link");
-      navbarOptionLink.textContent = navbarOption;
+      navbarOptionLink.textContent = navbarOptionText;
+      navbarOptionLink.href = "product.html";
+      navbarOptionLink.setAttribute("aria-label", `${navbarOptionText} category`);
+      navbarOptionLink.setAttribute("title", navbarOptionText);
 
-      if (navbarContent.option === "Home"){
+      if (navbarContent.option === "Home") {
         menuOptionA.href = "home.html";
         navbarOptionLink.href = "home.html";
       }
@@ -171,9 +185,8 @@ window.addEventListener("load", () => {
       content.appendChild(navbarOptionContainer);
       content.appendChild(submenuContainer);
 
-      // Use the newly created li2 as the submenu container
       let submenuElement = submenuContainer;
-      submenuElement.classList.add(navbarOption);
+      submenuElement.classList.add(navbarOptionText);
 
       navbarContent.sections.forEach(section => {
 
@@ -215,6 +228,8 @@ window.addEventListener("load", () => {
             let mobileSubTextA = document.createElement("a");
             mobileSubTextA.textContent = listItem;
             mobileSubTextA.href = "#";
+            mobileSubTextA.setAttribute("aria-label", listItem);
+            mobileSubTextA.setAttribute("title", listItem);
 
             mobileSubUl.appendChild(mobileSubTextLi);
             mobileSubTextLi.appendChild(mobileSubTextA);
@@ -226,99 +241,41 @@ window.addEventListener("load", () => {
             const aItem = document.createElement("a");
             let selectedArticle = [];
             aItem.textContent = listItem;
+            aItem.setAttribute("aria-label", listItem);
+            aItem.setAttribute("title", listItem);
+
             switch (navbarContent.option) {
               case "Rings":
-                
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Necklaces":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "necklaces");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Earrings":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "earrings");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Bracelets":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "bracelets");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Watches":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "watches");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
               case "Collections":
                 selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
-                mobileSubTextA.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                aItem.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
-                navbarOptionLink.addEventListener("click", () => {
-                  localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
-                  window.location.href = "product.html";
-                });
                 break;
             }
+            mobileSubTextA.addEventListener("click", () => {
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              window.location.href = "product.html";
+            });
+            aItem.addEventListener("click", () => {
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              window.location.href = "product.html";
+            });
+            navbarOptionLink.addEventListener("click", () => {
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              window.location.href = "product.html";
+            });
 
             aItem.href = "#";
             liItem.appendChild(aItem);
@@ -339,9 +296,15 @@ window.addEventListener("load", () => {
         } else if (section.image) {
 
           ////MOBILE SECTION
-          let mobileSubSectionImageContainer = document.createElement("div");
+          let mobileSubSectionImageContainer = document.createElement("a");
+          mobileSubSectionImageContainer.classList.add("navbar-mobile__submenu-image-container")
+          mobileSubSectionImageContainer.href = "product.html"
           let mobileSubSectionImage = document.createElement("img");
           mobileSubSectionImage.src = section.image;
+          mobileSubSectionImage.alt = `Image for ${navbarContent.option} - ${section.sectionName}`;
+          mobileSubSectionImage.loading = "lazy";
+          mobileSubSectionImage.decoding = "async";
+          setImgDimensions(mobileSubSectionImage, 480, 320);
 
           mobileSubSectionContainer.appendChild(mobileSubSectionImageContainer);
           mobileSubSectionImageContainer.appendChild(mobileSubSectionImage);
@@ -349,14 +312,49 @@ window.addEventListener("load", () => {
 
           ////////////
           /////DESKTOP SECTION
-          const imgCont = document.createElement("div");
-          imgCont.classList.add("submenu__section-image-container");
-          const imgDiv = document.createElement("img");
-          imgDiv.classList.add("submenu__section-image");
-          imgDiv.src = section.image;
-          imgDiv.alt = "image of " + navbarContent.option
-          sectionElement.appendChild(imgCont);
-          imgCont.appendChild(imgDiv);
+          const imgA = document.createElement("a");
+          imgA.classList.add("submenu__section-image-container");
+          imgA.href = section.sectionLink;
+
+          switch (navbarContent.option) {
+            case "Rings":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
+              break;
+            case "Necklaces":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "necklaces");
+              break;
+            case "Earrings":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "earrings");
+              break;
+            case "Bracelets":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "bracelets");
+              break;
+            case "Watches":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "watches");
+              break;
+            case "Collections":
+              selectedArticle = filteredArticles.filter(filteredArticle => filteredArticle.category === "rings");
+              break;
+          }
+          imgA.addEventListener("click", (e) => {
+            localStorage.setItem("selectedArticles", selectedArticle[0].id);
+            window.location.href = "product.html";
+          });
+          mobileSubSectionImageContainer.addEventListener("click", (e) => {
+            localStorage.setItem("selectedArticles", selectedArticle[0].id);
+            window.location.href = "product.html";
+          });
+
+          const img = document.createElement("img");
+          img.classList.add("submenu__section-image");
+          img.src = section.image;
+          img.alt = "image of " + navbarContent.option
+          img.loading = "lazy";
+          img.decoding = "async";
+          setImgDimensions(img, 480, 320);
+
+          sectionElement.appendChild(imgA);
+          imgA.appendChild(img);
           sectionElement.classList.add("submenu__section--image");
         }
       });
@@ -393,6 +391,9 @@ window.addEventListener("load", () => {
       let image = document.createElement("img"); image.classList.add("promo-banner__image");
       image.src = banner.image;
       image.alt = "image of " + banner.title;
+      image.loading = "lazy";
+      image.decoding = "async";
+      setImgDimensions(image, 1600, 900);
 
       content.appendChild(imageCont);
       imageCont.appendChild(image);
@@ -400,6 +401,8 @@ window.addEventListener("load", () => {
       let hyperlink = document.createElement("a");
       hyperlink.classList.add("go-to-checkout");
       hyperlink.href = "product.html";
+      hyperlink.setAttribute("aria-label", `View product: ${banner.title}`);
+      hyperlink.setAttribute("title", `View ${banner.title}`);
       imageCont.appendChild(hyperlink);
 
 
@@ -431,6 +434,8 @@ window.addEventListener("load", () => {
       compImageCell.classList.add("poster__comp-mobile-image");
       let compA = document.createElement("a");
       compA.href = "product.html";
+      compA.setAttribute("aria-label", `View product: ${article.title}`);
+      compA.setAttribute("title", `View ${article.title}`);
       compA.addEventListener("click", (e) => {
         localStorage.setItem("selectedArticles", article.id);
         window.location.href = "product.html";
@@ -442,26 +447,15 @@ window.addEventListener("load", () => {
       compMobileContainer.appendChild(compA);
 
 
-      compMobileContent.appendChild(compTextCell);
-      compMobileContent.appendChild(compImageCell);
 
-      let compH2 = document.createElement("h2");
-      compH2.textContent = article.title;
-      let compP = document.createElement("p");
-      compP.textContent = article.description;
-      let compImage = document.createElement("img");
 
-      compTextCell.appendChild(compH2);
-      compTextCell.appendChild(compP);
 
-      compImage.src = article.image;
-      compImageCell.appendChild(compImage);
 
 
 
 
       //Text
-      let textCell = document.createElement("article"); textCell.classList.add("poster__text-cell");
+      let textCell = document.createElement("div"); textCell.classList.add("poster__text-cell");
       let textLayout = document.createElement("div"); textLayout.classList.add("poster__text-layout");
       let textContent = document.createElement("div"); textContent.classList.add("poster__text-content");
       let h1 = document.createElement("h2");
@@ -473,9 +467,14 @@ window.addEventListener("load", () => {
       let posterImage = document.createElement("img"); posterImage.classList.add("poster__image");
       posterImage.src = article.posterImage;
       posterImage.alt = "image of " + article.title;
+      posterImage.loading = "lazy";
+      posterImage.decoding = "async";
+      setImgDimensions(posterImage, 1600, 900);
 
       let hyperlink1 = document.createElement("a"); hyperlink1.classList.add("go-to-checkout");
       hyperlink1.href = "product.html";
+      hyperlink1.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink1.setAttribute("title", `View ${article.title}`);
 
 
       hyperlink1.addEventListener("click", (e) => {
@@ -484,6 +483,8 @@ window.addEventListener("load", () => {
       });
       let hyperlink2 = document.createElement("a"); hyperlink2.classList.add("go-to-checkout");
       hyperlink2.href = "product.html";
+      hyperlink2.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink2.setAttribute("title", `View ${article.title}`);
 
 
       hyperlink2.addEventListener("click", (e) => {
@@ -503,6 +504,9 @@ window.addEventListener("load", () => {
         content.appendChild(hyperlink1);
         textCell.appendChild(hyperlink2);
 
+        compMobileContent.appendChild(compTextCell);
+        compMobileContent.appendChild(compImageCell);
+
       } else if (article.imageOrientation === "right") {
         content.appendChild(textCell);
 
@@ -514,7 +518,27 @@ window.addEventListener("load", () => {
         content.appendChild(hyperlink1);
         textCell.appendChild(hyperlink2);
 
+        compMobileContent.appendChild(compImageCell);
+        compMobileContent.appendChild(compTextCell);
+
+
       }
+
+      let compH2 = document.createElement("h2");
+      compH2.textContent = article.title;
+      let compP = document.createElement("p");
+      compP.textContent = article.description;
+      let compImage = document.createElement("img");
+      compImage.src = article.image;
+      compImage.alt = `Image of ${article.title}`;
+      compImage.loading = "lazy";
+      compImage.decoding = "async";
+      setImgDimensions(compImage, 900, 900);
+
+      compTextCell.appendChild(compH2);
+      compTextCell.appendChild(compP);
+
+      compImageCell.appendChild(compImage);
 
     });
 
@@ -563,6 +587,8 @@ window.addEventListener("load", () => {
 
       let hyperlink = document.createElement("a"); hyperlink.classList.add("go-to-checkout");
       hyperlink.href = "product.html";
+      hyperlink.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink.setAttribute("title", `View ${article.title}`);
       articleContainer.appendChild(hyperlink);
 
       hyperlink.addEventListener("click", (e) => {
@@ -580,6 +606,8 @@ window.addEventListener("load", () => {
       imageContent.style.backgroundImage = `url(${article.image})`;
       imageContent.style.backgroundSize = article.imageSize;
       imageContent.style.backgroundPosition = article.imagePosition;
+      imageContent.setAttribute("role", "img");
+      imageContent.setAttribute("aria-label", `Image of ${article.title}`);
 
       let textLayout = document.createElement("div"); textLayout.classList.add("reel-promo__text-layout");
       let text = document.createElement("div"); text.classList.add("reel-promo__text-content");
@@ -632,11 +660,15 @@ window.addEventListener("load", () => {
       imageContainer.style.backgroundImage = `url(${article.image})`;
       imageContainer.style.backgroundSize = article.imageSize;
       imageContainer.style.backgroundPosition = article.imagePosition;
+      imageContainer.setAttribute("role", "img");
+      imageContainer.setAttribute("aria-label", `Image of ${article.title}`);
       content.appendChild(imageContainer);
 
       let hyperlink = document.createElement("a");
       hyperlink.classList.add("go-to-checkout");
       hyperlink.href = "product.html";
+      hyperlink.setAttribute("aria-label", `View product: ${article.title}`);
+      hyperlink.setAttribute("title", `View ${article.title}`);
       imageContainer.appendChild(hyperlink);
 
 
@@ -651,6 +683,8 @@ window.addEventListener("load", () => {
       let descrip1 = document.createElement("p");
       let textHyper = document.createElement("a");
       textHyper.href = "product.html";
+      textHyper.setAttribute("aria-label", `View product: ${article.title}`);
+      textHyper.setAttribute("title", `View ${article.title}`);
 
       title1.textContent = article.title;
       descrip1.textContent = article.description;
@@ -713,7 +747,7 @@ window.addEventListener("load", () => {
     images[currentIndex].classList.add("active");
   }
 
-  function renderCheckout(checkoutContent, elementId, assignedArticleId) {
+  function renderProductPage(checkoutContent, elementId, assignedArticleId) {
     // Reference to the checkout container
     let container = document.getElementById(elementId);
     if (!container) return;
@@ -741,6 +775,10 @@ window.addEventListener("load", () => {
         gridImage.style.gridArea = i === 0 ? "main" : "secondary";
         gridImage.src = image;
         gridImage.alt = "Product Image of: " + assignedArticle.title;
+        gridImage.loading = i === 0 ? "eager" : "lazy";
+        gridImage.decoding = "async";
+        setImgDimensions(gridImage, 1200, 1200);
+
         leftContent.appendChild(gridImage);
       });
 
@@ -757,6 +795,10 @@ window.addEventListener("load", () => {
       videoEl.muted = true;
       videoEl.loop = true;
       videoEl.playsInline = true;
+      videoEl.preload = "metadata";
+      videoEl.setAttribute("aria-label", `Product video for ${assignedArticle.title}`);
+      videoEl.setAttribute("title", `Product video: ${assignedArticle.title}`);
+      videoEl.setAttribute("controlslist", "nodownload");
 
       const sourceEl = document.createElement("source");
       sourceEl.src = assignedArticle.checkVideo;
@@ -821,6 +863,9 @@ window.addEventListener("load", () => {
 
       let addBagLink = document.createElement("button");
       addBagLink.classList.add("add-to-bag");
+      addBagLink.type = "button";
+      addBagLink.setAttribute("aria-label", `Add ${assignedArticle.title} to bag`);
+      addBagLink.setAttribute("title", "Add to bag");
       addBag.appendChild(addBagLink);
 
       addBagLink.addEventListener("click", () => {
@@ -867,8 +912,13 @@ window.addEventListener("load", () => {
 
 
       // Promo Section
-      let promoDiv2 = document.createElement("div");
-      promoDiv2.className = "product-page__flex-item product-page__flex-item-promo";
+      let promoA = document.createElement("a");
+      promoA.className = "product-page__flex-item product-page__flex-item-promo";
+      promoA.href = "product.html";
+      promoA.addEventListener("click", (e) => {
+        localStorage.setItem("selectedArticles", checkCont.promoArticleId);
+        window.location.href = "product.html";
+      });
 
       let promoLeft = document.createElement("div");
       promoLeft.className = "product-page__promo product-page__promo-left";
@@ -885,11 +935,15 @@ window.addEventListener("load", () => {
       promoImg.className = "product-page__promo product-page__promo-image";
       promoImg.src = "media/earrings-special2.PNG";
       promoImg.alt = "Image of Red Earrings"
+      promoImg.loading = "lazy";
+      promoImg.decoding = "async";
+      setImgDimensions(promoImg, 800, 800);
+
       promoRight.appendChild(promoImg);
 
-      promoDiv2.appendChild(promoLeft);
-      promoDiv2.appendChild(promoRight);
-      rightContent.appendChild(promoDiv2);
+      promoA.appendChild(promoLeft);
+      promoA.appendChild(promoRight);
+      rightContent.appendChild(promoA);
 
       // Horizontal separator helper
       const createHr = () => {
@@ -910,12 +964,16 @@ window.addEventListener("load", () => {
         hr.style.marginTop = "2%";
       }
 
+      const shippingPanelId = `${elementId}-shipping-panel`;
+      const detailsPanelId = `${elementId}-details-panel`;
+      const paymentPanelId = `${elementId}-payment-panel`;
+
       // Shipping
       const shippingDiv = document.createElement("div");
       shippingDiv.className = "product-page__flex-item product-page__flex-item-shipping";
       shippingDiv.innerHTML = `
-    <button class="collapsible-btn" style="font-size: 1.2rem;">Free Shipping & Returns</button>
-    <div class="collapsible-content">
+    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${shippingPanelId}">Free Shipping & Returns</button>
+    <div class="collapsible-content" id="${shippingPanelId}">
       <p>Enjoy a seamless shopping experience with our complimentary shipping service. Every order is carefully packed and delivered to your door with priority handling. If it’s not a perfect match, returns are simple and free of charge.</p>
       <ul>
         ${checkCont.productDescriptionList.map(item => `<li>${item}</li>`).join('')}
@@ -929,8 +987,8 @@ window.addEventListener("load", () => {
       let detailsDiv = document.createElement("div");
       detailsDiv.className = "product-page__flex-item product-page__flex-item-details";
       detailsDiv.innerHTML = `
-    <button class="collapsible-btn" style="font-size: 1.2rem;">Details</button>
-    <div class="collapsible-content">
+    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${detailsPanelId}">Details</button>
+    <div class="collapsible-content" id="${detailsPanelId}">
       <p>${assignedArticle.description}</p>
       <ul>
         <li>Hand-polished red crystal centerpiece</li>
@@ -947,8 +1005,8 @@ window.addEventListener("load", () => {
       let paymentDiv = document.createElement("div");
       paymentDiv.className = "product-page__flex-item product-page__flex-item-payment-options";
       paymentDiv.innerHTML = `
-    <button class="collapsible-btn" style="font-size: 1.2rem;">Payment Options</button>
-    <div class="collapsible-content">
+    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${paymentPanelId}">Payment Options</button>
+    <div class="collapsible-content" id="${paymentPanelId}">
       <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your lifestyle and complete your purchase with confidence.</p>
       <ul>
         <li>Secure credit & debit card payments</li>
@@ -966,23 +1024,37 @@ window.addEventListener("load", () => {
       document.querySelectorAll(".collapsible-btn").forEach(button => {
         button.addEventListener("click", () => {
           const content = button.nextElementSibling;
+          const allButtons = document.querySelectorAll(".collapsible-btn");
           const allContents = document.querySelectorAll(".collapsible-content");
 
           // First, close all panels
-          allContents.forEach(c => {
+          allContents.forEach((c, i) => {
             if (c !== content) {
               c.style.maxHeight = null;
             }
           });
 
+          // Keep aria-expanded in sync
+          allButtons.forEach(b => {
+            if (b !== button) b.setAttribute("aria-expanded", "false");
+          });
+
           // Then toggle the clicked one
           if (content.style.maxHeight) {
             content.style.maxHeight = null;
+            button.setAttribute("aria-expanded", "false");
           } else {
             content.style.maxHeight = content.scrollHeight + "px";
+            button.setAttribute("aria-expanded", "true");
           }
         });
       });
+
+      const hamburgerButton = document.querySelector(".hamburger-button__container");
+      const closeButton = document.querySelector(".hamburger-button__container--close");
+
+      if (hamburgerButton) hamburgerButton.setAttribute("aria-expanded", "false");
+      if (closeButton) closeButton.setAttribute("aria-expanded", "false");
     });
   }
 
@@ -1051,6 +1123,8 @@ window.addEventListener("load", () => {
         productImage.style.backgroundImage = `url(${shoppingArticle.image})`;
         productImage.style.backgroundSize = shoppingArticle.imageSize;
         productImage.style.backgroundPosition = shoppingArticle.imagePosition;
+        productImage.setAttribute("role", "img");
+        productImage.setAttribute("aria-label", `Image of ${shoppingArticle.title}`);
         productContainer.appendChild(productImage);
 
         const textContainer = document.createElement("div"); textContainer.classList.add("shopping-cart__product-text-container");
@@ -1082,6 +1156,16 @@ window.addEventListener("load", () => {
         const quantityPlusContainer = document.createElement("div"); quantityPlusContainer.classList.add("shopping-cart__product-quantity-button-container");
         const quantityMinusContainer = document.createElement("div"); quantityMinusContainer.classList.add("shopping-cart__product-quantity-button-container");
         const quantityNumberContainer = document.createElement("div"); quantityNumberContainer.classList.add("shopping-cart__product-quantity-number-container")
+
+        quantityPlusContainer.setAttribute("role", "button");
+        quantityPlusContainer.setAttribute("tabindex", "0");
+        quantityPlusContainer.setAttribute("aria-label", `Increase quantity of ${shoppingArticle.title}`);
+        quantityPlusContainer.setAttribute("title", "Increase quantity");
+
+        quantityMinusContainer.setAttribute("role", "button");
+        quantityMinusContainer.setAttribute("tabindex", "0");
+        quantityMinusContainer.setAttribute("aria-label", `Decrease quantity of ${shoppingArticle.title}`);
+        quantityMinusContainer.setAttribute("title", "Decrease quantity");
 
 
 
@@ -1132,7 +1216,9 @@ window.addEventListener("load", () => {
 
         const trashButton = document.createElement("button");
         trashButton.classList.add("shopping-cart__product-remove-button");
-
+        trashButton.type = "button";
+        trashButton.setAttribute("aria-label", `Remove ${shoppingArticle.title} from cart`);
+        trashButton.setAttribute("title", `Remove ${shoppingArticle.title}`);
 
         const removeCarpet = document.createElement("div"); removeCarpet.classList.add("shopping-cart__product-item-removal-confirmation");
         productContainer.appendChild(removeCarpet);
@@ -1145,6 +1231,9 @@ window.addEventListener("load", () => {
 
         const confirmButton = document.createElement("button");
         confirmButton.textContent = "Confirm";
+        confirmButton.type = "button";
+        confirmButton.setAttribute("aria-label", `Confirm removal of ${shoppingArticle.title}`);
+        confirmButton.setAttribute("title", "Confirm removal");
 
         confirmButton.addEventListener("click", () => {
           let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
@@ -1159,7 +1248,7 @@ window.addEventListener("load", () => {
 
         // Add SVG via innerHTML
         trashButton.innerHTML = `
-<svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24">
+<svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
   <title>Remove Product</title>
   <!-- Lid group for rotation -->
   <g class="lid">
@@ -1228,9 +1317,4 @@ window.addEventListener("load", () => {
   if (!localStorage.getItem("selectedArticles")) {
     localStorage.setItem("selectedArticles", "");
   }
-
-
-
-
-
 });

@@ -1,39 +1,49 @@
+.video-background__container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;   
+  height: 100svh;  
+  height: 100dvh;  
+  overflow: hidden;
+  min-height: 100vh;
+}
 
 .video-background {
-  position: fixed;
-  top: -1.1%;
-  left: 0%;
-  z-index: -1;
+  display:block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /*the fill type of the media*/
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  transform: scale(1.1);
 }
 
-.video-background__container {
-  width:100vw;
+@media (max-width: 1200px) {
+  .video-background {object-position: 72%;}
 }
-
 
 
 @media (min-width: 1200px) {
-  .video-background {height: 121.5%;top: -7%;}
+  .video-background {
+    object-position: center;
+  }
 }
-@media (max-width: 1200px) {
-    .video-background {}
-  
-}
+
 @media (max-width: 992px) {
-    .video-background {/*! height: 39.5%; */top: -4.3%;}
   
+
 }
+
 @media (max-width: 768px) {
-    .video-background {}
   
+
 }
+
 @media (max-width: 480px) {
-    .video-background {height: 118vh;width: 100vw;object-position: 72.1%;transform: translateY(-2%);}
-    .video-background__container {
-  width:100vw;
-  height:100vh;
-}
+  .video-background {
+    object-position: 72.1% center;
+  }
+  
 }
