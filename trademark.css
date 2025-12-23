@@ -1,6 +1,6 @@
 .trademark__container {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 7%;
@@ -11,37 +11,38 @@
 
 .trademark__content {
   display: flex;
-  justify-content: end;
+  justify-content: start;
   align-items: center;
-  width: 90%;
-  height: 90%;
+  width: 89.3%;
+  height: max-content;
   /*! background-color: yellow; */
-  margin-right: 3.0%;
+  /*! margin-right: 3.0%; */
 }
 
 .trademark__text-container {
   display: flex;
   justify-content: start;
   align-items: center;
+  width: 100%;
 }
 
 .trademark__text-container p {
-  font-size: 1.3rem;
+  font-size: var(--h4);
   color: black;
   font-weight: 600;
+  align-self: end;
 }
 
 .trademark__disclaimer {
   width: 79%;
   padding-right: 26.1%;
-  font-size: 1rem;
+  font-size: var(--p-subsubmain);
 }
 
 @media (max-width: 992px) {
   .trademark__disclaimer {
     width: 63%;
     padding-right: 8.1%;
-    font-size: 1rem;
   }
 }
 

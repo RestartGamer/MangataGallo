@@ -1,5 +1,14 @@
 :root{
   --standard-font-family:'EB Garamond', serif;
+
+  --h1: 2.5rem;
+  --h2: 3rem;
+  --h3: 1.9rem;
+  --h4: 1.4rem;
+  --h5: 1.2rem;
+  --p-main:1.4rem;
+  --p-submain:1.2rem;
+  --p-subsubmain:1rem;
 }
 
 

@@ -49,6 +49,7 @@
   transition: opacity 2s ease;
   border-radius: 10px;
   padding: 15px;
+  max-height: 280px;
 }
 
 .poster-slideshow__text-container a {
@@ -72,13 +73,16 @@
 
 .poster-slideshow__text-container p {
   color: white;
-  font-size: 1.4rem;
-  margin-left: 1%;
+  font-size: var(--p-submain);
+  margin-left: 0.1em;
+  max-height: 160px;
 }
 
 .poster-slideshow__text-container h2 {
   color: white;
   font-weight: bold;
+  font-size: var(--h4);
+  margin-bottom: 0.5em;
 }
 
 @media (min-width: 1200px) {
@@ -105,11 +109,11 @@
   }
 
   .poster-slideshow__text-container h2 {
-    font-size: 1rem;
+    /*! font-size: 1rem; */
   }
 
   .poster-slideshow__text-container p {
-    font-size: 0.7rem;
+    /*! font-size: 0.7rem; */
   }
 }
 
