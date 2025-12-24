@@ -127,11 +127,11 @@
   }
 
   .poster-slideshow__text-container h2 {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
   }
 
   .poster-slideshow__text-container p {
-    font-size: 0.3rem;
+    font-size: 0.4rem;
   }
   .poster-slideshow__container{height: 600px;}
 }
