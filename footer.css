@@ -142,7 +142,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--margin-space);
+  width: 70%;
   height: max-content;
   background-color: white;
   padding-block: 66px;
@@ -212,7 +212,7 @@ footer {
   .footer__container {}
 
   .footer__content {
-    width: 94.8%;
+    /*! width: 94.8%; */
   }
 }
 
@@ -246,6 +246,7 @@ footer {
   .footer__container {
     height: auto;
     margin-bottom: 28px;
+    width: 82%;
   }
 
   .footer__content {

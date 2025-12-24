@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--margin-space);
+  width: 70%;
   height: 7%;
   background-color: white;
   /*! outline: 1px solid red; */
