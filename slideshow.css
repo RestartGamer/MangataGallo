@@ -12,7 +12,7 @@
 .poster-slideshow__image-container {
   position: relative;
   display: block;
-  width: var(--margin-space);
+  width: 91.8%;
   height: 100%;
   overflow: hidden;
 }
@@ -26,6 +26,7 @@
   opacity: 0;
   transform: translateX(100%); 
   transition: opacity 1s ease, transform 1.1s ease;
+  object-fit: cover;
 }
 
 .poster-slideshow__image.active {
@@ -52,7 +53,7 @@
   top: 65%;
   left: 62%;
   text-decoration: none;
-  max-width:500px;
+  max-width:34%;
 }
 
 .poster-slideshow__text-container a {
@@ -88,6 +89,12 @@
   margin-bottom: 0.5em;
 }
 
+.poster-slideshow__image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 @media (min-width: 1200px) {
   .poster-slideshow__text-container {
   }
@@ -104,7 +111,6 @@
 
 @media (max-width: 992px) {
   .poster-slideshow__container {
-  height: 600px;
   }
 
   .poster-slideshow__text-container h2 {
@@ -127,4 +133,5 @@
   .poster-slideshow__text-container p {
     font-size: 0.6rem;
   }
+  .poster-slideshow__container{height: 600px;}
 }

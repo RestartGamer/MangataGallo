@@ -622,19 +622,23 @@ window.addEventListener("load", () => {
 
     articles.forEach(article => {
       // image container is now the anchor (removes inner hyperlink)
-      let imageContainer = document.createElement("a");
-      imageContainer.classList.add("poster-slideshow__image");
-      imageContainer.href = "product.html";
-      imageContainer.setAttribute("aria-label", `View product: ${article.title}`);
-      imageContainer.setAttribute("title", `View ${article.title}`);
-      imageContainer.style.backgroundImage = `url(${article.image})`;
-      imageContainer.style.backgroundSize = article.imageSize;
-      imageContainer.style.backgroundPosition = article.imagePosition;
-      imageContainer.setAttribute("role", "img");
-      imageContainer.setAttribute("aria-label", `Image of ${article.title}`);
-      content.appendChild(imageContainer);
+      let slideshowImageContainer = document.createElement("a");
+      slideshowImageContainer.classList.add("poster-slideshow__image-link");
+      slideshowImageContainer.href = "product.html";
 
-      imageContainer.addEventListener("click", (e) => {
+      content.appendChild(slideshowImageContainer);
+
+      let slideshowImage = document.createElement("img");
+      slideshowImage.classList.add("poster-slideshow__image");
+      slideshowImage.src = article.image;
+      slideshowImage.setAttribute("aria-label", `View product: ${article.title}`);
+      slideshowImage.setAttribute("title", `View ${article.title}`);
+      slideshowImage.setAttribute("role", "img");
+      slideshowImage.setAttribute("aria-label", `Image of ${article.title}`);
+
+      slideshowImageContainer.appendChild(slideshowImage);
+      
+      slideshowImageContainer.addEventListener("click", (e) => {
         localStorage.setItem("selectedArticles", article.id);
         window.location.href = "product.html";
       });

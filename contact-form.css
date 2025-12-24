@@ -6,6 +6,8 @@
   --bg-color: #eaeaea;
   margin-bottom: var(--element-gap);
   background-color: white;
+  padding-top: 61px;
+  padding-bottom: 131px;
 }
 
 .contact-form__container * {
@@ -16,12 +18,13 @@
 }
 
 .contact-form__content {
-  width: var(--margin-space);
+  width: 80%;
   height: max-content;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start;
+  max-width: 121ch;
 }
 
 .contact-form__content p {
@@ -82,9 +85,9 @@
   height: auto;
   align-self: end;
 
-  background-color: #000;
-  color: #54e7ff;           /* lightning blue */
-  border: 2px solid #54e7ff;
+  background-color: #aeeeb8;
+  color: #000;           /* lightning blue */
+  border: 2px solid #b7b7b7;
 
   text-align: center;
   padding-block: 0.35em;
@@ -96,7 +99,7 @@
 }
 
 .contact-form__form-group.message button[type="submit"]:hover {
-  background-color: #54e7ff;
+  background-color: #43c369;
   color: #000;
   transform: translateY(-1px);
 }
