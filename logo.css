@@ -1,15 +1,16 @@
 /* logo.css */
 
 .logo__container {
-  width: 100%; /* use 100% instead of 100vw to avoid overflow issues */
+  width: 100dvw; /* use 100% instead of 100vw to avoid overflow issues */
   height: var(--logo-height, 79px);
   background-color: rgba(52, 80, 80, 0.85);
   z-index: 100;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .logo__content {
-  width: 100%;
+  width: max-content;
   height: 100%;
   display: flex;
   justify-content: center;

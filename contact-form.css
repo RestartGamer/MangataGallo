@@ -16,7 +16,7 @@
 }
 
 .contact-form__content {
-  width: 80%;
+  width: var(--margin-space);
   height: max-content;
   display: flex;
   flex-direction: column;

@@ -817,23 +817,22 @@ window.addEventListener("load", () => {
       rightContent.appendChild(titlePrice);
 
       // Purchase Buttons
-      const purchaseDiv = document.createElement("div");
-      purchaseDiv.className = "product-page__flex-item product-page__flex-item-purchase";
+      const purchaseSection = document.createElement("div");
+      purchaseSection.className = "product-page__purchase-section";
 
-      const addBag = document.createElement("div");
-      addBag.className = "product-page__flex-subitem product-page__flex-item--button-white product-page__flex-subitem-addtobag";
-      const addBagH1 = document.createElement("h2");
-      addBagH1.textContent = "Add to bag";
-      addBag.appendChild(addBagH1);
+      const addToBagCont = document.createElement("div");
+      addToBagCont.className = "product-page__addtobag-container";
 
-      let addBagLink = document.createElement("button");
-      addBagLink.classList.add("add-to-bag");
-      addBagLink.type = "button";
-      addBagLink.setAttribute("aria-label", `Add ${assignedArticle.title} to bag`);
-      addBagLink.setAttribute("title", "Add to bag");
-      addBag.appendChild(addBagLink);
+      let addToBagBtn = document.createElement("button");
+      addToBagBtn.classList.add("product-page__checkout-buttons", "product-page__addtobag-button");
+      addToBagBtn.type = "button";
+      addToBagBtn.setAttribute("aria-label", `Add ${assignedArticle.title} to bag`);
+      addToBagBtn.setAttribute("title", "Add to bag");
+      addToBagBtn.textContent = "Add to bag";
 
-      addBagLink.addEventListener("click", () => {
+      addToBagCont.appendChild(addToBagBtn);
+
+      addToBagBtn.addEventListener("click", () => {
         let articlesBag = JSON.parse(localStorage.getItem("shoppingBag")) || [];
         articlesBag.push(assignedArticleId);
         localStorage.setItem("shoppingBag", JSON.stringify(articlesBag));
@@ -846,34 +845,35 @@ window.addEventListener("load", () => {
       });
 
 
-      const checkoutNow = document.createElement("div");
-      checkoutNow.className = "product-page__flex-subitem product-page__flex-item--button-green product-page__flex-subitem-checkout";
-      const checkoutH1 = document.createElement("h2");
-      checkoutH1.textContent = "Checkout Now";
-      checkoutNow.appendChild(checkoutH1);
+      const CheckNowCont = document.createElement("div");
+      CheckNowCont.className = "product-page__checkout-container";
+      const CheckNowBtn = document.createElement("button");
+      CheckNowBtn.classList.add("product-page__checkout-buttons", "product-page__checkout-button", "green");
+      CheckNowBtn.type = "button";
+      CheckNowBtn.textContent = "Checkout Now";
+      CheckNowBtn.setAttribute("aria-label", `Checkout article ${assignedArticle.title}`);
+      CheckNowBtn.setAttribute("title", "Checkout Now");
 
-      const splitBtn = document.createElement("div");
-      splitBtn.className = "product-page__flex-subitem product-page__flex-subitem-split-button";
 
-      const giftBtn = document.createElement("div");
-      giftBtn.className = "product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-gift";
-      const giftH1 = document.createElement("h2");
-      giftH1.textContent = "Send as Gift 📧";
-      giftBtn.appendChild(giftH1);
+      const giftAndFavCont = document.createElement("div");
+      giftAndFavCont.className = "product-page__giftandfav-container";
 
-      const favBtn = document.createElement("div");
-      favBtn.className = "product-page__flex-subsubitem product-page__flex-item--button-white product-page__flex-subsubitem-favorites";
-      const favH1 = document.createElement("h2");
-      favH1.textContent = "Add to Favorites ❤️";
-      favBtn.appendChild(favH1);
+      const giftBtn = document.createElement("button");
+      giftBtn.className = "product-page__checkout-buttons product-page__giftandfav-gift";
+      giftBtn.type = "button";
+      giftBtn.textContent = "Send as Gift 📧";
 
-      splitBtn.appendChild(giftBtn);
-      splitBtn.appendChild(favBtn);
+      const favBtn = document.createElement("button");
+      favBtn.className = "product-page__checkout-buttons product-page__giftandfav-fav";
+      favBtn.type = "button";
+      favBtn.textContent = "Add to Favorites ❤️";
 
-      purchaseDiv.appendChild(addBag);
-      purchaseDiv.appendChild(checkoutNow);
-      purchaseDiv.appendChild(splitBtn);
-      rightContent.appendChild(purchaseDiv);
+      giftAndFavCont.appendChild(giftBtn);
+      giftAndFavCont.appendChild(favBtn);
+      purchaseSection.appendChild(addToBagBtn);
+      purchaseSection.appendChild(CheckNowBtn);
+      purchaseSection.appendChild(giftAndFavCont);
+      rightContent.appendChild(purchaseSection);
 
 
       // Promo Section
@@ -914,8 +914,8 @@ window.addEventListener("load", () => {
       const createHr = () => {
         const hr = document.createElement("hr");
         hr.className = "horizontal-separator";
-        hr.style.width = "85%";
-        hr.style.height = "0.001%";
+        hr.style.width = "100%";
+        hr.style.height = "1px";
         hr.style.background = "rgb(83,83,83)";
         hr.style.border = "1px solid rgb(83,83,83)";
         hr.style.borderRadius = "100%";
@@ -1022,6 +1022,7 @@ window.addEventListener("load", () => {
       if (closeButton) closeButton.setAttribute("aria-expanded", "false");
     });
   }
+
 
 
   function renderShoppingBag(articles, shoppingArticleIds) {

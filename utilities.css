@@ -90,6 +90,9 @@
   border: none;
   outline: none;
   margin-bottom: 1.1%;
+  display: flex;
+  align-items: center;
+  padding-left: 1.6rem;
 }
 
 .collapsible-content {
@@ -117,6 +120,10 @@
   background-color: #fff;
   display: flex;
   justify-content: center;
+}
+
+footer .horizontal-separator__bg {
+  width:var(--margin-space);
 }
 
 .horizontal-separator {

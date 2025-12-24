@@ -18,6 +18,7 @@
   /* Hover-bridge: prevents tiny gap between option and submenu without shifting submenu down */
 
   overflow-x: clip; /* ✅ prevents the right-side overflow bar without changing layout */
+  user-select: none;
 }
 
 
