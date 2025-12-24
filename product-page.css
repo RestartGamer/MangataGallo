@@ -61,14 +61,13 @@
 }
 
 .product-page__right-side-content {
-  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 80%;
   height: max-content;
   gap: 45px;
-  margin-top: 52px;
+  margin-top: 19px;
 }
 
 .product-page__checkout-buttons {

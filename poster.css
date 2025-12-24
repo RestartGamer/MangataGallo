@@ -135,12 +135,12 @@
 
   .poster__comp-mobile-text h2 {
     font-size: var(--h3);
-    margin-bottom: 15.9px;
+    margin-bottom: 8.9px;
   }
 
   .poster__comp-mobile-text p {
     font-size: var(--p-submain);
-    line-height: 2.3rem;
+    line-height: 1.9rem;
   }
 
   .poster__comp-mobile-content {
@@ -204,8 +204,9 @@
   }
 
   .poster__comp-mobile-text p {
-    font-size: 0.9rem;
+    font-size: var(--p-subsubmain);
     font-weight: normal;
     text-align: center;
+    line-height: 1.2rem;
   }
 }
