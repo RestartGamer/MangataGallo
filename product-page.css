@@ -89,13 +89,16 @@
   overflow: hidden;
 }
 
-.product-page__right-side-content p,
-.product-page__right-side-content li {
+.product-page__right-side-content p{
   font-family: var(--standard-font-family);
-  font-size: var(--p-submain);
+  font-size: calc(var(--p-submain) - 0.1rem);
   text-wrap: wrap;
 }
-
+.product-page__right-side-content li {
+  font-family: var(--standard-font-family);
+  font-size: calc(var(--p-submain) - 0.1rem);
+  text-wrap: wrap;
+}
 
 
 .product-page__flex-item h2 {
