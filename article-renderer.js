@@ -941,7 +941,7 @@ window.addEventListener("load", () => {
       const shippingDiv = document.createElement("div");
       shippingDiv.className = "product-page__flex-item product-page__flex-item-shipping";
       shippingDiv.innerHTML = `
-    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${shippingPanelId}">Free Shipping & Returns</button>
+    <button type="button" class="collapsible-btn" aria-expanded="false" aria-controls="${shippingPanelId}">Free Shipping & Returns</button>
     <div class="collapsible-content" id="${shippingPanelId}">
       <p>Enjoy a seamless shopping experience with our complimentary shipping service. Every order is carefully packed and delivered to your door with priority handling. If it’s not a perfect match, returns are simple and free of charge.</p>
       <ul>
@@ -956,7 +956,7 @@ window.addEventListener("load", () => {
       let detailsDiv = document.createElement("div");
       detailsDiv.className = "product-page__flex-item product-page__flex-item-details";
       detailsDiv.innerHTML = `
-    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${detailsPanelId}">Details</button>
+    <button type="button" class="collapsible-btn" aria-expanded="false" aria-controls="${detailsPanelId}">Details</button>
     <div class="collapsible-content" id="${detailsPanelId}">
       <p>${assignedArticle.description}</p>
       <ul>
@@ -974,7 +974,7 @@ window.addEventListener("load", () => {
       let paymentDiv = document.createElement("div");
       paymentDiv.className = "product-page__flex-item product-page__flex-item-payment-options";
       paymentDiv.innerHTML = `
-    <button type="button" class="collapsible-btn" style="font-size: 1.2rem;" aria-expanded="false" aria-controls="${paymentPanelId}">Payment Options</button>
+    <button type="button" class="collapsible-btn" aria-expanded="false" aria-controls="${paymentPanelId}">Payment Options</button>
     <div class="collapsible-content" id="${paymentPanelId}">
       <p>We’ve made checkout simple, flexible, and secure. Choose the method that fits your lifestyle and complete your purchase with confidence.</p>
       <ul>

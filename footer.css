@@ -247,12 +247,14 @@ footer {
     height: auto;
     margin-bottom: 28px;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .footer__content {
-    justify-content: flex-start;   
-    gap: 40px 48px;              
-    padding-inline: 16px;
+    justify-content: space-between;   
+    gap: 40px 18px;              
+    margin-inline: 15px;
   }
 
 

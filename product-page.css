@@ -92,7 +92,7 @@
 .product-page__right-side-content p,
 .product-page__right-side-content li {
   font-family: var(--standard-font-family);
-  font-size: var(--p-subsubmain);
+  font-size: var(--p-submain);
   text-wrap: wrap;
 }
 
@@ -100,6 +100,7 @@
 
 .product-page__flex-item h2 {
   font-size: var(--h3);
+  padding-inline: 10px;
 }
 
 
@@ -168,12 +169,13 @@
   justify-content: start;
   max-width: 61%;
   padding-inline: 10px;
+  flex-wrap: wrap;
 }
 
 .product-page__promo-left h2 {
   text-align: center;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: bold;
   text-wrap: wrap;
   max-width: 100%;
 }
@@ -339,7 +341,6 @@
 /* ====== ≥1200px ====== */
 @media (min-width: 1200px) {
   .product-page__promo-left h2 {
-    font-size: 1.5rem;
   }
 
   .product-page__grid-item {

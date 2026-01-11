@@ -3,9 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 7%;
   background-color: white;
-  /*! outline: 1px solid red; */
   padding-bottom: 0.5%;
 }
 
@@ -55,4 +53,10 @@
     padding-right: 10.1%;
     font-size: 0.5rem;
   }
+  
+  .trademark__container {
+  
+  width: 82%;
+ 
+}
 }
