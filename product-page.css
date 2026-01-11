@@ -389,7 +389,7 @@
 
   .product-page__right-side-content p {
     /*! padding-left: 8.3px; */
-    font-size: 0.6rem;
+    /*! font-size: 0.6rem; */
   }
 
   .product-page__flex-item {
@@ -452,7 +452,7 @@
   }
 
   .product-page__right-side-content p {
-    font-size: 0.7rem;
+    /*! font-size: 1rem; */
   }
 
   .product-page__flex-item {
