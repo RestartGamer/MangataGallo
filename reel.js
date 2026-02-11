@@ -5,7 +5,6 @@ window.addEventListener("load", () => {
   const scrollContainers = document.querySelectorAll(".reel-promo__article-mask");
 
   scrollContainers.forEach(scrollContainer => {
-    // navigation wrapper next to this specific scrollContainer
     const naviReference = scrollContainer.nextElementSibling;
     const navigationContainer = naviReference.querySelector(".reel-promo__navi-content");
 
@@ -44,7 +43,7 @@ window.addEventListener("load", () => {
         scrollContainer.scrollLeft;
 
       if (index % visibleItems === 0) {
-        batchPositions.push(elementScrollLeft); // 0,1,2,...
+        batchPositions.push(elementScrollLeft); 
 
         const buttonMid = document.createElement("button");
         buttonMid.classList.add("reel-promo__navi-mid-button");
@@ -66,13 +65,11 @@ window.addEventListener("load", () => {
     });
 
     // ---------------------------------------------------------
-    // TOUCH-ONLY "SWIPE CHECKER" GATE
+    // TOUCH-ONLY SWIPE CHECKER
     // ---------------------------------------------------------
     let touchScrolling = false;
     let touchScrollTimeout = null;
 
-    // If the user starts interacting with the scrollContainer via TOUCH, allow snapper.
-    // (Pointer Events covers most modern browsers; touchstart helps older iOS Safari cases.)
     scrollContainer.addEventListener("pointerdown", (e) => {
       if (e.pointerType === "touch") {
         touchScrolling = true;
@@ -87,16 +84,13 @@ window.addEventListener("load", () => {
       if (touchScrollTimeout) clearTimeout(touchScrollTimeout);
       touchScrollTimeout = setTimeout(() => {
         touchScrolling = false;
-      }, 180); // keeps inertia scrolling counted as "touch" briefly
+      }, 180); 
     }
 
-    //the swipe checker
     let rafId = null;
     scrollContainer.addEventListener("scroll", () => {
-      // Only run the scroll snapper logic if the scroll is happening due to touch.
       if (!touchScrolling) return;
 
-      // keep touch mode alive while scrolling/inertia continues
       scheduleTouchReset();
 
       if (rafId) return;
@@ -106,9 +100,9 @@ window.addEventListener("load", () => {
         const currentLeft = scrollContainer.scrollLeft;
 
         let nearestIndex = 0;
-        let smallestDiff = Infinity; //the infinity is an impossibly huge value which quarantees that the first condition comparisson will run
+        let smallestDiff = Infinity; 
 
-        batchPositions.forEach((pos, i) => { //So in other words this is to snap to the nearest position.
+        batchPositions.forEach((pos, i) => { 
           const diff = Math.abs(currentLeft - pos);
           if (diff < smallestDiff) {
             smallestDiff = diff;
@@ -116,7 +110,7 @@ window.addEventListener("load", () => {
           }
         });
 
-        if (nearestIndex !== currentScrollIndex) { //This automatically snaps to the position.
+        if (nearestIndex !== currentScrollIndex) { 
           currentScrollIndex = nearestIndex;
           midButtonChecker();
         }

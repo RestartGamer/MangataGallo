@@ -14,8 +14,6 @@
   color: black;
 }
 
-.contact-form__content {
-}
 
 .contact-form__content {
   width: 80%;
@@ -86,7 +84,7 @@
   align-self: end;
 
   background-color: #aeeeb8;
-  color: #000;           /* lightning blue */
+  color: #000;           
   border: 2px solid #b7b7b7;
 
   text-align: center;

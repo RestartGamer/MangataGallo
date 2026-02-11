@@ -5,7 +5,6 @@ if (productPageContainer) productPageContainer.style.opacity = 0;
 
 window.addEventListener("load", () => {
 
-  // ✅ Helper: add intrinsic size attributes to prevent layout shift
   const setImgDimensions = (img, width, height) => {
     if (!img) return;
     img.setAttribute("width", String(width));
@@ -112,14 +111,13 @@ window.addEventListener("load", () => {
     if (!content) return;
     if (!content.dataset.cleared) {
       content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
+      content.dataset.cleared = "true"; 
     }
 
     const mobileContent = document.querySelector("header #navbar-mobile");
     mobileContent.innerHTML = "";
     navbarContents.forEach(navbarContent => {
 
-      ////MOBILE SECTION
       let menuOptionContainer = document.createElement("div");
       menuOptionContainer.classList.add("navbar-mobile__menu-option");
       mobileContent.appendChild(menuOptionContainer);
@@ -157,8 +155,6 @@ window.addEventListener("load", () => {
       mobileTitleContent.appendChild(mobileTitleH2);
 
 
-      ////////////
-      ////DESKTOP SECTION
 
       let navbarOptionText = navbarContent.option;
 
@@ -190,7 +186,6 @@ window.addEventListener("load", () => {
 
       navbarContent.sections.forEach(section => {
 
-        ////MOBILE SECTION
         let mobileSubSectionContainer = document.createElement("section");
         mobileSubSectionContainer.classList.add("navbar-mobile__submenu-sections", "navbar-mobile__submenu-section-container");
         mobileSubContent.appendChild(mobileSubSectionContainer);
@@ -198,8 +193,6 @@ window.addEventListener("load", () => {
         let mobileSubSectionTitleH2 = document.createElement("h2");
         mobileSubSectionTitleH2.textContent = section.sectionName;
         mobileSubSectionContainer.appendChild(mobileSubSectionTitleH2);
-        /////////////////////
-        ////DESKTOP SECTION
 
         const sectionElement = document.createElement("div");
         sectionElement.classList.add("submenu__section");
@@ -215,14 +208,11 @@ window.addEventListener("load", () => {
           mobileSubUl.classList.add("navbar-mobile__submenu-section-text-container");
           mobileSubSectionContainer.appendChild(mobileSubUl);
 
-          ///////////
-          ////DESKTOP SECTION
           const ul = document.createElement("ul");
           sectionElement.appendChild(ul);
 
           section.listItems.forEach(listItem => {
 
-            ////MOBILE SECTION
             let mobileSubTextLi = document.createElement("li");
             mobileSubTextLi.classList.add("navbar-mobile__submenu-section-text");
             let mobileSubTextA = document.createElement("a");
@@ -235,8 +225,6 @@ window.addEventListener("load", () => {
             mobileSubTextLi.appendChild(mobileSubTextA);
 
 
-            //////////////
-            ////DESKTOP SECTION
             const liItem = document.createElement("li");
             const aItem = document.createElement("a");
             let selectedArticle = [];
@@ -265,15 +253,15 @@ window.addEventListener("load", () => {
                 break;
             }
             mobileSubTextA.addEventListener("click", () => {
-              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); 
               window.location.href = "product.html";
             });
             aItem.addEventListener("click", () => {
-              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); 
               window.location.href = "product.html";
             });
             navbarOptionLink.addEventListener("click", () => {
-              localStorage.setItem("selectedArticles", selectedArticle[0].id); //selectedArticle is still an array
+              localStorage.setItem("selectedArticles", selectedArticle[0].id); 
               window.location.href = "product.html";
             });
 
@@ -283,19 +271,16 @@ window.addEventListener("load", () => {
           });
         } else if (typeof section.listItems === "string" && section.listItems !== "none") {
 
-          ////MOBILE SECTION
           const mobileP = document.createElement("p");
           mobileP.textContent = section.listItems;
           mobileSubSectionContainer.appendChild(mobileP);
 
 
-          ////DESKTOP SECTION
           const p = document.createElement("p");
           p.textContent = section.listItems;
           sectionElement.appendChild(p);
         } else if (section.image) {
 
-          ////MOBILE SECTION
           let mobileSubSectionImageContainer = document.createElement("a");
           mobileSubSectionImageContainer.classList.add("navbar-mobile__submenu-image-container")
           mobileSubSectionImageContainer.href = "product.html"
@@ -310,8 +295,6 @@ window.addEventListener("load", () => {
           mobileSubSectionImageContainer.appendChild(mobileSubSectionImage);
 
 
-          ////////////
-          /////DESKTOP SECTION
           const imgA = document.createElement("a");
           imgA.classList.add("submenu__section-image-container");
           imgA.href = section.sectionLink;
@@ -368,11 +351,10 @@ window.addEventListener("load", () => {
     if (!content) return;
     if (!content.dataset.cleared) {
       content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
+      content.dataset.cleared = "true"; 
     }
 
     promoBannerContent.forEach(banner => {
-      //Text
       let textCont = document.createElement("div"); textCont.classList.add("promo-banner__text-content");
       let title = document.createElement("div"); title.classList.add("promo-banner__title");
       let h1 = document.createElement("h2");
@@ -382,7 +364,6 @@ window.addEventListener("load", () => {
       textCont.appendChild(title);
       title.appendChild(h1);
 
-      //Image (container is now the anchor)
       let imageCont = document.createElement("a"); imageCont.classList.add("promo-banner__image-content");
       imageCont.href = "product.html";
       imageCont.setAttribute("aria-label", `View product: ${banner.title}`);
@@ -411,12 +392,11 @@ window.addEventListener("load", () => {
     if (!content) return;
     if (!content.dataset.cleared) {
       content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
+      content.dataset.cleared = "true"; 
     }
 
     articles.forEach(article => {
 
-      // MOBILE: container is now the anchor (removes inner anchor)
       let compMobileContainer = document.createElement("a");
       compMobileContainer.classList.add("poster__comp-mobile-container");
       compMobileContainer.href = "product.html";
@@ -438,7 +418,6 @@ window.addEventListener("load", () => {
 
       compMobileContainer.appendChild(compMobileContent);
 
-      //Text (DESKTOP text cell becomes anchor)
       let textCell = document.createElement("a"); textCell.classList.add("poster__text-cell");
       textCell.href = "product.html";
       textCell.setAttribute("aria-label", `View product: ${article.title}`);
@@ -455,7 +434,7 @@ window.addEventListener("load", () => {
       h1.textContent = article.title;
       p.textContent = article.description;
 
-      //Image (wrap image in an anchor instead of separate overlay anchors)
+      
       let posterImageLink = document.createElement("a");
       posterImageLink.href = "product.html";
       posterImageLink.setAttribute("aria-label", `View product: ${article.title}`);
@@ -525,10 +504,9 @@ window.addEventListener("load", () => {
     if (!content) return;
     if (!content.dataset.cleared) {
       content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
+      content.dataset.cleared = "true"; 
     }
 
-    //Title
     let selectionEl = content.parentElement;
     if (!selectionEl.classList.contains("reel-promo__container--selection")) {
       let titleContent = document.createElement("div"); titleContent.classList.add("reel-promo__title-content");
@@ -542,12 +520,9 @@ window.addEventListener("load", () => {
       titleContent.appendChild(titleH1);
     }
 
-    //Articles
     let articleMask = document.createElement("div"); articleMask.classList.add("reel-promo__article-mask");
     content.appendChild(articleMask);
 
-    // ✅ Side frame margin that is INCLUDED in sizing calculations
-    // (viewport becomes narrower, so items/gaps remain consistent inside the frame)
     const sideMargin = "var(--reel-side-margin, 1.2rem)";
     articleMask.style.marginLeft = sideMargin;
     articleMask.style.marginRight = sideMargin;
@@ -556,7 +531,6 @@ window.addEventListener("load", () => {
     articleMask.style.boxSizing = "border-box";
 
     articles.forEach(article => {
-      // ✅ Turn the container into an anchor tag (and remove the inner anchor)
       let articleContainer = document.createElement("a"); articleContainer.classList.add("reel-promo__article-container");
       articleContainer.href = "product.html";
       articleContainer.setAttribute("aria-label", `View product: ${article.title}`);
@@ -602,10 +576,9 @@ window.addEventListener("load", () => {
       text.appendChild(textP);
     });
 
-    //Navigation
     let naviContainer = document.createElement("div"); naviContainer.classList.add("reel-promo__navi-container");
     let naviContent = document.createElement("div"); naviContent.classList.add("reel-promo__navi-content");
-    //left and right buttons are created in reel.js
+    
 
     content.appendChild(naviContainer);
     naviContainer.appendChild(naviContent);
@@ -617,11 +590,10 @@ window.addEventListener("load", () => {
 
     if (!content.dataset.cleared) {
       content.innerHTML = "";
-      content.dataset.cleared = "true"; // mark this container as cleared
+      content.dataset.cleared = "true"; 
     }
 
     articles.forEach(article => {
-      // image container is now the anchor (removes inner hyperlink)
       let slideshowImageContainer = document.createElement("a");
       slideshowImageContainer.classList.add("poster-slideshow__image-link");
       slideshowImageContainer.href = "product.html";
@@ -643,7 +615,6 @@ window.addEventListener("load", () => {
         window.location.href = "product.html";
       });
 
-      // text container is now the anchor (removes inner textHyper)
       let textContainer = document.createElement("a");
       textContainer.classList.add("poster-slideshow__text-container");
       textContainer.href = "product.html";
@@ -674,27 +645,21 @@ window.addEventListener("load", () => {
     const texts = Array.from(slideshow.querySelectorAll(".poster-slideshow__text-container"));
 
     let currentIndex = 0;
-    const interval = 3 * 1000; //interval in seconds
+    const interval = 3 * 1000; 
 
-    //Function to show next image
     function showNextImage() {
-      // remove "active" from the current image and give it exit animation
       images[currentIndex].classList.remove("active");
       texts[currentIndex].classList.remove("active");
       images[currentIndex].classList.add("exit");
 
-      // force browser to notice
-      images[currentIndex].offsetWidth; // reading this triggers reflow
-      // listen for the animation finishing so we can reset it
+      images[currentIndex].offsetWidth; 
       images[currentIndex].addEventListener("transitionend", function handler() {
-        this.classList.remove("exit"); // clean up
-        this.removeEventListener("transitionend", handler); // prevent stacking
+        this.classList.remove("exit"); 
+        this.removeEventListener("transitionend", handler); 
       }, { once: true });
 
-      // move to next index (wrap around with modulo)
       currentIndex = (currentIndex + 1) % images.length;
 
-      // add "active" to the new image
       texts[currentIndex].classList.add("active");
       images[currentIndex].classList.add("active");
 
@@ -717,26 +682,24 @@ window.addEventListener("load", () => {
   }
 
   function renderProductPage(checkoutContent, elementId, assignedArticleId) {
-    // Reference to the checkout container
+   
     let container = document.getElementById(elementId);
     if (!container) return;
 
     if (!container.dataset.cleared) {
       container.innerHTML = "";
-      container.dataset.cleared = "true"; // mark this container as cleared
+      container.dataset.cleared = "true"; 
     }
 
     let assignedArticle = articles.find(article => article.id === assignedArticleId);
 
 
-    // LEFT SIDE
     const leftContainer = document.createElement("div");
     leftContainer.className = "product-page__left-side-container";
 
     const leftContent = document.createElement("div");
     leftContent.className = "product-page__left-side-content";
 
-    // Product images
     checkoutContent.forEach(checkCont => {
       assignedArticle.checkImages.forEach((image, i) => {
         const gridImage = document.createElement("img");
@@ -753,7 +716,6 @@ window.addEventListener("load", () => {
 
 
 
-      // Video
       const videoDiv = document.createElement("div");
       videoDiv.className = "product-page__grid-item";
       videoDiv.style.gridArea = "video";
@@ -780,14 +742,12 @@ window.addEventListener("load", () => {
       leftContainer.appendChild(leftContent);
       container.appendChild(leftContainer);
 
-      // RIGHT SIDE
       const rightContainer = document.createElement("div");
       rightContainer.className = "product-page__right-side-container";
 
       const rightContent = document.createElement("div");
       rightContent.className = "product-page__right-side-content";
 
-      // Title & Price
       const titlePrice = document.createElement("div");
       titlePrice.className = "product-page__titleandprice-container";
 
@@ -820,7 +780,6 @@ window.addEventListener("load", () => {
       titlePrice.appendChild(priceDiv);
       rightContent.appendChild(titlePrice);
 
-      // Purchase Buttons
       const purchaseSection = document.createElement("div");
       purchaseSection.className = "product-page__purchase-section";
 
@@ -880,7 +839,6 @@ window.addEventListener("load", () => {
       rightContent.appendChild(purchaseSection);
 
 
-      // Promo Section
       let promoA = document.createElement("a");
       promoA.className = "product-page__flex-item product-page__flex-item-promo";
       promoA.href = "product.html";
@@ -914,7 +872,6 @@ window.addEventListener("load", () => {
       promoA.appendChild(promoRight);
       rightContent.appendChild(promoA);
 
-      // Horizontal separator helper
       const createHr = () => {
         const hr = document.createElement("hr");
         hr.className = "horizontal-separator";
@@ -937,7 +894,6 @@ window.addEventListener("load", () => {
       const detailsPanelId = `${elementId}-details-panel`;
       const paymentPanelId = `${elementId}-payment-panel`;
 
-      // Shipping
       const shippingDiv = document.createElement("div");
       shippingDiv.className = "product-page__flex-item product-page__flex-item-shipping";
       shippingDiv.innerHTML = `
@@ -952,7 +908,6 @@ window.addEventListener("load", () => {
       rightContent.appendChild(shippingDiv);
       rightContent.appendChild(createHr());
 
-      // Details
       let detailsDiv = document.createElement("div");
       detailsDiv.className = "product-page__flex-item product-page__flex-item-details";
       detailsDiv.innerHTML = `
@@ -970,7 +925,6 @@ window.addEventListener("load", () => {
       rightContent.appendChild(detailsDiv);
       rightContent.appendChild(createHr());
 
-      // Payment Options
       let paymentDiv = document.createElement("div");
       paymentDiv.className = "product-page__flex-item product-page__flex-item-payment-options";
       paymentDiv.innerHTML = `
@@ -996,19 +950,16 @@ window.addEventListener("load", () => {
           const allButtons = document.querySelectorAll(".collapsible-btn");
           const allContents = document.querySelectorAll(".collapsible-content");
 
-          // First, close all panels
           allContents.forEach((c, i) => {
             if (c !== content) {
               c.style.maxHeight = null;
             }
           });
 
-          // Keep aria-expanded in sync
           allButtons.forEach(b => {
             if (b !== button) b.setAttribute("aria-expanded", "false");
           });
 
-          // Then toggle the clicked one
           if (content.style.maxHeight) {
             content.style.maxHeight = null;
             button.setAttribute("aria-expanded", "false");
@@ -1037,17 +988,14 @@ window.addEventListener("load", () => {
 
       content.innerHTML = "";
 
-      // Filter valid articles (only those that exist)
       const shoppingArticles = articles.filter(article =>
         shoppingArticleIds.includes(article.id)
       );
 
-      // 🧹 Remove invalid IDs from localStorage (nonexistent articles)
       const validIds = shoppingArticles.map(a => a.id);
       const cleanedIds = shoppingArticleIds.filter(id => validIds.includes(id));
       localStorage.setItem("shoppingBag", JSON.stringify(cleanedIds));
 
-      // Combine duplicates (count quantities)
       const duplicateArticles = [];
       const totalArticlePrices = [];
 
@@ -1151,7 +1099,6 @@ window.addEventListener("load", () => {
 
         quantityMinus.parentElement.addEventListener("click", () => {
           let getArticleBag = JSON.parse(localStorage.getItem("shoppingBag"));
-          // Remove only one occurrence
           const index = getArticleBag.lastIndexOf(shoppingArticle.id);
           if (index !== -1) {
             getArticleBag.splice(index, 1);
@@ -1202,7 +1149,6 @@ window.addEventListener("load", () => {
 
         removeConfirmation.appendChild(confirmButton);
 
-        // Add SVG via innerHTML
         trashButton.innerHTML = `
 <svg class="shopping-cart__trash-icon" xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
   <title>Remove Product</title>

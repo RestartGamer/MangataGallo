@@ -7,18 +7,15 @@ window.addEventListener("load", () => {
 
     shopButtons.forEach(shopButton => {
         shopWindows.forEach(shopWindow => {
-            // Toggle cart on button click
             shopButton.addEventListener("click", (event) => {
-                event.stopPropagation(); // stop it from bubbling to document
+                event.stopPropagation(); 
                 shopWindow.classList.toggle("active");
             });
 
-            // Prevent closing when clicking inside the cart
             shopWindow.addEventListener("click", (event) => {
                 event.stopPropagation();
             });
 
-            // Close the cart when clicking anywhere else
             document.addEventListener("click", (event) => {
                 shopWindow.classList.remove("active");
             });

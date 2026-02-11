@@ -88,7 +88,6 @@
   background-color: black;
 }
 
-/* ====== ≥1200px ====== */
 @media (min-width: 1200px) {
   .quick-menu {
     display: flex;
@@ -103,7 +102,6 @@
   }
 }
 
-/* ====== ≤1200px ====== */
 @media (max-width: 1200px) {
   .quick-menu {
     display: flex;
@@ -112,7 +110,6 @@
   }
 }
 
-/* ====== ≤992px ====== */
 @media (max-width: 992px) {
   .quick-menu {
     height: 62.2%;
@@ -124,7 +121,6 @@
   }
 }
 
-/* ====== ≤768px ====== */
 @media (max-width: 768px) {
   .quick-menu {
     display: flex;
@@ -133,7 +129,6 @@
   }
 }
 
-/* ====== ≤480px ====== */
 @media (max-width: 480px) {
   .quick-menu {
     top: -27px;

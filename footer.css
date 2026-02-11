@@ -208,13 +208,6 @@ footer {
   }
 }
 
-@media (max-width: 1200px) {
-  .footer__container {}
-
-  .footer__content {
-    /*! width: 94.8%; */
-  }
-}
 
 @media (max-width: 992px) {
   .footer__container {

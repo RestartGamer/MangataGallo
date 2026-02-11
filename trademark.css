@@ -13,8 +13,6 @@
   align-items: center;
   width: 100%;
   height: max-content;
-  /*! background-color: yellow; */
-  /*! margin-right: 3.0%; */
 }
 
 .trademark__text-container {
@@ -32,7 +30,6 @@
 }
 
 .trademark__disclaimer {
-  /*! width: 79%; */
   font-size: var(--p-subsubmain);
 }
 

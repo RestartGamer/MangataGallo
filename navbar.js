@@ -12,25 +12,21 @@ window.addEventListener("load", () => {
     const currentGap = parseFloat(getComputedStyle(submenu).columnGap);
     submenu.style.columnGap = (currentGap / colCount) + "%";
 
-    // Place text blocks
     textBlocks.forEach((block, i) => {
       const textColCount = Math.round(textBlocks.length / 2);
       let startCol = 1;
 
       if (imageBlocks.length > 0) {
-        // Images exist → text stays in col 1 (stacked)
         let col = i + 1 > 2 ? startCol + 1 : startCol;
-        let row = (i % 2) + 1; // shift to 1, 2, 1, 2 instead of 0, 1, 0, 1
+        let row = (i % 2) + 1; 
         block.style.gridColumn = col.toString();
         block.style.gridRow = row.toString();
       } else {
-        // No images → text flows naturally
         block.style.gridColumn = "";
         block.style.gridRow = "";
       }
     });
 
-    // Place image blocks
     imageBlocks.forEach((block, i) => {
       const imageColCount = Math.round(imageBlocks.length / 2);
       let startCol = 2;
@@ -57,7 +53,6 @@ window.addEventListener("load", () => {
   const submenuAnimBG = document.querySelector(".submenu__bg-animation-background");
   const optionsContainer = document.querySelector(".navbar__content");
 
-  // moved outside loop (single source of truth)
   let optionContainerTouch = false;
   const optionControllers = [];
 
@@ -68,7 +63,6 @@ window.addEventListener("load", () => {
     submenuAnimBG.classList.remove("active");
   }
 
-  // moved outside loop (attach once)
   window.addEventListener("scroll", () => {
     deactivateAllSubmenus();
   });
@@ -79,20 +73,17 @@ window.addEventListener("load", () => {
     let optionTouch = false;
     let submenuTouch = false;
 
-    // measure AFTER classes are applied (so layout is final)
     function measureAndApplyHeights() {
       const sections = Array.from(submenu.children);
 
       const sectionHeights = sections.map(section => {
         let bottom = section.offsetTop + section.offsetHeight;
 
-        // check for absolutely positioned divs with background images
         const imgDivs = section.querySelectorAll("img");
         imgDivs.forEach(imgDiv => {
           const imgDivRect = imgDiv.getBoundingClientRect();
           const parentRect = section.getBoundingClientRect();
 
-          // bottom relative to section
           const divBottomRelative = imgDivRect.bottom - parentRect.top;
           bottom = Math.max(bottom, section.offsetTop + divBottomRelative);
         });
@@ -155,11 +146,9 @@ window.addEventListener("load", () => {
       touchChecker();
     });
 
-    // store controller so the single container listeners can trigger the same updates
     optionControllers.push({ touchChecker, deactivateSubmenu });
   });
 
-  // moved outside loop (attach once)
   optionsContainer.addEventListener("mouseenter", () => {
     optionContainerTouch = true;
     optionControllers.forEach(c => c.touchChecker());
@@ -195,7 +184,6 @@ window.addEventListener("load", () => {
   const mobileMenuOptionParent = document.querySelector(".navbar-mobile__menu-content");
   const menuOptions = mobileMenuOptionParent.querySelectorAll(".navbar-mobile__menu-option");
 
-  // ✅ Add this helper (keeps ARIA in sync with your CSS state)
   function syncMenuAria() {
     const isOpen = mobileMenu.classList.contains("active");
     hamburgerButton.setAttribute("aria-expanded", String(isOpen));
@@ -223,7 +211,6 @@ window.addEventListener("load", () => {
       }
     });
 
-    // ✅ Add this
     syncMenuAria();
   });
 
@@ -234,7 +221,6 @@ window.addEventListener("load", () => {
     mobileMenu.classList.toggle("active");
     body.classList.toggle("active");
 
-    // ✅ Add this
     syncMenuAria();
   });
 

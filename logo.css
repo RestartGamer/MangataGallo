@@ -1,7 +1,5 @@
-/* logo.css */
-
 .logo__container {
-  width: 100dvw; /* use 100% instead of 100vw to avoid overflow issues */
+  width: 100dvw;
   height: var(--logo-height, 79px);
   background-color: rgba(52, 80, 80, 0.85);
   z-index: 100;
@@ -15,23 +13,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: 15px; /* default padding */
+  padding-block: 15px; 
 }
 
 .logo__image {
-  width: clamp(220px, 32vw, 480px); /* scales nicely without being tiny/huge */
+  width: clamp(220px, 32vw, 480px); 
   height: auto;
-  display: block; /* avoid inline-image baseline gaps */
+  display: block; 
 }
 
-/* tablet-ish tweak (optional) */
 @media (max-width: 992px) {
   .logo__content {
     padding-block: 12.5px;
   }
 }
 
-/* mobile */
 @media (max-width: 480px) {
   .logo__container {
     position: fixed;
@@ -45,6 +41,6 @@
 
   .logo__image {
     width: 71.8%;
-    max-width: 520px; /* optional safety cap */
+    max-width: 520px; 
   }
 }
